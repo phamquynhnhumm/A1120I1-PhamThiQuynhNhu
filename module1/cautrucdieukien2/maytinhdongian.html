@@ -20,52 +20,53 @@
 </head>
 <body>
 <center>
+    <input type="text" readonly id="kq" style="width: 400px;height: 40px">
 <table  width="400px" height="'400px">
 <tr>
-    <td colspan="4" style="background-color: gray"><p id="kq">ket qua</p></td>
+    <td><button type="button" id="1" onclick="so(1)">1</button> </td>
+    <td><button type="button" id="2"  onclick="so(2)">2</button></td>
+    <td ><button type="button" id="3" onclick="so(3)">3</button></td>
+    <td ><button type="button" id="+" onclick="so('+')">+</button></td>
 </tr>
 <tr>
-    <td><button type="button" id="1" onclick="so1()">1</button> </td>
-    <td><button type="button" id="2"  onclick="so2()">2</button></td>
-    <td ><button type="button" id="3"  onclick="so3()">3</button></td>
-    <td ><button type="button" id="+" onclick="cal('+')">+</button></td>
+    <td><button type="button" id="4"onclick="so(4)">4</button></td>
+    <td ><button type="button" id="5" onclick="so(5)">5</button></td>
+    <td ><button type="button" id="6"onclick="so(6)">6</button></td>
+    <td ><button type="button" id="-"onclick="so('-')">-</button></td>
 </tr>
 <tr>
-    <td><button type="button" id="4" onclick="so4()">4</button></td>
-    <td ><button type="button" id="5" onclick="so5()">5</button></td>
-    <td ><button type="button" id="6" onclick="so6()">6</button></td>
-    <td ><button type="button" id="-"onclick="cal('-')">-</button></td>
+    <td ><button type="button" id="7" onclick="so(7)">7</button></td>
+    <td ><button type="button" id="8" onclick="so(8)">8</button></td>
+    <td ><button type="button" id="9" onclick="so(9)">9</button></td>
+    <td ><button type="button" id="x"onclick="so('*')">*</button></td>
 </tr>
 <tr>
-    <td ><button type="button" id="7" onclick="so7()">7</button></td>
-    <td ><button type="button" id="8" onclick="so8()">8</button></td>
-    <td ><button type="button" id="9" onclick="so9()">9</button></td>
-    <td ><button type="button" id="x"onclick="cal('x')">x</button></td>
-</tr>
-<tr>
-    <td ><button type="button" id="c" onclick="soc()">c</button></td>
-    <td ><button type="button" id="0" onclick="so0()">0</button></td>
+    <td ><button type="button" id="c" onclick="lai()">c</button></td>
+    <td ><button type="button" id="0" onclick="so(0)">0</button></td>
     <td><button type="button" id="=" onclick="ketqua()">=</button> </td>
-    <td ><button type="button" id="/" onclick="cal('/')">/</button></td>
+    <td ><button type="button" id="/" onclick="so('/')">/</button></td>
 </tr>
 </table>
 </center>
 <script>
-
-    function cal(calutor) {
-        switch (calutor) {
-            case '+':
-                var tong = ''
-
-            case '-':
-            case 'x':
-            case '/':
-
-        }
-
-    }
-    alert(calutor);
-
+    var tam= false;
+   function so(temp) {
+       if(tam == true)
+       {
+           if(temp != '+' && temp != '-' && temp != '*' && temp != '/' ) {
+               document.getElementById('kq').value = '';
+           }
+       }
+        document.getElementById('kq').value  +=temp;
+       tam=false;
+   }
+   function ketqua() {
+       document.getElementById('kq').value = eval(document.getElementById('kq').value )
+       tam = true;
+   }
+   function lai() {
+       document.getElementById('kq').value = '';
+   }
 </script>
 </body>
 </html>
