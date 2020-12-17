@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc23d15-5bfe-47be-b84b-63f450984486" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TH_SuDungVongLap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bien/sudungtoantu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bien/sudungtoantu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bien/ungdungchuyentiente.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bien/ungdungchuyentiente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TH_SuDungVongLap.html" beforeDir="false" afterPath="$PROJECT_DIR$/TH_SuDungVongLap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../caulenhlap/lapnhieulenh.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../caulenhlap/sudungkituq.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../cautrucdieukien2/banphimtleiu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cautrucdieukien2/banphimtleiu.html" afterDir="false" />
@@ -57,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608229730118</updated>
-      <workItem from="1608229732023" duration="262000" />
+      <workItem from="1608229732023" duration="1429000" />
     </task>
     <servers />
   </component>
