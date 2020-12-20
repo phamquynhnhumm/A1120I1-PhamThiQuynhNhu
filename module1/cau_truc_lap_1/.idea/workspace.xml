@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc23d15-5bfe-47be-b84b-63f450984486" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TH_SuDungVongLap_While.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TH_sudungvonglapDo_While.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bien/sudungtoantu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bien/sudungtoantu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bien/ungdungchuyentiente.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bien/ungdungchuyentiente.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TH_SuDungVongLap_While.html" beforeDir="false" afterPath="$PROJECT_DIR$/TH_SuDungVongLap_While.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../caulenhlap/lapnhieulenh.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../caulenhlap/sudungkituq.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../cautrucdieukien2/banphimtleiu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cautrucdieukien2/banphimtleiu.html" afterDir="false" />
@@ -59,7 +58,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608229730118</updated>
-      <workItem from="1608229732023" duration="2419000" />
+      <workItem from="1608229732023" duration="2720000" />
+      <workItem from="1608287799634" duration="1152000" />
+      <workItem from="1608453137738" duration="1195000" />
     </task>
     <servers />
   </component>
@@ -67,6 +68,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="733" y="93" width="455" height="495" key="dock-window-1" timestamp="1608232416680">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="733" y="93" width="455" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1608232416680" />
+    <state x="733" y="93" width="455" height="495" key="dock-window-2" timestamp="1608232416680">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="733" y="93" width="455" height="495" key="dock-window-2/0.0.1280.680@0.0.1280.680" timestamp="1608232416680" />
     <state x="624" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1608231739615">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
