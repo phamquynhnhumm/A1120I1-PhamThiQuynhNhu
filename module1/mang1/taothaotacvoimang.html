@@ -17,9 +17,11 @@
          document.getElementById('phantu').value = "";
      }
      function Display() {
-         document.write("Mảng đó  là :")
-         document.write(mang)
-
+         for (var i=0; i<mang.length;i++) {
+             document.write("Element "+ "i" + "=" + mang[i])
+             document.write("<br>")
+             alert(mang.length)
+         }
      }
 </script>
 </body>
