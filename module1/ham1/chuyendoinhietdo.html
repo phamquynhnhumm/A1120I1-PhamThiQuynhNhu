@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Chuyển đổi nhiệt độ</title>
 </head>
 <body>
-$END$
+
+<form>
+    <p>
+        <label>Fahrenheit</label>
+        <input id="it" type="number" placeholder="Fahrenheit" oninput="hienthi()">
+    </p>
+    <p>Celsius: <span id="outputCelsius"></span></p>
+</form>
+
+<script>
+
+    function hienthi(valNum) {
+        valNum = document.getElementById('it').value;
+        document.getElementById("outputCelsius").innerHTML = (valNum - 32) / 1.8;
+    }
+
+</script>
 </body>
 </html>
