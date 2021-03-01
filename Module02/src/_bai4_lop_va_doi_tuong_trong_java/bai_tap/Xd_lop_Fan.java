@@ -2,7 +2,7 @@ package _bai4_lop_va_doi_tuong_trong_java.bai_tap;
 
 public class Xd_lop_Fan {
     public static void main(String[] args) {
-        Xd_lop_Fan fan1 = new Xd_lop_Fan();
+        Xd_lop_Fan fan1 = new Xd_lop_Fan(3,true,10,"do");
         Xd_lop_Fan fan2 = new Xd_lop_Fan();
         System.out.println(fan1.toString());
         System.out.println(fan2.toString());
@@ -30,10 +30,10 @@ public class Xd_lop_Fan {
         String tam ="";
         if(this.on)
         {
-            tam =  "speed " + this.speed + "color" + this.color +"radius" + this.radius +"fan is on";
+            tam =  "speed: " + this.speed + " color: " + this.color +"  radius:  " + this.radius +" fan is on:";
         }
         else {
-            tam = "color" + this.color +"radius" + this.radius +"Fan is off";
+            tam = "color: " + this.color +" radius :" + this.radius +" Fan is off :";
         }
         return tam;
 
