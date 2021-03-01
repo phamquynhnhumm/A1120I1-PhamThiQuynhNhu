@@ -31,29 +31,22 @@ public class them_pt_vao_mang {
         sothem = nhapsothem.nextInt();
 
 
-        int [] b = new int[a.length +1];
-        for( int i=0; i<a.length ;i++)
-        {
+        int[] b = new int[a.length + 1];
+        for (int i = 0; i < a.length; i++) {
             b[i] = a[i];
         }
 
-        for (int i = them; i <= a.length; i++) {
-            if (i == them) {
 
-                for (int j = b.length-1; j >=i+1 ; j--) {
-                    b[j] = b[j-1];
-                }
-                b[i] = sothem;
-            }
+
+        for (int j = b.length - 1; j > them; j--) {
+            b[j] = b[j - 1];
+
         }
+        b[them] = sothem;
         System.out.println("Mảng đã thêm là :");
+
         for (int i = 0; i < b.length; i++) {
             System.out.print(b[i] + " ");
         }
     }
-    public  void  them()
-    {
-
-    }
-
 }
