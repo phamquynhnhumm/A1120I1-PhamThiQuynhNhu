@@ -26,16 +26,19 @@ public class tim_phan_tu_lon_nhat_trong_mang_2chieu {
         }
         System.out.println("phần tử lớn nhất trong mảng là :");
         int dong = 0;
+        int hang =0;
         int ln = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (a[i][j] > ln) {
                     ln = a[i][j];
                     dong = i;
+                    hang = j;
                 }
             }
         }
         System.out.print(ln + " ");
+        System.out.println("vị trí hành :" + hang +"Cột :" +dong);
     }
 }
 
