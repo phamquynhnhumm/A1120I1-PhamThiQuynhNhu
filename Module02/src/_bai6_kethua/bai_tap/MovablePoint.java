@@ -7,6 +7,7 @@ public class MovablePoint extends Point {
 
         mova.move();
         System.out.println(mova.toString());
+        System.out.println();
     }
     public  float xSpeed ;
     public  float ySpeed;

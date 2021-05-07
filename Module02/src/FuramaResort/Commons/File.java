@@ -13,10 +13,17 @@ public class File  {
     private static String path;
 
     // ghi file
-    public static void writeFile(String[] content) {
+    public static void writeFile(String[] content, Boolean append) {
         try {
+            if(append)
+            {
+                bufferedWriter = new BufferedWriter(new FileWriter(path, true));
+
+            }else {
+                bufferedWriter = new BufferedWriter(new FileWriter(path, false));
+
+            }
             //true ghi tiếp dòng mới, false ghi đè
-            bufferedWriter = new BufferedWriter(new FileWriter(path, true));
             bufferedWriter.write(StingUtilss.concat(content,StingUtilss.COMMA));
             bufferedWriter.newLine();
 

@@ -23,9 +23,6 @@ public class Xd_lop_QuadraticEquation {
 
         System.out.println("Nghiệm của phương trình bậc hai là : ");
         System.out.println("x1:" + ptbachai.getRoot2());
-
-
-
 }
 
     public   double a;

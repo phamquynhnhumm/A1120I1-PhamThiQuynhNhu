@@ -24,6 +24,13 @@
         element.style.left = parseInt(element.style.left) + 5 + 'px';
 
     }
+    window.addEventListener('click',ev => {
+        switch (ev.altKey) {
+
+
+        }
+        alert(ev.altKey);
+    })
     function moveSelection(ev) {
         switch (ev.code) {
             case  'ArrowDown':

@@ -29,7 +29,7 @@ public class xoa_phan_tu_khoi_mang {
         {
             if( soxoa == a[i])
             {
-                for( int j =i;j < a.length-1;j++)
+                for( int j =i ;j < a.length-1;j++)
                 {
                     a[j] = a[j+1];
                 }

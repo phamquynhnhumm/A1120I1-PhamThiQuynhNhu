@@ -1,18 +1,11 @@
-package LTM.bai1;
+package LTM.Bai1LTM;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author OS
- */
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
-import java.net.*;
-import java.io.*;
 public class Server {
     public static void main(String[] args) throws Exception {
         try{
@@ -41,7 +34,6 @@ class ServerClientThread extends Thread {
     ServerClientThread(Socket inSocket,int counter){
         serverClient = inSocket;
         clientNo=counter;
-
     }
     public String DaoNguoc(String str) {
         String a = "";
@@ -122,22 +114,17 @@ class ServerClientThread extends Thread {
             DataInputStream inStream = new DataInputStream(serverClient.getInputStream());
             // truyền đi
             DataOutputStream outStream = new DataOutputStream(serverClient.getOutputStream());
-            String clientMessage="",clientMessage1="", serverMessage="";
+            String clientMessage="", serverMessage="";
             while(!clientMessage.equals("bye")){
                 clientMessage=inStream.readUTF();
-                clientMessage1=inStream.readUTF();
 
-                System.out.println("Chuoi tu Client1 "+clientNo+" : "+clientMessage  + "chuoi so 2" + clientMessage1);
-                int tong = (Integer.parseInt(clientMessage) + Integer.parseInt(clientMessage1));
-                int hieu = (Integer.parseInt(clientMessage) - Integer.parseInt(clientMessage1));
+                System.out.println("Chuoi tu Client1 "+clientNo+" : "+clientMessage );
 
-                System.out.println(tong);
 
-//                squre = "\nChuoi dao nguoc: " + serverThread.DaoNguoc(clientMessage) + "\nChuoi hoa: " + serverThread.ThuongHoa(clientMessage)
-//                        + "\nChuoi thuong: " + serverThread.HoaThuong(clientMessage) + "\nSo tu trong chuoi: " + serverThread.WordCount(clientMessage)
-//                        + "\nSo nguyen am: " + serverThread.VowelsCount(clientMessage);
-                   outStream.writeUTF(String.valueOf(tong));
-                outStream.writeUTF(String.valueOf(hieu));
+                squre = "\nChuoi dao nguoc: " + serverThread.DaoNguoc(clientMessage) + "\nChuoi hoa: " + serverThread.ThuongHoa(clientMessage)
+                        + "\nChuoi thuong: " + serverThread.HoaThuong(clientMessage) + "\nSo tu trong chuoi: " + serverThread.WordCount(clientMessage)
+                        + "\nSo nguyen am: " + serverThread.VowelsCount(clientMessage);
+                   outStream.writeUTF(squre);
                 outStream.flush();
             }
             inStream.close();

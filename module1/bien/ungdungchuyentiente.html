@@ -10,13 +10,12 @@
         var kieutrave = document.getElementById('kieutra').value;
         if(kieu== 'VND' &&  kieutrave =='USD') {
             var tinh = parseFloat(tien * 0.0000432254);
-
         }
         if ( kieu == "Yen" && kieutrave == "USD")
         {
             var tinh = parseFloat(tien * 0.0096);
         }
-        document.getElementById('hien').innerHTML= " Result : "+ tinh  +" VND";
+        document.getElementById('hien').innerHTML= " Result : "+ tinh  +" USD";
     }
 </script>
 </head>

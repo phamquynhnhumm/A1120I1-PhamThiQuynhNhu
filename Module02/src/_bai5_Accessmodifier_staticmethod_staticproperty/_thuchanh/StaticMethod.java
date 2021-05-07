@@ -6,19 +6,14 @@ public class StaticMethod {
     private int rollno;
     private String name;
     private static String college = "PTQN2809";
-
     StaticMethod(int r, String n) {
         rollno = r;
         name = n;
     }
-
     static void Change() {
         college = "CODEGYM";
     }
-
     void display() {
         System.out.println(rollno + " " + name + " " + college);
     }
-
-
 }

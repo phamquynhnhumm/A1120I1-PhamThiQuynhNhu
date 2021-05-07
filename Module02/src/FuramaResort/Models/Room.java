@@ -10,8 +10,8 @@ public class Room extends Services {
         this.dichvudikem = dichvudikem;
     }
 
-    public Room(String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, Dichvudikem dichvudikem) {
-        super(ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
+    public Room(int id,String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, Dichvudikem dichvudikem) {
+        super(id,ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
         this.dichvudikem = dichvudikem;
     }
 
@@ -39,5 +39,10 @@ public class Room extends Services {
     public void showInfor() {
 
         System.out.println(this.toString());
+    }
+
+    @Override
+    public Object getMasp() {
+        return null;
     }
 }

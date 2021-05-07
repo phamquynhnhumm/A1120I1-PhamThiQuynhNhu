@@ -7,5 +7,52 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/codegen/src/main/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/codegen/src/test/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/examples/android-proguard-example/src" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/extras/src/main/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/extras/src/test/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/gson/src/main/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/gson/src/main/java-templates" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/gson/src/test/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/metrics/src/main/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/proto/src/main/java" />
+          <root url="jar://$MODULE_DIR$/src/newCaseStudy/gson-master.zip!/gson-master/proto/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/codegen/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/codegen/src/test/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/examples/android-proguard-example/src" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/extras/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/extras/src/test/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/gson/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/gson/src/main/java-templates" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/gson/src/test/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/metrics/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/proto/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/newCaseStudy/gson-master/gson-master/proto/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/gson-2.8.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

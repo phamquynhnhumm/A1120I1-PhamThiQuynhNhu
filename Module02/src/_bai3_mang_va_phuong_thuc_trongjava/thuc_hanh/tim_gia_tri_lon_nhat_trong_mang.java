@@ -5,12 +5,10 @@ import java.util.Scanner;
 public class tim_gia_tri_lon_nhat_trong_mang {
     public static void main(String[] args) {
         Scanner nhapso = new Scanner(System.in);
-
         int[] a = new int[6];
         for (int i = 0; i < 6; i++) {
             System.out.println("Nhập vào phần tử thứ " + i + ":");
             a[i] = nhapso.nextInt();
-
         }
         System.out.println("Max :");
         sort(a);

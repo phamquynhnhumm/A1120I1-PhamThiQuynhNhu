@@ -1,4 +1,4 @@
-package LTM.Bai1LTM;
+package LTM.bai1;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +10,6 @@ package LTM.Bai1LTM;
  *
  * @author OS
  */
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.net.*;
 import java.io.*;

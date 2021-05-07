@@ -13,5 +13,11 @@ public class ung_dung_chuyen_doi_tien_te {
         vnd=  tien *23000;
         System.out.println("Được chuyển sang vnd là :" +vnd);
 
+        for(int i=1; i<=5; i++){
+            if(i==1) break;
+            System.out.println("Hello");
+
+    }
     }
 }
+

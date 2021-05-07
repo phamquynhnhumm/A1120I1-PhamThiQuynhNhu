@@ -8,8 +8,8 @@ public class House extends Services {
     public House() {
     }
 
-    public House(String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuan, String moTaTienNghiKhac, int soTang) {
-        super(ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
+    public House(int id,String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuan, String moTaTienNghiKhac, int soTang) {
+        super(id,ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
         this.tieuChuan = tieuChuan;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.soTang = soTang;
@@ -57,5 +57,11 @@ public class House extends Services {
     public void showInfor() {
         System.out.println(this.toString());
     }
+
+    @Override
+    public Object getMasp() {
+        return null;
+    }
+
 
 }

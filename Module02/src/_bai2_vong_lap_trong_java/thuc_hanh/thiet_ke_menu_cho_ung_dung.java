@@ -30,7 +30,7 @@ public class thiet_ke_menu_cho_ung_dung {
         } else {
             System.exit(0);
         }
-        
+
 
     }
 }

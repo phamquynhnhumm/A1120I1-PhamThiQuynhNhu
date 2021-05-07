@@ -8,8 +8,8 @@ public class Villa extends Services {
 
     public Villa() {
     }
-    public Villa(String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, double dienTichHoBoi, int soTang) {
-        super(ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
+    public Villa(int id,String ten, double dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuanPhong, String moTaTienNghiKhac, double dienTichHoBoi, int soTang) {
+        super(id,ten, dienTich, chiPhi, soLuongNguoi, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dienTichHoBoi = dienTichHoBoi;
@@ -57,6 +57,7 @@ public class Villa extends Services {
                 ", moTaTienNghiKhac='" + moTaTienNghiKhac + '\'' +
                 ", dienTichHoBoi=" + dienTichHoBoi +
                 ", soTang=" + soTang +
+                ", id= '" + id + '\'' +
                 ", ten='" + ten + '\'' +
                 ", dienTich=" + dienTich +
                 ", chiPhi=" + chiPhi +
@@ -70,8 +71,13 @@ public class Villa extends Services {
         System.out.println(this.toString());
     }
 
+    @Override
+    public Object getMasp() {
+        return null;
+    }
+
     public static void main(String[] args) {
-        Villa villa = new Villa("vila1", 45.6, 600.60, 6, "nam", "vip", "chpthuxe", 5.6, 10);
+        Villa villa = new Villa(9,"vila1", 45.6, 600.60, 6, "nam", "vip", "chpthuxe", 5.6, 10);
         villa.showInfor();
     }
 }

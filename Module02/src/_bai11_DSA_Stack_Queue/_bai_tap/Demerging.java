@@ -1,7 +1,6 @@
 package _bai11_DSA_Stack_Queue._bai_tap;
 
 import com.sun.corba.se.impl.ior.OldJIDLObjectKeyTemplate;
-
 import javax.print.attribute.standard.MediaSize;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -11,7 +10,6 @@ public class Demerging extends  nhansu {
     public Demerging(String ten, String gioitinh) {
         super(ten, gioitinh);
     }
-
     public static void main(String[] args) {
         int n ;
         System.out.println("  nhập vào số nhân viên :");
@@ -25,7 +23,6 @@ public class Demerging extends  nhansu {
         String ten, gioitinh;
         Scanner nhapten = new Scanner(System.in);
         Scanner nhapgioitinh = new Scanner(System.in);
-
         for(int i =0;i < n; i ++)
         {
             System.out.println("thứ " + i);
