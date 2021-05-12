@@ -1,4 +1,5 @@
-
+ create database quanlycongtrinh;
+ use quanlycongtrinh;
  create table CongTrinh(
  MaCT varchar(10) not null primary key,
  TenCT varchar(200) not null,
@@ -28,11 +29,11 @@ Foreign key (MaCT)  references  CongTrinh(MaCT),
 Foreign key ( MaNV)  references  NhanVien( MaNV), 
 SLNgayCong int not null,
  );
-
  create table BaoHiem(
  MasoBH varchar(10) not null,
  NgayCap date not null,
 ThoiHan date not  null,
 MaNV varchar(10) not null ,
+primary key (MasoBH, MaNV),
 Foreign key (MaNV)  references NhanVien(MaNV),
  );
