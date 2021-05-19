@@ -1,6 +1,6 @@
 create database caseStudy;
 use caseStudy;
---  drop database caseStudy;
+-- drop database caseStudy;
 
 create table trinhdo(
 id_trinhdo nvarchar(5) not null primary key ,
@@ -47,6 +47,7 @@ foreign key(id_kieuthue) references kieuthue(id_kieuthue)
 
 create table house(
 id_house nvarchar(5) not null primary key ,
+ten_house nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
 sotang int,
@@ -58,6 +59,7 @@ foreign key(id_dichvu) references dichvu(id_dichvu)
 
 create table villa(
 id_villa nvarchar(5) not null primary key ,
+ten_villa  nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
 dientichhoboi float,
@@ -69,6 +71,7 @@ foreign key(id_dichvu) references dichvu(id_dichvu)
 
 create table  room(
 id_room nvarchar(5) not null primary key ,
+ten_room  nvarchar(250) not null,
 tendichvufreedikem  nvarchar(250) not null,
 id_dichvu nvarchar(5) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu)
@@ -168,37 +171,37 @@ insert into kieuthue(id_kieuthue,ten_kieuthue) value
 ('KT04','giờ');
 
 insert into dichvu(id_dichvu,ten_dichvu,dientich,chiphi,songuoi,id_kieuthue) value
-('DV01','Roomgio','300000','7000','4','KT04'),
-('DV02','Roomngay','300000','10000000','4','KT03'),
-('DV03','Roomthang','300000','290000000','4','KT02'),
-('DV04','Roomyear','300000','100000000','4','KT01'),
-('DV05','Housegio','4700000','20000000','20','KT04'),
-('DV06','Housengay','4700000','400000000','20','KT03'),
-('DV07','Housethang','4700000','700000000','20','KT02'),
-('DV08','Housenam','4700000','10000000000','20','KT01'),
-('DV09','Housegay','5000000','70000000','25','KT03'),
-('DV10','Housethang','5000000','100000000','15','KT02'),
-('DV11','Housenam','5000000','200000000','23','KT01'),
-('DV12','Housegio','5000000','21540000','20','KT04');
+('DV01','Room','300000','7000','4','KT04'),
+('DV02','Room','300000','10000000','4','KT03'),
+('DV03','Room','300000','290000000','4','KT02'),
+('DV04','Room','300000','100000000','4','KT01'),
+('DV05','House','4700000','20000000','20','KT04'),
+('DV06','House','4700000','400000000','20','KT03'),
+('DV07','House','4700000','700000000','20','KT02'),
+('DV08','House','4700000','10000000000','20','KT01'),
+('DV09','Villa','5000000','70000000','25','KT03'),
+('DV10','Villa','5000000','100000000','15','KT02'),
+('DV11','Villa','5000000','200000000','23','KT01'),
+('DV12','Villa','5000000','21540000','20','KT04');
 
-insert into room(id_room,tendichvufreedikem,id_dichvu) value
-('R01','nuoc','DV01'),
-('R02','nuoc','DV03'),
-('R03','sữa tắm','DV03'),
-('R04','karaoke','DV02'),
-('R05','trái cây','DV04');
+insert into room(id_room, ten_room,tendichvufreedikem,id_dichvu) value
+('R01','Room1','nuoc','DV01'),
+('R02','Room2','nuoc','DV03'),
+('R03','Room3','sữa tắm','DV03'),
+('R04','Room4','karaoke','DV02'),
+('R05','Room5','trái cây','DV04');
 
-insert into house(id_house,tieuchuaphong,mota,sotang,id_dichvu) value
-('H01','vip','có điều hòa, máy giặt, bồn tắm',10,'DV08'),
-('H02','trung bình','co dieu hoa may giat',7,'DV07'),
-('H03','thương gia','có điều hòa, máy lạnh, bồn tắm, tủ lạnh',8,'DV06'),
-('H04','bình dan','có máy lạnh',5,'DV05');
+insert into house(id_house,ten_house,tieuchuaphong,mota,sotang,id_dichvu) value
+('H01','House1','vip','có điều hòa, máy giặt, bồn tắm',10,'DV08'),
+('H02','House2','trung bình','co dieu hoa may giat',7,'DV07'),
+('H03','House3','thương gia','có điều hòa, máy lạnh, bồn tắm, tủ lạnh',8,'DV06'),
+('H04','House4','bình dan','có máy lạnh',5,'DV05');
 
-insert into villa (id_villa,tieuchuaphong ,mota,dientichhoboi,sotang,id_dichvu) value
-('V01','vip','có điều hòa, máy giặt, bồn tắm','3460',10,'DV12'),
-('V02','trung bình','co dieu hoa may giat',7,'50000','DV11'),
-('V03','thương gia','có điều hòa, máy lạnh, bồn tắm, tủ lạnh','5000',8,'DV10'),
-('V04','bình dan','có máy lạnh','560',5,'DV09');
+insert into villa(id_villa,ten_villa,tieuchuaphong ,mota,dientichhoboi,sotang,id_dichvu) value
+('V01','Villa1','vip','có điều hòa, máy giặt, bồn tắm','3460',10,'DV12'),
+('V02','Villa2','trung bình','co dieu hoa may giat',7,'50000','DV11'),
+('V03','Villa3','thương gia','có điều hòa, máy lạnh, bồn tắm, tủ lạnh','5000',8,'DV10'),
+('V04','Villa4','bình dan','có máy lạnh','560',5,'DV09');
 
    insert into dvdikem( id_dvdikem, ten_dvdikem, dongia,tien) value
    ('DK01','massage','giờ','500000'),
@@ -229,7 +232,7 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
 ('KH05','Phạm Văn Tánh','1999/08/05','nam','345345549','1233212321','tanhpham@gmail.com','LK05','DC01'),
 ('KH06','Trần Ngọc Huy','2000/10/14','nam','876923401','0358693432','truongduc910@gmail.com','LK01','DC03'),
 ('KH08','Trần Yến Nhi','2003/10/14','nam','876923401','0322293432','yennhi@gmail.com','LK01','DC03');
-   
+   select * from hopdong;
   insert into hopdong( id_hopdong, ngaybatau,  ngayketthuc, sotendatcuoc,tongsotienthanhtoan ,  id_nhanvien, id_khachhang ,  id_dichvu) value
   ('HD01','2020/12/10','2020/12/10','3000000','30000000','NV02','KH01','DV01'),
   ('HD02','2021/02/10','2021/2/25','10000000','50000000','NV03','KH02','DV02'),
@@ -237,7 +240,10 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
   ('HD04','2020/12/10','2021/12/10','30000000','900000000','NV05','KH03','DV08'),
   ('HD05','2021/03/12','2021/4/12','4500000','450000000','NV04','KH05','DV10'),
   ('HD06','2021/03/12','2021/4/12','4500000','450000000','NV04','KH06','DV10'),
-  ('HD08','2021/05/17','2021/06/12','45060000','450000000','NV04','KH08','DV10');
+   ('HD07','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV08'),
+  ('HD08','2021/05/17','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
+  ('HD09','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
+  ('HD10','2018/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV01');
  insert into hopdong_dvdikem( id_dvdikem , id_hopdong,soluong) value
  ('DK02','HD01','4'),
  ('DK01','HD02','6'),
@@ -247,6 +253,7 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
  ('DK04','HD05','5'),
  ('DK05','HD04','4'),
  ('DK02','HD04','3');
+
  
  -- 2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K”
  -- và có tối đa 15 ký tự.
@@ -284,5 +291,41 @@ inner join dvdikem  on dvdikem.id_dvdikem = hopdong_dvdikem.id_dvdikem ;
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng 
 -- được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
 
-select * from 
+select dichvu.id_dichvu ,hopdong.id_hopdong,ngaybatau, ten_dichvu, dientich,ten_room as tenDV, chiphi from( dichvu
+ join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+ join room on room.id_dichvu = dichvu.id_dichvu
+where    hopdong.id_hopdong not in (select hopdong.id_hopdong from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu where month(ngaybatau) in (1,2,3) AND year(ngaybatau) = '2019' )
+union all
+select dichvu.id_dichvu ,hopdong.id_hopdong, ngaybatau,ten_dichvu, dientich,ten_house as tenDV, chiphi from (dichvu
+ join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+ join house  on house.id_dichvu = dichvu.id_dichvu
+where  hopdong.id_hopdong not in (select hopdong.id_hopdong   from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where month(ngaybatau) in (1,2,3) AND year(ngaybatau) = '2019' )
+union all
+select dichvu.id_dichvu ,hopdong.id_hopdong,ngaybatau, ten_dichvu, dientich,ten_villa as tenDV, chiphi from (dichvu
+  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+  join villa  on villa.id_dichvu = dichvu.id_dichvu
+where hopdong.id_hopdong not in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where month(ngaybatau) in (1,2,3) AND year(ngaybatau) = '2019' );
+
+
+
+-- 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu
+--  của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019
+
+select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_room as tendichvu,dientich,songuoi,chiphi, ten_dichvu as tenloaidv from( dichvu
+ join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+ join room on room.id_dichvu = dichvu.id_dichvu
+where  hopdong.id_hopdong  in (select hopdong.id_hopdong from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019') 
+union all
+select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_house as tendichvu,dientich,songuoi,chiphi, ten_dichvu as tenloaidv from (dichvu
+ join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+ join house  on house.id_dichvu = dichvu.id_dichvu
+where  hopdong.id_hopdong  in (select hopdong.id_hopdong   from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019')
+union all
+select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_villa as tendichvu,dientich,songuoi,chiphi, ten_dichvu as tenloaidv from (dichvu
+  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
+  join villa  on villa.id_dichvu = dichvu.id_dichvu
+where hopdong.id_hopdong  in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu   where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019')
+
+-- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
+-- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
 
