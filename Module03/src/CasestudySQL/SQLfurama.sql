@@ -15,11 +15,20 @@ create table bophan(
 id_bophan  nvarchar(5) not null primary key ,
 ten_bophan nvarchar(250) not null
 );
+ create table diachi(
+id_diachi  nvarchar(5) not null primary key ,
+sonha nvarchar(250) not null,
+xa  nvarchar(250) not null,
+huyen nvarchar(250) not null,
+tinh nvarchar(250) not null,
+quocgia nvarchar(250) not null
+   );
 create table nhanvien(
 id_nhanvien nvarchar(5) not null primary key ,
 ten_nhanvien nvarchar(250) not null,
 ngaysinh date not null,
 socmnd int(9) not null,
+sdt int not null,
 email nvarchar(250) not null,
 id_trinhdo  nvarchar(5) ,
 foreign key(id_trinhdo) references trinhdo(id_trinhdo),
@@ -27,7 +36,9 @@ id_vitri  nvarchar(5) ,
 foreign key(id_vitri) references vitri(id_vitri),
 id_bophan  nvarchar(5) ,
 foreign key(id_bophan) references bophan(id_bophan),
-luong float 
+luong float ,
+id_diachi  nvarchar(5) not null,
+foreign key(id_diachi) references diachi(id_diachi)
 );
 
 create table kieuthue(
@@ -87,14 +98,7 @@ id_loaikhach  nvarchar(5) not null primary key ,
 ten_loaikhach nvarchar(250) not null
    );
  
-   create table diachi(
-id_diachi  nvarchar(5) not null primary key ,
-sonha nvarchar(250) not null,
-xa  nvarchar(250) not null,
-huyen nvarchar(250) not null,
-tinh nvarchar(250) not null,
-quocgia nvarchar(250) not null
-   );
+  
    
   create table khachhang(
   id_khachhang nvarchar(5) not null primary key ,
@@ -156,13 +160,26 @@ insert into trinhdo( id_trinhdo,ten_trinhdo ) value
  ('BP02','hành chính'),
  ('BP03','phục vụ'),
  ('BP04','quản lý');
+  insert into diachi(id_diachi,sonha,xa,huyen,tinh,quocgia) value
+  ('DC01','kiệt 98 NGuyễn lương bằng','Hòa khánh  Bắc','Liên Chiểu','Đà Nẵng','Việt Nam'),
+  ('DC02','08 hà văn tính','Hòa khánh Nam','Liên Chiểu','Đà Nẵng','Việt Nam'),
+  ('DC03','Thổ 2',' Bình Đào','Thăng Bình','Quảng Nam','Việt Nam'),
+  ('DC04','Chò tráng','Cao Ngọc','Ngọc Lặc','Thanh Hóa','Việt Nam'),
+  ('DC05','kiệt 9 Trà Lương','Trà Đỏa','Gia Lâm','Hà Nội','Việt Nam'),
+  ('DC06','làng ngọc','cao ngọc','ngoc thanh','thanh hoa','Việt Nam'),
+  ('DC07','hem 76','phù luông','bá thước','hà tinh','Việt Nam'),
+  ('DC08','kiệt 54 truong giang','bình tan','Gia Lâm','quảng ngãi','Việt Nam'),
+  ('DC09','làng chôm','Trà Đỏa','trang khánh','Hà Nội','Việt Nam'),
+  ('DC10','hẻm 1','Thôn 1','xã 1','vinh','Việt Nam');
+  
 
-insert into nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd ,email,id_trinhdo,id_vitri,id_bophan,luong) value
-('NV01','Phạm Thị Quỳnh Như','2000/09/28','123456789','quynhnhuctcn@gmail.com','TD03','VT05','BP04','50000000'),
-('NV02','Trần Mỹ Hạnh','1989/04/08','111111111','tranhanh@gmail.com','TD04','VT03','BP02','24000000'),
-('NV03','Nguyễn Trung Trọng','1999/12/03','222222222','trungtrong@gmail.com','TD03','VT02','BP03','14000000'),
-('NV04','Trần Thanh phương','1979/01/24','33333333','phuongtran@gmail.com','TD04','VT06','BP04','60000000'),
-('NV05','Doãn Mạnh Thắng','1998/04/15','444444444','manhthang@gmail.com','TD02','VT04','BP01','67000000');
+
+insert into nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email,id_trinhdo,id_vitri,id_bophan,luong,id_diachi ) value
+('NV01','Phạm Thị Quỳnh Như','2000/09/28','123456789','1234432154','quynhnhuctcn@gmail.com','TD03','VT05','BP04','50000000','DC06'),
+('NV02','Trần Mỹ Hạnh','1989/04/08','111111111','567887867','tranhanh@gmail.com','TD04','VT03','BP02','24000000','DC07'),
+('NV03','Nguyễn Trung Trọng','1999/12/03','222222222','987809675','trungtrong@gmail.com','TD03','VT02','BP03','14000000','DC08'),
+('NV04','Trần Thanh phương','1979/01/24','33333333','876678945','phuongtran@gmail.com','TD04','VT06','BP04','60000000','DC09'),
+('NV05','Doãn Mạnh Thắng','1998/04/15','444444444','987657812','manhthang@gmail.com','TD02','VT04','BP01','67000000','DC10');
 
 insert into kieuthue(id_kieuthue,ten_kieuthue) value 
 ('KT01','năm'),
@@ -217,12 +234,7 @@ insert into villa(id_villa,ten_villa,tieuchuaphong ,mota,dientichhoboi,sotang,id
 	('LK04','Silver'),
 	('LK05','Member');
     
-  insert into diachi(id_diachi,sonha,xa,huyen,tinh,quocgia) value
-  ('DC01','kiệt 98 NGuyễn lương bằng','Hòa khánh  Bắc','Liên Chiểu','Đà Nẵng','Việt Nam'),
-  ('DC02','08 hà văn tính','Hòa khánh Nam','Liên Chiểu','Đà Nẵng','Việt Nam'),
-  ('DC03','Thổ 2',' Bình Đào','Thăng Bình','Quảng Nam','Việt Nam'),
-  ('DC04','Chò tráng','Cao Ngọc','Ngọc Lặc','Thanh Hóa','Việt Nam'),
-  ('DC05','kiệt 9 Trà Lương','Trà Đỏa','Gia Lâm','Hà Nội','Việt Nam');
+ 
 
 insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,email,id_loaikhach, id_diachi) value
 ('KH01','Phạm Thùy Linh','2004/08/15','nu','999999999','1234554321','thuylinh123@gmail.com','LK03','DC04'),
@@ -231,9 +243,11 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
 ('KH04','Trần Ngọc Huy','2000/10/14','nam','876923401','0358693432','truongduc910@gmail.com','LK01','DC03'),
 ('KH05','Phạm Văn Tánh','1999/08/05','nam','345345549','1233212321','tanhpham@gmail.com','LK05','DC01'),
 ('KH06','Trần Ngọc Huy','2000/10/14','nam','876923401','0358693432','truongduc910@gmail.com','LK01','DC03'),
-('KH08','Trần Yến Nhi','2003/10/14','nam','876923401','0322293432','yennhi@gmail.com','LK01','DC03');
+('KH08','Trần Yến Nhi','2003/10/14','nam','876923401','0322293432','yennhi@gmail.com','LK01','DC03'),
+('KH09','Nguyễn Thị Nhung','2000/03/15','nu','345679999','888954321','Nhungnguyen3@gmail.com','LK01','DC02');
    select * from hopdong;
   insert into hopdong( id_hopdong, ngaybatau,  ngayketthuc, sotendatcuoc,tongsotienthanhtoan ,  id_nhanvien, id_khachhang ,  id_dichvu) value
+ ('HD12','2021/12/12','2021/4/12','4500000','450000000','NV04','KH05','DV10'),
   ('HD01','2020/12/10','2020/12/10','3000000','30000000','NV02','KH01','DV01'),
   ('HD02','2021/02/10','2021/2/25','10000000','50000000','NV03','KH02','DV02'),
   ('HD03','2021/04/10','2021/6/10','4000000','60000000','NV05','KH04','DV07'),
@@ -243,8 +257,15 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
    ('HD07','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV08'),
   ('HD08','2021/05/17','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
   ('HD09','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
-  ('HD10','2018/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV01');
+  ('HD10','2018/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV01'),
+('HD11','2019/07/07','2021/06/12','340000','543000000','NV03','KH01','DV05');
+select * from hopdong_dvdikem;
  insert into hopdong_dvdikem( id_dvdikem , id_hopdong,soluong) value
+  ('DK02','HD12','5'),
+   ('DK05','HD12','5'),
+   ('DK03','HD08','7'),
+  ('DK01','HD10','7'),
+('DK05','HD09','5'),
  ('DK02','HD01','4'),
  ('DK01','HD02','6'),
  ('DK02','HD03','3'),
@@ -319,13 +340,152 @@ union all
 select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_house as tendichvu,dientich,songuoi,chiphi, ten_dichvu as tenloaidv from (dichvu
  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
  join house  on house.id_dichvu = dichvu.id_dichvu
-where  hopdong.id_hopdong  in (select hopdong.id_hopdong   from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019')
+where  hopdong.id_hopdong  in (select hopdong.id_hopdong   from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  
+where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019')
 union all
 select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_villa as tendichvu,dientich,songuoi,chiphi, ten_dichvu as tenloaidv from (dichvu
   join hopdong on hopdong.id_dichvu = dichvu.id_dichvu )
   join villa  on villa.id_dichvu = dichvu.id_dichvu
-where hopdong.id_hopdong  in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu   where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019')
+where hopdong.id_hopdong  in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu   where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019');
 
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
--- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
+--   Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
+-- cách 1: 
+
+select * from khachhang
+group by ten_khachhang ;
+-- cách 2
+select distinct ten_khachhang from khachhang;
+-- cách 3 
+select ten_khachhang from khachhang
+ union
+ select  ten_khachhang from khachhang;
+ 
+ 
+ -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong 
+ -- năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+select month(ngaybatau) as Thang  , count(*) as soluong from khachhang
+inner join hopdong on  khachhang.id_khachhang = hopdong.id_khachhang
+where month(ngaybatau)  in ('01','07','03','04','05','06','02','08','09','10','11','12')  and year(ngaybatau) = '2019'
+group by month(ngaybatau);
+
+ -- 10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm.
+ -- Kết quả hiển thị bao gồm IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
+select hopdong.id_hopdong, ngaybatau as ngaylamhopdong, ngayketthuc , sotendatcuoc as tiendatcoc , count(id_dvdikem) as soluongdvdikem from hopdong
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
+group by hopdong.id_hopdong;
+
+-- 11. 11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
+-- TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Nam”. 
+select dvdikem.id_dvdikem,ten_dvdikem,dongia,tien,diachi.tinh from ((((dvdikem 
+inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem)
+inner join hopdong on hopdong.id_hopdong = hopdong_dvdikem.id_hopdong)
+inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang)
+inner join  loaikhach on loaikhach.id_loaikhach = khachhang.id_loaikhach)
+inner join diachi on diachi.id_diachi = khachhang.id_diachi
+where ten_loaikhach = 'Diamond' and tinh in ('Vinh','Quảng Nam');
+
+-- 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, 
+-- SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc
+--  của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
+-- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019. 
+select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_room as tendichvu,
+dvdikem.id_dvdikem as soluongdvdikem,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
+inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
+inner join room on room.id_dichvu = dichvu.id_dichvu
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
+inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
+where month(ngaybatau) in('10','11','12') and  month(ngaybatau) not in ('1','2','3','4','5','6')  and year(ngaybatau) ='2020'
+union
+-- select * from hopdong;
+select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_house as tendichvu,
+dvdikem.id_dvdikem as soluongdvdikem,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
+inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
+inner join house on house.id_dichvu = dichvu.id_dichvu
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
+inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
+where month(ngaybatau) in('10','11','12') and  month(ngaybatau) not in ('1','2','3','4','5','6')  and year(ngaybatau) ='2020'
+union
+
+select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_villa as tendichvu,
+dvdikem.id_dvdikem as soluongdvdikem ,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
+inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
+inner join villa on villa.id_dichvu = dichvu.id_dichvu
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
+inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
+where  month(ngaybatau) in('10','11','02','12') and year(ngaybatau) ='2021'
+union 
+
+
+-- -- -- -- 
+select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_villa as tendichvu,
+dvdikem.id_dvdikem as soluongdvdikem ,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
+inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
+inner join villa on villa.id_dichvu = dichvu.id_dichvu
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
+inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem 
+where ( month(ngaybatau) in('10','11','02','12')) ;
+ 
+ 
+ -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất
+ -- bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau);
+
+ select count(dvdikem.id_dvdikem) as iddv_soluongsdnhieunhat,ten_dvdikem,dongia,tien from dvdikem
+ inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
+ inner join hopdong on hopdong.id_hopdong = hopdong_dvdikem.id_hopdong
+ inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang 
+ group by dvdikem.id_dvdikem
+ having count(dvdikem.id_dvdikem) =
+ ( select count(dvdikem.id_dvdikem) from dvdikem 
+ inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
+ inner join hopdong on hopdong.id_hopdong = hopdong_dvdikem.id_hopdong
+ inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
+group by dvdikem.id_dvdikem
+order by count(dvdikem.id_dvdikem)  DESC
+limit 1);
+--   13 : select trong  tạo ra giá trị  lớn có số lần mà dvdikem đc khách hàng sử dùng và đc order by sắp xếp cao xuống thấp, đc limit chọn chỉ in ra 1 kq trên cùng
+-- nhằm thỏa mãn th  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau);
+
+-- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
+--  Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
+select hopdong.id_hopdong,dichvu.ten_dichvu as tenloaidichvu, dvdikem.ten_dvdikem, count(hopdong.id_hopdong) as solansudung from dvdikem
+inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem = dvdikem.id_dvdikem
+inner join hopdong on hopdong.id_hopdong = hopdong_dvdikem.id_hopdong
+inner join dichvu on dichvu.id_dichvu = hopdong.id_dichvu
+group by dvdikem.id_dvdikem
+having count(hopdong.id_hopdong) ='1';
+
+--  15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi 
+-- mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+select nhanvien.id_nhanvien, ten_nhanvien, ten_trinhdo, bophan.ten_bophan,sdt,sonha, xa, huyen,tinh, quocgia  , count(id_hopdong) as soluonghopdong from  nhanvien
+inner join diachi  on diachi.id_diachi = nhanvien.id_diachi
+inner join trinhdo on trinhdo.id_trinhdo = nhanvien.id_trinhdo
+inner join bophan on bophan.id_bophan = nhanvien.id_bophan
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+where year(ngaybatau) in ('2018','2019')
+group by nhanvien.id_nhanvien
+having count(id_hopdong) <=3 ;
+
+-- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+
+delete  from nhanvien 
+where id_nhanvien in (select  nhanvien.id_nhanvien from  nhanvien
+inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
+where year(ngaybatau)  not in ('2017','2019')
+group by nhanvien.id_nhanvien);
+
+-- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond,
+--  chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+
+
+
+
 
