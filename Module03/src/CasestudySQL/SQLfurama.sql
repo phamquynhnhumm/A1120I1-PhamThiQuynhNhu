@@ -275,17 +275,21 @@ select * from hopdong_dvdikem;
  ('DK05','HD04','4'),
  ('DK02','HD04','3');
 
- 
+ -- -- -- -- -- -- -- -- -- --  2 -- -- -- -- -- 
  -- 2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K”
  -- và có tối đa 15 ký tự.
  select * from nhanvien
   where  (ten_nhanvien like 'H%' or  ten_nhanvien like  't%' or  ten_nhanvien like 'k%') and length(ten_nhanvien) <=15; 
 
--- - 3. khachhangHiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
+
+-- -- -- -- -- -- -- -- --  3 -- -- -- -- -- -- 
+-- . khachhangHiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
  select * from khachhang 
  left join diachi on khachhang.id_diachi = diachi.id_diachi
  where  (year(now()) - year(ngaysinh) >=18 AND year(now()) - year(ngaysinh) <=40) AND (  tinh = 'Đà Nẵng' OR tinh='Quảng Trị'); 
---  
+
+
+-- -- -- -- -- -- -- -- -- --  4-- -- -- -- -- -- -- -- -- -- -- 
  --   4. Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần.
  -- Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng.
  -- Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
@@ -297,6 +301,8 @@ where ten_loaikhach = 'diamond'
 group by ten_khachhang 
  order by solanhopdong;   -- mạc định tăng dần,  DESC giảm dần
  
+ 
+ -- -- -- -- 5-- -- -- -- -- -- -- 
  --  5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong,
  -- TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien (Với TongTien được tính theo 
  -- công thức như sau: ChidvdikemdichvuPhiThue + SoLuong*Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
@@ -309,6 +315,8 @@ inner join dichvu on dichvu.id_dichvu = hopdong.id_dichvu)
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong)
 inner join dvdikem  on dvdikem.id_dvdikem = hopdong_dvdikem.id_dvdikem ;
 
+
+-- -- -- -- -- -- -- -- -- -- 6-- -- -- -- -- 
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng 
 -- được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
 
@@ -328,7 +336,7 @@ select dichvu.id_dichvu ,hopdong.id_hopdong,ngaybatau, ten_dichvu, dientich,ten_
 where hopdong.id_hopdong not in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu  where month(ngaybatau) in (1,2,3) AND year(ngaybatau) = '2019' );
 
 
-
+-- -- -- -- -- -- --  7 -- -- -- -- -- -- -- -- 
 -- 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu
 --  của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019
 
@@ -348,6 +356,7 @@ select dichvu.id_dichvu,ngaybatau,hopdong.id_hopdong,ten_villa as tendichvu,dien
   join villa  on villa.id_dichvu = dichvu.id_dichvu
 where hopdong.id_hopdong  in (select hopdong.id_hopdong  from dichvu  join hopdong on hopdong.id_dichvu = dichvu.id_dichvu   where year(ngaybatau) ='2018'and not year(ngaybatau) ='2019');
 
+-- -- -- -- -- -- -- 8-- -- -- -- -- -- -- 
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 --   Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
 -- cách 1: 
@@ -362,6 +371,7 @@ select ten_khachhang from khachhang
  select  ten_khachhang from khachhang;
  
  
+ -- -- -- -- -- -- -- -- -- 9-- -- -- -- -- -- -- 
  -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong 
  -- năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 select month(ngaybatau) as Thang  , count(*) as soluong from khachhang
@@ -369,13 +379,16 @@ inner join hopdong on  khachhang.id_khachhang = hopdong.id_khachhang
 where month(ngaybatau)  in ('01','07','03','04','05','06','02','08','09','10','11','12')  and year(ngaybatau) = '2019'
 group by month(ngaybatau);
 
+-- -- -- -- -- -- -- -- 10-- -- -- -- -- -- -- -- 
  -- 10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm.
  -- Kết quả hiển thị bao gồm IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
 select hopdong.id_hopdong, ngaybatau as ngaylamhopdong, ngayketthuc , sotendatcuoc as tiendatcoc , count(id_dvdikem) as soluongdvdikem from hopdong
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
 group by hopdong.id_hopdong;
 
--- 11. 11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
+
+-- -- -- -- -- -- -- -- 11-- -- -- -- -- -- 
+--  11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
 -- TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Nam”. 
 select dvdikem.id_dvdikem,ten_dvdikem,dongia,tien,diachi.tinh from ((((dvdikem 
 inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem)
@@ -385,10 +398,12 @@ inner join  loaikhach on loaikhach.id_loaikhach = khachhang.id_loaikhach)
 inner join diachi on diachi.id_diachi = khachhang.id_diachi
 where ten_loaikhach = 'Diamond' and tinh in ('Vinh','Quảng Nam');
 
--- 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- --  12-- -- -- -- -- -- -- -- -- -- 
+-- 	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, 
 -- SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc
 --  của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
 -- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019. 
+
 select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_room as tendichvu,
 dvdikem.id_dvdikem as soluongdvdikem,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
 inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
@@ -397,9 +412,10 @@ inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
 inner join room on room.id_dichvu = dichvu.id_dichvu
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
 inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
-where month(ngaybatau) in('10','11','12') and  month(ngaybatau) not in ('1','2','3','4','5','6')  and year(ngaybatau) ='2020'
-union
--- select * from hopdong;
+where  (hopdong.id_khachhang  in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('10','11','12') and year(ngaybatau) ='2019')) and  (hopdong.id_khachhang not in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('01','02','03','04','05','06') and year(ngaybatau) ='2019'))
+ union
 select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_house as tendichvu,
 dvdikem.id_dvdikem as soluongdvdikem,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
 inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
@@ -408,9 +424,10 @@ inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
 inner join house on house.id_dichvu = dichvu.id_dichvu
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
 inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
-where month(ngaybatau) in('10','11','12') and  month(ngaybatau) not in ('1','2','3','4','5','6')  and year(ngaybatau) ='2020'
-union
-
+where  (hopdong.id_khachhang  in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('10','11','12') and year(ngaybatau) ='2019')) and  (hopdong.id_khachhang not in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('01','02','03','04','05','06') and year(ngaybatau) ='2019'))
+ union
 select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_villa as tendichvu,
 dvdikem.id_dvdikem as soluongdvdikem ,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
 inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
@@ -419,25 +436,13 @@ inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
 inner join villa on villa.id_dichvu = dichvu.id_dichvu
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
 inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
-where  month(ngaybatau) in('10','11','02','12') and year(ngaybatau) ='2021'
-union 
+where  (hopdong.id_khachhang  in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('10','11','12') and year(ngaybatau) ='2019')) and  (hopdong.id_khachhang not in (select id_khachhang  from hopdong where
+ month(ngaybatau)  in('01','02','03','04','05','06') and year(ngaybatau) ='2019'));  
 
-
--- -- -- -- 
-select hopdong.id_hopdong, nhanvien.id_nhanvien, khachhang.id_khachhang,  khachhang.sdt, ten_villa as tendichvu,
-dvdikem.id_dvdikem as soluongdvdikem ,ngaybatau,sotendatcuoc as tiendatcoc from nhanvien
-inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
-inner join khachhang on khachhang.id_khachhang = hopdong.id_khachhang
-inner join dichvu  on dichvu.id_dichvu = hopdong.id_dichvu
-inner join villa on villa.id_dichvu = dichvu.id_dichvu
-inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong= hopdong.id_hopdong
-inner join dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem 
-where ( month(ngaybatau) in('10','11','02','12')) ;
- 
- 
+-- -- -- -- -- -- -- 13-- -- -- -- -- -- 
  -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất
  -- bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau);
-
  select count(dvdikem.id_dvdikem) as iddv_soluongsdnhieunhat,ten_dvdikem,dongia,tien from dvdikem
  inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem= dvdikem.id_dvdikem
  inner join hopdong on hopdong.id_hopdong = hopdong_dvdikem.id_hopdong
@@ -451,9 +456,11 @@ where ( month(ngaybatau) in('10','11','02','12')) ;
 group by dvdikem.id_dvdikem
 order by count(dvdikem.id_dvdikem)  DESC
 limit 1);
---   13 : select trong  tạo ra giá trị  lớn có số lần mà dvdikem đc khách hàng sử dùng và đc order by sắp xếp cao xuống thấp, đc limit chọn chỉ in ra 1 kq trên cùng
+-- --  13 : select trong  tạo ra giá trị  lớn có số lần mà dvdikem đc khách hàng sử dùng và đc order by sắp xếp cao xuống thấp, đc limit chọn chỉ in ra 1 kq trên cùng
 -- nhằm thỏa mãn th  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau);
 
+
+-- -- -- -- -- -- -- 14-- -- -- -- 
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
 --  Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
 select hopdong.id_hopdong,dichvu.ten_dichvu as tenloaidichvu, dvdikem.ten_dvdikem, count(hopdong.id_hopdong) as solansudung from dvdikem
@@ -463,8 +470,9 @@ inner join dichvu on dichvu.id_dichvu = hopdong.id_dichvu
 group by dvdikem.id_dvdikem
 having count(hopdong.id_hopdong) ='1';
 
+-- -- -- -- 15-- -- -- -- -- -- -- 
 --  15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi 
--- mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
 select nhanvien.id_nhanvien, ten_nhanvien, ten_trinhdo, bophan.ten_bophan,sdt,sonha, xa, huyen,tinh, quocgia  , count(id_hopdong) as soluonghopdong from  nhanvien
 inner join diachi  on diachi.id_diachi = nhanvien.id_diachi
 inner join trinhdo on trinhdo.id_trinhdo = nhanvien.id_trinhdo
@@ -474,6 +482,8 @@ where year(ngaybatau) in ('2018','2019')
 group by nhanvien.id_nhanvien
 having count(id_hopdong) <=3 ;
 
+
+-- -- -- -- -- -- -- -- -- -- 16-- -- -- -- -- 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
 
 delete  from nhanvien 
@@ -482,10 +492,16 @@ inner join hopdong on hopdong.id_nhanvien = nhanvien.id_nhanvien
 where year(ngaybatau)  not in ('2017','2019')
 group by nhanvien.id_nhanvien);
 
+
+-- -- -- -- -- -- -- --  17 -- -- -- -- -- -- 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond,
---  chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
-
-
-
-
-
+ -- chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+ update  khachhang
+ set id_loaikhach = (select id_loaikhach from loaikhach where ten_loaikhach = 'Diamond')
+ where  id_khachhang in ( select khachhang.id_khachhang from khachhang
+ inner join hopdong  on hopdong.id_khachhang = khachhang.id_khachhang
+ where Year(ngaybatau) ='2019' and  id_loaikhach = (select id_loaikhach from loaikhach where ten_loaikhach = 'Platinnium')
+ group by  khachhang.id_khachhang
+having  sum(tongsotienthanhtoan) > 10000000
+);
+-- thawcs mawcs ko bieets sai cho nao 
