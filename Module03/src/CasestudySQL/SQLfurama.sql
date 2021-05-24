@@ -472,7 +472,7 @@ having count(hopdong.id_hopdong) ='1';
 
 -- -- -- -- 15-- -- -- -- -- -- -- 
 --  15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi 
-mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+-- mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
 select nhanvien.id_nhanvien, ten_nhanvien, ten_trinhdo, bophan.ten_bophan,sdt,sonha, xa, huyen,tinh, quocgia  , count(id_hopdong) as soluonghopdong from  nhanvien
 inner join diachi  on diachi.id_diachi = nhanvien.id_diachi
 inner join trinhdo on trinhdo.id_trinhdo = nhanvien.id_trinhdo
@@ -496,12 +496,24 @@ group by nhanvien.id_nhanvien);
 -- -- -- -- -- -- -- --  17 -- -- -- -- -- -- 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond,
  -- chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+
  update  khachhang
- set id_loaikhach = (select id_loaikhach from loaikhach where ten_loaikhach = 'Diamond')
- where  id_khachhang in ( select khachhang.id_khachhang from khachhang
  inner join hopdong  on hopdong.id_khachhang = khachhang.id_khachhang
- where Year(ngaybatau) ='2019' and  id_loaikhach = (select id_loaikhach from loaikhach where ten_loaikhach = 'Platinnium')
+ inner join loaikhach   on  loaikhach.id_loaikhach = khachhang.id_loaikhach
+ set khachhang.id_loaikhach = 'LK01'
+ where khachhang.id_khachhang in ( select hopdong.id_khachhang from hopdong
+ where Year(ngaybatau) ='2019' and  khachhang.id_loaikhach = 'LK02'
  group by  khachhang.id_khachhang
 having  sum(tongsotienthanhtoan) > 10000000
-);
--- thawcs mawcs ko bieets sai cho nao 
+); 
+
+select * from khachhang;
+
+-- -- --  18 -- -- -- -- 
+-- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng). alter
+delete khachhang,hopdong,hopdong_dvdikem from khachhang
+inner join hopdong on hopdong.id_khachhang = khachhang.id_khachhang
+inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
+     where not exists ( select hopdong.id_hopdong where year(ngaybatau) >'2019' and hopdong.id_khachhang = khachhang.id_khachhang);
+select * from hopdong ;
+

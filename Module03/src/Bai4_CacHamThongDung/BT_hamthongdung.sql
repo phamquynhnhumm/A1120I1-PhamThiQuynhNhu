@@ -21,6 +21,9 @@ select * from sinhvien where ten ='huong';
 select sum(sotien) from sinhvien where ten ='huong';
 
 --  Viết câu lệnh lấy ra tên danh sách của tất cả học viên không trùng lặp
-select ten  from sinhvien 
-group by ten having count(*) <= 1 
+select ten ,  count(*) as soluong from sinhvien 
+group by ten having count(*) <= 4 ;
+
+create view  sinhvi as
+select * from sinhvien where ten ='huong';
 
