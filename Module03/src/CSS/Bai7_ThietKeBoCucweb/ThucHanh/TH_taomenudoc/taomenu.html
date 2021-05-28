@@ -4,11 +4,54 @@
     <meta charset="UTF-8">
     <title>tạo menu dọc</title>
     <link rel="stylesheet"  type="text/css"  href="taomenu.css">
+<style>
+    .menu
+    {
+        position: relative;
+    }
+    .menu, .menu ul , .menu li{
+        padding: 0px;
+        margin: 0px;
+    }
+    .menu li
+    {
+        list-style: none;
+        position: relative;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        color: blue;
+        background: black;
+        padding:0px 30px;
+        margin: 0px;
+        cursor: pointer;
+        line-height: 30px;
+    }
+    .menu a
+    {
+        text-decoration: none;
+        color: #FAF5FF;
+    }
+    .menu li:hover
+    {
+        background-color: brown;
+    }
+    .menu ul ul{
+        visibility: hidden;
+      position: absolute;
+         top: 0px;
+        left: 140px;
 
+    }
+
+    .menu ul li:hover ul{
+        visibility: visible;
+    }
+</style>
 </head>
 <body>
 <h1>ACCP i10</h1>
-<div>
+<div class="menu">
     <ul>
         <li><a href="#">Sem1</a>
             <ul>
@@ -39,5 +82,6 @@
 
     </ul>
 </div>
+
 </body>
 </html>
