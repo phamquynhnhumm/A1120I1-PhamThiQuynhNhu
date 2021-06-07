@@ -23,9 +23,7 @@ public class khachhangServlet extends HttpServlet {
         khachhangList.add(new Khachhang("hoàng thị xoan","23-02-1999","nghệ an","avatar_3.jpg"));
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("key", khachhangList);
