@@ -23,6 +23,24 @@ huyen nvarchar(250) not null,
 tinh nvarchar(250) not null,
 quocgia nvarchar(250) not null
    );
+
+create table user(
+ten_user nvarchar(250) not null primary key ,
+matkhau  nvarchar(250) not null
+);
+
+create table vaitro(
+vaitro_id  nvarchar(5) not null primary key ,
+ten_vaitro  nvarchar(250) not null
+);
+
+create table user_vaitro(
+vaitro_id  nvarchar(5) not null ,
+ten_user  nvarchar(250) not null,
+primary key (vaitro_id,ten_user),
+foreign key(ten_user) references  user(ten_user),
+foreign key(vaitro_id) references  vaitro(vaitro_id)
+);
 create table nhanvien(
 id_nhanvien nvarchar(5) not null primary key ,
 ten_nhanvien nvarchar(250) not null,
@@ -38,7 +56,9 @@ id_bophan  nvarchar(5) ,
 foreign key(id_bophan) references bophan(id_bophan),
 luong float ,
 id_diachi  nvarchar(5) not null,
-foreign key(id_diachi) references diachi(id_diachi)
+foreign key(id_diachi) references diachi(id_diachi),
+ten_user nvarchar(250) not null ,
+foreign key(ten_user) references user(ten_user)
 );
 
 create table kieuthue(
@@ -98,8 +118,6 @@ id_loaikhach  nvarchar(5) not null primary key ,
 ten_loaikhach nvarchar(250) not null
    );
  
-  
-   
   create table khachhang(
   id_khachhang nvarchar(5) not null primary key ,
   ten_khachhang  nvarchar(250) not null,
@@ -119,7 +137,7 @@ ten_loaikhach nvarchar(250) not null
   id_hopdong nvarchar(5) not null primary key ,
   ngaybatau date,
    ngayketthuc date,
-   sotendatcuoc float,
+   sotiendatcuoc float,
    tongsotienthanhtoan float,
    id_nhanvien nvarchar(5) not null,
    foreign key(id_nhanvien) references nhanvien(id_nhanvien),
@@ -172,20 +190,26 @@ insert into trinhdo( id_trinhdo,ten_trinhdo ) value
   ('DC09','làng chôm','Trà Đỏa','trang khánh','Hà Nội','Việt Nam'),
   ('DC10','hẻm 1','Thôn 1','xã 1','vinh','Việt Nam');
   
+insert into user(ten_user, matkhau) value
+('user1','11111'),
+('user2','22222'),
+('user3','33333'),
+('user4','44444'),
+('user5','55555');
 
-
-insert into nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email,id_trinhdo,id_vitri,id_bophan,luong,id_diachi ) value
-('NV01','Phạm Thị Quỳnh Như','2000/09/28','123456789','1234432154','quynhnhuctcn@gmail.com','TD03','VT05','BP04','50000000','DC06'),
-('NV02','Trần Mỹ Hạnh','1989/04/08','111111111','567887867','tranhanh@gmail.com','TD04','VT03','BP02','24000000','DC07'),
-('NV03','Nguyễn Trung Trọng','1999/12/03','222222222','987809675','trungtrong@gmail.com','TD03','VT02','BP03','14000000','DC08'),
-('NV04','Trần Thanh phương','1979/01/24','33333333','876678945','phuongtran@gmail.com','TD04','VT06','BP04','60000000','DC09'),
-('NV05','Doãn Mạnh Thắng','1998/04/15','444444444','987657812','manhthang@gmail.com','TD02','VT04','BP01','67000000','DC10');
+insert into nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email,id_trinhdo,id_vitri,id_bophan,luong,id_diachi,ten_user ) value
+('NV01','Phạm Thị Quỳnh Như','2000/09/28','123456789','1234432154','quynhnhuctcn@gmail.com','TD03','VT05','BP04','50000000','DC06','user1'),
+('NV02','Trần Mỹ Hạnh','1989/04/08','111111111','567887867','tranhanh@gmail.com','TD04','VT03','BP02','24000000','DC07','user2'),
+('NV03','Nguyễn Trung Trọng','1999/12/03','222222222','987809675','trungtrong@gmail.com','TD03','VT02','BP03','14000000','DC08','user3'),
+('NV04','Trần Thanh phương','1979/01/24','33333333','876678945','phuongtran@gmail.com','TD04','VT06','BP04','60000000','DC09','user4'),
+('NV05','Doãn Mạnh Thắng','1998/04/15','444444444','987657812','manhthang@gmail.com','TD02','VT04','BP01','67000000','DC10','user5');
 
 insert into kieuthue(id_kieuthue,ten_kieuthue) value 
 ('KT01','năm'),
 ('KT02','thang'),
 ('KT03','ngay'),
 ('KT04','giờ');
+
 
 insert into dichvu(id_dichvu,ten_dichvu,dientich,chiphi,songuoi,id_kieuthue) value
 ('DV01','Room','300000','7000','4','KT04'),
@@ -246,7 +270,7 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
 ('KH08','Trần Yến Nhi','2003/10/14','nam','876923401','0322293432','yennhi@gmail.com','LK01','DC03'),
 ('KH09','Nguyễn Thị Nhung','2000/03/15','nu','345679999','888954321','Nhungnguyen3@gmail.com','LK01','DC02');
    select * from hopdong;
-  insert into hopdong( id_hopdong, ngaybatau,  ngayketthuc, sotendatcuoc,tongsotienthanhtoan ,  id_nhanvien, id_khachhang ,  id_dichvu) value
+  insert into hopdong( id_hopdong, ngaybatau,  ngayketthuc, sotiendatcuoc,tongsotienthanhtoan ,  id_nhanvien, id_khachhang ,  id_dichvu) value
  ('HD12','2021/12/12','2021/4/12','4500000','450000000','NV04','KH05','DV10'),
   ('HD01','2020/12/10','2020/12/10','3000000','30000000','NV02','KH01','DV01'),
   ('HD02','2021/02/10','2021/2/25','10000000','50000000','NV03','KH02','DV02'),
@@ -511,9 +535,35 @@ select * from khachhang;
 
 -- -- --  18 -- -- -- -- 
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng). alter
+
+
 delete khachhang,hopdong,hopdong_dvdikem from khachhang
 inner join hopdong on hopdong.id_khachhang = khachhang.id_khachhang
 inner join hopdong_dvdikem on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
      where not exists ( select hopdong.id_hopdong where year(ngaybatau) >'2019' and hopdong.id_khachhang = khachhang.id_khachhang);
 select * from hopdong ;
+
+
+-- 19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+update dvdikem 
+ set tien = (2 * tien)
+ where id_dvdikem  in ( select team.id_dvdikem from team);
+select * from team;
+drop view tam;
+create view team as
+ select hopdong_dvdikem.id_dvdikem,ten_dvdikem,dongia,tien  from dvdikem 
+ inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem = dvdikem.id_dvdikem
+inner join hopdong  on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
+where year(ngaybatau)  = '2019'
+group by hopdong_dvdikem.id_dvdikem 
+having count(hopdong_dvdikem.id_hopdong) >0  ;
+
+update dvdikem inner join ( select dvdikem.ten_dvdikem from dvdikem 
+ inner join hopdong_dvdikem on hopdong_dvdikem.id_dvdikem = dvdikem.id_dvdikem
+inner join hopdong  on hopdong_dvdikem.id_hopdong = hopdong.id_hopdong
+where year(ngaybatau)  = '2019'
+group by hopdong_dvdikem.id_dvdikem 
+having count(hopdong_dvdikem.id_hopdong) >0 ) as team
+ set tien = (2 * tien)
+ where dvdikem.ten_dvdikem =team.ten_dvdikem;
 
