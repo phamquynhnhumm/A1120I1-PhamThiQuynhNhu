@@ -6,15 +6,15 @@ public class Dichvu {
     private float dientich;
     private float chiphi;
     private String songuoi;
-    private String id_kieuthue;
+    private Kieuthue kieuthue;
 
-    public Dichvu(String id_dichvu, String ten_dichvu, float dientich, float chiphi, String songuoi, String id_kieuthue) {
+    public Dichvu(String id_dichvu, String ten_dichvu, float dientich, float chiphi, String songuoi, Kieuthue kieuthue) {
         this.id_dichvu = id_dichvu;
         this.ten_dichvu = ten_dichvu;
         this.dientich = dientich;
         this.chiphi = chiphi;
         this.songuoi = songuoi;
-        this.id_kieuthue = id_kieuthue;
+        this.kieuthue = kieuthue;
     }
 
     public String getId_dichvu() {
@@ -57,11 +57,11 @@ public class Dichvu {
         this.songuoi = songuoi;
     }
 
-    public String getId_kieuthue() {
-        return id_kieuthue;
+    public Kieuthue getKieuthue() {
+        return kieuthue;
     }
 
-    public void setId_kieuthue(String id_kieuthue) {
-        this.id_kieuthue = id_kieuthue;
+    public void setKieuthue(Kieuthue kieuthue) {
+        this.kieuthue = kieuthue;
     }
 }

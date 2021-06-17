@@ -9,26 +9,26 @@ public class Nhanvien {
     private int socmnd;
     private int sdt;
     private String email;
-    private String id_trinhdo;
-    private String id_vitri;
-    private  String id_bophan;
+    private Trinhdo trinhdo;
+    private Vitri vitri;
+    private  Bophan bophan;
     private  float luong;
-    private String id_diachi;
-    private  String ten_user;
+    private Diachi diachi;
+    private  User user;
 
-    public Nhanvien(String id_nhanvien, String ten_nhanvien, Date ngaysinh, int socmnd, int sdt, String email, String id_trinhdo, String id_vitri, String id_bophan, float luong, String id_diachi, String ten_user) {
+    public Nhanvien(String id_nhanvien, String ten_nhanvien, Date ngaysinh, int socmnd, int sdt, String email, Trinhdo trinhdo, Vitri vitri, Bophan bophan, float luong, Diachi diachi, User user) {
         this.id_nhanvien = id_nhanvien;
         this.ten_nhanvien = ten_nhanvien;
         this.ngaysinh = ngaysinh;
         this.socmnd = socmnd;
         this.sdt = sdt;
         this.email = email;
-        this.id_trinhdo = id_trinhdo;
-        this.id_vitri = id_vitri;
-        this.id_bophan = id_bophan;
+        this.trinhdo = trinhdo;
+        this.vitri = vitri;
+        this.bophan = bophan;
         this.luong = luong;
-        this.id_diachi = id_diachi;
-        this.ten_user = ten_user;
+        this.diachi = diachi;
+        this.user = user;
     }
 
     public String getId_nhanvien() {
@@ -79,28 +79,28 @@ public class Nhanvien {
         this.email = email;
     }
 
-    public String getId_trinhdo() {
-        return id_trinhdo;
+    public Trinhdo getTrinhdo() {
+        return trinhdo;
     }
 
-    public void setId_trinhdo(String id_trinhdo) {
-        this.id_trinhdo = id_trinhdo;
+    public void setTrinhdo(Trinhdo trinhdo) {
+        this.trinhdo = trinhdo;
     }
 
-    public String getId_vitri() {
-        return id_vitri;
+    public Vitri getVitri() {
+        return vitri;
     }
 
-    public void setId_vitri(String id_vitri) {
-        this.id_vitri = id_vitri;
+    public void setVitri(Vitri vitri) {
+        this.vitri = vitri;
     }
 
-    public String getId_bophan() {
-        return id_bophan;
+    public Bophan getBophan() {
+        return bophan;
     }
 
-    public void setId_bophan(String id_bophan) {
-        this.id_bophan = id_bophan;
+    public void setBophan(Bophan bophan) {
+        this.bophan = bophan;
     }
 
     public float getLuong() {
@@ -111,19 +111,19 @@ public class Nhanvien {
         this.luong = luong;
     }
 
-    public String getId_diachi() {
-        return id_diachi;
+    public Diachi getDiachi() {
+        return diachi;
     }
 
-    public void setId_diachi(String id_diachi) {
-        this.id_diachi = id_diachi;
+    public void setDiachi(Diachi diachi) {
+        this.diachi = diachi;
     }
 
-    public String getTen_user() {
-        return ten_user;
+    public User getUser() {
+        return user;
     }
 
-    public void setTen_user(String ten_user) {
-        this.ten_user = ten_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

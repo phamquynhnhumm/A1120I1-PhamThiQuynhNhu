@@ -6,15 +6,15 @@ public class House {
     private String tieuchuanphong;
     private String mota;
     private int sotang;
-    private  String id_dichvu;
+    private  Dichvu dichvu;
 
-    public House(String id_house, String ten_house, String tieuchuanphong, String mota, int sotang, String id_dichvu) {
+    public House(String id_house, String ten_house, String tieuchuanphong, String mota, int sotang, Dichvu dichvu) {
         this.id_house = id_house;
         this.ten_house = ten_house;
         this.tieuchuanphong = tieuchuanphong;
         this.mota = mota;
         this.sotang = sotang;
-        this.id_dichvu = id_dichvu;
+        this.dichvu = dichvu;
     }
 
     public String getId_house() {
@@ -57,11 +57,11 @@ public class House {
         this.sotang = sotang;
     }
 
-    public String getId_dichvu() {
-        return id_dichvu;
+    public Dichvu getDichvu() {
+        return dichvu;
     }
 
-    public void setId_dichvu(String id_dichvu) {
-        this.id_dichvu = id_dichvu;
+    public void setDichvu(Dichvu dichvu) {
+        this.dichvu = dichvu;
     }
 }

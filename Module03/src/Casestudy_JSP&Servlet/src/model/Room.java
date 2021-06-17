@@ -4,13 +4,13 @@ public class Room {
     private  String id_room;
     private String ten_rooom;
     private String tendichvufreedikem;
-    private  String id_dichvu;
+    private  Dichvu dichvu;
 
-    public Room(String id_room, String ten_rooom, String tendichvufreedikem, String id_dichvu) {
+    public Room(String id_room, String ten_rooom, String tendichvufreedikem, Dichvu dichvu) {
         this.id_room = id_room;
         this.ten_rooom = ten_rooom;
         this.tendichvufreedikem = tendichvufreedikem;
-        this.id_dichvu = id_dichvu;
+        this.dichvu = dichvu;
     }
 
     public String getId_room() {
@@ -37,11 +37,11 @@ public class Room {
         this.tendichvufreedikem = tendichvufreedikem;
     }
 
-    public String getId_dichvu() {
-        return id_dichvu;
+    public Dichvu getDichvu() {
+        return dichvu;
     }
 
-    public void setId_dichvu(String id_dichvu) {
-        this.id_dichvu = id_dichvu;
+    public void setDichvu(Dichvu dichvu) {
+        this.dichvu = dichvu;
     }
 }

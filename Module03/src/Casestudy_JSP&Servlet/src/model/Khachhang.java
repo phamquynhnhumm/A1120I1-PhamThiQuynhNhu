@@ -10,10 +10,11 @@ public class Khachhang {
     private  int socmnd;
     private  int sdt;
     private String email;
-    private String id_loaikhach;
-    private String id_diachi;
+    private Loaikhach loaikhach;
+    private Diachi diachi;
 
-    public Khachhang(String id_khachhang, String ten_khachhang, Date ngaysinh, String gioitinh, int socmnd, int sdt, String email, String id_loaikhach, String id_diachi) {
+
+    public Khachhang(String id_khachhang, String ten_khachhang, Date ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
         this.id_khachhang = id_khachhang;
         this.ten_khachhang = ten_khachhang;
         this.ngaysinh = ngaysinh;
@@ -21,8 +22,8 @@ public class Khachhang {
         this.socmnd = socmnd;
         this.sdt = sdt;
         this.email = email;
-        this.id_loaikhach = id_loaikhach;
-        this.id_diachi = id_diachi;
+        this.loaikhach = loaikhach;
+        this.diachi = diachi;
     }
 
     public String getId_khachhang() {
@@ -81,19 +82,19 @@ public class Khachhang {
         this.email = email;
     }
 
-    public String getId_loaikhach() {
-        return id_loaikhach;
+    public Loaikhach getLoaikhach() {
+        return loaikhach;
     }
 
-    public void setId_loaikhach(String id_loaikhach) {
-        this.id_loaikhach = id_loaikhach;
+    public void setLoaikhach(Loaikhach loaikhach) {
+        this.loaikhach = loaikhach;
     }
 
-    public String getId_diachi() {
-        return id_diachi;
+    public Diachi getDiachi() {
+        return diachi;
     }
 
-    public void setId_diachi(String id_diachi) {
-        this.id_diachi = id_diachi;
+    public void setDiachi(Diachi diachi) {
+        this.diachi = diachi;
     }
 }

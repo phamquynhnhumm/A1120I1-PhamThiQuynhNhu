@@ -59,9 +59,7 @@
             <form action="">
                 <div class="input-group mb-4 border rounded-pill p-1">
                     <i class="fas fa-search md-6"></i>
-
                     <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon4" class="form-control bg-none border-0">
-                    </input>
                 </div>
             </form>
         </div>

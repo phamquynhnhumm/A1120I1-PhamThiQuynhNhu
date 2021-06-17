@@ -7,16 +7,16 @@ public class Villa {
     private String mota;
     private  float dientichhoboi;
     private int sotang;
-    private  String id_dichvu;
+    private  Dichvu dichvu;
 
-    public Villa(String id_villa, String ten_villa, String tieuchuanphong, String mota, float dientichhoboi, int sotang, String id_dichvu) {
+    public Villa(String id_villa, String ten_villa, String tieuchuanphong, String mota, float dientichhoboi, int sotang, Dichvu dichvu) {
         this.id_villa = id_villa;
         this.ten_villa = ten_villa;
         this.tieuchuanphong = tieuchuanphong;
         this.mota = mota;
         this.dientichhoboi = dientichhoboi;
         this.sotang = sotang;
-        this.id_dichvu = id_dichvu;
+        this.dichvu = dichvu;
     }
 
     public String getId_villa() {
@@ -67,11 +67,11 @@ public class Villa {
         this.sotang = sotang;
     }
 
-    public String getId_dichvu() {
-        return id_dichvu;
+    public Dichvu getDichvu() {
+        return dichvu;
     }
 
-    public void setId_dichvu(String id_dichvu) {
-        this.id_dichvu = id_dichvu;
+    public void setDichvu(Dichvu dichvu) {
+        this.dichvu = dichvu;
     }
 }

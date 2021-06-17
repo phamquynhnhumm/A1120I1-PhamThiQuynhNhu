@@ -1,30 +1,30 @@
 package model;
 
 public class Hopdong_dvdikem {
-    private String id_dvdikem;
-    private String id_hopdong;
+    private Dvdikem dvdikem;
+    private Hopdong hopdong;
     private  int soluong;
 
-    public Hopdong_dvdikem(String id_dvdikem, String id_hopdong, int soluong) {
-        this.id_dvdikem = id_dvdikem;
-        this.id_hopdong = id_hopdong;
+    public Hopdong_dvdikem(Dvdikem dvdikem, Hopdong hopdong, int soluong) {
+        this.dvdikem = dvdikem;
+        this.hopdong = hopdong;
         this.soluong = soluong;
     }
 
-    public String getId_dvdikem() {
-        return id_dvdikem;
+    public Dvdikem getDvdikem() {
+        return dvdikem;
     }
 
-    public void setId_dvdikem(String id_dvdikem) {
-        this.id_dvdikem = id_dvdikem;
+    public void setDvdikem(Dvdikem dvdikem) {
+        this.dvdikem = dvdikem;
     }
 
-    public String getId_hopdong() {
-        return id_hopdong;
+    public Hopdong getHopdong() {
+        return hopdong;
     }
 
-    public void setId_hopdong(String id_hopdong) {
-        this.id_hopdong = id_hopdong;
+    public void setHopdong(Hopdong hopdong) {
+        this.hopdong = hopdong;
     }
 
     public int getSoluong() {

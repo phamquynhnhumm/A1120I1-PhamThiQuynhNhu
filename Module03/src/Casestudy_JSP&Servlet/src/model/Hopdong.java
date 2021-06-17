@@ -8,19 +8,19 @@ public class Hopdong {
     private Date ngayketthuc;
     private  float sotiendatco;
     private  float tongsotienthanhtoan;
-    private String id_nhanvien;
-    private String id_khachhang;
-    private String id_dichvu;
+    private Nhanvien nhanvien;
+    private Khachhang khachhang;
+    private Dichvu dichvu;
 
-    public Hopdong(String id_hopdong, Date ngaybatdau, Date ngayketthuc, float sotiendatco, float tongsotienthanhtoan, String id_nhanvien, String id_khachhang, String id_dichvu) {
+    public Hopdong(String id_hopdong, Date ngaybatdau, Date ngayketthuc, float sotiendatco, float tongsotienthanhtoan, Nhanvien nhanvien, Khachhang khachhang, Dichvu dichvu) {
         this.id_hopdong = id_hopdong;
         this.ngaybatdau = ngaybatdau;
         this.ngayketthuc = ngayketthuc;
         this.sotiendatco = sotiendatco;
         this.tongsotienthanhtoan = tongsotienthanhtoan;
-        this.id_nhanvien = id_nhanvien;
-        this.id_khachhang = id_khachhang;
-        this.id_dichvu = id_dichvu;
+        this.nhanvien = nhanvien;
+        this.khachhang = khachhang;
+        this.dichvu = dichvu;
     }
 
     public String getId_hopdong() {
@@ -63,27 +63,27 @@ public class Hopdong {
         this.tongsotienthanhtoan = tongsotienthanhtoan;
     }
 
-    public String getId_nhanvien() {
-        return id_nhanvien;
+    public Nhanvien getNhanvien() {
+        return nhanvien;
     }
 
-    public void setId_nhanvien(String id_nhanvien) {
-        this.id_nhanvien = id_nhanvien;
+    public void setNhanvien(Nhanvien nhanvien) {
+        this.nhanvien = nhanvien;
     }
 
-    public String getId_khachhang() {
-        return id_khachhang;
+    public Khachhang getKhachhang() {
+        return khachhang;
     }
 
-    public void setId_khachhang(String id_khachhang) {
-        this.id_khachhang = id_khachhang;
+    public void setKhachhang(Khachhang khachhang) {
+        this.khachhang = khachhang;
     }
 
-    public String getId_dichvu() {
-        return id_dichvu;
+    public Dichvu getDichvu() {
+        return dichvu;
     }
 
-    public void setId_dichvu(String id_dichvu) {
-        this.id_dichvu = id_dichvu;
+    public void setDichvu(Dichvu dichvu) {
+        this.dichvu = dichvu;
     }
 }

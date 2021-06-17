@@ -5,15 +5,15 @@ public class Diachi {
     private  String id_diachi;
     private String sonha;
     private  String xa;
-    private String huy;
+    private String huyen;
     private String tinh;
     private String quocgia;
 
-    public Diachi(String id_diachi, String sonha, String xa, String huy, String tinh, String quocgia) {
+    public Diachi(String id_diachi, String sonha, String xa, String huyen, String tinh, String quocgia) {
         this.id_diachi = id_diachi;
         this.sonha = sonha;
         this.xa = xa;
-        this.huy = huy;
+        this.huyen = huyen;
         this.tinh = tinh;
         this.quocgia = quocgia;
     }
@@ -29,7 +29,6 @@ public class Diachi {
     public String getSonha() {
         return sonha;
     }
-
     public void setSonha(String sonha) {
         this.sonha = sonha;
     }
@@ -42,12 +41,12 @@ public class Diachi {
         this.xa = xa;
     }
 
-    public String getHuy() {
-        return huy;
+    public String getHuyen() {
+        return huyen;
     }
 
-    public void setHuy(String huy) {
-        this.huy = huy;
+    public void setHuyen(String huyen) {
+        this.huyen = huyen;
     }
 
     public String getTinh() {
