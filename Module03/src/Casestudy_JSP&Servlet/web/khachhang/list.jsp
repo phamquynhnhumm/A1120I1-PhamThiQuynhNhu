@@ -19,7 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div >
     <p>
         <a href="/khachhang?action=create"> Thêm mới Khachhang</a>
     </p>
@@ -42,6 +42,8 @@
             <th>Huyện</th>
             <th>Tỉnh</th>
             <th>Quốc Gia</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <c:forEach items="${khachhang}" var="khachhang">
             <tr>
@@ -58,6 +60,16 @@
             <td>${khachhang.getDiachi().getHuyen()}</td>
             <td>${khachhang.getDiachi().getTinh()}</td>
             <td>${khachhang.getDiachi().getQuocgia()}</td>
+                <td>
+                    <a href="/khachhang?action=edit&id=${khachhang.getId_khachhang()}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="/khachhang?action=delete&id=${khachhang.getId_khachhang()}">
+                        Delete
+                    </a>
+                </td>
             </tr>
         </c:forEach>
     </table>

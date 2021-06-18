@@ -5,7 +5,7 @@ import java.util.Date;
 public class Khachhang {
     private String id_khachhang;
     private String ten_khachhang;
-    private Date ngaysinh;
+    private String ngaysinh;
     private String gioitinh;
     private  int socmnd;
     private  int sdt;
@@ -13,8 +13,7 @@ public class Khachhang {
     private Loaikhach loaikhach;
     private Diachi diachi;
 
-
-    public Khachhang(String id_khachhang, String ten_khachhang, Date ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
+    public Khachhang(String id_khachhang, String ten_khachhang, String ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
         this.id_khachhang = id_khachhang;
         this.ten_khachhang = ten_khachhang;
         this.ngaysinh = ngaysinh;
@@ -24,6 +23,9 @@ public class Khachhang {
         this.email = email;
         this.loaikhach = loaikhach;
         this.diachi = diachi;
+    }
+
+    public Khachhang(String ten_khachhang, String ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
     }
 
     public String getId_khachhang() {
@@ -42,11 +44,11 @@ public class Khachhang {
         this.ten_khachhang = ten_khachhang;
     }
 
-    public Date getNgaysinh() {
+    public String getNgaysinh() {
         return ngaysinh;
     }
 
-    public void setNgaysinh(Date ngaysinh) {
+    public void setNgaysinh(String ngaysinh) {
         this.ngaysinh = ngaysinh;
     }
 

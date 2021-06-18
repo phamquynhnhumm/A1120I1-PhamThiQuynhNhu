@@ -9,7 +9,8 @@ import java.util.List;
 public class KhachhangServicelpml implements  KhachhangService {
     KhachhangRepository khachhangRepository = new KhachhangRepositorylmpl();
     @Override
-    public List<Khachhang> finAll() {
+    public List<Khachhang> finAll()
+    {
         return khachhangRepository.finAll();
     }
 
@@ -25,18 +26,19 @@ public class KhachhangServicelpml implements  KhachhangService {
     }
 
     @Override
-    public Khachhang update(int id, Khachhang khachhang) {
+    public Khachhang update(String id, Khachhang khachhang)
+    {
         return khachhangRepository.update(id,khachhang);
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(String id) {
         khachhangRepository.remove(id);
 
     }
 
     @Override
-    public Khachhang finById1(int id) {
+    public Khachhang finById1(String id) {
         return khachhangRepository.finById1(id);
     }
 }

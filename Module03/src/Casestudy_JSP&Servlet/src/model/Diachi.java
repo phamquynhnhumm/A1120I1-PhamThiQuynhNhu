@@ -17,6 +17,10 @@ public class Diachi {
         this.tinh = tinh;
         this.quocgia = quocgia;
     }
+    public Diachi(String id_diachi)
+    {
+        this.id_diachi = id_diachi;
+    }
 
     public String getId_diachi() {
         return id_diachi;
@@ -29,6 +33,7 @@ public class Diachi {
     public String getSonha() {
         return sonha;
     }
+
     public void setSonha(String sonha) {
         this.sonha = sonha;
     }
