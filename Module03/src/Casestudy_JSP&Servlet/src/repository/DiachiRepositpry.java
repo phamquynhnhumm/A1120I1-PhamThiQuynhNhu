@@ -8,7 +8,7 @@ import java.util.List;
 public interface DiachiRepositpry {
     List<Diachi> finAll();
     void  save(Diachi diachi);
-    List<Diachi>  finByName(String name);
+    List<Diachi>  finByName(String ti);
     Diachi update(String id,  Diachi diachi);
     void remove(String id);
     Diachi finById1(String id);

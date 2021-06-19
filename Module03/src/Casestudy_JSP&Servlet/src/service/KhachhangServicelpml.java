@@ -7,7 +7,7 @@ import repository.KhachhangRepositorylmpl;
 import java.util.List;
 
 public class KhachhangServicelpml implements  KhachhangService {
-    KhachhangRepository khachhangRepository = new KhachhangRepositorylmpl();
+    private   KhachhangRepository khachhangRepository = new KhachhangRepositorylmpl();
     @Override
     public List<Khachhang> finAll()
     {

@@ -14,6 +14,7 @@ import java.util.List;
 
 public class DiachiRepositprylmpl implements  DiachiRepositpry {
     public static final String SELECT_DIACHI = "select * from diachi";
+    public static final String INSERT_DIACHI = "insert into diachi(id_diachi,sonha,xa,huyen,tinh,quocgia) value (?,?,?,?,?,?);";
     private static final String SELECT_DIACHI_ID= "select * from diachi where id_diachi= ?;";
 
     //    public static final String INSERT_KHACHHANG =" insert into khachhang(id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,email,id_loaikhach, id_diachi) value (?,?,?,?,?,?,?,?,?);";
@@ -62,6 +63,34 @@ public class DiachiRepositprylmpl implements  DiachiRepositpry {
 
     @Override
     public void save(Diachi diachi) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        if(connection != null)
+        {
+            try{
+                statement = connection.prepareStatement(INSERT_DIACHI);
+                System.out.println("SQL1:" +statement);
+                statement.setString(1,diachi.getId_diachi());
+                statement.setString(2,diachi.getSonha());
+                statement.setString(3,diachi.getXa());
+                statement.setString(4,diachi.getHuyen());
+                statement.setString(5,diachi.getTinh());
+                statement.setString(6,diachi.getQuocgia());
+
+                statement.executeUpdate();
+                System.out.println("SQL2:" +statement);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
 
     }
 

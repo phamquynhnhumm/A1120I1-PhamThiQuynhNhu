@@ -184,8 +184,25 @@ public class KhachhangRepositorylmpl implements KhachhangRepository  {
 
     @Override
     public void remove(String id) {
-
-
+        Connection connection= DBConnection.getConnection();
+        PreparedStatement statement = null;
+        if(connection != null)
+        {
+            try{
+                statement = connection.prepareStatement(DELETE_KHACHHANG );
+                statement.setString(1,id);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }  finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
     }
 
     @Override

@@ -7,7 +7,7 @@ import repository.DiachiRepositprylmpl;
 import java.util.List;
 
 public class DiachiServicelmpl  implements  DiachiService{
-    DiachiRepositpry diachiRepositpry = new DiachiRepositprylmpl();
+    private DiachiRepositpry diachiRepositpry = new DiachiRepositprylmpl();
     @Override
     public List<Diachi> finAll() {
         return diachiRepositpry.finAll();

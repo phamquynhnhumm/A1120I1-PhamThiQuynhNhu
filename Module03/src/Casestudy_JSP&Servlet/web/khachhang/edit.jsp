@@ -26,7 +26,7 @@
     <form method="post">
         <div class="form-group">
             <label >Id</label>
-            <input type="text" name="id" class="form-control"   placeholder="id" value="${khachhang.getId_khachhang()}" >
+            <input type="text" name="id" class="form-control"   placeholder="id" value="${khachhang.getId_khachhang()}"  readonly>
         </div>
         <div class="form-group">
             <label >Tên:</label>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name ="KhachhangServlet", urlPatterns = {"/khachhang",""})
+@WebServlet(name ="KhachhangServlet", urlPatterns = "/khachhang")
 public class KhachhangServlet extends HttpServlet {
     private KhachhangService service = new KhachhangServicelpml();
     private LoaikhachService loaikhachService = new LoaikhachServicelmpl();
@@ -47,7 +47,8 @@ public class KhachhangServlet extends HttpServlet {
         }
     }
 
-    private void DeleteKhachhang(HttpServletRequest request, HttpServletResponse response) {
+    private void DeleteKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ListKhachhang(request,response);
     }
 
     private void EditKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,6 +90,7 @@ public class KhachhangServlet extends HttpServlet {
         String id_loaikhach = request.getParameter("id_loaikhach");
         String id_diachi= request.getParameter("id_diachi");
         Khachhang khachhang = new Khachhang(id,ten,ngaysinh,gioitinh,socmnd,sdt,email,new Loaikhach(id_loaikhach),new Diachi(id_diachi));
+        System.out.println("dang them moi khach hang ");
         System.out.println("id khach hang" +id_loaikhach);
         System.out.println("id dia ci " +id_diachi);
         System.out.println("kh kh :" +khachhang);
@@ -140,10 +142,8 @@ public class KhachhangServlet extends HttpServlet {
 
     private void showDeleteKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-//        request.setAttribute("message","xóa thành công");
+        System.out.println("id cau no");
         service.remove(id);
-        System.out.println("xóa thành công");
-//        request.setAttribute("user",service);
         request.setAttribute("khachhang",service.finAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/khachhang/list.jsp");
         dispatcher.forward(request,response);
@@ -165,7 +165,7 @@ public class KhachhangServlet extends HttpServlet {
         request.setAttribute("diachis",diachis);
         request.setAttribute("loaikhachs",loaikhaches);
         request.setAttribute("khachhang",service.finById1(id));
-//        request.setAttribute("diachiid",diachiService.finById1(id));
+        request.setAttribute("diachiid",diachiService.finById1(id));
         Khachhang khachhang = service.finById1(id);
         System.out.println("Khach hang" + khachhang);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/edit.jsp");
@@ -177,7 +177,7 @@ public class KhachhangServlet extends HttpServlet {
         List<Loaikhach> loaikhaches = loaikhachService.finAll();
         request.setAttribute("diachis",diachis);
         request.setAttribute("loaikhachs",loaikhaches);
-        System.out.println( "ddiahj cỉ khach han" +diachis);
+        System.out.println( "dia cỉ khach han" +diachis);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/create.jsp");
         dispatcher.forward(request,response);
     }

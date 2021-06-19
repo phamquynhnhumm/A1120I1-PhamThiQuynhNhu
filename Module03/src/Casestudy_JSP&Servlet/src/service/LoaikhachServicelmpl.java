@@ -7,7 +7,7 @@ import repository.LoaikhachRepositorylmpl;
 import java.util.List;
 
 public class LoaikhachServicelmpl implements LoaikhachService {
-    LoaikhachRepository loaikhachRepository = new LoaikhachRepositorylmpl();
+    private LoaikhachRepository loaikhachRepository = new LoaikhachRepositorylmpl();
     @Override
     public List<Loaikhach> finAll() {
         return loaikhachRepository.finAll();
