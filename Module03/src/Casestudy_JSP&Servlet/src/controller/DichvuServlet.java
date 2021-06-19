@@ -48,9 +48,6 @@ public class DichvuServlet extends HttpServlet {
             default:
                 ListDichvu(request,response);
         }
-
-
-
     }
 
     private void SortDichvu(HttpServletRequest request, HttpServletResponse response) {
@@ -64,13 +61,29 @@ public class DichvuServlet extends HttpServlet {
         System.out.println(a);
     }
 
-    private void DeleteDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void DeleteDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ListDichvu(request,response);
     }
 
-    private void SearchDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void SearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name= request.getParameter("name");
+        System.out.println("đang tìm kiếm ten" +name);
+        request.setAttribute("dichvu",service.finByName(name));
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
+        dispatcher.forward(request,response);
     }
 
-    private void EditDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void EditDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id= request.getParameter("id");
+        System.out.println("id la" + id);
+        String ten = request.getParameter("ten");
+        float dientich = Float.parseFloat(request.getParameter("dientich"));
+        float chiphi = Float.parseFloat(request.getParameter("chiphi"));
+        String songuoi = request.getParameter("songuoi");
+        String id_kieuthue = request.getParameter("id_kieuthue");
+        Dichvu dichvu = new Dichvu(id,ten,dientich,chiphi,songuoi,new Kieuthue(id_kieuthue));
+        service.update(id,dichvu);
+        ListDichvu(request,response);
     }
 
     private void CreateDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -118,13 +131,33 @@ public class DichvuServlet extends HttpServlet {
     private void showSortDichvu(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void showDeleteDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void showDeleteDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        System.out.println("id cau no");
+        service.remove(id);
+        request.setAttribute("dichvu",service.finAll());
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/dichvu/list.jsp");
+        dispatcher.forward(request,response);
     }
-    private void showSearchDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void showSearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name= request.getParameter("name");
+        System.out.println("đang tìm kiếm ten" +name);
+        request.setAttribute("dichvu",service.finAll());
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
+        dispatcher.forward(request,response);
     }
 
-    private void showEditDichvu(HttpServletRequest request, HttpServletResponse response) {
+    private void showEditDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        List<Kieuthue> kieuthues = kieuthuService.finAll();
+        request.setAttribute("kieuthue",kieuthues);
+        request.setAttribute("dichvu",service.finById1(id));
+        Dichvu dichvu = service.finById1(id);
+        System.out.println("Khach hang" + dichvu);
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/edit.jsp");
+        dispatcher.forward(request,response);
     }
+
     private void showCreateDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Kieuthue> kieuthue = kieuthuService.finAll();
         request.setAttribute("kieuthue",kieuthue);
