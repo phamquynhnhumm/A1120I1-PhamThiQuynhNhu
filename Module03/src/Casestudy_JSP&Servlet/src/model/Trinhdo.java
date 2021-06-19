@@ -8,6 +8,9 @@ public class Trinhdo {
         this.id_trinhdo = id_trinhdo;
         this.ten_trinhdo = ten_trinhdo;
     }
+    public Trinhdo(String ten_trinhdo) {
+        this.ten_trinhdo = ten_trinhdo;
+    }
 
     public String getId_trinhdo() {
         return id_trinhdo;

@@ -68,7 +68,9 @@ public class DichvuServlet extends HttpServlet {
     private void SearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name= request.getParameter("name");
         System.out.println("đang tìm kiếm ten" +name);
-        request.setAttribute("dichvu",service.finByName(name));
+        System.out.println("danh sach nam:" +service.finByName(name));
+        List<Dichvu> dichvuLis= service.finByName(name);
+        request.setAttribute("dichvus",dichvuLis);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
         dispatcher.forward(request,response);
     }
@@ -140,9 +142,8 @@ public class DichvuServlet extends HttpServlet {
         dispatcher.forward(request,response);
     }
     private void showSearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name= request.getParameter("name");
-        System.out.println("đang tìm kiếm ten" +name);
-        request.setAttribute("dichvu",service.finAll());
+
+//        request.setAttribute("dichvu",service.finByName(name));
         RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
         dispatcher.forward(request,response);
     }
@@ -150,7 +151,7 @@ public class DichvuServlet extends HttpServlet {
     private void showEditDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         List<Kieuthue> kieuthues = kieuthuService.finAll();
-        request.setAttribute("kieuthue",kieuthues);
+        request.setAttribute("kieuthues",kieuthues);
         request.setAttribute("dichvu",service.finById1(id));
         Dichvu dichvu = service.finById1(id);
         System.out.println("Khach hang" + dichvu);

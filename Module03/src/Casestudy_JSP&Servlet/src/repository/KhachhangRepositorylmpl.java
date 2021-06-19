@@ -55,6 +55,14 @@ public class KhachhangRepositorylmpl implements KhachhangRepository  {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
         }
         return khachhangList;
     }

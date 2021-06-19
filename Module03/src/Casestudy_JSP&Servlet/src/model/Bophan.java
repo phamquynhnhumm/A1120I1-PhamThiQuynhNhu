@@ -9,6 +9,10 @@ public class Bophan {
         this.ten_bophan = ten_bophan;
     }
 
+    public Bophan(String ten_bophan) {
+        this.ten_bophan = ten_bophan;
+    }
+
     public String getId_bophan() {
         return id_bophan;
     }

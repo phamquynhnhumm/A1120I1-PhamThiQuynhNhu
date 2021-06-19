@@ -1,4 +1,3 @@
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: nhu
@@ -6,11 +5,14 @@
   Time: 1:23 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 
     <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,7 +31,6 @@
         <button type="submit" name="submit">tìm kiếm</button>
     </form>
 <table class="table table-hover" >
-<thead>
     <tr>
         <th>Id</th>
         <th>Tên Dịch Vụ</th>
@@ -38,19 +39,16 @@
         <th>Số người</th>
         <th>Kiểu Dịch Vụ</th>
     </tr>
-</thead>
-<tbody>
-    <c:forEach items="${dichvu}" var="dichvu">
+    <c:forEach items="${dichvus}" var="dichvus">
         <tr>
-            <td>${dichvu.getId_dichvu()}</td>
-            <td>${dichvu.getTen_dichvu()}</td>
-            <td>${dichvu.getDientich()}</td>
-            <td>${dichvu.getChiphi()}</td>
-            <td>${dichvu.getSonguoi()}</td>
-            <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
+            <td>${dichvus.id_dichvu}</td>
+            <td>${dichvus.getTen_dichvu()}</td>
+            <td>${dichvus.getDientich()}</td>
+            <td>${dichvus.getChiphi()}</td>
+            <td>${dichvus.getSonguoi()}</td>
+            <td>${dichvus.getKieuthue().getTen_kieuthue()}</td>
         </tr>
     </c:forEach>
-</tbody>
 </table>
 </div>
 

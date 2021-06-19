@@ -5,6 +5,7 @@
   Time: 6:24 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -48,9 +49,9 @@
                 <option  value="${dichvu.getKieuthue().getId_kieuthue()}">
                     ${dichvu.getKieuthue(). getTen_kieuthue()}
                 </option>
-                <c:forEach items="${kieuthue}" var="kieuthue">
-                    <option  value="${kieuthue.getId_kieuthue()}">
-                            ${kieuthue.getTen_kieuthue()}
+                <c:forEach items="${kieuthues}" var="kieuthues">
+                    <option  value="${kieuthues.getId_kieuthue()}">
+                            ${kieuthues.getTen_kieuthue()}
                     </option>
                 </c:forEach>
             </select>

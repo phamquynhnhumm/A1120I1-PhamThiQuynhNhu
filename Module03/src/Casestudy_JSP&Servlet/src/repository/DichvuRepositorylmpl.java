@@ -106,8 +106,11 @@ public class DichvuRepositorylmpl implements  DichvuRepository{
                 String songuoi = resultSet.getString("songuoi");
                 String id_kieuthue = resultSet.getString("id_kieuthue");
                 String ten_kieuthue = resultSet.getString("ten_kieuthue");
-                dichvu = new Dichvu(id_dichvu,ten_dichvu,dientich,chiphi,songuoi, new  Kieuthue(id_kieuthue,ten_kieuthue));
+                System.out.println("tem kiem name:" +statement);
+                System.out.println("Id_dich vu" +id_dichvu);
+                dichvu = new Dichvu(id_dichvu,ten_dichvu,dientich,chiphi,songuoi, new  Kieuthue( id_kieuthue,ten_kieuthue));
                 dichvuList.add(dichvu);
+                System.out.println("dichv u; "+ dichvuList);
             }
         } catch (SQLException e) {
             e.printStackTrace();

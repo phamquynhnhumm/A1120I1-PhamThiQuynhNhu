@@ -67,64 +67,20 @@
         </div>
         <div class="form-group">
             <label >Địa chỉ:</label>
-<%--            <select name="id_diachi" id="1exampleInputPosition">--%>
-<%--                <option value="http://www.ddth.com">--%>
-<%--                    Thêm mới địa chỉ 1--%>
-<%--                </option>--%>
-<%--                <option>--%>
-<%--                    <a href="/diachi/create.jsp">Thêm mới địa chỉ </a>--%>
-<%--                </option>--%>
-<%--&lt;%&ndash;                <c:forEach items="${diachis}" var="diachis">&ndash;%&gt;--%>
-<%--                <c:if test="${massege !=null}">--%>
-<%--                    <option value="${diachis.getId_diachi()}">--%>
-<%--                            <p>--%>
-<%--                                Số nhà :${diachis.getSonha()}  ,Xã: ${diachis.getXa()} ,Huyện:  ${diachis.getHuyen()} ,Tỉnh:    ${diachis.getTinh()}--%>
-<%--                            </p>--%>
-<%--                            </span>--%>
-
-<%--                    </option>--%>
-<%--                </c:if>--%>
-<%--&lt;%&ndash;                </c:forEach>&ndash;%&gt;--%>
-<%--            </select>--%>
-
-<%--            <a href="/diachi/create.jsp">Thêm mới địa chỉ--%>
-<%--                <c:if test="${massege !=null}">--%>
-<%--                    <p>--%>
-<%--                        Số nhà :${diachis.getSonha()}  ,Xã: ${diachis.getXa()} ,Huyện:  ${diachis.getHuyen()} ,Tỉnh:    ${diachis.getTinh()}--%>
-<%--                    </p>--%>
-<%--                    </span>--%>
-<%--                </c:if>--%>
-<%--            </a>--%>
-<%--            <c:if test="${massege !=null}"> --%>
-<%--               <p>--%>
-<%--                   Số nhà :${diachis.getSonha()}  ,Xã: ${diachis.getXa()} ,Huyện:  ${diachis.getHuyen()} ,Tỉnh:    ${diachis.getTinh()}--%>
-<%--               </p>--%>
-<%--                 </span>--%>
-<%--            </c:if>--%>
-<%--           <p>--%>
-<%--              Số nhà :${diachis.getSonha()}  ,Xã: ${diachis.getXa()} ,Huyện:  ${diachis.getHuyen()} ,Tỉnh:    ${diachis.getTinh()}--%>
-<%--           </p>--%>
-
             <div>
                 <select name="id_diachi" id="1exampleInputPosition">
                     <option>
                         Địa chỉ
                     </option>
                     <c:forEach items="${diachis}" var="diachis">
-                        <option value="${diachis.getId_diachi()}">
+                        <option value="${diachis.getId_diachi()}" ${diachis.getId_diachi()==id_diachi?"selected":""}>
                             Số nhà :${diachis.getSonha()}  ,Xã: ${diachis.getXa()} ,Huyện:  ${diachis.getHuyen()} ,Tỉnh:    ${diachis.getTinh()}
                         </option>
                     </c:forEach>
-                    <c:forEach items="${diachik}" var="diachik">
-                        <option value="${diachik.getId_diachi()}">
-                            Số nhà :${diachik.getSonha()}  ,Xã: ${diachik.getXa()} ,Huyện:  ${diachik.getHuyen()} ,Tỉnh:    ${diachik.getTinh()}
-                        </option>
-                    </c:forEach>
+
                 </select>
                 <p> <a href="/diachi?action=create">Thêm mới địa chỉ</a></p>
             </div>
-
-
         </div>
         <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
     </form>

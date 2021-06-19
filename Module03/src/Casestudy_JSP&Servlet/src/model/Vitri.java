@@ -9,6 +9,11 @@ public class Vitri {
         this.ten_vitri = ten_vitri;
     }
 
+    public Vitri(String  ten_vitri) {
+        this.ten_vitri = ten_vitri;
+
+    }
+
     public String getId_vtri() {
         return id_vtri;
     }

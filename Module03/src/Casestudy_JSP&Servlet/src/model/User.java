@@ -9,6 +9,10 @@ public class User {
         this.matkhau = matkhau;
     }
 
+    public User(String ten_user) {
+        this.ten_user = ten_user;
+    }
+
     public String getTen_user() {
         return ten_user;
     }

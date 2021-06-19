@@ -54,9 +54,11 @@ public class DiachiServlet extends HttpServlet {
          Diachi diachi = new Diachi(id_diachi,sonha,xa,huyen,tinh,quocgia);
          System.out.println("id dia ci" +id_diachi);
          service.save(diachi);
-        ListDiachi(request,response);
-
-         ListDiachi(request, response);
+//        request.setAttribute("diachi",diachi);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/diachi/diachimoithem.jsp");
+//        dispatcher.forward(request,response);
+        response.sendRedirect(request.getContextPath() + "/khachhang?action=create&id_diachi="+ id_diachi);
+//        ListDiachi(request,response);
     }
     private void EditDiachi(HttpServletRequest request, HttpServletResponse response) {
     }

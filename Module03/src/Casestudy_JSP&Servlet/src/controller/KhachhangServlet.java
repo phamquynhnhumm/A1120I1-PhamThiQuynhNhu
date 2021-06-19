@@ -150,9 +150,9 @@ public class KhachhangServlet extends HttpServlet {
     }
 
     private void showSearchKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name= request.getParameter("name");
-        System.out.println("đang tìm kiếm ten" +name);
-        request.setAttribute("khachhang",service.finByName(name));
+//        String name= request.getParameter("name");
+//        System.out.println("đang tìm kiếm ten" +name);
+//        request.setAttribute("khachhang",service.finByName(name));
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/search.jsp");
         dispatcher.forward(request,response);
     }
@@ -173,9 +173,11 @@ public class KhachhangServlet extends HttpServlet {
     }
 
     private void showCreateKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_diachi =  request.getParameter("id_diachi");
         List<Diachi> diachis = diachiService.finAll();
         List<Loaikhach> loaikhaches = loaikhachService.finAll();
         request.setAttribute("diachis",diachis);
+        request.setAttribute("id_diachi",id_diachi);
         request.setAttribute("loaikhachs",loaikhaches);
         System.out.println( "dia cỉ khach han" +diachis);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/create.jsp");

@@ -4,13 +4,20 @@ package model;
 public class Diachi {
     private  String id_diachi;
     private String sonha;
-    private  String xa;
+    private String xa;
     private String huyen;
     private String tinh;
     private String quocgia;
 
     public Diachi(String id_diachi, String sonha, String xa, String huyen, String tinh, String quocgia) {
         this.id_diachi = id_diachi;
+        this.sonha = sonha;
+        this.xa = xa;
+        this.huyen = huyen;
+        this.tinh = tinh;
+        this.quocgia = quocgia;
+    }
+    public Diachi( String sonha, String xa, String huyen, String tinh, String quocgia) {
         this.sonha = sonha;
         this.xa = xa;
         this.huyen = huyen;

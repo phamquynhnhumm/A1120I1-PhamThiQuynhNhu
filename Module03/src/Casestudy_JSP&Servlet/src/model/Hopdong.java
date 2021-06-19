@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Hopdong {
     private String id_hopdong;
-    private Date ngaybatdau;
-    private Date ngayketthuc;
-    private  float sotiendatco;
-    private  float tongsotienthanhtoan;
+    private String ngaybatdau;
+    private String ngayketthuc;
+    private float sotiendatco;
+    private float tongsotienthanhtoan;
     private Nhanvien nhanvien;
     private Khachhang khachhang;
     private Dichvu dichvu;
 
-    public Hopdong(String id_hopdong, Date ngaybatdau, Date ngayketthuc, float sotiendatco, float tongsotienthanhtoan, Nhanvien nhanvien, Khachhang khachhang, Dichvu dichvu) {
+    public Hopdong(String id_hopdong, String ngaybatdau, String ngayketthuc, float sotiendatco, float tongsotienthanhtoan, Nhanvien nhanvien, Khachhang khachhang, Dichvu dichvu) {
         this.id_hopdong = id_hopdong;
         this.ngaybatdau = ngaybatdau;
         this.ngayketthuc = ngayketthuc;
@@ -31,19 +31,19 @@ public class Hopdong {
         this.id_hopdong = id_hopdong;
     }
 
-    public Date getNgaybatdau() {
+    public String getNgaybatdau() {
         return ngaybatdau;
     }
 
-    public void setNgaybatdau(Date ngaybatdau) {
+    public void setNgaybatdau(String ngaybatdau) {
         this.ngaybatdau = ngaybatdau;
     }
 
-    public Date getNgayketthuc() {
+    public String getNgayketthuc() {
         return ngayketthuc;
     }
 
-    public void setNgayketthuc(Date ngayketthuc) {
+    public void setNgayketthuc(String ngayketthuc) {
         this.ngayketthuc = ngayketthuc;
     }
 

@@ -18,7 +18,6 @@ public class DichvuServicelmpl implements DichvuService {
         dichvuRepository.save(dichvu);
 
     }
-
     @Override
     public List<Dichvu> finByName(String name) {
         return dichvuRepository.finByName(name);
