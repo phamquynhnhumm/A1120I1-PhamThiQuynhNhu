@@ -10,11 +10,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>nhân viên</title>
+    <title>Title</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -47,19 +46,6 @@
         <tbody>
         <c:forEach items="${nhanviens}" var="nhanvien">
         <tr>
-                <%--            this.id_nhanvien = id_nhanvien;
-            this.ten_nhanvien = ten_nhanvien;
-            this.ngaysinh = ngaysinh;
-            this.socmnd = socmnd;
-            this.sdt = sdt;
-            this.email = email;
-            this.trinhdo = trinhdo;
-            this.vitri = vitri;
-            this.bophan = bophan;
-            this.luong = luong;
-            this.diachi = diachi;
-            this.user = user;
-            --%>
             <td>${nhanvien.getId_nhanvien()}</td>
             <td>${nhanvien.getTen_nhanvien()}</td>
             <td>${nhanvien.getNgaysinh()}</td>
@@ -117,7 +103,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#tableKhachhang').dataTable(
+        $('#tablenhanvien').dataTable(
             {
                 "dom":'lrtip',
                 "lengthChange": false,
