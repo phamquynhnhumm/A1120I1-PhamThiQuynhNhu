@@ -76,7 +76,6 @@ public class DiachiRepositprylmpl implements  DiachiRepositpry {
                 statement.setString(4,diachi.getHuyen());
                 statement.setString(5,diachi.getTinh());
                 statement.setString(6,diachi.getQuocgia());
-
                 statement.executeUpdate();
                 System.out.println("SQL2:" +statement);
             } catch (SQLException e) {

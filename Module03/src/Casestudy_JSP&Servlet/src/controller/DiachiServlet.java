@@ -29,8 +29,11 @@ public class DiachiServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create":
-                CreateDiachi(request, response);
+            case "createkh":
+                CreateDiachikh(request, response);
+                break;
+            case "createnv":
+                CreateDiachinv(request, response);
                 break;
             case "edit":
                 EditDiachi(request, response);
@@ -38,13 +41,23 @@ public class DiachiServlet extends HttpServlet {
             case "delete":
                 DeleteDiachi(request, response);
                 break;
+            case "view":
+                ViewDiachi(request, response);
+                break;
 
             default:
                 ListDiachi(request, response);
         }
     }
 
-    private void CreateDiachi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void ViewDiachi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_diachi =request.getParameter("id");
+        request.setAttribute("diachi",service.finById1(id_diachi));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/diachi/view.jsp");
+        dispatcher.forward(request,response);
+    }
+
+    private void CreateDiachikh(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          String id_diachi =request.getParameter("id");
          String sonha = request.getParameter("sonha");
          String xa =request.getParameter("xa");
@@ -60,6 +73,22 @@ public class DiachiServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/khachhang?action=create&id_diachi="+ id_diachi);
 //        ListDiachi(request,response);
     }
+    private void CreateDiachinv(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_diachi =request.getParameter("id");
+        String sonha = request.getParameter("sonha");
+        String xa =request.getParameter("xa");
+        String huyen  =request.getParameter("huyen");
+        String tinh  =request.getParameter("tinh");
+        String quocgia  =request.getParameter("quocgia");
+        Diachi diachi = new Diachi(id_diachi,sonha,xa,huyen,tinh,quocgia);
+        System.out.println("id dia ci" +id_diachi);
+        service.save(diachi);
+//        request.setAttribute("diachi",diachi);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/diachi/diachimoithem.jsp");
+//        dispatcher.forward(request,response);
+        response.sendRedirect(request.getContextPath() + "/nhanvien?action=create&id_diachi="+ id_diachi);
+//        ListDiachi(request,response);
+    }
     private void EditDiachi(HttpServletRequest request, HttpServletResponse response) {
     }
     private void DeleteDiachi(HttpServletRequest request, HttpServletResponse response) {
@@ -72,8 +101,11 @@ public class DiachiServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create":
-                showCreateDiachi(request, response);
+            case "createkh":
+                showCreateDiachikh(request, response);
+                break;
+            case "createnv":
+                showCreateDiachinv(request, response);
                 break;
             case "edit":
                 showEditDiachi(request, response);
@@ -81,6 +113,10 @@ public class DiachiServlet extends HttpServlet {
             case "delete":
                 showDeleteDiachi(request, response);
                 break;
+            case "view":
+                showViewDiachi(request, response);
+                break;
+
 
             default:
                 ListDiachi(request, response);
@@ -88,6 +124,15 @@ public class DiachiServlet extends HttpServlet {
 
 
     }
+
+    private void showViewDiachi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_diachi =request.getParameter("id");
+        request.setAttribute("diachi",service.finById1(id_diachi));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/diachi/view.jsp");
+        dispatcher.forward(request,response);
+
+    }
+
     private void ListDiachi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id_diachi =request.getParameter("id");
         List<Diachi> diachi = service.finAll();
@@ -99,7 +144,11 @@ public class DiachiServlet extends HttpServlet {
     }
     private void showEditDiachi(HttpServletRequest request, HttpServletResponse response) {
     }
-    private void showCreateDiachi(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showCreateDiachikh(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/diachi/create.jsp");
+        dispatcher.forward(request,response);
+    }
+    private void showCreateDiachinv(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher= request.getRequestDispatcher("/diachi/create.jsp");
         dispatcher.forward(request,response);
     }

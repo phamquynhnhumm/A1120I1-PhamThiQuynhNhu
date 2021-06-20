@@ -29,9 +29,9 @@ public class BophanRepositorylmpl implements  BophanRepository {
                 Bophan bophan = null;
                 while (resultSet.next())
                 {
-                    String id_vitri = resultSet.getString("id_vitri");
-                    String ten_vitri = resultSet.getString("ten_vitri");
-                    bophan = new Bophan(id_vitri,ten_vitri);
+                    String id_bophan = resultSet.getString("id_bophan");
+                    String ten_bophan = resultSet.getString("ten_bophan");
+                    bophan = new Bophan(id_bophan,ten_bophan);
                     bophanList.add(bophan);
                 }
 
@@ -56,7 +56,7 @@ public class BophanRepositorylmpl implements  BophanRepository {
     }
 
     @Override
-    public List<Bophan> finByName(String ti) {
+    public List<Bophan> finByName(String name) {
         return null;
     }
 
@@ -85,9 +85,9 @@ public class BophanRepositorylmpl implements  BophanRepository {
 
                 while (resultSet.next())
                 {
-                    String id_vitri = resultSet.getString("id_vitri");
-                    String ten_vitri = resultSet.getString("ten_vitri");
-                    bophan = new Bophan(id_vitri,ten_vitri);
+                    String id_bophan = resultSet.getString("id_bophan");
+                    String ten_bophan = resultSet.getString("ten_bophan");
+                    bophan = new Bophan(id_bophan,ten_bophan);
                 }
 
             } catch (SQLException e) {
