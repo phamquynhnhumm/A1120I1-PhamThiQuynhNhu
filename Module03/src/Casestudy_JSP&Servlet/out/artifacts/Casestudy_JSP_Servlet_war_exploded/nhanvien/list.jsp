@@ -41,6 +41,8 @@
             <th>Lương</th>
             <th>Địa chỉ</th>
             <th>Tên_User</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>

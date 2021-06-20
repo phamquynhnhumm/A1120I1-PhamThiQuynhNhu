@@ -16,6 +16,10 @@ public class Dichvu {
         this.songuoi = songuoi;
         this.kieuthue = kieuthue;
     }
+    public Dichvu(String id_dichvu)
+    {
+        this.id_dichvu = id_dichvu;
+    }
 
     public String getId_dichvu() {
         return id_dichvu;

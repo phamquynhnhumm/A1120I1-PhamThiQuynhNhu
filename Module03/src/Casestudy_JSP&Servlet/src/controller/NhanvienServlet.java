@@ -124,10 +124,20 @@ public class NhanvienServlet extends HttpServlet {
             case "delete":
                 showDeleteNhanvien(request,response);
                 break;
+            case "view":
+                showViewNhanvien(request,response);
+                break;
             default:
                 ListNhanvien(request,response);
         }
 
+    }
+
+    private void showViewNhanvien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_nhanvien =request.getParameter("id");
+        request.setAttribute("nhanvien",service.finById1(id_nhanvien));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/nhanvien/view.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void showDeleteNhanvien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

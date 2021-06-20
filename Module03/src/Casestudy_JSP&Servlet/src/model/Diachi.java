@@ -17,13 +17,13 @@ public class Diachi {
         this.tinh = tinh;
         this.quocgia = quocgia;
     }
-    public Diachi( String sonha, String xa, String huyen, String tinh, String quocgia) {
-        this.sonha = sonha;
-        this.xa = xa;
-        this.huyen = huyen;
-        this.tinh = tinh;
-        this.quocgia = quocgia;
-    }
+//    public Diachi( String sonha, String xa, String huyen, String tinh, String quocgia) {
+//        this.sonha = sonha;
+//        this.xa = xa;
+//        this.huyen = huyen;
+//        this.tinh = tinh;
+//        this.quocgia = quocgia;
+//    }
     public Diachi(String id_diachi)
     {
         this.id_diachi = id_diachi;

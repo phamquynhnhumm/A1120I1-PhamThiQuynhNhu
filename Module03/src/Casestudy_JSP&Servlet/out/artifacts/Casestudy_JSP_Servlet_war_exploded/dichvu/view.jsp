@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: nhu
-  Date: 6/20/2021
-  Time: 1:44 PM
+  Date: 6/21/2021
+  Time: 2:44 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,32 +22,30 @@
 <div class="container">
     <h3>địa chỉ mới thêm</h3>
     <p>
-        <a href="/nhanvien">Trở lại danh sách nhân viên</a>
-    </p>
-    <p>
-        <a href="/khachhang">Trở lại danh sách khách hàng</a>
+        <a href="/hopdong">Trở lại danh sách hợp đồng</a>
     </p>
     <table class="table table-hover" id="tableKhachhang">
         <tr>
-            <th>id_diachi</th>
-            <th>số nhà</th>
-            <th>Xã</th>
-            <th>Huyện</th>
-            <th>Tỉnh</th>
-            <th>Quốc gia</th>
+            <th>Id</th>
+            <th>Tên Dịch Vụ</th>
+            <th>Diện Tích</th>
+            <th>Chi Phí</th>
+            <th>Số người</th>
+            <th>Kiểu Dịch Vụ</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-<%--        <c:forEach items="${diachi}" var="diachi">--%>
-            <tr>
-                <td>${diachi.getId_diachi()}</td>
-                <td>${diachi.getSonha()}</td>
-                <td>${diachi.getXa()}</td>
-                <td>${diachi.getHuyen()}</td>
-                <td>${diachi.getTinh()}</td>
-                <td>${diachi.getQuocgia()}</td>
-            </tr>
-<%--        </c:forEach>--%>
+        <tr>
+            <td>${dichvu.getId_dichvu()}</td>
+            <td>${dichvu.getTen_dichvu()}</td>
+            <td>${dichvu.getDientich()}</td>
+            <td>${dichvu.getChiphi()}</td>
+            <td>${dichvu.getSonguoi()}</td>
+            <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
+        </tr>
     </table>
 </div>
-
 </body>
 </html>
+
+

@@ -126,10 +126,21 @@ public class DichvuServlet extends HttpServlet {
             case "sort":
                 showSortDichvu(request,response);
                 break;
+            case "view":
+                showViewDichvu(request,response);
+                break;
             default:
                 ListDichvu(request,response);
         }
     }
+
+    private void showViewDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_dichvu =request.getParameter("id");
+        request.setAttribute("dichvu",service.finById1(id_dichvu));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/dichvu/view.jsp");
+        dispatcher.forward(request,response);
+    }
+
     private void showSortDichvu(HttpServletRequest request, HttpServletResponse response) {
     }
 

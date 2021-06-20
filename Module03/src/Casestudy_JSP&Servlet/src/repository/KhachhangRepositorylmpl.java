@@ -41,15 +41,14 @@ public class KhachhangRepositorylmpl implements KhachhangRepository  {
                      int sdt= resultSet.getInt("sdt");
                     String email=resultSet.getString("email");
                     String ten_loaikhach= resultSet.getString("ten_loaikhach")   ;
-                    String sonha= resultSet.getString("sonha");
-                    String xa= resultSet.getString("xa");
-                    String huyen= resultSet.getString("huyen");
-                    String tinh= resultSet.getString("tinh");
-                    String quocgia= resultSet.getString("quocgia");
+//                    String sonha= resultSet.getString("sonha");
+//                    String xa= resultSet.getString("xa");
+//                    String huyen= resultSet.getString("huyen");
+//                    String tinh= resultSet.getString("tinh");
+//                    String quocgia= resultSet.getString("quocgia");
                     String id_loaikhach =resultSet.getString("id_loaikhach");
                     String id_diachi = resultSet.getString("id_diachi");
-                    khachhang = new Khachhang(id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,email,new Loaikhach(id_loaikhach,ten_loaikhach),new Diachi(id_diachi,sonha,xa
-                    ,huyen,tinh,quocgia));
+                    khachhang = new Khachhang(id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,email,new Loaikhach(id_loaikhach,ten_loaikhach),new Diachi(id_diachi));
                     khachhangList.add(khachhang);
                 }
             } catch (SQLException e) {

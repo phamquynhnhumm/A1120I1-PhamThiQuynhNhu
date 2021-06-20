@@ -122,11 +122,20 @@ public class KhachhangServlet extends HttpServlet {
             case "sort":
                 showSortKhachhang(request,response);
                 break;
+            case "view":
+                showViewKhachhang(request,response);
+                break;
             default:
                 ListKhachhang(request,response);
         }
 
 
+    }
+    private void showViewKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_khachhang =request.getParameter("id");
+        request.setAttribute("khachhang",service.finById1(id_khachhang));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/khachhang/view.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void ListKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: nhu
-  Date: 6/11/2021
-  Time: 1:34 AM
+  Date: 6/21/2021
+  Time: 2:25 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Danh sách hợp đồng</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
@@ -18,65 +18,67 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div >
+<div>
     <p>
-        <a href="/khachhang?action=create"> Thêm mới Khachhang</a>
+        <a href="/hopdong?action=create">Thêm mới hợp đồng</a>
     </p>
     <p>
-        <a href="/khachhang?action=search"> Tìm kiếm</a>
+        <a href="/hopdong?action=search">tìm kiếm hợp đồng theo khách hàng</a>
     </p>
-    <h2>Danh sách khách hàng</h2>
-    <table class="table table-hover" id="tableKhachhang">
+    <table class="table table-hover" id="tableHopdong">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Tên</th>
-            <th>Ngày Sinh</th>
-            <th>Giới Tính</th>
-            <th>Số Cmnd</th>
-            <th>Số điện thoại</th>
-            <th>Email</th>
-            <th>Loại Khách</th>
-            <th>Địa Chỉ</th>
-<%--            <th>Xã</th>--%>
-<%--            <th>Huyện</th>--%>
-<%--            <th>Tỉnh</th>--%>
-<%--            <th>Quốc Gia</th>--%>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th>tiền cược</th>
+            <th>Tổng thanh toán</th>
+            <th>Nhân viên</th>
+            <th>Khách hàng</th>
+            <th>Dịch vụ</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${khachhang}" var="khachhang">
+        <c:forEach items="${hopdong}" var="hopdong">
             <tr>
-            <td>${khachhang.getId_khachhang()}</td>
-            <td>${khachhang.getTen_khachhang()}</td>
-            <td>${khachhang.getNgaysinh()}</td>
-            <td>${khachhang.getGioitinh()}</td>
-            <td>${khachhang.getSocmnd()}</td>
-            <td>${khachhang.getSdt()}</td>
-            <td>${khachhang.getEmail()}</td>
-            <td>${khachhang.getLoaikhach().getTen_loaikhach()}</td>
+                <td>${hopdong.getId_hopdong()}</td>
+                <td>${hopdong.getNgaybatdau()}</td>
+                <td>${hopdong.getNgayketthuc()}</td>
+                <td>${hopdong.getSotiendatco()}</td>
+                <td>${hopdong.getTongsotienthanhtoan()}</td>
+<%--                <td>--%>
+<%--                    <a href="/diachi?action=view&id=${khachhang.getDiachi().getId_diachi()}" >--%>
+<%--                            ${khachhang.getDiachi().getId_diachi()}--%>
+<%--                    </a>--%>
+<%--                </td>--%>
                 <td>
-                    <a href="/diachi?action=view&id=${khachhang.getDiachi().getId_diachi()}" >
-                            ${khachhang.getDiachi().getId_diachi()}
-                    </a>
-                </td><%--            <td>${khachhang.getDiachi().getSonha()}</td>--%>
-<%--            <td>${khachhang.getDiachi().getXa()}</td>--%>
-<%--            <td>${khachhang.getDiachi().getHuyen()}</td>--%>
-<%--            <td>${khachhang.getDiachi().getTinh()}</td>--%>
-<%--            <td>${khachhang.getDiachi().getQuocgia()}</td>--%>
+<%--                    <a href="/nhanvien?action=view&id=${hopdong.getNhanvien().getId_nhanvien()}">--%>
+                        ${hopdong.getNhanvien().getTen_nhanvien()}
+<%--                    </a>--%>
+                </td>
                 <td>
-                    <a href="/khachhang?action=edit&id=${khachhang.getId_khachhang()}">
-                        Edit
+                    <a href="/khachhang?action=view&id=${hopdong.getKhachhang().getId_khachhang()}">
+                            ${hopdong.getKhachhang().getTen_khachhang()}
                     </a>
                 </td>
                 <td>
-                    <a href="#myModal_${khachhang.getId_khachhang()}" role="button" class="btn btn-large btn-danger"
-                       data-toggle="modal">Xoa</a>
+                    <a href="/dichvu?action=view&id=${hopdong.getDichvu().getId_dichvu()}">
+                            ${hopdong.getDichvu().getTen_dichvu()}
+                    </a>
                 </td>
-            </tr>
-        <div id="myModal_${khachhang.getId_khachhang()}" class="modal fade">
+                    <td>
+                            <a href="/hopdong?action=edit&id=${hopdong.getId_hopdong()}">
+                                Edit
+                            </a>
+                      </td>
+                    <td>
+                        <a href="#myModal_${hopdong.getId_hopdong()}" role="button" class="btn btn-large btn-danger"
+                           data-toggle="modal">Xoa</a>
+                    </td>
+        </tr>
+        <div id="myModal_${hopdong.getId_hopdong()}" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -85,16 +87,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Bạn có chắc chắn muốn xóa  ${khachhang.getId_khachhang()} này ?</p>
+                        <p>Bạn có chắc chắn muốn xóa  ${hopdong.getId_hopdong()} này ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                        <a href="/khachhang?action=delete&id=${khachhang.getId_khachhang()}"
+                        <a href="/khachhang?action=delete&id=${hopdong.getId_hopdong()}"
                            role="button" class="btn btn-danger" title="Xoa">Xóa</a>
                     </div>
                 </div>
             </div>
-        </c:forEach>
+            </c:forEach>
         </tbody>
     </table>
 </div>
@@ -107,7 +109,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#tableKhachhang').dataTable(
+        $('#tableHopdong').dataTable(
             {
                 "dom":'lrtip',
                 "lengthChange": false,

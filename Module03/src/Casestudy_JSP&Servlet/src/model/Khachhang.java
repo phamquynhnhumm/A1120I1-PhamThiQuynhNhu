@@ -24,6 +24,10 @@ public class Khachhang {
         this.loaikhach = loaikhach;
         this.diachi = diachi;
     }
+    public Khachhang(String id_khachhang)
+    {
+        this.id_khachhang = id_khachhang;
+    }
 
     public Khachhang(String ten_khachhang, String ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
     }

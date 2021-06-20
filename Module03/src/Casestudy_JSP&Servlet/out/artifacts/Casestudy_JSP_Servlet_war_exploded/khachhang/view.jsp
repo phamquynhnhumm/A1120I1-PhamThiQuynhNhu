@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: nhu
-  Date: 6/19/2021
-  Time: 6:26 AM
+  Date: 6/21/2021
+  Time: 2:46 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Chi tiết  kiểu thuê</title>
+    <title>Chi tiết  khách hàng </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -22,11 +22,30 @@
 <div>
     <p>
     <p>
-        <a href="/khachhang">Trở lại danh sách hợp đồng</a>
+        <a href="/hopdong">Trở lại danh sách hợp đồng</a>
     </p>
     </p>
     <table class="table table-hover" id="tablenhanvien">
         <tr>
+            <th>Id</th>
+            <th>Tên</th>
+            <th>Ngày Sinh</th>
+            <th>Giới Tính</th>
+            <th>Số Cmnd</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Loại Khách</th>
+            <th>Địa Chỉ</th>
+        </tr>
+        <tr>
+            <td>${khachhang.getId_khachhang()}</td>
+            <td>${khachhang.getTen_khachhang()}</td>
+            <td>${khachhang.getNgaysinh()}</td>
+            <td>${khachhang.getGioitinh()}</td>
+            <td>${khachhang.getSocmnd()}</td>
+            <td>${khachhang.getSdt()}</td>
+            <td>${khachhang.getEmail()}</td>
+            <td>${khachhang.getLoaikhach().getTen_loaikhach()}</td>
         </tr>
     </table>
 </div>

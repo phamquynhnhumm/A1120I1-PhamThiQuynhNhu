@@ -22,7 +22,10 @@
 <div class="container">
     <h3>địa chỉ mới thêm</h3>
     <p>
-        <a href="/nhanvien">Trở lại danh sách khách hàng</a>
+        <a href="/nhanvien">Trở lại danh sách nhân viên</a>
+    </p>
+    <p>
+        <a href="/khachhang">Trở lại danh sách khách hàng</a>
     </p>
     <table class="table table-hover" id="tableKhachhang">
         <tr>

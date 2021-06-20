@@ -37,11 +37,11 @@
             <th>Số điện thoại</th>
             <th>Email</th>
             <th>Loại Khách</th>
-            <th>Số nhà</th>
-            <th>Xã</th>
-            <th>Huyện</th>
-            <th>Tỉnh</th>
-            <th>Quốc Gia</th>
+            <th>Địa Chỉ</th>
+<%--            <th>Xã</th>--%>
+<%--            <th>Huyện</th>--%>
+<%--            <th>Tỉnh</th>--%>
+<%--            <th>Quốc Gia</th>--%>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -57,11 +57,15 @@
             <td>${khachhang.getSdt()}</td>
             <td>${khachhang.getEmail()}</td>
             <td>${khachhang.getLoaikhach().getTen_loaikhach()}</td>
-            <td>${khachhang.getDiachi().getSonha()}</td>
-            <td>${khachhang.getDiachi().getXa()}</td>
-            <td>${khachhang.getDiachi().getHuyen()}</td>
-            <td>${khachhang.getDiachi().getTinh()}</td>
-            <td>${khachhang.getDiachi().getQuocgia()}</td>
+                <td>
+                    <a href="/diachi?action=view&id=${khachhang.getDiachi().getId_diachi()}" >
+                            ${khachhang.getDiachi().getId_diachi()}
+                    </a>
+                </td><%--            <td>${khachhang.getDiachi().getSonha()}</td>--%>
+<%--            <td>${khachhang.getDiachi().getXa()}</td>--%>
+<%--            <td>${khachhang.getDiachi().getHuyen()}</td>--%>
+<%--            <td>${khachhang.getDiachi().getTinh()}</td>--%>
+<%--            <td>${khachhang.getDiachi().getQuocgia()}</td>--%>
                 <td>
                     <a href="/khachhang?action=edit&id=${khachhang.getId_khachhang()}">
                         Edit
