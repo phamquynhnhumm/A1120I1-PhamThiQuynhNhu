@@ -21,6 +21,11 @@ public class Dichvu {
         this.id_dichvu = id_dichvu;
     }
 
+    public Dichvu(String id_dichvu, String ten_dichvu) {
+        this.id_dichvu = id_dichvu;
+        this.ten_dichvu = ten_dichvu;
+    }
+
     public String getId_dichvu() {
         return id_dichvu;
     }
@@ -63,6 +68,9 @@ public class Dichvu {
 
     public Kieuthue getKieuthue() {
         return kieuthue;
+    }
+    public String gettenKieuthue() {
+        return kieuthue.getTen_kieuthue();
     }
 
     public void setKieuthue(Kieuthue kieuthue) {

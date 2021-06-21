@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: nhu
-  Date: 6/11/2021
-  Time: 1:34 AM
+  Date: 6/21/2021
+  Time: 4:05 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -21,7 +21,7 @@
 <body>
 <div class="container">
     <p>
-        <a  href="/khachhang">Trở lại danh sách khách hàng</a>
+        <a  href="/hopdong?action=create">Trở lại thêm mới hợp đồng</a>
     </p>
     <form method="post">
         <div class="form-group">
@@ -53,7 +53,7 @@
             <input type="text"  name="email" class="form-control"  placeholder="email">
         </div>
         <div class="form-group">
-        <label >Loại Khách:</label>
+            <label >Loại Khách:</label>
             <select name="id_loaikhach" id="exampleInputPosition">
                 <option>
                     Loại khách:

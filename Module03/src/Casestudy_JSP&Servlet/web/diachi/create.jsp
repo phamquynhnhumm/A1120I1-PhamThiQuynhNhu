@@ -26,6 +26,11 @@
         </a>
     </p>
     <p>
+        <a href="/khachhang?action=createh">
+            Trở lại thêm mới khách hàng
+        </a>
+    </p>
+    <p>
         <a href="/nhanvien?action=create">
             Trở lại thêm mới nhanvien
         </a>

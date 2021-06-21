@@ -33,6 +33,9 @@ public class KhachhangServlet extends HttpServlet {
             case "create":
                 CreateKhachhang(request,response);
                 break;
+            case "createhd":
+                CreateKhachhang_Hopdong(request,response);
+                break;
             case "search":
                 SearchKhachhang(request,response);
                 break;
@@ -45,6 +48,28 @@ public class KhachhangServlet extends HttpServlet {
             default:
                 ListKhachhang(request,response);
         }
+    }
+
+    private void CreateKhachhang_Hopdong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id= request.getParameter("id");
+        System.out.println("id_kg:" + id);
+        String ten = request.getParameter("ten");
+        String ngaysinh =  request.getParameter("ngaysinh");
+        String gioitinh = request.getParameter("gioitinh");
+        int socmnd =Integer.parseInt(request.getParameter("socmnd"));
+        System.out.println(request.getParameter("sdt"));
+        int sdt = Integer.parseInt(request.getParameter("sdt"));
+        String email = request.getParameter("email");
+        String id_loaikhach = request.getParameter("id_loaikhach");
+        String id_diachi= request.getParameter("id_diachi");
+        Khachhang khachhang = new Khachhang(id,ten,ngaysinh,gioitinh,socmnd,sdt,email,new Loaikhach(id_loaikhach),new Diachi(id_diachi));
+        System.out.println("dang them moi khach hang ");
+        System.out.println("id khach hang" +id_loaikhach);
+        System.out.println("id dia ci " +id_diachi);
+        System.out.println("kh kh :" +khachhang);
+        service.save(khachhang);
+        response.sendRedirect(request.getContextPath() + "/hopdong?action=create&id_khachhang="+ id);
+
     }
 
     private void DeleteKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -77,7 +102,6 @@ public class KhachhangServlet extends HttpServlet {
     }
 
     private void CreateKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String id= request.getParameter("id");
         System.out.println("id_kg:" + id);
         String ten = request.getParameter("ten");
@@ -109,6 +133,9 @@ public class KhachhangServlet extends HttpServlet {
         {
             case "create":
                 showCreateKhachhang(request,response);
+                break;
+            case "createhd":
+                showCreateKhachhang_hopdong(request,response);
                 break;
             case "edit":
                 showEditKhachhang(request,response);
@@ -190,6 +217,17 @@ public class KhachhangServlet extends HttpServlet {
         request.setAttribute("loaikhachs",loaikhaches);
         System.out.println( "dia cỉ khach han" +diachis);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/create.jsp");
+        dispatcher.forward(request,response);
+    }
+    private void showCreateKhachhang_hopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_diachi =  request.getParameter("id_diachi");
+        List<Diachi> diachis = diachiService.finAll();
+        List<Loaikhach> loaikhaches = loaikhachService.finAll();
+        request.setAttribute("diachis",diachis);
+        request.setAttribute("id_diachi",id_diachi);
+        request.setAttribute("loaikhachs",loaikhaches);
+        System.out.println( "dia cỉ khach han" +diachis);
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/createkh_hp.jsp");
         dispatcher.forward(request,response);
     }
 }

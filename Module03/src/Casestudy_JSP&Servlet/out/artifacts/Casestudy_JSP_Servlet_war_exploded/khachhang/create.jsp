@@ -21,7 +21,7 @@
 <body>
 <div class="container">
     <p>
-        <a  href="/khachhang">Trở lại danh sách User</a>
+        <a  href="/khachhang">Trở lại danh sách khách hàng</a>
     </p>
     <form method="post">
         <div class="form-group">

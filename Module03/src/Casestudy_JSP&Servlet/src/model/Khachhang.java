@@ -32,6 +32,12 @@ public class Khachhang {
     public Khachhang(String ten_khachhang, String ngaysinh, String gioitinh, int socmnd, int sdt, String email, Loaikhach loaikhach, Diachi diachi) {
     }
 
+    public Khachhang(String id_khachhang, String ten_khachhang) {
+        this.id_khachhang = id_khachhang;
+        this.ten_khachhang = ten_khachhang;
+
+    }
+
     public String getId_khachhang() {
         return id_khachhang;
     }

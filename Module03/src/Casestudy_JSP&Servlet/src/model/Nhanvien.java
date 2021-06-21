@@ -35,6 +35,11 @@ public class Nhanvien {
         this.id_nhanvien = id_nhanvien;
     }
 
+    public Nhanvien(String id_nhanvien, String ten_nhanvien) {
+        this.id_nhanvien = id_nhanvien;
+        this.ten_nhanvien = ten_nhanvien;
+    }
+
 
     public String getId_nhanvien() {
         return id_nhanvien;

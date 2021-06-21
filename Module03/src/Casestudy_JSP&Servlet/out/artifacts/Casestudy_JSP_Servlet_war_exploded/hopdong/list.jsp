@@ -54,13 +54,14 @@
 <%--                    </a>--%>
 <%--                </td>--%>
                 <td>
-<%--                    <a href="/nhanvien?action=view&id=${hopdong.getNhanvien().getId_nhanvien()}">--%>
-                        ${hopdong.getNhanvien().getTen_nhanvien()}
-<%--                    </a>--%>
+                    <a href="/nhanvien?action=view&id=${hopdong.getNhanvien().getId_nhanvien()}">
+                            ${hopdong.getNhanvien().getTen_nhanvien()}
+                    </a>
                 </td>
                 <td>
                     <a href="/khachhang?action=view&id=${hopdong.getKhachhang().getId_khachhang()}">
-                            ${hopdong.getKhachhang().getTen_khachhang()}
+<%--                            ${hopdong.getKhachhang().getTen_khachhang()} kh--%>
+                        ${hopdong.getKhachhang().getTen_khachhang()}
                     </a>
                 </td>
                 <td>
@@ -91,7 +92,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                        <a href="/khachhang?action=delete&id=${hopdong.getId_hopdong()}"
+                        <a href="/hopdong?action=delete&id=${hopdong.getId_hopdong()}"
                            role="button" class="btn btn-danger" title="Xoa">Xóa</a>
                     </div>
                 </div>

@@ -32,8 +32,6 @@
             <th>Chi Phí</th>
             <th>Số người</th>
             <th>Kiểu Dịch Vụ</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
         <tr>
             <td>${dichvu.getId_dichvu()}</td>
