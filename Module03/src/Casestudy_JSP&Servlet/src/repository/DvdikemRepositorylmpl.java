@@ -22,7 +22,7 @@ public class DvdikemRepositorylmpl implements DvdikemRepository {
         if(connection != null)
         {
             try{
-                statement = connection.prepareStatement("SELECT_DVDK");
+                statement = connection.prepareStatement(SELECT_DVDK);
                 resultSet = statement.executeQuery();
                 Dvdikem dvdikem = null;
                 while (resultSet.next())
@@ -50,6 +50,7 @@ public class DvdikemRepositorylmpl implements DvdikemRepository {
 
     @Override
     public void save(Dvdikem dvdikem) {
+
     }
 
     @Override
@@ -61,7 +62,7 @@ public class DvdikemRepositorylmpl implements DvdikemRepository {
         if(connection != null)
         {
             try{
-                statement = connection.prepareStatement("SELECT_DVDK");
+                statement = connection.prepareStatement(SELECT_DVDK_ID);
                 statement.setString(1,name);
                 resultSet = statement.executeQuery();
                 Dvdikem dvdikem = null;

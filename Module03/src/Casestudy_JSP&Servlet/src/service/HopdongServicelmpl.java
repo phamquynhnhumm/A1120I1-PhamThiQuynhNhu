@@ -33,9 +33,9 @@ public class HopdongServicelmpl implements HopdongService {
         hopdongRepository.remove(id);
 
     }
-
     @Override
     public Hopdong finById1(String id) {
-        return null;
+
+        return hopdongRepository.finById1(id);
     }
 }

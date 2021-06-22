@@ -35,7 +35,7 @@ public class HopdongServlet extends HttpServlet {
             case "search":
                 SearchHopdong(request,response);
                 break;
-            case "eidt":
+            case "edit":
                 EditHopdong(request,response);
                 break;
             case "view":
@@ -49,7 +49,20 @@ public class HopdongServlet extends HttpServlet {
     private void ViewHopdong(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void EditHopdong(HttpServletRequest request, HttpServletResponse response) {
+    private void EditHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id= request.getParameter("id_hopdong");
+        System.out.println("id_kg:" + id);
+        String ngaybatdau = request.getParameter("ngaybatdau");
+        String ngayketthuc =  request.getParameter("ngayketthuc");
+        float sotiendatcoc = request.getDateHeader("sotiendatcoc");
+        float tongsotienthanhtoan = request.getDateHeader("tongsotienthanhtoan");
+        String id_nhanvien = request.getParameter("id_nhanvien");
+        String id_khachhang = request.getParameter("id_khachhang");
+        String id_dichvu= request.getParameter("id_dichvu");
+        Hopdong hopdong = new Hopdong(id,ngaybatdau,ngayketthuc,sotiendatcoc,tongsotienthanhtoan, new Nhanvien(id_nhanvien),new Khachhang(id_khachhang),new Dichvu(id_dichvu));
+        service.update(id,hopdong);
+        ListHopdong(request,response);
+
     }
 
     private void SearchHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -99,7 +112,7 @@ public class HopdongServlet extends HttpServlet {
             case "search":
                 showSearchHopdong(request,response);
                 break;
-            case "eidt":
+            case "edit":
                 showEditHopdong(request,response);
                 break;
             case "view":
@@ -113,7 +126,23 @@ public class HopdongServlet extends HttpServlet {
         }
     }
 
-    private void showEditHopdong(HttpServletRequest request, HttpServletResponse response) {
+    private void showEditHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id_khachhang =  request.getParameter("id_khachhang");
+        String id =  request.getParameter("id");
+        System.out.println("id dang tim kiem la" + id + service.finById1(id));
+        List<Kieuthue> kieuthues = kieuthuService.finAll();
+        List<Khachhang> khachhangs = khachhangService.finAll();
+        List<Nhanvien> nhanviens = nhanvienService.finAll();
+        List<Dichvu> dichvus= dichvuService.finAll();
+        Hopdong hopdong = service.finById1(id);
+        request.setAttribute("hopdong",hopdong);
+        request.setAttribute("id_khachhang",id_khachhang);
+        request.setAttribute("kieuthues",kieuthues);
+        request.setAttribute("khachhangs",khachhangs);
+        request.setAttribute("nhanviens",nhanviens);
+        request.setAttribute("dichvus",dichvus);
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/hopdong/edit.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void showViewHopdong(HttpServletRequest request, HttpServletResponse response) {
@@ -148,3 +177,4 @@ public class HopdongServlet extends HttpServlet {
         dispatcher.forward(request,response);
     }
 }
+

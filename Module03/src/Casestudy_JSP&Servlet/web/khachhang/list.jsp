@@ -38,10 +38,6 @@
             <th>Email</th>
             <th>Loại Khách</th>
             <th>Địa Chỉ</th>
-<%--            <th>Xã</th>--%>
-<%--            <th>Huyện</th>--%>
-<%--            <th>Tỉnh</th>--%>
-<%--            <th>Quốc Gia</th>--%>
             <th>Edit</th>
             <th>Delete</th>
         </tr>

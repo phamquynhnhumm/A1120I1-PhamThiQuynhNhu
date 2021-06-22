@@ -59,8 +59,8 @@ public class HopdongRepositorylmpl implements  HopdongRepository{
                     String id_dichvu = resultSet.getString("id_dichvu");
                     hopdong = new Hopdong(id_hopdong,ngaybatdau,ngayketthuc,sotiendatcuoc,tongsotienthanhtoan,new Nhanvien(id_nhanvien,ten_nhanvien), new Khachhang(id_khachhang,ten_khachhang), new Dichvu(id_dichvu,ten_dichvu));
                     hopdongList.add(hopdong);
-                    System.out.println("Danh sach hop dong: "+  ten_nhanvien );
-                    System.out.println("Danh sach hop dong: "+ new Nhanvien(id_nhanvien).getTen_nhanvien());
+//                    System.out.println("Danh sach hop dong: "+  ten_nhanvien );
+//                    System.out.println("Danh sach hop dong: "+ new Nhanvien(id_nhanvien).getTen_nhanvien());
                 }
 
             } catch (SQLException e) {
@@ -228,6 +228,7 @@ public class HopdongRepositorylmpl implements  HopdongRepository{
                 statement = connection.prepareStatement(SELECT_HOPDONG_ID);
                 statement.setString(1 ,id);
                 resultSet =statement.executeQuery();
+                System.out.println("SQL1" + statement);
                 while (resultSet.next())
                 {
                     String id_hopdong = resultSet.getString("id_hopdong");
@@ -242,8 +243,7 @@ public class HopdongRepositorylmpl implements  HopdongRepository{
                     String id_khachhang = resultSet.getString("id_khachhang");
                     String id_dichvu = resultSet.getString("id_dichvu");
                     hopdong = new Hopdong(id_hopdong,ngaybatdau,ngayketthuc,sotiendatcuoc,tongsotienthanhtoan,new Nhanvien(id_nhanvien,ten_nhanvien), new Khachhang(id_khachhang,ten_khachhang), new Dichvu(id_dichvu,ten_dichvu));
-                    System.out.println("Danh sach hop dong: "+  ten_nhanvien );
-                    System.out.println("Danh sach hop dong: "+ new Nhanvien(id_nhanvien).getTen_nhanvien());
+                    System.out.println(" hop dong tim thay" + hopdong);
                 }
 
             } catch (SQLException e) {
