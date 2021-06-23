@@ -20,68 +20,81 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div >
-    <p>
-        <a href="/dichvu?action=create"> Thêm mới </a>
-    </p>
-    <p>
-        <a href="/dichvu?action=search"> Tìm kiếm</a>
-    </p>
-    <h2>Danh sách Dịch vụ</h2>
-    <table class="table table-hover" id="tabledichvu">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Tên Dịch Vụ</th>
-            <th>Diện Tích</th>
-            <th>Chi Phí</th>
-            <th>Số người</th>
-            <th>Kiểu Dịch Vụ</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${dichvu}" var="dichvu">
-            <tr>
-                <td>${dichvu.getId_dichvu()}</td>
-                <td>${dichvu.getTen_dichvu()}</td>
-                <td>${dichvu.getDientich()}</td>
-                <td>${dichvu.getChiphi()}</td>
-                <td>${dichvu.getSonguoi()}</td>
-                <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
-                <td>
-                    <a href="/dichvu?action=edit&id=${dichvu.getId_dichvu()}">
-                        Edit
-                    </a>
-                </td>
-                <td>
-                    <a href="#myModal_${dichvu.getId_dichvu()}" role="button" class="btn btn-large btn-danger"
-                       data-toggle="modal">Xoa</a>
-                </td>
-            </tr>
-        <div id="myModal_${dichvu.getId_dichvu()}" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Bạn có chắc chắn muốn xóa  ${dichvu.getId_dichvu()} này ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                        <a href="/dichvu?action=delete&id=${dichvu.getId_dichvu()}"
-                           role="button" class="btn btn-danger" title="Xoa">Xóa</a>
+
+<div class="container-fluid">
+    <jsp:include page="/header.jsp"/>
+    <jsp:include page="/menu.jsp"/>
+    <nav >
+        <div class="row container">
+            <article class="col-sm-3">
+                <a class="nav-link " href="/dichvu">danh sách dịch vụ</a>
+                <a class="nav-link " href="/dichvu?action=create">Thêm mới dịch vụ</a>
+            </article>
+            <article class="col-sm-9">
+                <div class="tab-content">
+                    <div>
+                        <h2>Danh sách Dịch vụ</h2>
+                        <table class="table table-hover" id="tabledichvu">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Tên Dịch Vụ</th>
+                                <th>Diện Tích</th>
+                                <th>Chi Phí</th>
+                                <th>Số người</th>
+                                <th>Kiểu Dịch Vụ</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach items="${dichvu}" var="dichvu">
+                            <tr>
+                                <td>${dichvu.getId_dichvu()}</td>
+                                <td>${dichvu.getTen_dichvu()}</td>
+                                <td>${dichvu.getDientich()}</td>
+                                <td>${dichvu.getChiphi()}</td>
+                                <td>${dichvu.getSonguoi()}</td>
+                                <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
+                                <td>
+                                    <a href="/dichvu?action=edit&id=${dichvu.getId_dichvu()}">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#myModal_${dichvu.getId_dichvu()}" role="button" class="btn btn-large btn-danger"
+                                       data-toggle="modal">Xoa</a>
+                                </td>
+                            </tr>
+                            <div id="myModal_${dichvu.getId_dichvu()}" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Bạn có chắc chắn muốn xóa  ${dichvu.getId_dichvu()} này ?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                                            <a href="/dichvu?action=delete&id=${dichvu.getId_dichvu()}"
+                                               role="button" class="btn btn-danger" title="Xoa">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
-        </tbody>
-    </table>
-</div><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            </article>
+        </div>
+    </nav>
+    <jsp:include page="/footer.jsp"/>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="jquery/jquery-3.5.1.min.js"></script>
@@ -97,6 +110,9 @@
                 "pageLength": 4
             }
         );
+        $(".nav-tabs a").click(function(){
+            $(this).tab('show');
+        });
     })
 </script>
 </body>

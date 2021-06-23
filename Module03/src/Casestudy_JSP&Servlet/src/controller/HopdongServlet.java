@@ -69,7 +69,7 @@ public class HopdongServlet extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("hopdong", service.finByName(name));
         System.out.println("đang tim kiem ten trong hop dong " + name);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/search.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/list.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -92,6 +92,7 @@ public class HopdongServlet extends HttpServlet {
     private void ListHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("hopdong",service.finAll());
         System.out.println("ds hp ding:" +service.finAll());
+        request.setAttribute("timkiem","hopdong");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/list.jsp");
         dispatcher.forward(request,response);
     }
@@ -158,7 +159,7 @@ public class HopdongServlet extends HttpServlet {
     }
 
     private void showSearchHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/search.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/list.jsp");
         dispatcher.forward(request,response);
     }
 

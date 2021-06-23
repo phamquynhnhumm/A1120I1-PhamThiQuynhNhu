@@ -18,46 +18,61 @@
 </head>
 <body>
 
-<div class="container">
-    <p>
-        <a  href="/dichvu">Trở lại danh sách dịch vụ</a>
-    </p>
-    <form method="post">
-        <div class="form-group">
-            <label >Id</label>
-            <input type="text" name="id" class="form-control" value="${dichvu.getId_dichvu()}"  readonly>
+<div class="container-fluid">
+    <jsp:include page="/header.jsp"/>
+    <jsp:include page="/menu.jsp"/>
+    <nav >
+        <div class="row container">
+            <article class="col-sm-3">
+                <a class="nav-link " href="/dichvu">danh sách dịch vụ</a>
+                <a class="nav-link " href="/dichvu?action=create">Thêm mới dịch vụ</a>
+            </article>
+            <article class="col-sm-9">
+                <div class="tab-content">
+                    <div class="container">
+
+                        <form method="post">
+                            <div class="form-group">
+                                <label >Id</label>
+                                <input type="text" name="id" class="form-control" value="${dichvu.getId_dichvu()}"  readonly>
+                            </div>
+                            <div class="form-group">
+                                <label >Tên:</label>
+                                <input type="text" name="ten" class="form-control"  value="${dichvu.getTen_dichvu()}">
+                            </div>
+                            <div class="form-group">
+                                <label >Diện Tích:</label>
+                                <input type="text"  name="dientich" class="form-control"  value="${dichvu.getDientich()}">
+                            </div>
+                            <div class="form-group">
+                                <label >Chi Phí:</label>
+                                <input type="text"  name="chiphi" class="form-control"   value="${dichvu.getChiphi()}">
+                            </div>
+                            <div class="form-group">
+                                <label >Số Người:</label>
+                                <input type="text"  name="songuoi" class="form-control"   value="${dichvu.getSonguoi()}">
+                            </div>
+                            <div class="form-group">
+                                <label >Kiểu Thuê:</label>
+                                <select name="id_kieuthue" id="exampleInputPosition">
+                                    <option  value="${dichvu.getKieuthue().getId_kieuthue()}">
+                                        ${dichvu.getKieuthue(). getTen_kieuthue()}
+                                    </option>
+                                    <c:forEach items="${kieuthues}" var="kieuthues">
+                                        <option  value="${kieuthues.getId_kieuthue()}">
+                                                ${kieuthues.getTen_kieuthue()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="form-group">
-            <label >Tên:</label>
-            <input type="text" name="ten" class="form-control"  value="${dichvu.getTen_dichvu()}">
-        </div>
-        <div class="form-group">
-            <label >Diện Tích:</label>
-            <input type="text"  name="dientich" class="form-control"  value="${dichvu.getDientich()}">
-        </div>
-        <div class="form-group">
-            <label >Chi Phí:</label>
-            <input type="text"  name="chiphi" class="form-control"   value="${dichvu.getChiphi()}">
-        </div>
-        <div class="form-group">
-            <label >Số Người:</label>
-            <input type="text"  name="songuoi" class="form-control"   value="${dichvu.getSonguoi()}">
-        </div>
-        <div class="form-group">
-            <label >Kiểu Thuê:</label>
-            <select name="id_kieuthue" id="exampleInputPosition">
-                <option  value="${dichvu.getKieuthue().getId_kieuthue()}">
-                    ${dichvu.getKieuthue(). getTen_kieuthue()}
-                </option>
-                <c:forEach items="${kieuthues}" var="kieuthues">
-                    <option  value="${kieuthues.getId_kieuthue()}">
-                            ${kieuthues.getTen_kieuthue()}
-                    </option>
-                </c:forEach>
-            </select>
-        </div>
-        <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
-    </form>
+    </nav>
+    <jsp:include page="/footer.jsp"/>
 </div>
 </body>
 </html>

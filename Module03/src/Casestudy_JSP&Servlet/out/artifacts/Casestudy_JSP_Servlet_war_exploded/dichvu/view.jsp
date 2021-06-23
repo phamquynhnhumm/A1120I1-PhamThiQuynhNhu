@@ -19,29 +19,44 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <h3>địa chỉ mới thêm</h3>
-    <p>
-        <a href="/hopdong">Trở lại danh sách hợp đồng</a>
-    </p>
-    <table class="table table-hover" id="tableKhachhang">
-        <tr>
-            <th>Id</th>
-            <th>Tên Dịch Vụ</th>
-            <th>Diện Tích</th>
-            <th>Chi Phí</th>
-            <th>Số người</th>
-            <th>Kiểu Dịch Vụ</th>
-        </tr>
-        <tr>
-            <td>${dichvu.getId_dichvu()}</td>
-            <td>${dichvu.getTen_dichvu()}</td>
-            <td>${dichvu.getDientich()}</td>
-            <td>${dichvu.getChiphi()}</td>
-            <td>${dichvu.getSonguoi()}</td>
-            <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
-        </tr>
-    </table>
+
+<div class="container-fluid">
+    <jsp:include page="/header.jsp"/>
+    <jsp:include page="/menu.jsp"/>
+    <nav >
+        <div class="row container">
+            <article class="col-sm-3">
+                <a class="nav-link " href="/dichvu">danh sách dịch vụ</a>
+                <a class="nav-link " href="/dichvu?action=create">Thêm mới dịch vụ</a>
+            </article>
+            <article class="col-sm-9">
+                <div class="tab-content">
+                    <div class="container">
+                        <h3>Dịch vụ mới thêm</h3>
+                        <table class="table table-hover" id="tableKhachhang">
+                            <tr>
+                                <th>Id</th>
+                                <th>Tên Dịch Vụ</th>
+                                <th>Diện Tích</th>
+                                <th>Chi Phí</th>
+                                <th>Số người</th>
+                                <th>Kiểu Dịch Vụ</th>
+                            </tr>
+                            <tr>
+                                <td>${dichvu.getId_dichvu()}</td>
+                                <td>${dichvu.getTen_dichvu()}</td>
+                                <td>${dichvu.getDientich()}</td>
+                                <td>${dichvu.getChiphi()}</td>
+                                <td>${dichvu.getSonguoi()}</td>
+                                <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </nav>
+    <jsp:include page="/footer.jsp"/>
 </div>
 </body>
 </html>

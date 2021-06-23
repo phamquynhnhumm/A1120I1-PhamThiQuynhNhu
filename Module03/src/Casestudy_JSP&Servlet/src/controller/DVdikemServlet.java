@@ -85,6 +85,7 @@ import java.io.IOException;
 
     private void ListDvdikem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("dvdikem",service.finAll());
+        request.setAttribute("timkiem","dvdikem");
         System.out.println(service.finAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/dvdikem/list.jsp");
         dispatcher.forward(request,response);

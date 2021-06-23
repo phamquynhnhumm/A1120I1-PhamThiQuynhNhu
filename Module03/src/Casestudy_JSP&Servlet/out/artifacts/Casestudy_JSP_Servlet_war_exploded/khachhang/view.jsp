@@ -19,36 +19,54 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div>
-    <p>
-    <p>
-        <a href="/hopdong">Trở lại danh sách hợp đồng</a>
-    </p>
-    </p>
-    <table class="table table-hover" id="tablenhanvien">
-        <tr>
-            <th>Id</th>
-            <th>Tên</th>
-            <th>Ngày Sinh</th>
-            <th>Giới Tính</th>
-            <th>Số Cmnd</th>
-            <th>Số điện thoại</th>
-            <th>Email</th>
-            <th>Loại Khách</th>
-            <th>Địa Chỉ</th>
-        </tr>
-        <tr>
-            <td>${khachhang.getId_khachhang()}</td>
-            <td>${khachhang.getTen_khachhang()}</td>
-            <td>${khachhang.getNgaysinh()}</td>
-            <td>${khachhang.getGioitinh()}</td>
-            <td>${khachhang.getSocmnd()}</td>
-            <td>${khachhang.getSdt()}</td>
-            <td>${khachhang.getEmail()}</td>
-            <td>${khachhang.getLoaikhach().getTen_loaikhach()}</td>
-        </tr>
-    </table>
-</div>
 
+<div class="container-fluid">
+    <jsp:include page="/header.jsp"/>
+    <jsp:include page="/menu.jsp"/>
+    <nav >
+        <div class="row container">
+            <article class="col-sm-3">
+                <a class="nav-link " href="/khachhang">Xem danh sách khách hàng</a>
+                <a class="nav-link " href="/khachhang?action=create">Thêm mới khách hàng</a>
+                <a class="nav-link " href="/khachhang?action=search">tìm kiếm khách hàng</a>
+            </article>
+            <article class="col-sm-9">
+                <div class="tab-content">
+                    <div>
+                        <p>
+                        <p>
+                            <a href="/hopdong">Trở lại danh sách hợp đồng</a>
+                        </p>
+                        </p>
+                        <table class="table table-hover" id="tablenhanvien">
+                            <tr>
+                                <th>Id</th>
+                                <th>Tên</th>
+                                <th>Ngày Sinh</th>
+                                <th>Giới Tính</th>
+                                <th>Số Cmnd</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Loại Khách</th>
+                                <th>Địa Chỉ</th>
+                            </tr>
+                            <tr>
+                                <td>${khachhang.getId_khachhang()}</td>
+                                <td>${khachhang.getTen_khachhang()}</td>
+                                <td>${khachhang.getNgaysinh()}</td>
+                                <td>${khachhang.getGioitinh()}</td>
+                                <td>${khachhang.getSocmnd()}</td>
+                                <td>${khachhang.getSdt()}</td>
+                                <td>${khachhang.getEmail()}</td>
+                                <td>${khachhang.getLoaikhach().getTen_loaikhach()}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </nav>
+    <jsp:include page="/footer.jsp"/>
+</div>
 </body>
 </html>

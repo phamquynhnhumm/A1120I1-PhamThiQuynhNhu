@@ -97,7 +97,7 @@ public class KhachhangServlet extends HttpServlet {
         String name= request.getParameter("name");
         System.out.println("đang tìm kiếm ten" +name);
         request.setAttribute("khachhang",service.finByName(name));
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/search.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/list.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -168,6 +168,7 @@ public class KhachhangServlet extends HttpServlet {
     private void ListKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("đang list ds khách hàng");
         request.setAttribute("khachhang",service.finAll());
+        request.setAttribute("timkiem","khachhang");
         List<Khachhang> a = service.finAll();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/khachhang/list.jsp");
         dispatcher.forward(request,response);
@@ -186,10 +187,10 @@ public class KhachhangServlet extends HttpServlet {
     }
 
     private void showSearchKhachhang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String name= request.getParameter("name");
-//        System.out.println("đang tìm kiếm ten" +name);
-//        request.setAttribute("khachhang",service.finByName(name));
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/search.jsp");
+        String name= request.getParameter("name");
+        System.out.println("đang tìm kiếm ten" +name);
+        request.setAttribute("khachhang",service.finByName(name));
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/list.jsp");
         dispatcher.forward(request,response);
     }
 

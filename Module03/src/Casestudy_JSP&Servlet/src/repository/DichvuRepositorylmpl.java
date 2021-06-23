@@ -111,6 +111,7 @@ public class DichvuRepositorylmpl implements  DichvuRepository{
                 dichvu = new Dichvu(id_dichvu,ten_dichvu,dientich,chiphi,songuoi, new  Kieuthue( id_kieuthue,ten_kieuthue));
                 dichvuList.add(dichvu);
                 System.out.println("dichv u; "+ dichvuList);
+                System.out.println();
             }
         } catch (SQLException e) {
             e.printStackTrace();

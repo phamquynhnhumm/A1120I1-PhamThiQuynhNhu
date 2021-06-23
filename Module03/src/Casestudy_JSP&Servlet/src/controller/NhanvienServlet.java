@@ -59,7 +59,7 @@ public class NhanvienServlet extends HttpServlet {
         System.out.println("đang tìm kiếm ten111 : " +name);
         request.setAttribute("nhanviens",service.finByName(name));
         System.out.println("tim kiem duoc:" + service.finByName(name));
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/nhanvien/search.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/nhanvien/list.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -171,25 +171,17 @@ public class NhanvienServlet extends HttpServlet {
     }
 
     private void showSearchNhanvien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/nhanvien/search.jsp");
+        String name= request.getParameter("name");
+        System.out.println("đang tìm kiếm ten111 : " +name);
+        request.setAttribute("nhanviens",service.finByName(name));
+        System.out.println("tim kiem duoc:" + service.finByName(name));
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/nhanvien/list.jsp");
         dispatcher.forward(request,response);
     }
 
     private void ListNhanvien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("đang list ra danh sách nhân viên");
-//        List<Trinhdo> trinhdos = trinhdoService.finAll();
-//        List<Vitri> vitris = vitriService.finAll();
-//        List<Bophan> bophans = bophanService.finAll();
-//        List<User> users = userService.finAll();
-//        List<Nhanvien> nhanviens =  service.finAll();
-//        request.setAttribute("trinhdos",trinhdos);
-//        request.setAttribute("vitris",vitris);
-//        request.setAttribute("bophans",bophans);
-//        request.setAttribute("users",users);
-//        request.setAttribute("nhanviens",nhanviens);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/nhanvien/list.js");
-//        dispatcher.forward(request,response);
 
+        request.setAttribute("timkiem","nhanvien");
         System.out.println("đang list ds nhan viên");
         request.setAttribute("nhanviens",service.finAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/nhanvien/list.jsp");

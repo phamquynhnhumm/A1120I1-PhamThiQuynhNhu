@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
 @WebServlet(name = "DichvuServlet", urlPatterns = "/dichvu")
 public class DichvuServlet extends HttpServlet {
     public DichvuService service = new DichvuServicelmpl();
@@ -55,6 +54,7 @@ public class DichvuServlet extends HttpServlet {
 
     private void ListDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("dichvu",service.finAll());
+        request.setAttribute("timkiem","dichvu");
         List<Dichvu> a = service.finAll();
         RequestDispatcher dispatcher = request.getRequestDispatcher("/dichvu/list.jsp");
         dispatcher.forward(request,response);
@@ -66,12 +66,9 @@ public class DichvuServlet extends HttpServlet {
     }
 
     private void SearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name= request.getParameter("name");
-        System.out.println("đang tìm kiếm ten" +name);
-        System.out.println("danh sach nam:" +service.finByName(name));
-        List<Dichvu> dichvuLis= service.finByName(name);
-        request.setAttribute("dichvus",dichvuLis);
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
+        String name = request.getParameter("name");
+        request.setAttribute("dichvu",service.finByName(name));
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/dichvu/list.jsp");
         dispatcher.forward(request,response);
     }
 
@@ -153,9 +150,12 @@ public class DichvuServlet extends HttpServlet {
         dispatcher.forward(request,response);
     }
     private void showSearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-//        request.setAttribute("dichvu",service.finByName(name));
-        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/search.jsp");
+        String name= request.getParameter("name");
+        System.out.println("đang tìm kiếm ten" +name);
+        System.out.println("danh sach nam:" +service.finByName(name));
+        List<Dichvu> dichvuLis= service.finByName(name);
+        request.setAttribute("dichvus",dichvuLis);
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/dichvu/list.jsp");
         dispatcher.forward(request,response);
     }
 
