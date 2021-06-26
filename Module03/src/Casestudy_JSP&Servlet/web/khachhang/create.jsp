@@ -34,10 +34,10 @@
                         <p>
                             <a  href="/khachhang">Trở lại danh sách khách hàng</a>
                         </p>
-                        <form method="post">
+                        <form method="post" onsubmit="validatteFrom()" name="create">
                             <div class="form-group">
                                 <label >Id</label>
-                                <input type="text" name="id" class="form-control"   placeholder="id">
+                                <input type="text" name="id" class="form-control"  placeholder="id">
                             </div>
                             <div class="form-group">
                                 <label >Tên:</label>
@@ -102,6 +102,14 @@
     </nav>
     <jsp:include page="/footer.jsp"/>
 </div>
+<script src="../../com"></script>
+<script>
+    function validatteFrom () {
+        let id = document.forms["create"]["id"].value;
+        if(!va)
+
+    }
+</script>
 
 </body>
 </html>

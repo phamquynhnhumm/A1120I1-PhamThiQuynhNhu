@@ -58,7 +58,9 @@ public class NhanvienServlet extends HttpServlet {
         String name= request.getParameter("name");
         System.out.println("đang tìm kiếm ten111 : " +name);
         request.setAttribute("nhanviens",service.finByName(name));
+        request.setAttribute("value_key", name);
         System.out.println("tim kiem duoc:" + service.finByName(name));
+
         RequestDispatcher dispatcher= request.getRequestDispatcher("/nhanvien/list.jsp");
         dispatcher.forward(request,response);
     }

@@ -68,6 +68,7 @@ public class DichvuServlet extends HttpServlet {
     private void SearchDichvu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         request.setAttribute("dichvu",service.finByName(name));
+        request.setAttribute("value_key", name);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/dichvu/list.jsp");
         dispatcher.forward(request,response);
     }

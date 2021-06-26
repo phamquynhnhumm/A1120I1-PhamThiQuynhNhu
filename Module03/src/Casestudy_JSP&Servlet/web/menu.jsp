@@ -34,7 +34,7 @@
         <ul class="navbar-nav mr-right">
             <li class="nav-item">
                 <form method="post" action="${timkiem}?action=search">
-                       <input type="search" name="name" placeholder="tìm kiếm?" aria-describedby="button-addon4" class="form-control border-0">
+                       <input type="search" name="name" placeholder="tìm kiếm?" aria-describedby="button-addon4" class="form-control border-0" value="${value_key}">
                 </form>
             </li>
         </ul>

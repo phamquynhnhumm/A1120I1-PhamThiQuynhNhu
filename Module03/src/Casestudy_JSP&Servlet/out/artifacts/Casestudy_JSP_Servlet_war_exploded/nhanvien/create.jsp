@@ -30,34 +30,42 @@
            </article>
         <article class="col-sm-9">
             <div class="container">
-                <form method="post" >
-                        <label >Id</label>
-                        <input type="text" name="id" class="form-control"   placeholder="id">
+                <form method="post" id="create" class="form" >
+                    <div class="form-group invalid">
+                        <label class="form-lable">Id</label>
+                        <input type="text" name="id" class="form-control"  id="id"  placeholder="id">
+                        <span class="form-message">  </span>
+                    </div>
+
                     <div class="form-group">
-                        <label >Tên:</label>
-                        <input type="text" name="ten" class="form-control"  placeholder="ten">
+                        <label class="form-lable">Tên</label>
+                        <input type="text" name="ten" class="form-control" id="ten"  placeholder="ten">
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Ngày sinh:</label>
                         <input type="text"  name="ngaysinh" class="form-control"  placeholder="Ngày sinh 1999/12/03">
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Số CMND:</label>
                         <input type="text"  name="socmnd" class="form-control"  placeholder="cmnd">
+                        <span class="form-message">  </span>
                     </div>
-                    <th>Id</th>
-
                     <div class="form-group">
                         <label >Số đt:</label>
                         <input type="text"  name="sdt" class="form-control"  placeholder="sdt">
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
-                        <label >Email:</label>
-                        <input type="text"  name="email" class="form-control"  placeholder="email">
+                        <label  class="form-lable" >Email:</label>
+                        <input type="text"  name="email" class="form-control" id="email"  placeholder="email">
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Luong:</label>
                         <input type="text"  name="luong" class="form-control"  placeholder="luong">
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Địa chỉ:</label>
@@ -74,6 +82,7 @@
                             </select>
                             <p> <a href="/diachi?action=createnv">Thêm mới địa chỉ</a></p>
                         </div>
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Trình độ:</label>
@@ -87,6 +96,7 @@
                                 </option>
                             </c:forEach>
                         </select>
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Bộ phận:</label>
@@ -100,6 +110,7 @@
                                 </option>
                             </c:forEach>
                         </select>
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Vị trí:</label>
@@ -113,6 +124,7 @@
                                 </option>
                             </c:forEach>
                         </select>
+                        <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >User:</label>
@@ -126,10 +138,25 @@
                                 </option>
                             </c:forEach>
                         </select>
+                        <span class="form-message">  </span>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
                 </form>
+
+
             </div>
+            <script src="/vadidate.js"></script>
+            <script>
+                Validate({
+                    form: '#create',
+                    rules:[
+                        Validate.isID('#id'),
+                        Validate.isTen('#ten'),
+                        Validate.isEmail('#email'),
+                    ]
+                });
+            </script>
+
         </article>
     </div>
 </nav>

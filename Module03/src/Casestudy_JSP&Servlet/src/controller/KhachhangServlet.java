@@ -97,6 +97,7 @@ public class KhachhangServlet extends HttpServlet {
         String name= request.getParameter("name");
         System.out.println("đang tìm kiếm ten" +name);
         request.setAttribute("khachhang",service.finByName(name));
+        request.setAttribute("value_key", name);
         RequestDispatcher dispatcher= request.getRequestDispatcher("/khachhang/list.jsp");
         dispatcher.forward(request,response);
     }

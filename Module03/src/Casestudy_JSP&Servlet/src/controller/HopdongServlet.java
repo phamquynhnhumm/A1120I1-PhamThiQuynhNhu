@@ -68,6 +68,7 @@ public class HopdongServlet extends HttpServlet {
     private void SearchHopdong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         request.setAttribute("hopdong", service.finByName(name));
+        request.setAttribute("value_key", name);
         System.out.println("đang tim kiem ten trong hop dong " + name);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/hopdong/list.jsp");
         dispatcher.forward(request,response);
