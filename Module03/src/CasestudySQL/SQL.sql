@@ -3,19 +3,19 @@ use caseStudy;
 -- drop database caseStudy;
 
 create table trinhdo(
-id_trinhdo nvarchar(5) not null primary key ,
+id_trinhdo nvarchar(15) not null primary key ,
 ten_trinhdo nvarchar(250) not null
 );
 create table vitri(
-id_vitri  nvarchar(5) not null primary key ,
+id_vitri  nvarchar(15) not null primary key ,
 ten_vitri nvarchar(250) not null
 );
 create table bophan(
-id_bophan  nvarchar(5) not null primary key ,
+id_bophan  nvarchar(15) not null primary key ,
 ten_bophan nvarchar(250) not null
 );
  create table diachi(
-id_diachi  nvarchar(5) not null primary key ,
+id_diachi  nvarchar(15) not null primary key ,
 sonha nvarchar(250) not null,
 xa  nvarchar(250) not null,
 huyen nvarchar(250) not null,
@@ -29,119 +29,119 @@ matkhau  nvarchar(250) not null
 );
 
 create table vaitro(
-vaitro_id  nvarchar(5) not null primary key ,
+vaitro_id  nvarchar(15) not null primary key ,
 ten_vaitro  nvarchar(250) not null
 );
 
 create table user_vaitro(
-vaitro_id  nvarchar(5) not null ,
+vaitro_id  nvarchar(15) not null ,
 ten_user  nvarchar(250) not null,
 primary key (vaitro_id,ten_user),
 foreign key(ten_user) references  user(ten_user) on delete cascade,
 foreign key(vaitro_id) references  vaitro(vaitro_id) on delete cascade
 );
 create table nhanvien(
-id_nhanvien nvarchar(5) not null primary key ,
+id_nhanvien  nvarchar(15) not null primary key ,
 ten_nhanvien nvarchar(250) not null,
 ngaysinh  nvarchar(250) not null,
-socmnd int(9) not null,
+socmnd int not null,
 sdt int not null,
 email nvarchar(250) not null,
-id_trinhdo  nvarchar(5) ,
+id_trinhdo  nvarchar(15),
 foreign key(id_trinhdo) references trinhdo(id_trinhdo) on delete cascade,
-id_vitri  nvarchar(5) ,
+id_vitri   nvarchar(15) ,
 foreign key(id_vitri) references vitri(id_vitri)on delete cascade,
-id_bophan  nvarchar(5) ,
+id_bophan   nvarchar(15) ,
 foreign key(id_bophan) references bophan(id_bophan) on delete cascade,
 luong float ,
-id_diachi  nvarchar(5) not null,
+id_diachi   nvarchar(15) not null,
 foreign key(id_diachi) references diachi(id_diachi) on delete cascade,
 ten_user nvarchar(250) not null ,
 foreign key(ten_user) references user(ten_user) on delete cascade
 );
 
 create table kieuthue(
-id_kieuthue  nvarchar(5) not null primary key ,
+id_kieuthue  nvarchar(15) not null primary key ,
 ten_kieuthue nvarchar(250) not null
 );
 select * from diachi;
 create table dichvu(
-id_dichvu  nvarchar(5) not null primary key ,
+id_dichvu  nvarchar(15) not null primary key ,
 ten_dichvu  nvarchar(250) not null,
 dientich float,
 chiphi float,
 songuoi  nvarchar(250) not null,
-id_kieuthue nvarchar(5) not null ,
+id_kieuthue  nvarchar(15) not null ,
 foreign key(id_kieuthue) references kieuthue(id_kieuthue) on delete cascade
 );
 
 create table house(
-id_house nvarchar(5) not null primary key ,
+id_house  nvarchar(15) not null primary key ,
 ten_house nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
 sotang int,
-id_dichvu nvarchar(5) not null ,
+id_dichvu nvarchar(15) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
 );
 create table villa(
-id_villa nvarchar(5) not null primary key ,
+id_villa  nvarchar(15) not null primary key ,
 ten_villa  nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
 dientichhoboi float,
 sotang int,
-id_dichvu nvarchar(5) not null ,
+id_dichvu nvarchar(15) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
 );
 create table  room(
-id_room nvarchar(5) not null primary key ,
+id_room  nvarchar(15) not null primary key ,
 ten_room  nvarchar(250) not null,
 tendichvufreedikem  nvarchar(250) not null,
-id_dichvu nvarchar(5) not null ,
+id_dichvu nvarchar(15) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
 );
 create table dvdikem(
- id_dvdikem nvarchar(5) not null primary key ,
+ id_dvdikem nvarchar(15) not null primary key ,
  ten_dvdikem  nvarchar(250) not null,
  dongia  nvarchar(250) not null,
  tien float
  );
    create table loaikhach( 
-id_loaikhach  nvarchar(5) not null primary key ,
+id_loaikhach   nvarchar(15) not null primary key ,
 ten_loaikhach nvarchar(250) not null
    );
    select * from diachi;
   create table khachhang(
-  id_khachhang nvarchar(5) not null primary key ,
+  id_khachhang  nvarchar(15) not null primary key ,
   ten_khachhang  nvarchar(250) not null,
   ngaysinh  nvarchar(250) not null,
   gioitinh  nvarchar(250) not null,
-  socmnd int(9),
-  sdt int(10),
+  socmnd int,
+  sdt int,
   email  nvarchar(250) not null,
-  id_loaikhach  nvarchar(5) not null,
+  id_loaikhach  nvarchar(15) not null,
    foreign key(id_loaikhach) references loaikhach(id_loaikhach)on delete cascade,
-  id_diachi  nvarchar(5) not null, 
+  id_diachi   nvarchar(15) not null, 
    foreign key(id_diachi) references diachi(id_diachi) on delete cascade
   );
  
   create table hopdong(
-  id_hopdong nvarchar(5) not null primary key ,
+  id_hopdong nvarchar(15) not null primary key ,
   ngaybatau  nvarchar(250),
    ngayketthuc  nvarchar(250),
    sotiendatcuoc float,
    tongsotienthanhtoan float,
-   id_nhanvien nvarchar(5) not null,
+   id_nhanvien nvarchar(15) not null,
    foreign key(id_nhanvien) references nhanvien(id_nhanvien) on delete cascade,
-   id_khachhang nvarchar(5) not null,
+   id_khachhang nvarchar(15) not null,
    foreign key(id_khachhang) references khachhang(id_khachhang) on delete cascade,
-   id_dichvu nvarchar(5) not null,
+   id_dichvu  nvarchar(15) not null,
    foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
   );
  create table hopdong_dvdikem(
- id_dvdikem  nvarchar(5) not null,
- id_hopdong  nvarchar(5) not null,
+ id_dvdikem   nvarchar(15) not null,
+ id_hopdong  nvarchar(15)not null,
  soluong int ,
 primary key (id_dvdikem, id_hopdong),
  foreign key( id_dvdikem) references dvdikem(id_dvdikem) on delete cascade,
@@ -567,3 +567,6 @@ having count(hopdong_dvdikem.id_hopdong) >0 ) as team
  set tien = (2 * tien)
  where dvdikem.ten_dvdikem =team.ten_dvdikem;
 
+select * from  hopdong_dvdikem;
+select * from  hopdong;
+select * from  dvdikem;
