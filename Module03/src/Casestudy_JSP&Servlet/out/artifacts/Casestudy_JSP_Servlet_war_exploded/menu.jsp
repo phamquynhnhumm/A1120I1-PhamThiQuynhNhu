@@ -6,17 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-expand-lg  navbar-dark bd-bark  " style="background: black; color: white">
-    <a class="navbar-brand" href="#">
-        <span class="glyphicon glyphicon-home"></span>
-        🏠
-    </a>
+<%--<nav class="navbar navbar-expand-lg  navbar-dark bd-bark  " style="background: black; color: white">--%>
+<%--    <a class="navbar-brand" href="#"> 🏠</a>--%>
+<%--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+<%--        <span class="navbar-toggler-icon"> </span>--%>
+<%--    </button>--%>
+<%--    <a class="navbar-brand" href="#">--%>
+<%--        <span class="glyphicon glyphicon-home"></span>--%>
+<%--        🏠--%>
+<%--    </a>--%>
+<%--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+<%--    </button>--%>
+<nav class="navbar navbar-expand-lg navbar-light" style="background:black ">
+    <a class="navbar-brand" href="#">Trang Chủ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">🏠</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav nav-tabs mr-auto">
             <li class="nav-item">
-                <a class="nav-link "  style="background: black; color: white" href="/">Trang Chủ</a>
+                <a class="nav-link "  style="background: black; color: white" href="/index.jsp">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link "  style="background: black; color: white" href="/nhanvien">Nhân Viên</a>

@@ -31,37 +31,44 @@
             <article class="col-sm-9">
                 <div class="tab-content">
                     <div class="container">
-                        <p>
-                            <a  href="/khachhang">Trở lại danh sách khách hàng</a>
-                        </p>
-                        <form method="post" onsubmit="validatteFrom()" name="create">
+
+                        <form method="post" onsubmit="validatteFrom()" name="create" id="create_kh">
                             <div class="form-group">
                                 <label >Id</label>
-                                <input type="text" name="id" class="form-control"  placeholder="id">
+                                <input type="text" name="id" class="form-control"  id="id" placeholder="id">
+                                <span class="form-message invalid">  </span>
                             </div>
                             <div class="form-group">
                                 <label >Tên:</label>
-                                <input type="text" name="ten" class="form-control"  placeholder="ten">
+                                <input type="text" name="ten" class="form-control"  id="ten" placeholder="ten">
+                                <span class="form-message invalid">  </span>
+
                             </div>
                             <div class="form-group">
                                 <label >Ngày sinh:</label>
-                                <input type="text"  name="ngaysinh" class="form-control"  placeholder="Ngày sinh 1999/12/03">
+                                <input type="text"  name="ngaysinh" class="form-control" id="ngay"  placeholder="Ngày sinh 1999/12/03">
+                                <span class="form-message invalid">  </span>
                             </div>
                             <div class="form-group">
                                 <label >Giới Tính:</label>
-                                <input type="text"  name="gioitinh" class="form-control"  placeholder="giới tính">
+                                <input type="text"  name="gioitinh" class="form-control"  id="gioitinh" placeholder="giới tính">
+                                <span class="form-message invalid">  </span>
                             </div>
                             <div class="form-group">
                                 <label >Số Cmnd:</label>
-                                <input type="text"  name="socmnd" class="form-control"  placeholder="số cmnd">
+                                <input type="text"  name="socmnd" class="form-control" id="cmnd"  placeholder="số cmnd">
+                                <span class="form-message invalid">  </span>
                             </div>
+
                             <div class="form-group">
                                 <label >Số đt:</label>
-                                <input type="text"  name="sdt" class="form-control"  placeholder="sdt">
+                                <input type="text"  name="sdt" class="form-control" id="sdt"  placeholder="sdt">
+                                <span class="form-message invalid">  </span>
                             </div>
                             <div class="form-group">
                                 <label >Email:</label>
-                                <input type="text"  name="email" class="form-control"  placeholder="email">
+                                <input type="text"  name="email" class="form-control"  id="email" placeholder="email">
+                                <span class="form-message invalid">  </span>
                             </div>
                             <div class="form-group">
                                 <label >Loại Khách:</label>
@@ -96,20 +103,31 @@
                             <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
                         </form>
                     </div>
+
+                    <script src="/vadidate.js"></script>
+                    <script>
+                        Validate({
+                            form: '#create_kh',
+                            rules:[
+                                Validate.isID_KH('#id'),
+                                Validate.isTen('#ten'),
+                                Validate.isEmail('#email'),
+                                Validate.isSDT('#sdt'),
+                                Validate.isGioitinh('#gioitinh'),
+                                Validate.isSCMND('#cmnd'),
+                                Validate.isNgay('#ngay'),
+                            ]
+                        });
+                    </script>
+
                 </div>
+
             </article>
         </div>
     </nav>
     <jsp:include page="/footer.jsp"/>
 </div>
-<script src="../../com"></script>
-<script>
-    function validatteFrom () {
-        let id = document.forms["create"]["id"].value;
-        if(!va)
 
-    }
-</script>
 
 </body>
 </html>

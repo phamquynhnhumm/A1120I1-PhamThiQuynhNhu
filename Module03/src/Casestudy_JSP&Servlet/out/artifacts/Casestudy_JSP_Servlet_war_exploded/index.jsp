@@ -12,54 +12,33 @@
 <head>
     <title>Title</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="cs.css">
 </head>
   <body>
-  <div class="container-fluid">
-      <jsp:include page="/header.jsp"/>
-      <jsp:include page="/menu.jsp"/>
-      <nav >
-          <div class=" mt-3">
-              <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <ul class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel" data-slide-to="1"></li>
-                      <li data-target="#myCarousel" data-slide-to="2"></li>
-                  </ul>
-                  <div class="carousel-inner">
-                      <div class="carousel-item active">
-                          <img src="img/bia2.jpg" class="d-block ">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="img/bia1.jpg" class="d-block ">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="img/bia1.jpg" class="d-block ">
-                      </div>
-                  </div>
-              </div>
+  <div class="wrapper fadeInDown">
+      <div id="formContent" style="background: black">
+          <!-- Tabs Titles -->
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+              <img src="./img/avata1.png" id="icon" alt="User Icon"  />
           </div>
-      </nav>
-      <jsp:include page="footer.jsp"/>
+          <c:if test="${message != null }">
+              <span style="color: red">${message}</span>
+          </c:if>
+          <form method="post" action="<%=request.getContextPath() %>/login">
+              <input type="text" id="ten" class="fadeIn second" name="ten" placeholder="Tên đăng nhập">
+              <input type="text" id="matkhau" class="fadeIn third" name="matkhau" placeholder="Mật khấu">
+              <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+              <a class="underlineHover" href="/dangky.jsp">Bạn có thể đăng ký nếu chưa có tài khoản</a>
+          </div>
+      </div>
   </div>
-  <script>
-      $(document).ready(function(){
-          $(".nav-tabs a").click(function(){
-              $(this).tab('show');
-          });
-          $(".nav-tabs a").click(function(){
-              $(this).tab('show');
-          });
-      });
-
-  </script>
   </body>
-
 </html>

@@ -8,8 +8,8 @@ import java.util.List;
 public interface UserReposetory {
     List<User> finAll();
     void  save(User user);
-    List<User>  finByName(String name);
+    boolean  finByName(String name,String mk);
     User update(String id,  User user);
     void remove(String id);
-    User finById1(String id);
+    List<User> finById1(String id);
 }

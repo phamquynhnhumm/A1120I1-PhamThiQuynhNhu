@@ -24,8 +24,8 @@
 <nav >
     <div class="row">
         <div class="col-sm-2">
-                <a class="nav-link " href="/nhanvien">Xem danh sách nhân viên</a>
-                <a class="nav-link " href="/nhanvien?action=create">Thêm mới nhân viên</a>
+                <a class="nav-link" href="/nhanvien">Xem danh sách nhân viên</a>
+                <a class="nav-link" href="/nhanvien?action=create">Thêm mới nhân viên</a>
         </div>
         <div class="col-sm-10">
                 <div class="tab-content">

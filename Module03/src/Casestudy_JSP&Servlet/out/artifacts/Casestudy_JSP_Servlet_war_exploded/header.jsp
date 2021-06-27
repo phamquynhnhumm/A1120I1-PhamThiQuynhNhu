@@ -10,5 +10,9 @@
     <div class="col-sm-8 shopping-mall">
         <img class="avatar" src="img/avatar_1.jpg" width="60px" height="60px">
     </div>
-    <h4>Phạm Thị Quỳnh Như</h4>
+    <%
+        if(session.getAttribute("ten") != null){
+    %>
+    <h2>Tài Khoản: <strong><%=session.getAttribute("ten") %></strong> </h2>
+    <%} %>
 </header>

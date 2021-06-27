@@ -11,14 +11,20 @@ public class validate {
     private  static  final  String EMAIL ="[A-Za-z0-9]*[@]{1}[A-Za-z0-9]*[.]com";
     private  static  final  String SOLUONG_SOTANG = "[1-9]*";
     private  static  final  String TAM="([1-9]{1}[0-9]*[.][0-9]*)|([1-9]{1}[0-9]*)";
+    private  static  final  String TEN ="^[A_Z][A-Za-z0-9]*";
 
     private  static Pattern pattern;
     private  static Matcher matcher;
-    public static boolean validateID_KHACHHANG (String regex)
+    public static String validateID_KHACHHANG (String value)
     {
-        pattern = Pattern.compile(ID_KHACHHANG);
-        matcher = pattern.matcher(regex);
-        return matcher.matches();
+//        pattern = Pattern.compile(ID_KHACHHANG);
+//        matcher = pattern.matcher(value);
+        String message= null;
+        if(!Pattern.matches(ID_KHACHHANG, value))
+        {
+            message ="vui lòng nhập đúng định dạng KH-XX";
+        }
+        return message;
     }
     public static boolean validateID_DICHVU (String regex)
     {

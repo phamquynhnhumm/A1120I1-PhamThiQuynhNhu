@@ -17,6 +17,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .invalid{
+            color: brown;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -31,10 +36,10 @@
         <article class="col-sm-9">
             <div class="container">
                 <form method="post" id="create" class="form" >
-                    <div class="form-group invalid">
-                        <label class="form-lable">Id</label>
+                    <div class="form-group ">
+                        <label for="id" class="form-lable">Id</label>
                         <input type="text" name="id" class="form-control"  id="id"  placeholder="id">
-                        <span class="form-message">  </span>
+                        <span class="form-message invalid">  </span>
                     </div>
 
                     <div class="form-group">
@@ -44,17 +49,17 @@
                     </div>
                     <div class="form-group">
                         <label >Ngày sinh:</label>
-                        <input type="text"  name="ngaysinh" class="form-control"  placeholder="Ngày sinh 1999/12/03">
+                        <input type="text"  name="ngaysinh" class="form-control" id="ngay"  placeholder="Ngày sinh 1999/12/03">
                         <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Số CMND:</label>
-                        <input type="text"  name="socmnd" class="form-control"  placeholder="cmnd">
+                        <input type="text"  name="socmnd" class="form-control" id="cmnd"  placeholder="cmnd">
                         <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Số đt:</label>
-                        <input type="text"  name="sdt" class="form-control"  placeholder="sdt">
+                        <input type="text"  name="sdt" class="form-control"  id="sdt" placeholder="sdt">
                         <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
@@ -64,13 +69,13 @@
                     </div>
                     <div class="form-group">
                         <label >Luong:</label>
-                        <input type="text"  name="luong" class="form-control"  placeholder="luong">
+                        <input type="text"  name="luong" class="form-control"  id="luong" placeholder="luong">
                         <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
                         <label >Địa chỉ:</label>
                         <div>
-                            <select name="id_diachi" id="1exampleInputPosition">
+                            <select name="id_diachi" id="diachi">
                                 <option>
                                     Địa chỉ
                                 </option>
@@ -86,7 +91,7 @@
                     </div>
                     <div class="form-group">
                         <label >Trình độ:</label>
-                        <select name="id_trinhdo">
+                        <select name="id_trinhdo" id="trinhdo">
                             <option>
                                 Trình độ
                             </option>
@@ -100,7 +105,7 @@
                     </div>
                     <div class="form-group">
                         <label >Bộ phận:</label>
-                        <select name="id_bophan">
+                        <select name="id_bophan" id="bophan">
                             <option>
                                 Bộ phận
                             </option>
@@ -114,7 +119,7 @@
                     </div>
                     <div class="form-group">
                         <label >Vị trí:</label>
-                        <select name="id_vitri">
+                        <select name="id_vitri" id="vitri">
                             <option>
                                 Vị trí
                             </option>
@@ -128,7 +133,7 @@
                     </div>
                     <div class="form-group">
                         <label >User:</label>
-                        <select name="ten_user">
+                        <select name="ten_user" id="user">
                             <option>
                                 ten_user
                             </option>
@@ -142,17 +147,19 @@
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
                 </form>
-
-
             </div>
             <script src="/vadidate.js"></script>
             <script>
                 Validate({
                     form: '#create',
                     rules:[
-                        Validate.isID('#id'),
+                        Validate.isID_NV('#id'),
                         Validate.isTen('#ten'),
                         Validate.isEmail('#email'),
+                        Validate.isSDT('#sdt'),
+                        Validate.isLuong('#luong'),
+                        Validate.isSCMND('#cmnd'),
+                        Validate.isNgay('#ngay'),
                     ]
                 });
             </script>

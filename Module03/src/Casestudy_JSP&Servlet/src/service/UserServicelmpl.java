@@ -20,9 +20,14 @@ public class UserServicelmpl implements UserService {
     }
 
     @Override
-    public List<User> finByName(String name) {
-        return userReposetory.finByName(name);
+    public boolean finByName(String name, String mk) {
+        return userReposetory.finByName(name,mk);
     }
+
+//    @Override
+//    boolean finByName(String name,String mk) {
+//        return userReposetory.finByName(name,mk);
+//    }
 
     @Override
     public User update(String id, User user) {
@@ -36,7 +41,7 @@ public class UserServicelmpl implements UserService {
     }
 
     @Override
-    public User finById1(String id) {
+    public  List<User> finById1(String id) {
         return userReposetory.finById1(id);
     }
 }
