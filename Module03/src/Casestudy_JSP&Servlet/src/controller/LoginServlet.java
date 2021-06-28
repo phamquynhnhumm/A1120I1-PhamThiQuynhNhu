@@ -1,5 +1,9 @@
 package controller;
 
+import model.Diachi;
+import model.Khachhang;
+import model.Loaikhach;
+import model.User;
 import service.UserService;
 import service.UserServicelmpl;
 import service.Vaitro_usrerService;
@@ -27,6 +31,20 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String action = request.getParameter("action");
+        if(action == null)
+        {
+            action="";
+        }
+        switch (action)
+        {
+            case "create":
+                CreateUser(request,response);
+                break;
+        }
+
         HttpSession session = request.getSession();
         String ten = request.getParameter("ten");
         String matkhau = request.getParameter("matkhau");
@@ -37,7 +55,6 @@ public class LoginServlet extends HttpServlet {
         if (service.finByName(ten,matkhau)) {
             session.setAttribute("ten", ten);
             session.setAttribute("matkhau", matkhau);
-
              if(vaitro_usrerService.finBygiamdoc(ten))
             {
                 System.out.println("quyennv" +  vaitro_usrerService.finBygiamdoc(ten));
@@ -58,9 +75,13 @@ public class LoginServlet extends HttpServlet {
             {
                 session.setAttribute("quyen", "Quản lý dịch vụ");
             }
-             else   if(vaitro_usrerService.finByhd(ten))
+             else if(vaitro_usrerService.finByhd(ten))
             {
                 session.setAttribute("quyen", "Quản lý hợp đồng");
+            }
+            if(vaitro_usrerService.finByhd(ten) == false)
+            {
+                session.setAttribute("quyen", "Bạn chỉ có quyền xem");
             }
 
 // tạo Cookie lưu mk
@@ -78,8 +99,38 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        response.setContentType("text.html");
+    private void CreateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String ten_user =  request.getParameter("ten");
+        String matkhau =  request.getParameter("matkhau");
+        User user = new User(ten_user, matkhau);
+        service.save(user);
+        System.out.println("ten dky  + matkhau " + ten_user +matkhau);
+//        System.out.println(service.save(user));
+        request.setAttribute("message","Bạn đã đăng ký thành công");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/dangky.jsp");
+        dispatcher.forward(request, response);
+    }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String action = request.getParameter("action");
+        if(action == null)
+        {
+            action="";
+        }
+        switch (action)
+        {
+            case "create":
+                showCreateUser(request,response);
+                break;
+        }
+
+    }
+
+    private void showCreateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/dangky.jsp");
+        dispatcher.forward(request, response);
     }
 }

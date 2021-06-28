@@ -1,7 +1,6 @@
 package repository;
 
-import model.*;
-import org.omg.CORBA.WStringSeqHelper;
+import model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,36 +9,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserReposetorylmpl  implements  UserReposetory{
+public class UserReposetorylmpl implements UserReposetory {
     public static final String SELECT_USER = "select * from user";
     public static final String INSERT_USER = "insert into user(ten_user,matkhau) value (?,?);";
-    private static final String SELECT_USER_TEN= "select * from user where ten_user= ? and matkhau=?;";
-    private static final String SELECT_USER_MK= "select * from user where matkhau= ?;";
+    private static final String SELECT_USER_TEN = "select * from user where ten_user= ? and matkhau=?;";
+    private static final String SELECT_USER_MK = "select * from user where matkhau= ?;";
 
     @Override
     public List<User> finAll() {
-        List<User> userList= new ArrayList<>();
+        List<User> userList = new ArrayList<>();
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement= null;
+        PreparedStatement statement = null;
         ResultSet resultSet = null;
-        if(connection != null)
-        {
-            try{
-                statement= connection.prepareStatement(SELECT_USER);
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_USER);
                 resultSet = statement.executeQuery();
                 User user = null;
-                while (resultSet.next())
-                {
+                while (resultSet.next()) {
                     String ten_user = resultSet.getString("ten_user");
                     String matkhau = resultSet.getString("matkhau");
-                    user = new User(ten_user,matkhau);
+                    user = new User(ten_user, matkhau);
                     userList.add(user);
                 }
 
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
-            finally {
+            } finally {
                 try {
                     statement.close();
                 } catch (SQLException e) {
@@ -54,36 +50,19 @@ public class UserReposetorylmpl  implements  UserReposetory{
 
     @Override
     public void save(User user) {
-
-    }
-
-    @Override
-    public boolean finByName(String name, String mk)
-    {
-       // List<User> userList = new ArrayList<>();
-        User user = null;
         Connection connection = DBConnection.getConnection();
-        PreparedStatement statement= null;
-        ResultSet resultSet = null;
-        if(connection != null)
-        {
-            try{
-                statement= connection.prepareStatement( SELECT_USER_TEN);
-                statement.setString(1,name);
-                statement.setString(2,mk);
-                resultSet = statement.executeQuery();
-
-                while (resultSet.next())
-                {
-                    String ten_user = resultSet.getString("ten_user");
-                    String matkhau = resultSet.getString("matkhau");
-                    user = new User(ten_user);
-                   // userList.add(user);
-                }
+        PreparedStatement statement = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(INSERT_USER);
+                System.out.println("SQL1:" + statement);
+                statement.setString(1, user.getTen_user());
+                statement.setString(2, user.getMatkhau());
+                statement.executeUpdate();
+                System.out.println("SQL2:" + statement);
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
-            finally {
+            } finally {
                 try {
                     statement.close();
                 } catch (SQLException e) {
@@ -92,10 +71,43 @@ public class UserReposetorylmpl  implements  UserReposetory{
                 DBConnection.close();
             }
         }
-        if(user == null)
+    }
+
+    @Override
+    public boolean finByName(String name, String mk) {
+        // List<User> userList = new ArrayList<>();
+        User user = null;
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_USER_TEN);
+                statement.setString(1, name);
+                statement.setString(2, mk);
+                resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    String ten_user = resultSet.getString("ten_user");
+                    String matkhau = resultSet.getString("matkhau");
+                    user = new User(ten_user);
+                    // userList.add(user);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        if (user == null)
             return false;
         else
-            return  true;
+            return true;
     }
 
     @Override
@@ -124,7 +136,7 @@ public class UserReposetorylmpl  implements  UserReposetory{
                 while (resultSet.next()) {
                     String ten_user = resultSet.getString("ten_user");
                     String matkhau = resultSet.getString("matkhau");
-                    user = new User(ten_user,matkhau);
+                    user = new User(ten_user, matkhau);
                     userList.add(user);
                 }
             } catch (SQLException e) {

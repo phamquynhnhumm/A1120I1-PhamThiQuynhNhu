@@ -26,13 +26,13 @@
             <h2>Đăng Ký</h2>
         </div>
 
-        <form method="post" action="<%=request.getContextPath() %>/login">
+        <form method="post">
             <input type="text" id="ten" class="fadeIn second" name="ten" placeholder="Tên đăng nhập">
             <input type="text" id="matkhau" class="fadeIn third" name="matkhau" placeholder="Mật khấu">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="submit" class="fadeIn fourth" value="Đăng Ký">
         </form>
         <c:if test="${message != null }">
-            <span style="color: red">${message}</span>
+            <span style="color:#007bff">${message}</span>
         </c:if>
         <!-- Remind Passowrd -->
         <div id="formFooter">
@@ -41,4 +41,4 @@
     </div>
 </div>
 </body>
-</html>
+</html

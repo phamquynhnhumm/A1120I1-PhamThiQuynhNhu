@@ -16,7 +16,6 @@ public class UserServicelmpl implements UserService {
     @Override
     public void save(User user) {
         userReposetory.save(user);
-
     }
 
     @Override

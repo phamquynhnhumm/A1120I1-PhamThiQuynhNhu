@@ -36,7 +36,7 @@
           </form>
           <!-- Remind Passowrd -->
           <div id="formFooter">
-              <a class="underlineHover" href="/dangky.jsp">Bạn có thể đăng ký nếu chưa có tài khoản</a>
+              <a class="underlineHover" href="/login?action=create">Bạn có thể đăng ký nếu chưa có tài khoản</a>
           </div>
       </div>
   </div>
