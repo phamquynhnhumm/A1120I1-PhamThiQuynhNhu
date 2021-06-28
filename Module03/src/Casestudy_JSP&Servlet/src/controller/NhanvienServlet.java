@@ -186,6 +186,7 @@ public class NhanvienServlet extends HttpServlet {
         request.setAttribute("timkiem","nhanvien");
         System.out.println("đang list ds nhan viên");
         request.setAttribute("nhanviens",service.finAll());
+//        request.setAttribute("users",);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/nhanvien/list.jsp");
         dispatcher.forward(request,response);
     }

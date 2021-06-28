@@ -27,8 +27,12 @@
     <nav >
         <div class="row container">
             <article class="col-sm-3">
+                <%
+                    if (session.getAttribute("quyen").equals("Quản lý dịch vụ") || session.getAttribute("quyen").equals("Giám đốc")) {
+                %>
                 <a class="nav-link " href="/dichvu">danh sách dịch vụ</a>
                 <a class="nav-link " href="/dichvu?action=create">Thêm mới dịch vụ</a>
+                <%} %>
             </article>
             <article class="col-sm-9">
                 <div class="tab-content">
@@ -43,8 +47,13 @@
                                 <th>Chi Phí</th>
                                 <th>Số người</th>
                                 <th>Kiểu Dịch Vụ</th>
+                                <%
+                                    if (session.getAttribute("quyen").equals("Quản lý dịch vụ") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                %>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <%} %>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -56,6 +65,9 @@
                                 <td>${dichvu.getChiphi()}</td>
                                 <td>${dichvu.getSonguoi()}</td>
                                 <td>${dichvu.getKieuthue().getTen_kieuthue()}</td>
+                                <%
+                                    if (session.getAttribute("quyen").equals("Quản lý dịch vụ") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                %>
                                 <td>
                                     <a href="/dichvu?action=edit&id=${dichvu.getId_dichvu()}">
                                         Edit
@@ -65,6 +77,8 @@
                                     <a href="#myModal_${dichvu.getId_dichvu()}" role="button" class="btn btn-large btn-danger"
                                        data-toggle="modal">Xoa</a>
                                 </td>
+                                <%} %>
+
                             </tr>
                             <div id="myModal_${dichvu.getId_dichvu()}" class="modal fade">
                                 <div class="modal-dialog">

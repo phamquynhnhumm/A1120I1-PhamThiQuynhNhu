@@ -19,6 +19,7 @@
 </head>
 <body>
 <div >
+
     <p>
         <a href="/kieuthue?action=create"> Thêm mới </a>
     </p>

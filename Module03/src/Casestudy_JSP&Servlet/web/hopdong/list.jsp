@@ -24,8 +24,13 @@
     <nav >
         <div class="row container">
             <article class="col-sm-3">
+                <%
+                    if (session.getAttribute("quyen").equals("Quản lý hợp đồng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                %>
                 <a class="nav-link " href="/hopdong">Xem danh sách hợp đồng</a>
                 <a class="nav-link " href="/hopdong?action=create">Thêm mới hợp đồng</a>
+                <%} %>
+
             </article>
             <article class="col-sm-9">
                 <div class="tab-content">
@@ -42,8 +47,13 @@
                                     <th>Nhân viên</th>
                                     <th>Khách hàng</th>
                                     <th>Dịch vụ</th>
+                                    <%
+                                        if (session.getAttribute("quyen").equals("Quản lý hợp đồng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                    %>
                                     <th>Edit</th>
                                     <th>Delete</th>
+                                    <%} %>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,6 +80,9 @@
                                             ${hopdong.getDichvu().getTen_dichvu()}
                                     </a>
                                 </td>
+                                <%
+                                    if (session.getAttribute("quyen").equals("Quản lý hợp đồng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                %>
                                 <td>
                                     <a href="/hopdong?action=edit&id=${hopdong.getId_hopdong()}">
                                         Edit
@@ -79,6 +92,8 @@
                                     <a href="#myModal_${hopdong.getId_hopdong()}" role="button" class="btn btn-large btn-danger"
                                        data-toggle="modal">Xoa</a>
                                 </td>
+                                <%} %>
+
                             </tr>
                             <div id="myModal_${hopdong.getId_hopdong()}" class="modal fade">
                                 <div class="modal-dialog">

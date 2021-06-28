@@ -25,8 +25,13 @@
     <nav >
         <div class="row container">
             <article class="col-sm-3">
+                <%
+                    if (session.getAttribute("quyen").equals("Quản lý khách hàng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                %>
                 <a class="nav-link " href="/khachhang">Xem danh sách khách hàng</a>
                 <a class="nav-link " href="/khachhang?action=create">Thêm mới khách hàng</a>
+                <%} %>
+
             </article>
             <article class="col-sm-9">
                 <div class="tab-content">
@@ -44,8 +49,13 @@
                                 <th>Email</th>
                                 <th>Loại Khách</th>
                                 <th>Địa Chỉ</th>
+                                <%
+                                    if (session.getAttribute("quyen").equals("Quản lý khách hàng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                %>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <%} %>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -69,6 +79,9 @@
                                     <%--            <td>${khachhang.getDiachi().getHuyen()}</td>--%>
                                     <%--            <td>${khachhang.getDiachi().getTinh()}</td>--%>
                                     <%--            <td>${khachhang.getDiachi().getQuocgia()}</td>--%>
+                                <%
+                                    if (session.getAttribute("quyen").equals("Quản lý khách hàng") || session.getAttribute("quyen").equals("Giám đốc")) {
+                                %>
                                 <td>
                                     <a href="/khachhang?action=edit&id=${khachhang.getId_khachhang()}">
                                         Edit
@@ -79,6 +92,8 @@
                                        class="btn btn-large btn-danger"
                                        data-toggle="modal">Xoa</a>
                                 </td>
+                                <%} %>
+
                             </tr>
                             <div id="myModal_${khachhang.getId_khachhang()}" class="modal fade">
                                 <div class="modal-dialog">
