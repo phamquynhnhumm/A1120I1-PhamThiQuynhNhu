@@ -41,27 +41,27 @@ foreign key(ten_user) references  user(ten_user) on delete cascade,
 foreign key(vaitro_id) references  vaitro(vaitro_id) on delete cascade
 );
 create table nhanvien(
-id_nhanvien  nvarchar(15) not null primary key ,
+id_nhanvien nvarchar(15) not null primary key ,
 ten_nhanvien nvarchar(250) not null,
 ngaysinh  nvarchar(250) not null,
 socmnd int not null,
 sdt int not null,
 email nvarchar(250) not null,
-id_trinhdo  nvarchar(15),
+id_trinhdo  nvarchar(15) ,
 foreign key(id_trinhdo) references trinhdo(id_trinhdo) on delete cascade,
-id_vitri   nvarchar(15) ,
+id_vitri nvarchar(15) ,
 foreign key(id_vitri) references vitri(id_vitri)on delete cascade,
-id_bophan   nvarchar(15) ,
+id_bophan  nvarchar(15),
 foreign key(id_bophan) references bophan(id_bophan) on delete cascade,
 luong float ,
-id_diachi   nvarchar(15) not null,
+id_diachi  nvarchar(15) not null,
 foreign key(id_diachi) references diachi(id_diachi) on delete cascade,
 ten_user nvarchar(250) not null ,
 foreign key(ten_user) references user(ten_user) on delete cascade
 );
 
 create table kieuthue(
-id_kieuthue  nvarchar(15) not null primary key ,
+id_kieuthue  nvarchar(5) not null primary key ,
 ten_kieuthue nvarchar(250) not null
 );
 select * from diachi;
@@ -71,12 +71,12 @@ ten_dichvu  nvarchar(250) not null,
 dientich float,
 chiphi float,
 songuoi  nvarchar(250) not null,
-id_kieuthue  nvarchar(15) not null ,
+id_kieuthue nvarchar(15) not null ,
 foreign key(id_kieuthue) references kieuthue(id_kieuthue) on delete cascade
 );
 
 create table house(
-id_house  nvarchar(15) not null primary key ,
+id_house nvarchar(15) not null primary key ,
 ten_house nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
@@ -85,7 +85,7 @@ id_dichvu nvarchar(15) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
 );
 create table villa(
-id_villa  nvarchar(15) not null primary key ,
+id_villa nvarchar(15) not null primary key ,
 ten_villa  nvarchar(250) not null,
 tieuchuaphong  nvarchar(250) not null,
 mota  nvarchar(250) not null,
@@ -95,7 +95,7 @@ id_dichvu nvarchar(15) not null ,
 foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
 );
 create table  room(
-id_room  nvarchar(15) not null primary key ,
+id_room nvarchar(15) not null primary key ,
 ten_room  nvarchar(250) not null,
 tendichvufreedikem  nvarchar(250) not null,
 id_dichvu nvarchar(15) not null ,
@@ -108,12 +108,12 @@ create table dvdikem(
  tien float
  );
    create table loaikhach( 
-id_loaikhach   nvarchar(15) not null primary key ,
+id_loaikhach  nvarchar(15) not null primary key ,
 ten_loaikhach nvarchar(250) not null
    );
    select * from diachi;
   create table khachhang(
-  id_khachhang  nvarchar(15) not null primary key ,
+  id_khachhang nvarchar(15) not null primary key ,
   ten_khachhang  nvarchar(250) not null,
   ngaysinh  nvarchar(250) not null,
   gioitinh  nvarchar(250) not null,
@@ -122,7 +122,7 @@ ten_loaikhach nvarchar(250) not null
   email  nvarchar(250) not null,
   id_loaikhach  nvarchar(15) not null,
    foreign key(id_loaikhach) references loaikhach(id_loaikhach)on delete cascade,
-  id_diachi   nvarchar(15) not null, 
+  id_diachi  nvarchar(15) not null, 
    foreign key(id_diachi) references diachi(id_diachi) on delete cascade
   );
  
@@ -136,12 +136,12 @@ ten_loaikhach nvarchar(250) not null
    foreign key(id_nhanvien) references nhanvien(id_nhanvien) on delete cascade,
    id_khachhang nvarchar(15) not null,
    foreign key(id_khachhang) references khachhang(id_khachhang) on delete cascade,
-   id_dichvu  nvarchar(15) not null,
+   id_dichvu nvarchar(15) not null,
    foreign key(id_dichvu) references dichvu(id_dichvu) on delete cascade
   );
  create table hopdong_dvdikem(
- id_dvdikem   nvarchar(15) not null,
- id_hopdong  nvarchar(15)not null,
+ id_dvdikem  nvarchar(15) not null,
+ id_hopdong  nvarchar(15) not null,
  soluong int ,
 primary key (id_dvdikem, id_hopdong),
  foreign key( id_dvdikem) references dvdikem(id_dvdikem) on delete cascade,
@@ -189,6 +189,27 @@ insert into user(ten_user, matkhau) value
 ('user3','33333'),
 ('user4','44444'),
 ('user5','55555');
+
+insert into vaitro(vaitro_id, ten_vaitro) value
+('admin','giamdoc'),
+('sv','quanlysv'),
+('kh','quanlykh'),
+('dv','quanlydv'),
+('hd','quanlyhd');
+
+insert into user_vaitro(vaitro_id, ten_user) value
+('admin','user1'),
+('sv','user2'),
+('kh','user3'),
+('dv','user4'),
+('hd','user5');
+
+select ten_user from user_vaitro inner join vaitro 
+ on user_vaitro.vaitro_id= vaitro.vaitro_id where vaitro.ten_vaitro ='giamdoc';
+select * from user_vaitro;
+
+
+
 
 insert into nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email,id_trinhdo,id_vitri,id_bophan,luong,id_diachi,ten_user ) value
 ('NV01','Phạm Thị Quỳnh Như','2000/09/28','123456789','1234432154','quynhnhuctcn@gmail.com','TD03','VT05','BP04','50000000','DC06','user1'),
@@ -264,20 +285,27 @@ insert into khachhang( id_khachhang,ten_khachhang,ngaysinh,gioitinh,socmnd,sdt,e
 ('KH06','Trần Ngọc Huy','2000/10/14','nam','876923401','0358693432','truongduc910@gmail.com','LK01','DC03'),
 ('KH08','Trần Yến Nhi','2003/10/14','nam','876923401','0322293432','yennhi@gmail.com','LK01','DC03'),
 ('KH09','Nguyễn Thị Nhung','2000/03/15','nu','345679999','888954321','Nhungnguyen3@gmail.com','LK01','DC02');
+select * from hopdong;
+select * from nhanvien;
+select * from khachhang;
+select * from dichvu;
+select * from hop;
+
   insert into hopdong( id_hopdong, ngaybatau,  ngayketthuc, sotiendatcuoc,tongsotienthanhtoan ,  id_nhanvien, id_khachhang ,  id_dichvu) value
- ('HD12','2021/12/12','2021/4/12','4500000','450000000','NV04','KH05','DV10'),
+--  ('HD12','2021/12/12','2021/4/12','4500000','450000000','NV03','KH05','DV10');
   ('HD01','2020/12/10','2020/12/10','3000000','30000000','NV02','KH01','DV01'),
   ('HD02','2021/02/10','2021/2/25','10000000','50000000','NV03','KH02','DV02'),
   ('HD03','2021/04/10','2021/6/10','4000000','60000000','NV05','KH04','DV07'),
-  ('HD04','2020/12/10','2021/12/10','30000000','900000000','NV05','KH03','DV08'),
-  ('HD05','2021/03/12','2021/4/12','4500000','450000000','NV04','KH05','DV10'),
-  ('HD06','2021/03/12','2021/4/12','4500000','450000000','NV04','KH06','DV10'),
-   ('HD07','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV08'),
-  ('HD08','2021/05/17','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
-  ('HD09','2019/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV10'),
-  ('HD10','2018/02/12','2021/06/12','45060000','450000000','NV04','KH08','DV01'),
-('HD11','2019/07/07','2021/06/12','340000','543000000','NV03','KH01','DV05');
-select * from diachi;
+  ('HD04','2020/12/10','2021/12/10','30000000','900000000','NV03','KH03','DV08'),
+  ('HD05','2021/03/12','2021/4/12','4500000','450000000','NV03','KH05','DV10'),
+  ('HD06','2021/03/12','2021/4/12','4500000','450000000','NV02','KH06','DV10'),
+   ('HD07','2019/02/12','2021/06/12','45060000','450000000','NV05','KH09','DV08'),
+  ('HD08','2021/05/17','2021/06/12','45060000','450000000','NV02','KH06','DV11'),
+  ('HD09','2019/02/12','2021/06/12','45060000','450000000','NV01','KH09','DV10'),
+  ('HD10','2018/02/12','2021/06/12','45060000','450000000','NV02','KH94','DV01'),
+('HD11','2019/07/07','2021/06/12','340000','543000000','NV03','KH04','DV12');
+select * from hopdong_dvdikem;
+select * from  dvdikem;
  insert into hopdong_dvdikem( id_dvdikem , id_hopdong,soluong) value
   ('DK02','HD12','5'),
    ('DK05','HD12','5'),
@@ -384,9 +412,9 @@ where hopdong.id_hopdong  in (select hopdong.id_hopdong  from dichvu  join hopdo
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 --   Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
 -- cách 1: 
-
+select * from hopdong;
 select * from khachhang
-group by ten_khachhang ;
+group by ten_khachhang;
 -- cách 2
 select distinct ten_khachhang from khachhang;
 -- cách 3 
@@ -567,6 +595,8 @@ having count(hopdong_dvdikem.id_hopdong) >0 ) as team
  set tien = (2 * tien)
  where dvdikem.ten_dvdikem =team.ten_dvdikem;
 
-select * from  hopdong_dvdikem;
-select * from  hopdong;
-select * from  dvdikem;
+
+select * from vaitro;
+select ten_user from user_vaitro inner join vaitro on user_vaitro.vaitro_id= vaitro.vaitro_id where vaitro.ten_vaitro ='quanlysv';
+
+select ten_user from user_vaitro inner join vaitro on user_vaitro.vaitro_id= vaitro.vaitro_id where ten_user ='user2' and vaitro.ten_vaitro='quanlysv';
