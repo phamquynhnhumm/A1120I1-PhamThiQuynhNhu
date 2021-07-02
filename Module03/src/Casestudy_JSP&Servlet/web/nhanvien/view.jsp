@@ -19,12 +19,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <div>
-    <p>
-    <p>
-        <a href="/hopdong">Trở lại danh sách hợp đồng</a>
-    </p>
-    </p>
+    <div class="container-fluid">
+        <jsp:include page="/header.jsp"/>
+        <jsp:include page="/menu.jsp"/>
+        <nav>
+            <div class="row container">
+                <article class="col-sm-3">
+                    <a class="nav-link " href="/hopdong">Trở lại sanh sách hợp đồng</a>
+                </article>
+                <article class="col-sm-9">
+                    <div class="container">
     <table class="table table-hover" id="tablenhanvien">
         <tr>
             <th>Id</th>
@@ -50,7 +56,17 @@
             <td>${nhanvien.getVitri().getTen_vitri()}</td>
             <td>${nhanvien.getBophan().getTen_bophan()}</td>
             <td>${nhanvien.getLuong()}</td></tr>
+        <td>${nhanvien.getBophan().getTen_bophan()}</td>
+        <td>${nhanvien.getLuong()}</td></tr>
+
     </table>
+                    </div>
+                </article>
+            </div>
+        </nav>
+        <jsp:include page="/footer.jsp"/>
+    </div>
+
 </div>
 
 </body>

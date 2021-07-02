@@ -32,7 +32,7 @@
           <form method="post" action="<%=request.getContextPath() %>/login">
               <input type="text" id="ten" class="fadeIn second" name="ten" placeholder="Tên đăng nhập">
               <input type="text" id="matkhau" class="fadeIn third" name="matkhau" placeholder="Mật khấu">
-              <input type="submit" class="fadeIn fourth" value="Log In">
+              <input type="submit" class="fadeIn fourth" value="Đăng Nhập">
           </form>
           <!-- Remind Passowrd -->
           <div id="formFooter">

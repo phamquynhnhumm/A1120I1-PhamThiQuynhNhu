@@ -47,21 +47,30 @@ public class Vaitro_usrerServicelmpl implements Vaitro_usrerService {
 
     @Override
     public boolean finBynv(String ten_user) {
+
         return vaitro_usrerRepository.finBynv(ten_user);
     }
 
     @Override
-    public boolean finBykh(String ten_user) {
+    public boolean finBykh(String ten_user)
+    {
         return vaitro_usrerRepository.finBykh(ten_user);
     }
 
     @Override
-    public boolean finBydv(String ten_user) {
+    public boolean finBydv(String ten_user)
+    {
         return vaitro_usrerRepository.finBydv(ten_user);
     }
 
     @Override
     public boolean finByhd(String ten_user) {
+
         return vaitro_usrerRepository.finByhd(ten_user);
+    }
+
+    @Override
+    public boolean finByXem(String ten_user) {
+        return vaitro_usrerRepository.finByXem(ten_user);
     }
 }

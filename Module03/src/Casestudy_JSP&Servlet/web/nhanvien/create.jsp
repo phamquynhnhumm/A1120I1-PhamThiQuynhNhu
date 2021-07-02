@@ -39,38 +39,48 @@
                     <div class="form-group ">
                         <label for="id" class="form-lable">Id</label>
                         <input type="text" name="id" class="form-control"  id="id"  placeholder="id">
-                        <span class="form-message invalid">  </span>
+                        <c:if test="${message_id != null}">
+                            <span style="color: brown"> ${message_id} </span>
+                        </c:if>
                     </div>
 
                     <div class="form-group">
                         <label class="form-lable">Tên</label>
                         <input type="text" name="ten" class="form-control" id="ten"  placeholder="ten">
-                        <span class="form-message">  </span>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
                     <div class="form-group">
                         <label >Ngày sinh:</label>
                         <input type="text"  name="ngaysinh" class="form-control" id="ngay"  placeholder="Ngày sinh 1999/12/03">
-                        <span class="form-message">  </span>
+                        <c:if test="${message_ngaysinh != null}">
+                            <span style="color: brown"> ${message_ngaysinh} </span>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label >Số CMND:</label>
                         <input type="text"  name="socmnd" class="form-control" id="cmnd"  placeholder="cmnd">
-                        <span class="form-message">  </span>
+                        <c:if test="${message_socmnd != null}">
+                            <span style="color: brown"> ${message_socmnd} </span>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label >Số đt:</label>
                         <input type="text"  name="sdt" class="form-control"  id="sdt" placeholder="sdt">
-                        <span class="form-message">  </span>
+                        <c:if test="${message_sdt != null}">
+                            <span style="color: brown"> ${message_sdt} </span>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label  class="form-lable" >Email:</label>
                         <input type="text"  name="email" class="form-control" id="email"  placeholder="email">
-                        <span class="form-message">  </span>
+                        <c:if test="${message_email != null}">
+                            <span style="color: brown"> ${message_email} </span>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label >Luong:</label>
                         <input type="text"  name="luong" class="form-control"  id="luong" placeholder="luong">
-                        <span class="form-message">  </span>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
                     <div class="form-group">
                         <label >Địa chỉ:</label>

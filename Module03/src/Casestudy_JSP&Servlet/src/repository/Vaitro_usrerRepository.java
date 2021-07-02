@@ -18,4 +18,5 @@ public interface Vaitro_usrerRepository {
     boolean  finBykh(String ten_user);
     boolean  finBydv(String ten_user);
     boolean  finByhd(String ten_user);
+    boolean  finByXem(String ten_user);
 }

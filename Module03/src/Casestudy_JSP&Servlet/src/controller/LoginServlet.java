@@ -79,15 +79,16 @@ public class LoginServlet extends HttpServlet {
             {
                 session.setAttribute("quyen", "Quản lý hợp đồng");
             }
-            if(vaitro_usrerService.finByhd(ten) == false)
+            else if(vaitro_usrerService.finByXem(ten))
             {
+                System.out.println("xem xem " +vaitro_usrerService.finByXem(ten));
                 session.setAttribute("quyen", "Bạn chỉ có quyền xem");
             }
 
 // tạo Cookie lưu mk
-            Cookie cookie = new Cookie("ten",ten);
-            cookie.setMaxAge(30); //thời gian sống cua cookie là 30s
-            response.addCookie(cookie);
+//            Cookie cookie = new Cookie("ten",ten);
+//            cookie.setMaxAge(30); //thời gian sống cua cookie là 30s
+//            response.addCookie(cookie);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("trangchu.jsp");
             dispatcher.forward(request, response);

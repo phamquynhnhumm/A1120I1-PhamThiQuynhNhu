@@ -20,7 +20,7 @@ public class Vaitro_usrerRepositorylmpl implements Vaitro_usrerRepository {
             " on user_vaitro.vaitro_id= vaitro.vaitro_id where ten_user =? and vaitro.ten_vaitro='quanlydv';";
     public static final String SELECT_HD = "select ten_user from user_vaitro inner join vaitro \n" +
             " on user_vaitro.vaitro_id= vaitro.vaitro_id where ten_user =? and vaitro.ten_vaitro='quanlyhd';";
-
+    public static final String SELECT_XEM = " select user.ten_user from user_vaitro  right join user on user_vaitro.ten_user = user.ten_user where   user.ten_user not in (select ten_user from user_vaitro inner join vaitro on user_vaitro.vaitro_id= vaitro.vaitro_id) and  user.ten_user =?;";
     @Override
     public List<User_vaitro> finAll() {
         return null;
@@ -216,6 +216,43 @@ public class Vaitro_usrerRepositorylmpl implements Vaitro_usrerRepository {
                 {
                     String ten_user = resultSet.getString("ten_user");
                     user_vaitro = new User_vaitro(ten_user);
+                    // userList.add(user);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        if(user_vaitro == null)
+            return false;
+        else
+            return  true;
+    }
+
+    @Override
+    public boolean finByXem(String ten_user) {
+        User_vaitro user_vaitro = null;
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement= null;
+        ResultSet resultSet = null;
+        if(connection != null)
+        {
+            try{
+                statement= connection.prepareStatement(SELECT_XEM);
+                statement.setString(1,ten_user);
+                resultSet = statement.executeQuery();
+
+                while (resultSet.next())
+                {
+                    String ten_user1 = resultSet.getString("ten_user");
+                    user_vaitro = new User_vaitro(ten_user1);
                     // userList.add(user);
                 }
             } catch (SQLException e) {

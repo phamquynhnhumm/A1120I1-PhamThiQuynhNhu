@@ -169,10 +169,7 @@ Validate.isGioitinh= function (selector) {
             return GIOITINH.test(value)? undefined :'Vui lòng nhập đúng định dạng';
         }
     }
-
 }
-
-
 
 Validate.isID_KH = function (selector) {
     return{

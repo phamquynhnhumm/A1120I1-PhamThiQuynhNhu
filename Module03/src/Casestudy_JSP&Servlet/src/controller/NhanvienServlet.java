@@ -1,5 +1,6 @@
 package controller;
 
+import common.validate;
 import model.*;
 import service.*;
 
@@ -97,11 +98,50 @@ public class NhanvienServlet extends HttpServlet {
         String id_bophan = request.getParameter("id_bophan");
         String id_vitri = request.getParameter("id_vitri");
         String ten_user = request.getParameter("ten_user");
-        Nhanvien nhanvien = new Nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email, new Trinhdo(id_trinhdo),new Vitri(id_vitri), new Bophan(id_bophan), luong,new Diachi(id_diachi), new User(ten_user));
-        System.out.println("nhan vien duoc them la:" + nhanvien);
-        System.out.println("cac id " +id_diachi+ id_trinhdo +id_bophan);
-        service.save(nhanvien);
-        ListNhanvien(request,response);
+        System.out.println("date01" +validate.validateID_NV(id_nhanvien));
+        String nhu = null;
+        if(nhu == null) {
+            if (validate.validateID_NV(id_nhanvien) != null) {
+                System.out.println("giá trị date" + validate.validateID_NV(id_nhanvien));
+                request.setAttribute("message_id", "Vui lòng nhập lại cho đúng định dạng 'NV-XXXX'");
+                nhu = "nhu";
+            }
+            if (validate.validate_Socmnd(String.valueOf(socmnd)) != null) {
+                System.out.println("giá trị date" + validate.validate_Socmnd(String.valueOf(socmnd)));
+                request.setAttribute("message_socmnd", "Vui lòng nhập lại somcnd có 9 hoặc 15 số'");
+                nhu = "nhu";
+
+            }
+            if (validate.validate_email(email) != null) {
+                request.setAttribute("message_email", "Vui lòng nhập lại email'");
+                nhu = "nhu";
+            }
+            if(nhu == "nhu")
+            {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/nhanvien/create.jsp");
+                dispatcher.forward(request, response);
+            }
+            else {
+                nhu = "oke";
+            }
+            System.out.println("nhu bang :" + nhu);
+        }
+
+
+         if(nhu =="oke")
+         {
+             Nhanvien nhanvien = new Nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email, new Trinhdo(id_trinhdo),new Vitri(id_vitri), new Bophan(id_bophan), luong,new Diachi(id_diachi), new User(ten_user));
+             System.out.println("nhan vien duoc them la:" + nhanvien);
+             System.out.println("cac id " +id_diachi+ id_trinhdo +id_bophan);
+             service.save(nhanvien);
+             ListNhanvien(request,response);
+         }
+
+//        Nhanvien nhanvien = new Nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email, new Trinhdo(id_trinhdo),new Vitri(id_vitri), new Bophan(id_bophan), luong,new Diachi(id_diachi), new User(ten_user));
+//        System.out.println("nhan vien duoc them la:" + nhanvien);
+//        System.out.println("cac id " +id_diachi+ id_trinhdo +id_bophan);
+//        service.save(nhanvien);
+//        ListNhanvien(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
