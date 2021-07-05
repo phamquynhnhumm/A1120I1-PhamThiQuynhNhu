@@ -20,6 +20,26 @@
 <div class="container-fluid">
     <nav>
         <div class="row">
+            <form  method="post" action="/matbang?action=share">
+                <div class="col-sm-4">
+                    <input for="loai" type="text"  name="gtriloai">
+                    <input type="checkbox"  name="timkiem1" value="loai">
+                    <label> Tìm kiếm theo loại</label><br>
+                </div>
+                <div class="col-sm-4">
+                    <input for="gia" type="number" min="1000000"  name="gtrigia">
+                    <input type="checkbox"  name="timkiem2" value="gia" >
+                    <label > Tìm kiếm theo giá</label><br>
+                </div>
+                <div class="col-sm-4">
+                    <input for="tang" type="text" max="15" name="giatrtang">
+                    <input type="checkbox"name="timkiem3" value="tang" >
+                    <label > Tìm kiếm theo tầng</label><br><br>
+                </div>
+                <input type="submit" value="tìm kiếm">
+            </form>
+        </div>
+        <div class="row">
             <div class="col-sm-2">
 
                 <a class="nav-link" href="/matbang">Xem danh sách mặt bằng</a>
@@ -29,7 +49,7 @@
                 <div class="tab-content">
                     <div class="container">
                         <h2>Danh sách mặt bằng</h2>
-                        <table class="table table-hover" id="tablematbang">
+                        <table class="table table-hover" id="tableHopdong">
                             <thead>
                             <tr>
                               <th>Id</th>
@@ -60,10 +80,10 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#myModal_${matbang.getId_matbang()}" role="button"
-                                       class="btn btn-large btn-danger"
+                                    <a href="#myModal_${matbang.getId_matbang()}" role="button" class="btn btn-large btn-danger"
                                        data-toggle="modal">Xoa</a>
                                 </td>
+
                             </tr>
                             <div id="myModal_${matbang.getId_matbang()}" class="modal fade">
                                 <div class="modal-dialog">
@@ -77,8 +97,7 @@
                                             <p>Bạn có chắc chắn muốn xóa ${matbang.getId_matbang()} này ?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
-                                            </button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
                                             <a href="/matbang?action=delete&id=${matbang.getId_matbang()}"
                                                role="button" class="btn btn-danger" title="Xoa">Xóa</a>
                                         </div>
@@ -89,38 +108,31 @@
                         </table>
                     </div>
                 </div>
-                <%--        </article>--%>
+                </article>
             </div>
         </div>
     </nav>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+
 <script>
     $(document).ready(function () {
-        $('#tablematbang').dataTable(
+        $('#tableHopdong').dataTable(
             {
-                "dom": 'lrtip',
+                "dom":'lrtip',
                 "lengthChange": false,
                 "pageLength": 2
             }
         );
-        $(".nav-tabs a").click(function () {
+        $(".nav-tabs a").click(function(){
             $(this).tab('show');
         });
     })
 </script>
 </body>
 </html>
-

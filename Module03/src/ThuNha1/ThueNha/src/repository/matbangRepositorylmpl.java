@@ -17,7 +17,7 @@ public class matbangRepositorylmpl implements matbangRepository {
     public static final String SELECT_MATBANG_TANG = "select * from matbang where tang=?;";
     public static final String SELECT_MATBANG_ID = "select * from matbang where id_matbang=?;";
     public static final String UPDATE_MATBANG = "update matbang set id_matbang=?,trangthai=?,dientich=?,tang=?,loai=?,gia=?,ngaybatdau=?,ngayketthuc=? where id_matbang=? ;";
-    public static final String DELETE_MATBANG = "delete  from matbang where  id_matbang=?";
+    public static final String DELETE_MATBANG = "delete  from matbang where  id_matbang=?;";
 
     @Override
     public List<Matbang> finAll() {

@@ -35,9 +35,63 @@ public class matbangServlet extends HttpServlet {
                 break;
             case "delete":
                 DeleteMatbang(request,response);
+                break;
+            case "share":
+                ShareMatbang(request,response);
+                break;
             default:
                 ListMatbang(request,response);
 
+        }
+    }
+
+    private void ShareMatbang(HttpServletRequest request, HttpServletResponse response) {
+//          <input type="checkbox" id="loai" name="loai" >
+//                <label for="loai"> Tìm kiếm theo loại</label><br>
+//
+//                <input type="checkbox" id="gia" name="gia" >
+//                <label for="gia"> Tìm kiếm theo giá</label><br>
+//
+//                <input type="checkbox" id="tang" name="tang" >
+//                <label for="tang"> Tìm kiếm theo tầng</label><br><br>
+//                <input type="submit" value="tìm kiếm">
+
+        String timkiem1 = request.getParameter("timkiem1");
+        String timkiem2 = request.getParameter("timkiem2");
+        String timkiem3 = request.getParameter("timkiem3");
+        String gtriloai = request.getParameter("gtriloai");
+        String gtrigia = request.getParameter("gtrigia");
+        String giatrtang = request.getParameter("giatrtang");
+        System.out.println("gia trim dang tim kiem theo1 " + timkiem1);
+        System.out.println("gia trim dang tim kiem theo 2" + timkiem2);
+        System.out.println("gia trim dang tim kiem theo 3" + timkiem3);
+        if(timkiem1 != null && timkiem2 != null && timkiem3 != null)
+        {
+            System.out.println("tìm kiem theo 3 gia trị");
+        }
+        else if(timkiem1 != null && timkiem2 != null && timkiem3 == null)
+        {
+            System.out.println("tìm kiem theo loai va gia");
+        }
+        else if(timkiem1 != null && timkiem2 == null && timkiem3 != null)
+        {
+            System.out.println("tìm kiem theo loai va tang");
+        }
+        else if(timkiem1 == null && timkiem2 != null && timkiem3 != null)
+        {
+            System.out.println("tìm kiem theo gia va tang");
+        }
+        else if(timkiem1 != null && timkiem2 == null && timkiem3 == null)
+        {
+            System.out.println("tìm kiem theo loai");
+        }
+        else if(timkiem1 == null && timkiem2 != null && timkiem3 == null)
+        {
+            System.out.println("tìm kiem theo gia");
+        }
+        else if(timkiem1 == null && timkiem2 == null && timkiem3 != null)
+        {
+            System.out.println("tìm kiem theo tang");
         }
     }
 
@@ -45,7 +99,10 @@ public class matbangServlet extends HttpServlet {
         String id = request.getParameter("id");
         System.out.println("xoa id" + id);
         service.remove(id);
-        ListMatbang(request,response);
+        List<Matbang> matbangs = service.finAll();
+        request.setAttribute("matbangs", matbangs);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void EditMatbang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -74,13 +131,13 @@ public class matbangServlet extends HttpServlet {
         String ngaybatdau = request.getParameter("ngaybatdau");
         String ngayketthuc = request.getParameter("ngayketthuc");
 
-        if(validate.dateIf(ngaybatdau,ngayketthuc))
-        {
-            System.out.println("thoi  gian dung : " + validate.dateIf(ngaybatdau,ngayketthuc));
-        }
-        else {
-            System.out.println("thoi gian sai :" + validate.dateIf(ngaybatdau,ngayketthuc));
-        }
+//        if(validate.dateIf(ngaybatdau,ngayketthuc) >4)
+//        {
+//            System.out.println("thoi  gian dung : " + validate.dateIf(ngaybatdau,ngayketthuc));
+//        }
+//        else {
+//            System.out.println("thoi gian sai :" + validate.dateIf(ngaybatdau,ngayketthuc));
+//        }
 
         if(service.finByIdTrung(id) == true) // chưa có id
         {
@@ -114,18 +171,29 @@ public class matbangServlet extends HttpServlet {
             case "edit":
                 ShowEditMatbang(request,response);
                 break;
-            case "delete" :
+            case "delete":
                 ShowDeleteMatbang(request,response);
+                break;
+            case "share":
+                ShowShareMatbang(request,response);
+                break;
             default:
                 ListMatbang(request,response);
         }
+    }
+
+    private void ShowShareMatbang(HttpServletRequest request, HttpServletResponse response) {
+
     }
 
     private void ShowDeleteMatbang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         System.out.println("xoa id" + id);
         service.remove(id);
-        ListMatbang(request,response);
+        List<Matbang> matbangs = service.finAll();
+        request.setAttribute("matbangs", matbangs);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void ListMatbang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
