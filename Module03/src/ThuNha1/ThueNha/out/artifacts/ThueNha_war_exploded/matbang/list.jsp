@@ -49,6 +49,9 @@
                 <div class="tab-content">
                     <div class="container">
                         <h2>Danh sách mặt bằng</h2>
+                        <c:if test="${message1 != null}">
+                            <span style="color: brown"> ${message} </span>
+                        </c:if>
                         <table class="table table-hover" id="tableHopdong">
                             <thead>
                             <tr>

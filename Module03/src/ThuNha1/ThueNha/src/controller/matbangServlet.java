@@ -45,7 +45,7 @@ public class matbangServlet extends HttpServlet {
         }
     }
 
-    private void ShareMatbang(HttpServletRequest request, HttpServletResponse response) {
+    private void ShareMatbang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //          <input type="checkbox" id="loai" name="loai" >
 //                <label for="loai"> Tìm kiếm theo loại</label><br>
 //
@@ -59,39 +59,102 @@ public class matbangServlet extends HttpServlet {
         String timkiem1 = request.getParameter("timkiem1");
         String timkiem2 = request.getParameter("timkiem2");
         String timkiem3 = request.getParameter("timkiem3");
-        String gtriloai = request.getParameter("gtriloai");
-        String gtrigia = request.getParameter("gtrigia");
-        String giatrtang = request.getParameter("giatrtang");
+        String loai = request.getParameter("gtriloai");
+        int tang = Integer.parseInt(request.getParameter("giatrtang"));
+        float gia = Float.parseFloat(request.getParameter("gtrigia"));
         System.out.println("gia trim dang tim kiem theo1 " + timkiem1);
         System.out.println("gia trim dang tim kiem theo 2" + timkiem2);
         System.out.println("gia trim dang tim kiem theo 3" + timkiem3);
         if(timkiem1 != null && timkiem2 != null && timkiem3 != null)
         {
             System.out.println("tìm kiem theo 3 gia trị");
+            service.finByLoai_Gia_Tang(loai,gia,tang);
+            if( service.finByLoai_Gia_Tang(loai,gia,tang) == null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 != null && timkiem2 != null && timkiem3 == null)
         {
             System.out.println("tìm kiem theo loai va gia");
+            service.finByLoai_Gia(loai,gia);
+            if(  service.finByLoai_Gia(loai,gia)== null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 != null && timkiem2 == null && timkiem3 != null)
         {
             System.out.println("tìm kiem theo loai va tang");
+            service.finByLoai_Tang(loai,tang);
+            if( service.finByLoai_Tang(loai,tang) == null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 == null && timkiem2 != null && timkiem3 != null)
         {
             System.out.println("tìm kiem theo gia va tang");
+            service.finByGia_Tang(gia,tang);
+            if( service.finByGia_Tang(gia,tang)== null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 != null && timkiem2 == null && timkiem3 == null)
         {
             System.out.println("tìm kiem theo loai");
+            service.finByLoai(loai);
+            if( service.finByLoai(loai)== null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 == null && timkiem2 != null && timkiem3 == null)
         {
             System.out.println("tìm kiem theo gia");
+            service.finByGia(gia);
+            if( service.finByGia(gia) == null)
+            {
+                request.setAttribute("message1", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
         else if(timkiem1 == null && timkiem2 == null && timkiem3 != null)
         {
             System.out.println("tìm kiem theo tang");
+            service.finByTang(tang);
+            if( service.finByTang(tang) == null)
+            {
+                request.setAttribute("message", "Không tìm thấy kết quả");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request, response);
+            }
+            else
+                ListMatbang(request,response);
         }
     }
 

@@ -18,6 +18,11 @@ public class matbangRepositorylmpl implements matbangRepository {
     public static final String SELECT_MATBANG_ID = "select * from matbang where id_matbang=?;";
     public static final String UPDATE_MATBANG = "update matbang set id_matbang=?,trangthai=?,dientich=?,tang=?,loai=?,gia=?,ngaybatdau=?,ngayketthuc=? where id_matbang=? ;";
     public static final String DELETE_MATBANG = "delete  from matbang where  id_matbang=?;";
+    public static final String SELECT_MATBANG_LOAI_GIA = "select * from matbang where loai =? and gia=?;";
+    public static final String SELECT_MATBANG_LOAI_TANG = "select * from matbang where loai =? and tang=?;";
+    public static final String SELECT_MATBANG_GIA_TANG = "select * from matbang where gia=? and tang=?;";
+    public static final String SELECT_MATBANG_LOAI_GIA_TANG = "select * from matbang where loai=? and gia =? and tang =?;";
+
 
     @Override
     public List<Matbang> finAll() {
@@ -126,7 +131,7 @@ public class matbangRepositorylmpl implements matbangRepository {
     }
 
     @Override
-    public List<Matbang> finByTang(String tang) {
+    public List<Matbang> finByTang(int tang) {
         List<Matbang> matbangList = new ArrayList<>();
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
@@ -134,7 +139,7 @@ public class matbangRepositorylmpl implements matbangRepository {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(SELECT_MATBANG_TANG);
-                statement.setString(1, tang);
+                statement.setInt(1, tang);
                 resultSet = statement.executeQuery();
                 Matbang matbang = null;
                 while (resultSet.next()) {
@@ -165,7 +170,7 @@ public class matbangRepositorylmpl implements matbangRepository {
     }
 
     @Override
-    public List<Matbang> finByGia(Float gia) {
+    public List<Matbang> finByGia(float gia) {
         List<Matbang> matbangList = new ArrayList<>();
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
@@ -328,6 +333,164 @@ public class matbangRepositorylmpl implements matbangRepository {
         }
         else
             return false;
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Gia(String loai, float gia) {
+        List<Matbang> matbangList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_MATBANG_LOAI_GIA);
+                statement.setString(1, loai);
+                statement.setFloat(2, gia);
+                resultSet = statement.executeQuery();
+                Matbang matbang = null;
+                while (resultSet.next()) {
+                    String id_matbang = resultSet.getString("id_matbang");
+                    String trangthai = resultSet.getString("trangthai");
+                    Float dientich = resultSet.getFloat("dientich");
+                    int tang = resultSet.getInt("tang");
+                    String loai1 = resultSet.getString("loai");
+                    Float gia1 = resultSet.getFloat("gia");
+                    String ngaybatdau = resultSet.getString("ngaybatdau");
+                    String ngayketthuc = resultSet.getString("ngayketthuc");
+                    matbang = new Matbang(id_matbang, trangthai, dientich, tang, loai1, gia1, ngaybatdau, ngayketthuc);
+                    matbangList.add(matbang);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return matbangList;
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Tang(String loai, int tang) {
+        List<Matbang> matbangList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_MATBANG_LOAI_TANG);
+                statement.setString(1, loai);
+                statement.setInt(2,tang);
+                resultSet = statement.executeQuery();
+                Matbang matbang = null;
+                while (resultSet.next()) {
+                    String id_matbang = resultSet.getString("id_matbang");
+                    String trangthai = resultSet.getString("trangthai");
+                    Float dientich = resultSet.getFloat("dientich");
+                    int tang1 = resultSet.getInt("tang");
+                    String loai1 = resultSet.getString("loai");
+                    Float gia1 = resultSet.getFloat("gia");
+                    String ngaybatdau = resultSet.getString("ngaybatdau");
+                    String ngayketthuc = resultSet.getString("ngayketthuc");
+                    matbang = new Matbang(id_matbang, trangthai, dientich, tang1, loai1, gia1, ngaybatdau, ngayketthuc);
+                    matbangList.add(matbang);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return matbangList;
+    }
+
+    @Override
+    public List<Matbang> finByGia_Tang(float gia, int tang) {
+        List<Matbang> matbangList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_MATBANG_GIA_TANG);
+                statement.setFloat(1, gia);
+                statement.setInt(2,tang);
+
+                resultSet = statement.executeQuery();
+                Matbang matbang = null;
+                while (resultSet.next()) {
+                    String id_matbang = resultSet.getString("id_matbang");
+                    String trangthai = resultSet.getString("trangthai");
+                    Float dientich = resultSet.getFloat("dientich");
+                    int tang1 = resultSet.getInt("tang");
+                    String loai = resultSet.getString("loai");
+                    Float gia1 = resultSet.getFloat("gia");
+                    String ngaybatdau = resultSet.getString("ngaybatdau");
+                    String ngayketthuc = resultSet.getString("ngayketthuc");
+                    matbang = new Matbang(id_matbang, trangthai, dientich, tang1, loai, gia1, ngaybatdau, ngayketthuc);
+                    matbangList.add(matbang);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return matbangList;
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Gia_Tang(String loai, float gia, int tang) {
+        List<Matbang> matbangList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_MATBANG_LOAI_GIA_TANG);
+                statement.setString(1,loai);
+                statement.setFloat(2, gia);
+                statement.setInt(3,tang);
+                resultSet = statement.executeQuery();
+                Matbang matbang = null;
+                while (resultSet.next()) {
+                    String id_matbang = resultSet.getString("id_matbang");
+                    String trangthai = resultSet.getString("trangthai");
+                    Float dientich = resultSet.getFloat("dientich");
+                    int tang1 = resultSet.getInt("tang");
+                    String loai1 = resultSet.getString("loai");
+                    Float gia1 = resultSet.getFloat("gia");
+                    String ngaybatdau = resultSet.getString("ngaybatdau");
+                    String ngayketthuc = resultSet.getString("ngayketthuc");
+                    matbang = new Matbang(id_matbang, trangthai, dientich, tang1, loai1, gia1, ngaybatdau, ngayketthuc);
+                    matbangList.add(matbang);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return matbangList;
     }
 
 }

@@ -24,12 +24,12 @@ public class matbangServicelmpl implements  matbangService {
     }
 
     @Override
-    public List<Matbang> finByTang(String tang) {
+    public List<Matbang> finByTang(int tang) {
         return matbangRepository.finByTang(tang);
     }
 
     @Override
-    public List<Matbang> finByGia(Float gia) {
+    public List<Matbang> finByGia(float gia) {
         return matbangRepository.finByGia(gia);
     }
 
@@ -51,5 +51,25 @@ public class matbangServicelmpl implements  matbangService {
     @Override
     public boolean finByIdTrung(String id) {
         return matbangRepository.finByIdTrung(id);
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Gia(String loai, float gia) {
+        return matbangRepository.finByLoai_Gia(loai,gia);
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Tang(String loai, int tang) {
+        return matbangRepository.finByLoai_Tang(loai,tang);
+    }
+
+    @Override
+    public List<Matbang> finByGia_Tang(float gia, int tang) {
+        return matbangRepository.finByGia_Tang(gia,tang);
+    }
+
+    @Override
+    public List<Matbang> finByLoai_Gia_Tang(String loai, float gia, int tang) {
+        return matbangRepository.finByLoai_Gia_Tang(loai,gia,tang);
     }
 }
