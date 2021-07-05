@@ -19,26 +19,27 @@
 <body>
 <div class="container-fluid">
     <nav>
-        <div class="row">
+
             <form  method="post" action="/matbang?action=share">
+                <div class="row">
                 <div class="col-sm-4">
-                    <input for="loai" type="text"  name="gtriloai">
+                    <input for="loai" type="text"  name="gtriloai" value="loai rong">
                     <input type="checkbox"  name="timkiem1" value="loai">
-                    <label> Tìm kiếm theo loại</label><br>
+                    <label> Tìm kiếm theo loại</label>
                 </div>
                 <div class="col-sm-4">
-                    <input for="gia" type="number" min="1000000"  name="gtrigia">
+                    <input for="gia" type="number" min="1000000"  name="gtrigia" value="1000000">
                     <input type="checkbox"  name="timkiem2" value="gia" >
-                    <label > Tìm kiếm theo giá</label><br>
+                    <label > Tìm kiếm theo giá</label>
                 </div>
                 <div class="col-sm-4">
-                    <input for="tang" type="number" max="15" name="giatrtang">
+                    <input for="tang" type="number" min="1" max="15" name="giatrtang" value="1">
                     <input type="checkbox" name="timkiem3" value="tang" >
-                    <label > Tìm kiếm theo tầng</label><br><br>
+                    <label > Tìm kiếm theo tầng</label>
                 </div>
                 <input type="submit" value="tìm kiếm">
+                </div>
             </form>
-        </div>
         <div class="row">
             <div class="col-sm-2">
 
