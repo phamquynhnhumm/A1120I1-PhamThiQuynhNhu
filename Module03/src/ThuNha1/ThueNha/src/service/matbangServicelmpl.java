@@ -47,4 +47,9 @@ public class matbangServicelmpl implements  matbangService {
     public Matbang finById(String id) {
         return matbangRepository.finById(id);
     }
+
+    @Override
+    public boolean finByIdTrung(String id) {
+        return matbangRepository.finByIdTrung(id);
+    }
 }

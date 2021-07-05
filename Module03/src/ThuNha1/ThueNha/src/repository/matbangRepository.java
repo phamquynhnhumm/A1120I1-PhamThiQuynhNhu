@@ -14,4 +14,5 @@ public interface matbangRepository {
     Matbang update ( String id, Matbang matbang);
     void remove(String id);
     Matbang finById(String id);
+    boolean finByIdTrung( String id);
 }

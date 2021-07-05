@@ -18,18 +18,17 @@
 </head>
 <body>
 <div class="container-fluid">
-
     <nav>
         <div class="row">
             <div class="col-sm-2">
 
-                <a class="nav-link" href="/nhanvien">Xem danh sách nhân viên</a>
-                <a class="nav-link" href="/nhanvien?action=create">Thêm mới nhân viên</a>
+                <a class="nav-link" href="/matbang">Xem danh sách mặt bằng</a>
+                <a class="nav-link" href="/matbang?action=create">Thêm mới mặt bằng</a>
             </div>
             <div class="col-sm-10">
                 <div class="tab-content">
                     <div class="container">
-                        <h2>Danh sách Nhân viên</h2>
+                        <h2>Danh sách mặt bằng</h2>
                         <table class="table table-hover" id="tablematbang">
                             <thead>
                             <tr>
@@ -80,7 +79,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
                                             </button>
-                                            <a href="/nhanvien?action=delete&id=${matbang.getId_matbang()}"
+                                            <a href="/matbang?action=delete&id=${matbang.getId_matbang()}"
                                                role="button" class="btn btn-danger" title="Xoa">Xóa</a>
                                         </div>
                                     </div>

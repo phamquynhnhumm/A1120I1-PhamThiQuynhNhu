@@ -37,9 +37,9 @@
                         <div class="form-group ">
                             <label>Id</label>
                             <input type="text" name="id" class="form-control" >
-<%--                            <c:if test="${message_id != null}">--%>
-<%--                                <span style="color: brown"> ${message_id} </span>--%>
-<%--                            </c:if>--%>
+                            <c:if test="${message != null}">
+                                <span style="color: brown"> ${message} </span>
+                            </c:if>
                         </div>
                         <div class="form-group">
                             <label class="form-lable">Trạng Thái</label>
