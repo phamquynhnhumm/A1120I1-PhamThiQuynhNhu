@@ -32,8 +32,8 @@
                     <label > Tìm kiếm theo giá</label><br>
                 </div>
                 <div class="col-sm-4">
-                    <input for="tang" type="text" max="15" name="giatrtang">
-                    <input type="checkbox"name="timkiem3" value="tang" >
+                    <input for="tang" type="number" max="15" name="giatrtang">
+                    <input type="checkbox" name="timkiem3" value="tang" >
                     <label > Tìm kiếm theo tầng</label><br><br>
                 </div>
                 <input type="submit" value="tìm kiếm">
@@ -50,7 +50,7 @@
                     <div class="container">
                         <h2>Danh sách mặt bằng</h2>
                         <c:if test="${message1 != null}">
-                            <span style="color: brown"> ${message} </span>
+                            <span style="color: brown"> ${message1} </span>
                         </c:if>
                         <table class="table table-hover" id="tableHopdong">
                             <thead>

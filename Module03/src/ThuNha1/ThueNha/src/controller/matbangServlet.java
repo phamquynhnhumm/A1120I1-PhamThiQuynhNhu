@@ -46,22 +46,13 @@ public class matbangServlet extends HttpServlet {
     }
 
     private void ShareMatbang(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//          <input type="checkbox" id="loai" name="loai" >
-//                <label for="loai"> Tìm kiếm theo loại</label><br>
-//
-//                <input type="checkbox" id="gia" name="gia" >
-//                <label for="gia"> Tìm kiếm theo giá</label><br>
-//
-//                <input type="checkbox" id="tang" name="tang" >
-//                <label for="tang"> Tìm kiếm theo tầng</label><br><br>
-//                <input type="submit" value="tìm kiếm">
-
         String timkiem1 = request.getParameter("timkiem1");
         String timkiem2 = request.getParameter("timkiem2");
         String timkiem3 = request.getParameter("timkiem3");
         String loai = request.getParameter("gtriloai");
         int tang = Integer.parseInt(request.getParameter("giatrtang"));
         float gia = Float.parseFloat(request.getParameter("gtrigia"));
+        System.out.println("gia tri" + loai +tang+ gia);
         System.out.println("gia trim dang tim kiem theo1 " + timkiem1);
         System.out.println("gia trim dang tim kiem theo 2" + timkiem2);
         System.out.println("gia trim dang tim kiem theo 3" + timkiem3);
@@ -76,7 +67,11 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs",service.finByLoai_Gia_Tang(loai,gia,tang));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
         else if(timkiem1 != null && timkiem2 != null && timkiem3 == null)
         {
@@ -89,7 +84,11 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs",service.finByLoai_Gia(loai,gia));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
         else if(timkiem1 != null && timkiem2 == null && timkiem3 != null)
         {
@@ -102,7 +101,11 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs",  service.finByLoai_Tang(loai,tang));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
         else if(timkiem1 == null && timkiem2 != null && timkiem3 != null)
         {
@@ -115,7 +118,11 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs", service.finByGia_Tang(gia,tang));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
         else if(timkiem1 != null && timkiem2 == null && timkiem3 == null)
         {
@@ -128,7 +135,11 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs",service.finByLoai(loai));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
         else if(timkiem1 == null && timkiem2 != null && timkiem3 == null)
         {
@@ -141,20 +152,28 @@ public class matbangServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs", service.finByGia(gia) );
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
-        else if(timkiem1 == null && timkiem2 == null && timkiem3 != null)
+         if(timkiem1 == null && timkiem2 == null && timkiem3 != null)
         {
             System.out.println("tìm kiem theo tang");
-            service.finByTang(tang);
+
             if( service.finByTang(tang) == null)
             {
-                request.setAttribute("message", "Không tìm thấy kết quả");
+                request.setAttribute("message1", "Không tìm thấy kết quả");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/list.jsp");
                 dispatcher.forward(request, response);
             }
             else
-                ListMatbang(request,response);
+            {
+                request.setAttribute("matbangs", service.finByTang(tang));
+                RequestDispatcher dispatcher= request.getRequestDispatcher("/matbang/list.jsp");
+                dispatcher.forward(request,response);
+            }
         }
     }
 
