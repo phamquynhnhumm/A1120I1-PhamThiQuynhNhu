@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class matbangRepositorylmpl implements matbangRepository {
-    public static final String SELECT_MATBANG = "select * from matbang;";
+    public static final String SELECT_MATBANG = "select * from matbang order by dientich ASC;"; // giảm dần DESC, ASC tăng dần
     public static final String INSERT_MATBANG = "insert into matbang(id_matbang,trangthai,dientich,tang,loai,gia,ngaybatdau,ngayketthuc) value (?,?,?,?,?,?,?,?);";
     public static final String SELECT_MATBANG_LOAI = "select * from matbang where loai =?;";
     public static final String SELECT_MATBANG_GIA = "select * from matbang where gia =?;";
@@ -22,7 +22,6 @@ public class matbangRepositorylmpl implements matbangRepository {
     public static final String SELECT_MATBANG_LOAI_TANG = "select * from matbang where loai =? and tang=?;";
     public static final String SELECT_MATBANG_GIA_TANG = "select * from matbang where gia=? and tang=?;";
     public static final String SELECT_MATBANG_LOAI_GIA_TANG = "select * from matbang where loai=? and gia =? and tang =?;";
-
 
     @Override
     public List<Matbang> finAll() {

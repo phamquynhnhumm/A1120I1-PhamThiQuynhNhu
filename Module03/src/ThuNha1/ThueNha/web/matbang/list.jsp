@@ -19,7 +19,6 @@
 <body>
 <div class="container-fluid">
     <nav>
-
             <form  method="post" action="/matbang?action=share">
                 <div class="row">
                 <div class="col-sm-4">
@@ -41,11 +40,11 @@
                 </div>
             </form>
         <div class="row">
-            <div class="col-sm-2">
-
+            <article class="col-sm-3">
                 <a class="nav-link" href="/matbang">Xem danh sách mặt bằng</a>
                 <a class="nav-link" href="/matbang?action=create">Thêm mới mặt bằng</a>
-            </div>
+            </article>
+            <article class="col-sm-9">
             <div class="col-sm-10">
                 <div class="tab-content">
                     <div class="container">
@@ -53,7 +52,7 @@
                         <c:if test="${message1 != null}">
                             <span style="color: brown"> ${message1} </span>
                         </c:if>
-                        <table class="table table-hover" id="tableHopdong">
+                        <table class="table table-hover" id="tableMatbang">
                             <thead>
                             <tr>
                               <th>Id</th>
@@ -77,7 +76,6 @@
                                 <td>${matbang.getGia()}</td>
                                 <td>${matbang.getNgaybatdau()}</td>
                                 <td>${matbang.getNgayketthuc()}</td>
-
                                 <td>
                                     <a href="/matbang?action=edit&id=${matbang.getId_matbang()}">
                                         Edit
@@ -87,7 +85,6 @@
                                     <a href="#myModal_${matbang.getId_matbang()}" role="button" class="btn btn-large btn-danger"
                                        data-toggle="modal">Xoa</a>
                                 </td>
-
                             </tr>
                             <div id="myModal_${matbang.getId_matbang()}" class="modal fade">
                                 <div class="modal-dialog">
@@ -126,7 +123,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#tableHopdong').dataTable(
+        $('#tableMatbang').dataTable(
             {
                 "dom":'lrtip',
                 "lengthChange": false,
