@@ -5,7 +5,6 @@ import model.Matbang;
 import service.matbangService;
 import service.matbangServicelmpl;
 
-import javax.imageio.metadata.IIOMetadataNode;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @WebServlet(name = "matbangServlet", urlPatterns = {"/matbang",""})
 public class matbangServlet extends HttpServlet {
     private  matbangService service = new matbangServicelmpl();
-    private validate validate = new validate();
+//    private validate validate = new validate();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -213,39 +214,44 @@ public class matbangServlet extends HttpServlet {
         float gia = Float.parseFloat(request.getParameter("gia"));
         String ngaybatdau = request.getParameter("ngaybatdau");
         String ngayketthuc = request.getParameter("ngayketthuc");
-        try {
-            if(validate.dateIf(ngaybatdau,ngayketthuc)>5)
-             {
-                 System.out.println(" so ngay" +validate.dateIf(ngaybatdau,ngayketthuc) );
 
-             }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        System.out.println("kieu ngay bat dau" + ngaybatdau);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date1 = LocalDate.parse(ngaybatdau , formatter);
+        LocalDate date2 = LocalDate.parse(ngayketthuc, formatter);
 
-//        if(validate.dateIf(ngaybatdau,ngayketthuc) >4)
-//        {
-//            System.out.println("thoi  gian dung : " + validate.dateIf(ngaybatdau,ngayketthuc));
-//        }
-//        else {
-//            System.out.println("thoi gian sai :" + validate.dateIf(ngaybatdau,ngayketthuc));
-//        }
-
-        if(service.finByIdTrung(id) == true) // chưa có id
+        long elapsedDays = ChronoUnit.MONTHS.between(date1, date2);
+        System.out.println(" so thang là :" + elapsedDays);
+        if(elapsedDays > 6)
         {
-            Matbang matbang =  new Matbang(id,trangthai,dientich,tang,loai,gia,ngaybatdau,ngayketthuc);
-            service.save(matbang);
-            ListMatbang(request,response);
+            if(service.finByIdTrung(id) == true) // chưa có id
+            {
+                if (validate.ID(id) != null) {
+                    request.setAttribute("messageid","Vui lòng nhập mã đúng định dạng");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/create.jsp");
+                    dispatcher.forward(request,response);
+                }
+                else
+                {
+                    Matbang matbang = new Matbang(id, trangthai, dientich, tang, loai, gia, ngaybatdau, ngayketthuc);
+                    service.save(matbang);
+                    ListMatbang(request, response);
+                }
+            }
+            else
+            {
+                request.setAttribute("message","Mã mặt bằng vừa thêm đã tồn tại");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/create.jsp");
+                dispatcher.forward(request,response);
+            }
+            System.out.println(" gia tri nul hay không" + service.finByIdTrung(id));
+            System.out.println("ngay bay dayu va ket tuc" + ngaybatdau + ngayketthuc);
         }
-        else
-        {
-            request.setAttribute("message","Mã mặt bằng vừa thêm đã tồn tại");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/create.jsp");
-            dispatcher.forward(request,response);
+        else {
+                request.setAttribute("messagengay","Ngày bắt đầu phải nhỏ hơn ngày kết thúc ít nhất 6 tháng");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/matbang/create.jsp");
+                dispatcher.forward(request,response);
         }
-        System.out.println(" gia tri nul hay không" + service.finByIdTrung(id));
-        System.out.println("ngay bay dayu va ket tuc" + ngaybatdau + ngayketthuc);
-
     }
 
 
@@ -273,7 +279,6 @@ public class matbangServlet extends HttpServlet {
                 ListMatbang(request,response);
         }
     }
-
     private void ShowShareMatbang(HttpServletRequest request, HttpServletResponse response) {
 
     }

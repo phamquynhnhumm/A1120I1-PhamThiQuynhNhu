@@ -40,6 +40,9 @@
                             <c:if test="${message != null}">
                                 <span style="color: brown"> ${message} </span>
                             </c:if>
+                            <c:if test="${messageid != null}">
+                                <span style="color: brown"> ${messageid} </span>
+                            </c:if>
                         </div>
                         <div class="form-group">
                             <label class="form-lable">Trạng Thái</label>
