@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Spring_Greeting:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d97a474-6abe-48e3-bf54-c30f76f0ae68" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../demo3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/artifacts/ThiModule03_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/libraries/jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/libraries/mysql_connector_java_8_0_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/ThiModule03.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/controller/SanphamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/model/Loai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/model/Sanpham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/repository/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/repository/LoaiRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/repository/LoaiRepositorylmpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/repository/SanphamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/repository/SanphamRepositorylmpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/service/LoaiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/service/LoaiServicelmpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/service/SanphamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/src/service/SanphamServicelmpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/bootstrap413/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/Yochan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/abi2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avata1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avatar_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avatar_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avatar_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/avatar_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/bai2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/bia1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/bia2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/img/no_photo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/jquery/jquery-3.5.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/js/jquery-3.5.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/sanpham/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/sanpham/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module03/src/ThiModule03/web/sanpham/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/.idea/libraries/Spring_5_2_3_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo1/demo1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo3/demo3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/FinalExam/data/NhapKhau.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/FinalExam/data/NhapKhau.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/FuramaResort.rar" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/FuramaResort.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/META-INF/Module02.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/_bai19_String_Regex/_Thuc_hanh/ValidateAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/out/production/Module02/_bai19_String_Regex/_Thuc_hanh/ValidateAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/src/FinalExam/data/NhapKhau.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/src/FinalExam/data/NhapKhau.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/src/FuramaResort.rar" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/src/FuramaResort.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module02/src/_bai19_String_Regex/_Thuc_hanh/ValidateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module02/src/_bai19_String_Regex/_Thuc_hanh/ValidateAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/CodeGym-A1120I1_Pham_Thi_Quynh_Nhu_tuan1_module3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/CodeGym-A1120I1_Pham_Thi_Quynh_Nhu_tuan1_module3.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/Tai lieu module3/CauHoiAuditModule3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/Tai lieu module3/CauHoiAuditModule3.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/CSS/Bai8_BootstrapCoBan/BaiTap/Landing_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/CSS/Bai8_BootstrapCoBan/BaiTap/Landing_Page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/WEB-INF/classes/controller/NhanvienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/WEB-INF/classes/controller/NhanvienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/hopdong/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/hopdong/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/nhanvien/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/artifacts/Casestudy_JSP_Servlet_war_exploded/nhanvien/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/production/Casestudy_JSP&amp;Servlet/controller/NhanvienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/out/production/Casestudy_JSP&amp;Servlet/controller/NhanvienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/controller/NhanvienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/controller/NhanvienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/hopdong/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/hopdong/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/DesignLayout/CSS Position.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/DesignLayout/GridView_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/DesignLayout/GridView_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/WEB-INF/classes/controller/SanphamServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/WEB-INF/classes/controller/SanphamServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/WEB-INF/classes/repository/SanphamRepositorylmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/WEB-INF/classes/repository/SanphamRepositorylmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/sanpham/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/artifacts/quanlysanpham_war_exploded/sanpham/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/production/quanlysanpham/controller/SanphamServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/production/quanlysanpham/controller/SanphamServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/production/quanlysanpham/repository/SanphamRepositorylmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/out/production/quanlysanpham/repository/SanphamRepositorylmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/controller/SanphamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/controller/SanphamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/repository/SanphamRepositorylmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/repository/SanphamRepositorylmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/service/Sanphamservicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/src/service/Sanphamservicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/web/sanpham/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/baitap/quanlysanpham/web/sanpham/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/java_web_mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/java_web_mvc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/WEB-INF/classes/controller/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/WEB-INF/classes/controller/CustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/WEB-INF/classes/service/CustomerServicelmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/WEB-INF/classes/service/CustomerServicelmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/customer/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/customer/delete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/customer/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/customer/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/customer/view.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/artifacts/java_web_mvc_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/production/java_web_mvc/controller/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/production/java_web_mvc/controller/CustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/production/java_web_mvc/service/CustomerServicelmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/out/production/java_web_mvc/service/CustomerServicelmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/controller/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/controller/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/service/CustomerServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/src/service/CustomerServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/web/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai11_MVC_Model/thuchanh/java_web_mvc/web/customer/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/out/artifacts/BT_Users_war_exploded/WEB-INF/classes/repository/UserRepositorylmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/out/artifacts/BT_Users_war_exploded/WEB-INF/classes/repository/UserRepositorylmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/out/production/BT_Users/repository/UserRepositorylmpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/out/production/BT_Users/repository/UserRepositorylmpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/src/repository/UserRepositorylmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/BaiTap/BT_Users/src/repository/UserRepositorylmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/ThucHanh/TH_User/src/repository/UserRepositorylmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/ThucHanh/TH_User/src/repository/UserRepositorylmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/ThucHanh/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai12_JDBC_CRUD/ThucHanh/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/repository/UserRepositorylmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/repository/UserRepositorylmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/service/UserServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/TH_MysqlJDBCTransaction/src/service/UserServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai13_JDBC_Querying_Transaction/Thuchanh/sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/demo1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/demo1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/demo1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/demo1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/donggoi/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/donggoi/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/donggoi/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai14_Dependency_Management_Packaging/Thuchanh/donggoi/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai9_TongquanungdungWeb/Baitap/chietkhau/out/artifacts/chietkhau_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai9_TongquanungdungWeb/Baitap/chietkhau/out/artifacts/chietkhau_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai9_TongquanungdungWeb/Baitap/chietkhau/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/Bai9_TongquanungdungWeb/Baitap/chietkhau/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/JDBC/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/JDBC/JDBC.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Servlet/democase/web/benhan/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/chuvi/src/controller/ChuviServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/chuvi/src/controller/ChuviServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/chuvi/web/chuvi/tinh.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/chuvi/web/chuvi/tinh.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/demonodu3/src/connection/ConnectionSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/demonodu3/src/connection/ConnectionSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/test_tab/web/layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/test_tab/web/layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/controller/matbangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/controller/matbangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/repository/matbangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/repository/matbangRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/repository/matbangRepositorylmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/repository/matbangRepositorylmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/service/matbangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/service/matbangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/service/matbangServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/src/service/matbangServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/thuanhaTX/web/matbang/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/java/controllers/Hellocontrolers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/java/controllers/Hellocontrolers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/webapp/WEB-INF/views/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo11/src/main/webapp/WEB-INF/views/hello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo_create_springboot/src/main/java/quynhnhu/com/demo_create_springboot/Controllers/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo_create_springboot/src/main/java/quynhnhu/com/demo_create_springboot/Controllers/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/demo_create_springboot/src/main/resources/templates/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/demo_create_springboot/src/main/resources/templates/hello.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/java/controllers/helloControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/java/controllers/helloControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/webapp/WEB-INF/views/helo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/ngay1/src/main/webapp/WEB-INF/views/helo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Spring_Code/spring_gradle_java/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Spring_Code/spring_gradle_java/.idea/gradle.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1vDqTKvDeZySE9T8DebFZpn3bbD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\A112011PhamThiQuynhNhu\Module 4\src\Bai1_TQ_SpringMVC\thuchanh\Spring_Greeting\web\WEB-INF" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Spring_Greeting:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_Spring_Greeting" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53806" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Spring_Greeting:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="targets">
+            <list>
+              <WatchedTargetModelImpl>
+                <option name="name" value="CONTEXT_XML" />
+                <name>CONTEXT_XML</name>
+              </WatchedTargetModelImpl>
+              <StagingTargetModelImpl>
+                <option name="name" value="STAGING" />
+                <name>STAGING</name>
+              </StagingTargetModelImpl>
+            </list>
+          </option>
+          <option name="transportHostId" />
+        </data>
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="TOMCAT_LOCALHOST_LOG_ID" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53808" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="localServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Spring_Greeting:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Spring_Greeting_3" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53806" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Spring_Greeting:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d97a474-6abe-48e3-bf54-c30f76f0ae68" name="Default Changelist" comment="" />
+      <created>1626107013859</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626107013859</updated>
+      <workItem from="1626107063781" duration="3594000" />
+      <workItem from="1626155350765" duration="685000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="662" y="139" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1626116457048">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="2748" y="176" width="1092" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1626109118839" />
+    <state x="662" y="139" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1626116457048" />
+    <state x="3090" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626108359216">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3090" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1626108359216" />
+    <state x="880" y="167" key="FileChooserDialogImpl" timestamp="1626116451962">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="880" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1626116451962" />
+    <state width="486" height="284" key="GridCell.Tab.0.bottom" timestamp="1626116525011">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626116525011" />
+    <state width="486" height="284" key="GridCell.Tab.0.center" timestamp="1626116525011">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1626116525011" />
+    <state width="486" height="284" key="GridCell.Tab.0.left" timestamp="1626116525011">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1626116525011" />
+    <state width="486" height="284" key="GridCell.Tab.0.right" timestamp="1626116525011">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1626116525011" />
+    <state width="486" height="284" key="GridCell.Tab.1.bottom" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.1.center" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.1.left" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.1.right" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.2.bottom" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.2.center" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.2.left" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state width="486" height="284" key="GridCell.Tab.2.right" timestamp="1626116469035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="486" height="284" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1626116469035" />
+    <state x="370" y="0" key="SettingsEditor" timestamp="1626116377181">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="370" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1626116377181" />
+    <state x="848" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1626155353064">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="848" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1626155353064" />
+    <state x="418" y="0" key="new project wizard" timestamp="1626156135518">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1626156135518" />
+  </component>
+</project>
