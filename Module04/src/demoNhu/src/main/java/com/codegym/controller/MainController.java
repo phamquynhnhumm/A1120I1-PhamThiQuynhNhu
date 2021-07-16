@@ -2,10 +2,7 @@ package com.codegym.controller;
 
 import com.codegym.model.bean.Student;
 import com.codegym.model.service.IStudentService;
-import com.codegym.model.service.impl.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
