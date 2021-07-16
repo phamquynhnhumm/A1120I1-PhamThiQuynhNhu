@@ -28,7 +28,7 @@
         <c:forEach items="${customers}" var="customers">
     <tr>
             <td>
-                <a href="/customers?action=view&id=${customers.getId()}}">${customers.getName()}</a>
+                <a href="/customers?action=view&id=${customers.getId()}">${customers.getName()}</a>
             </td>
             <td>
                 ${customers.getEmail()}

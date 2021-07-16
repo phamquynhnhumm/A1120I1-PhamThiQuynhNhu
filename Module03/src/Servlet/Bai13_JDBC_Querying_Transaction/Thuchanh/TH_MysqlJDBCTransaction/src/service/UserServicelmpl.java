@@ -6,7 +6,7 @@ import repository.UserRepositorylmpl;
 
 import java.util.List;
 
-public class UserServicelmpl  implements UserService{
+public class UserServicelmpl  implements UserService {
     private UserRepository userRepository = new UserRepositorylmpl();
     @Override
     public List<User> findAll() {
@@ -38,5 +38,10 @@ public class UserServicelmpl  implements UserService{
     @Override
     public User finById1(int id) {
         return userRepository.finById1(id);
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        userRepository.addUserTransaction(user,permision);
     }
 }

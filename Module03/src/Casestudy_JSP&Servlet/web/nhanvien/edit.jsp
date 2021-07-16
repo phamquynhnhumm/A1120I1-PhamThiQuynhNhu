@@ -66,9 +66,6 @@
                             <label >Địa chỉ:</label>
                             <div>
                                 <select name="id_diachi" id="1exampleInputPosition">
-                                    <%--                    <option  value="${khachhang.getDiachi().getId_diachi()}">--%>
-                                    <%--                        Số nhà :${khachhang.getDiachi().getSonha()}  ,Xã: ${khachhang.getDiachi().getXa()} ,Huyện:  ${khachhang.getDiachi().getHuyen()} ,Tỉnh:    ${khachhang.getDiachi().getTinh()}--%>
-                                    <%--                    </option>--%>
                                     <option  value="${nhanvien.getDiachi().getId_diachi()}">
                                         Số nhà :${nhanvien.getDiachi().getSonha()}  ,Xã: ${nhanvien.getDiachi().getXa()} ,Huyện:  ${nhanvien.getDiachi().getHuyen()} ,Tỉnh:    ${nhanvien.getDiachi().getTinh()}
                                     </option>

@@ -43,18 +43,17 @@ public class SanphamRepositorylmpl implements SanphamRepository {
 
     @Override
     public List<Sanpham> searchSanpham(String key) {
+        List<Sanpham> sanphamList= finAll();
         List<Sanpham> searchSanPham = new ArrayList<>();
-        for(Sanpham sanpham:searchSanPham)
+        for(Sanpham sanpham:sanphamList)
         {
             if(sanpham.getTen().equals(key))
             {
                 searchSanPham.add(sanpham);
-                System.out.println("them" +   searchSanPham.add(sanpham));
             }
         }
         return searchSanPham;
     }
-
 //    @Override
 //    public List<Sanpham> searchSanpham(String key) {
 //        List<Sanpham> sanphamList = finAll();

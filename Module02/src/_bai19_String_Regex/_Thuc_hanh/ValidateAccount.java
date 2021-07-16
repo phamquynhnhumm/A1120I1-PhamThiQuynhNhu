@@ -5,10 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidateAccount {
-    private static final String ACCOUNT = "^[_a-z0-9]{6,}$";
+    private static final String Id_Khachhang = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\\\.[A-Za-z0-9]+)$";
 
     public static boolean test(String regex) {
-        Pattern pattern = Pattern.compile(ACCOUNT);
+        Pattern pattern = Pattern.compile(Id_Khachhang);
         Matcher matcher = pattern.matcher(regex);
         return matcher.matches();
     }

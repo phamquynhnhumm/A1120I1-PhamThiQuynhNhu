@@ -93,7 +93,6 @@
                                        data-toggle="modal">Xoa</a>
                                 </td>
                                 <%} %>
-
                             </tr>
                             <div id="myModal_${hopdong.getId_hopdong()}" class="modal fade">
                                 <div class="modal-dialog">

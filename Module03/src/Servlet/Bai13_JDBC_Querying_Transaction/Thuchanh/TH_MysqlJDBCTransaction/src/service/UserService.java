@@ -1,6 +1,7 @@
 package service;
 
 import model.User;
+
 import java.util.List;
 
 public interface UserService {
@@ -10,4 +11,6 @@ public interface UserService {
     void update(int id, User user);
     void remove(int id);
     User finById1(int id);
+    void  addUserTransaction(User user, int[] permision);
+
 }

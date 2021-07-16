@@ -11,4 +11,6 @@ public interface UserRepository {
     User update(int id, User user);
     void remove(int id);
     User finById1(int id);
+    void  addUserTransaction(User user, int[] permision);
+
  }

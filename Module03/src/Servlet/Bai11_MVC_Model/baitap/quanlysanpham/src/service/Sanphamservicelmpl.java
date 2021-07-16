@@ -38,7 +38,7 @@ public class Sanphamservicelmpl  implements Sanphamservice {
 
     @Override
     public List<Sanpham> searchSanpham(String key) {
-        return  repository.searchSanpham(key);
+     return  repository.searchSanpham(key);
     }
 
 }

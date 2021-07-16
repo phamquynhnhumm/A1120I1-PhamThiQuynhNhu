@@ -1,13 +1,12 @@
 package service;
 
 import model.Matbang;
-import repository.matbangRepository;
 import repository.matbangRepositorylmpl;
 
 import java.util.List;
 
-public class matbangServicelmpl implements  matbangService {
-     public matbangRepository matbangRepository = new matbangRepositorylmpl();
+public class matbangServicelmpl implements matbangService {
+     public repository.matbangRepository matbangRepository = new matbangRepositorylmpl();
     @Override
     public List<Matbang> finAll() {
         return matbangRepository.finAll();
@@ -29,7 +28,7 @@ public class matbangServicelmpl implements  matbangService {
     }
 
     @Override
-    public List<Matbang> finByGia(Float gia) {
+    public List<Matbang> finByGia(String gia) {
         return matbangRepository.finByGia(gia);
     }
 

@@ -2,10 +2,7 @@ package repository;
 
 import model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -174,6 +171,34 @@ public class UserRepositorylmpl  implements UserRepository {
             }
         }
         return  user;
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        PreparedStatement pstmtAssignment = null;
+        ResultSet rs = null;
+        try{
+            connection = DBConnection.getConnection();
+            connection.setAutoCommit(false);
+            pstmt=connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1,user.getName());
+            pstmt.setString(2,user.getEmail());
+            pstmt.setString(3,user.getCountry());
+
+            int rowAddected = pstmt.executeUpdate();
+            rs = pstmt.getGeneratedKeys();
+            int userId = 0;
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @Override

@@ -93,7 +93,6 @@ public class UserRepositorylmpl  implements UserRepository {
                 }
                 DBConnection.close();
             }
-
         }
     }
 

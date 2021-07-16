@@ -1,10 +1,7 @@
 package repository;
 
-import com.sun.source.tree.UsesTree;
 import model.Matbang;
 
-import java.awt.image.DataBuffer;
-import java.nio.file.DirectoryNotEmptyException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +16,7 @@ public class matbangRepositorylmpl implements matbangRepository {
     public static final String SELECT_MATBANG_GIA = "select * from matbang where gia =?;";
     public static final String SELECT_MATBANG_TANG = "select * from matbang where tang=?;";
     public static final String SELECT_MATBANG_ID = "select * from matbang where id_matbang=?;";
-    public static final String UPDATE_MATBANG ="update matbang set id_matbang=?,trangthai=?,dientich=?,tang=?,loai=?,gia=?,ngaybatdau=?,ngayketthuc=?;";
+    public static final String UPDATE_MATBANG ="update matbang set id_matbang=?,trangthai=?,dientich=?,tang=?,loai=?,gia=?,ngaybatdau=?,ngayketthuc=? where id_matbang=? ;";
     public static final String DELETE_MATBANG = "delete  from matbang where  id_matbang=?";
     @Override
     public List<Matbang> finAll(){
@@ -45,6 +42,7 @@ public class matbangRepositorylmpl implements matbangRepository {
                     String ngayketthuc =resultSet.getString("ngayketthuc");
                     matbang = new Matbang(id_matbang,trangthai,dientich,tang,loai,gia,ngaybatdau,ngayketthuc);
                     matbangList.add(matbang);
+                    System.out.println("sql"  + statement);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -118,6 +116,8 @@ public class matbangRepositorylmpl implements matbangRepository {
                     String ngayketthuc =resultSet.getString("ngayketthuc");
                     matbang = new Matbang(id_matbang,trangthai,dientich,tang,loaimb,gia,ngaybatdau,ngayketthuc);
                     matbangList.add(matbang);
+                    System.out.println("sql"  + statement);
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -159,6 +159,8 @@ public class matbangRepositorylmpl implements matbangRepository {
                     String ngayketthuc =resultSet.getString("ngayketthuc");
                     matbang = new Matbang(id_matbang,trangthai,dientich,tangmb,loai,gia,ngaybatdau,ngayketthuc);
                     matbangList.add(matbang);
+                    System.out.println("sql"  + statement);
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -176,7 +178,7 @@ public class matbangRepositorylmpl implements matbangRepository {
     }
 
     @Override
-    public List<Matbang> finByGia(Float gia) {
+    public List<Matbang> finByGia(String gia) {
         List<Matbang> matbangList = new ArrayList<>();
         Connection connection = DBConnection.getConnection();
         PreparedStatement statement = null;
@@ -185,7 +187,7 @@ public class matbangRepositorylmpl implements matbangRepository {
         {
             try {
                 statement = connection.prepareStatement(SELECT_MATBANG_GIA);
-                statement.setFloat(1,gia);
+                statement.setString(1,gia);
                 resultSet = statement.executeQuery();
                 Matbang matbang = null;
                 while (resultSet.next())
@@ -200,6 +202,7 @@ public class matbangRepositorylmpl implements matbangRepository {
                     String ngayketthuc =resultSet.getString("ngayketthuc");
                     matbang = new Matbang(id_matbang,trangthai,dientich,tang,loai,gia1,ngaybatdau,ngayketthuc);
                     matbangList.add(matbang);
+                    System.out.println("sql"  + statement);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -231,6 +234,7 @@ public class matbangRepositorylmpl implements matbangRepository {
                 statement.setFloat(6, matbang.getGia());
                 statement.setString(7, matbang.getNgaybatdau());
                 statement.setString(8, matbang.getNgayketthuc());
+                statement.setString(9, matbang.getId_matbang());
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();

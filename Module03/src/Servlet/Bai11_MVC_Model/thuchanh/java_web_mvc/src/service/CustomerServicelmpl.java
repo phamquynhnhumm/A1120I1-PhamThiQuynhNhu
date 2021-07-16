@@ -19,6 +19,7 @@ public class CustomerServicelmpl implements CustomerService {
     }
     @Override
     public List<Customer> findAll() {
+
         return new ArrayList<>(customers.values());
     }
 
@@ -35,6 +36,7 @@ public class CustomerServicelmpl implements CustomerService {
 
     @Override
     public void update(int id, Customer customer) {
+
         customers.put(id,customer);
     }
 

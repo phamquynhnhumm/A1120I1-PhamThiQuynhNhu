@@ -126,8 +126,6 @@ public class NhanvienServlet extends HttpServlet {
             }
             System.out.println("nhu bang :" + nhu);
         }
-
-
          if(nhu =="oke")
          {
              Nhanvien nhanvien = new Nhanvien(id_nhanvien,ten_nhanvien,ngaysinh,socmnd,sdt,email, new Trinhdo(id_trinhdo),new Vitri(id_vitri), new Bophan(id_bophan), luong,new Diachi(id_diachi), new User(ten_user));

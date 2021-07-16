@@ -47,71 +47,24 @@ public class SanphamServlet extends HttpServlet {
     }
 
     private void searchSanpham(HttpServletRequest request, HttpServletResponse response) {
-
-        String  ten = request.getParameter("ten");
-        System.out.println("dang tim kiem" +ten);
-        List<Sanpham> sanphamList = this.sanphamservice.searchSanpham(ten);
-//        Sanpham sanpham = this.sanphamservice.searchSanpham(ten);
-//        int id= Integer.parseInt(request.getParameter("id"));
-//        Sanpham sanpham = this.sanphamservice.finById(id);
-//        this.sanphamservice.remove(id);
-        if(sanphamList == null){
-            request.setAttribute("message","xóa sp thành công");
-//            request.setAttribute("sanpham",sanphamList);
-            RequestDispatcher dispatcher= request.getRequestDispatcher("/sanpham/search.jsp");
-            try
-            {
-                dispatcher.forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            request.setAttribute("message","xóa sp thành công");
-            request.setAttribute("sanpham",sanphamList);
-            RequestDispatcher dispatcher= request.getRequestDispatcher("/sanpham/search.jsp");
-            try
-            {
-                dispatcher.forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String ten = request.getParameter("ten");
+        Sanphamservice sanphamservice = new Sanphamservicelmpl();
+        List<Sanpham> sanphamList = sanphamservice.searchSanpham(ten);
+        request.setAttribute("message","các sản phẩm dduojc tìm kiếm thấy");
+        request.setAttribute("sanpham",sanphamList);
+        System.out.println(sanphamList);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/sanpham/search.jsp");
+        try
+        {
+            requestDispatcher.forward(request,response);
+            System.out.println("tìm kiếm thâyd");
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-//        System.out.println("list"+ sanphamservice.searchSanpham(ten));
-//        if(sanphamList == null)
-//        {
-//            request.setAttribute("message","Không tìm thấy sản phẩm trong danh sách");
-//            System.out.println("ko tìm thấy");
-//            System.out.println(sanphamList);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/sanpham/search.jsp");
-//            try
-//            {
-//                dispatcher.forward(request,response);
-//            } catch (ServletException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        else {
-//            request.setAttribute("sanpham", sanphamList);
-//            request.setAttribute("message", "sản phẩm tìm được trong danh sách sản phẩm");
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/sanpham/search.jsp");
-//            System.out.println("timf kieems thanhf conog");
-//            System.out.println(sanphamList);
-//            try {
-//                dispatcher.forward(request, response);
-//            } catch (ServletException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
+
     }
     private void deleteSanpham(HttpServletRequest request, HttpServletResponse response) {
         int id= Integer.parseInt(request.getParameter("id"));

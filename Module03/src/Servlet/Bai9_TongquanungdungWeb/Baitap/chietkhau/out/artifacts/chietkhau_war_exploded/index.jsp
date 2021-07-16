@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<form action="/chiet-khau" method="post">
+<form action="/chiet-khau" method="get">
   <div class="mb-3">
     <label for="mota" class="form-label">Mô tả sản phẩm</label>
     <textarea class="form-control" id="mota" rows="3"></textarea>

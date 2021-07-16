@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
+@WebServlet(name = "CustomerServlet", urlPatterns = {"/customers",""})
 public class CustomerServlet extends HttpServlet {
 
 
@@ -42,7 +42,6 @@ public class CustomerServlet extends HttpServlet {
                 break;
         }
     }
-
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.finById(id);
@@ -213,7 +212,6 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.findAll();
         request.setAttribute("customers",customers);
