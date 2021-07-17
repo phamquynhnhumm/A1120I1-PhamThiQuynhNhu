@@ -12,20 +12,25 @@
     <title>$Title$</title>
   </head>
   <body>
-  <h1>Caculator</h1>
-  <h3 style="color:red">${message}</h3>
 
-  <form action="/Caculator" method="post">
-      <input type="number" name="a">
-      <input type="number" name="b">
-    <input type="submit" name="tinh" value="cong">
-    <input type="submit" name="tinh" value="tru">
-    <input type="submit" name="tinh" value="nhan">
-    <input type="submit" name="tinh" value="chia">
+  <form action="/giavi" method="post">
+    <h3>Lựa chọ gia vị</h3>
+
+    <input type="checkbox" name="vehicle" value="Lattuce">
+    <label>Lattcuce</label>
+    <br>
+
+    <input type="checkbox" name="vehicle" value="Tomato"> <label>Tomato</label> <br>
+    <input type="checkbox" name="vehicle" value="Mustard">
+    <label>Mustard</label>
+    <br>
+
+    <input type="checkbox" name="vehicle" value="Sprouts"><label>Sprouts</label>  <br>
+    <input type="submit" name="submit" value="Save">
   </form>
 
   <c:if test="${kq != null}">
-    <h5>Kết quả : ${kq}</h5>
+    <h5>Gia vị : ${kq}</h5>
   </c:if>
 
   </body>
