@@ -1,7 +1,7 @@
 package controller;
 
 
-import model.Khachhang;
+import model.KhachHang;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -13,13 +13,13 @@ public class EmployeeController {
 @GetMapping("/khachhang")
 public String showForm(ModelMap modelMap)
     {
-        modelMap.addAttribute("khachhang",new Khachhang());
+        modelMap.addAttribute("khachhang",new KhachHang());
         return "khachhang/create";
     }
 
 
     @PostMapping("/khachhang")
-    public String hienthi(@ModelAttribute("khachhang") Khachhang khachhang, BindingResult result, ModelMap modelMap)
+    public String hienThi(@ModelAttribute("khachhang") KhachHang khachhang, BindingResult result, ModelMap modelMap)
     {
         modelMap.addAttribute("ten", khachhang.getTen());
         modelMap.addAttribute("sdt",khachhang.getSdt());

@@ -1,20 +1,20 @@
 package model;
 
 
-public class homthu {
+public class Homthu {
     private String ngonngu;
     private int size;
     private String thurac;
     private String noidung;
 
-    public homthu(String ngonngu, int size, String thurac, String noidung) {
+    public Homthu(String ngonngu, int size, String thurac, String noidung) {
         this.ngonngu = ngonngu;
         this.size = size;
         this.thurac = thurac;
         this.noidung = noidung;
     }
 
-    public homthu() {
+    public Homthu() {
 
     }
     public String getNgonngu() {
