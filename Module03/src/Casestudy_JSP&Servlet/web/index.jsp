@@ -19,19 +19,16 @@
 </head>
   <body>
   <div class="wrapper fadeInDown">
-      <div id="formContent" style="background: black">
-          <!-- Tabs Titles -->
-
-          <!-- Icon -->
+      <div id="formContent" style="background: #38404d">
           <div class="fadeIn first">
-              <img src="./img/avata1.png" id="icon" alt="User Icon"  />
+              <img src="./img/nhansu2.png" id="icon" alt="User Icon"  />
           </div>
           <c:if test="${message != null }">
               <span style="color: red">${message}</span>
           </c:if>
           <form method="post" action="<%=request.getContextPath() %>/login">
               <input type="text" id="ten" class="fadeIn second" name="ten" placeholder="Tên đăng nhập">
-              <input type="text" id="matkhau" class="fadeIn third" name="matkhau" placeholder="Mật khấu">
+              <input type="text" id="matkhau" class="fadeIn third" name="matkhau" placeholder="Mật khấu" >
               <input type="submit" class="fadeIn fourth" value="Đăng Nhập">
           </form>
           <!-- Remind Passowrd -->

@@ -33,7 +33,7 @@
                     <div class="container">
     <table class="table table-hover" id="tablenhanvien">
         <tr>
-            <th>Id</th>
+<%--            <th>Id</th>--%>
             <th>Tên</th>
             <th>Ngày Sinh</th>
             <th>Số Cmnd</th>
@@ -42,11 +42,12 @@
             <th>Trình độ</th>
             <th>Vị trí</th>
             <th>Bộ phận</th>
-            <th>Lương</th>
+<%--            <th>Lương</th>--%>
             <th>Địa chỉ</th>
-            <th>Tên_User</th>
+<%--            <th>Tên_User</th>--%>
         </tr>
-        <tr> <td>${nhanvien.getId_nhanvien()}</td>
+        <tr>
+<%--            <td>${nhanvien.getId_nhanvien()}</td>--%>
             <td>${nhanvien.getTen_nhanvien()}</td>
             <td>${nhanvien.getNgaysinh()}</td>
             <td>${nhanvien.getSocmnd()}</td>
@@ -55,7 +56,8 @@
             <td>${nhanvien.getTrinhdo().getTen_trinhdo()}</td>
             <td>${nhanvien.getVitri().getTen_vitri()}</td>
             <td>${nhanvien.getBophan().getTen_bophan()}</td>
-            <td>${nhanvien.getLuong()}</td></tr>
+<%--            <td>${nhanvien.getLuong()}</td>--%>
+        </tr>
         <td>${nhanvien.getBophan().getTen_bophan()}</td>
         <td>${nhanvien.getLuong()}</td></tr>
 

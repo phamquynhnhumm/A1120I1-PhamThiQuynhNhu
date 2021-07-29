@@ -16,45 +16,65 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .link
+        {
+            background: #2C3E50;
+        }
+        .link :hover
+        {
+            background: black;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
     <jsp:include page="/header.jsp"/>
     <jsp:include page="/menu.jsp"/>
     <nav>
+        <br>
+        <center>
+            <h2>Danh sách Nhân viên</h2>
+        </center>
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-9">
+            </div>
+            <div class="col-sm-3">
+
                 <%
                     if (session.getAttribute("quyen").equals("Quản lý nhân viên") || session.getAttribute("quyen").equals("Giám đốc")) {
                 %>
-                <a class="nav-link" href="/nhanvien">Xem danh sách nhân viên</a>
-                <a class="nav-link" href="/nhanvien?action=create">Thêm mới nhân viên</a>
+<%--                <a class="nav-link" href="/nhanvien">Xem danh sách nhân viên</a>--%>
+                <button class="link"> <a class="nav-link" href="/nhanvien?action=create" style="color:white;"> + Thêm mới</a></button>
                 <%} %>
+            </div>
+            </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
             </div>
             <div class="col-sm-10">
                 <div class="tab-content">
                     <div class="container">
-                        <h2>Danh sách Nhân viên</h2>
                         <table class="table table-hover" id="tablenhanvien">
                             <thead>
                             <tr>
                                 <%--                        <th>Id</th>--%>
-                                <th>Tên</th>
-                                <%--                        <th>Ngày Sinh</th>--%>
-                                <%--                        <th>Số Cmnd</th>--%>
-                                <th>Số điện thoại</th>
+                                <th colspan="3">Tên</th>
+                                <th colspan="2">SĐT</th>
                                 <th>Email</th>
                                 <th>Trình độ</th>
                                 <th>Vị trí</th>
                                 <th>Bộ phận</th>
                                 <%--                        <th>Lương</th>--%>
-                                <th>Địa chỉ</th>
+                                <th>ĐC</th>
                                 <th>Tên_User</th>
                                 <%
                                     if (session.getAttribute("quyen").equals("Quản lý nhân viên") || session.getAttribute("quyen").equals("Giám đốc")) {
                                 %>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                                 <%} %>
 
                             </tr>
@@ -63,10 +83,10 @@
                             <c:forEach items="${nhanviens}" var="nhanvien">
                             <tr>
                                     <%--                        <td>${nhanvien.getId_nhanvien()}</td>--%>
-                                <td>${nhanvien.getTen_nhanvien()}</td>
+                                <td  colspan="3">${nhanvien.getTen_nhanvien()}</td>
                                     <%--                        <td>${nhanvien.getNgaysinh()}</td>--%>
                                     <%--                        <td>${nhanvien.getSocmnd()}</td>--%>
-                                <td>${nhanvien.getSdt()}</td>
+                                <td  colspan="2">${nhanvien.getSdt()}</td>
                                 <td>${nhanvien.getEmail()}</td>
                                 <td>${nhanvien.getTrinhdo().getTen_trinhdo()}</td>
                                 <td>${nhanvien.getVitri().getTen_vitri()}</td>
@@ -83,13 +103,13 @@
                                 %>
                                 <td>
                                     <a href="/nhanvien?action=edit&id=${nhanvien.getId_nhanvien()}">
-                                        Edit
+                                        Sửa
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#myModal_${nhanvien.getId_nhanvien()}" role="button"
                                        class="btn btn-large btn-danger"
-                                       data-toggle="modal">Xoa</a>
+                                       data-toggle="modal">Xóa</a>
                                 </td>
                                 <%} %>
 
@@ -103,7 +123,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Bạn có chắc chắn muốn xóa ${nhanvien.getId_nhanvien()} này ?</p>
+                                            <p>Bạn có chắc chắn muốn xóa ${nhanvien.getTen_nhanvien()} ?</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
@@ -116,11 +136,15 @@
                                 </c:forEach>
                             </tbody>
                         </table>
-                    </div>
+
+  </div>
                 </div>
-                <%--        </article>--%>
+
             </div>
-        </div>
+
+            <div class="col-sm-1">
+            </div>
+<%--        </div>--%>
     </nav>
     <jsp:include page="/footer.jsp"/>
 </div>
@@ -143,7 +167,7 @@
             {
                 "dom": 'lrtip',
                 "lengthChange": false,
-                "pageLength": 2
+                "pageLength": 4
             }
         );
         $(".nav-tabs a").click(function () {

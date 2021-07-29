@@ -6,28 +6,29 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<header class="row">
-    <div class="col-sm-8 shopping-mall">
-        <div  class="row">
-            <div class="col-sm-3">
-                <img class="avatar" src="img/Yochan.png" width="60px" height="60px">
-            </div>
-            <div class="col-sm-9" style="padding:20px;color: #0d0d0d">
-              <h6> <i>Chào mựng bạn đến với hệ thống quản trị FURAMA RESORT ĐÀ NẴNG </i></h6>
-            </div>
 
-        </div>
+<header >
+    <div class="row" >
+    <div class="col-sm-8 shopping-mall">
+            <div style="padding:20px;color: black">
+                <h6> <i><center>HỆ THỐNG QUẢN LÝ FURAMA RESORT ĐÀ NẴNG</center> </i></h6>
+            </div>
     </div>
-    <div>
     <%
         if(session.getAttribute("ten") != null){
     %>
-    <h4>Tài Khoản: <strong><%=session.getAttribute("ten") %></strong> </h4>
+        <div class="col-sm-1">
+            <img class="avatar" src="img/Yochan.png" width="60px" height="60px">
+        </div>
     <%} %>
+        <div class="col-sm-3">
+            <h4> <i><%=session.getAttribute("ten") %></i> </h4>
     <%
         if(session.getAttribute("quyen") != null){
     %>
-        <h6><i>Quyền: <%=session.getAttribute("quyen") %></i></h6>
+        <h6><i> <%=session.getAttribute("quyen") %></i></h6>
     <%} %>
-    </div>
+        </div>
+      </div>
+
 </header>

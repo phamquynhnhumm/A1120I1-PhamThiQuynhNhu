@@ -173,12 +173,12 @@
 </style>
 <br/>
 <br/><br/>
-<footer class="site-footer">
+<footer class="site-footer" style="background: #38404d">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>FURAMA ĐÀ NẴNG</h6>
-                <p class="text-justify"></i> 103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam
+                <p class="text-justify footer-links"></i> 103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam
                     Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666.</p>
             </div>
 
@@ -211,7 +211,6 @@
                 <p class="copyright-text">quynhnhu2809 &copy; module03
                 </p>
             </div>
-
         </div>
     </div>
 </footer>

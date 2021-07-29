@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
     <title>Thêm mới khách hàng</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,12 +28,21 @@
 <div class="container-fluid">
     <jsp:include page="/header.jsp"/>
     <jsp:include page="/menu.jsp"/>
+    <br>
     <nav>
+        <center><h2>Thực hiện thêm mới nhân viên  </h2></center>
         <div class="row container">
+            <div class="col-sm-9">
+
+            </div>
             <article class="col-sm-3">
-                            <a class="nav-link " href="/nhanvien">Xem danh sách nhân viên</a>
-                            <a class="nav-link " href="/nhanvien?action=create">Thêm mới nhân viên</a>
+                            <a class="nav-link " href="/nhanvien">Trở lại danh sách nhân viên</a>
+<%--                            <a class="nav-link " href="/nhanvien?action=create">Thêm mới nhân viên</a>--%>
            </article>
+        </div>
+        <div class="row container">
+            <div class="col-sm-2">
+            </div>
         <article class="col-sm-9">
             <div class="container">
                 <form method="post" id="create" class="form" >
@@ -100,62 +110,120 @@
                         <span class="form-message">  </span>
                     </div>
                     <div class="form-group">
-                        <label >Trình độ:</label>
-                        <select name="id_trinhdo" id="trinhdo">
-                            <option>
-                                Trình độ
-                            </option>
-                            <c:forEach items="${trinhdos}" var="trinhdo">
-                                <option value="${trinhdo.getId_trinhdo()}">
-                                        ${trinhdo.getTen_trinhdo()}
-                                </option>
-                            </c:forEach>
-                        </select>
-                        <span class="form-message">  </span>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label >Trình độ:</label>
+                                <select name="id_trinhdo" id="trinhdo">
+                                    <option>
+                                        Trình độ
+                                    </option>
+                                    <c:forEach items="${trinhdos}" var="trinhdo">
+                                        <option value="${trinhdo.getId_trinhdo()}">
+                                                ${trinhdo.getTen_trinhdo()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                <span class="form-message">  </span>
+                            </div>
+                            <div class="col-sm-4">
+                                <label >Bộ phận:</label>
+                                <select name="id_bophan" id="bophan">
+                                    <option>
+                                        Bộ phận
+                                    </option>
+                                    <c:forEach items="${bophans}" var="bophan">
+                                        <option value="${bophan.getId_bophan()}">
+                                                ${bophan.getTen_bophan()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                <span class="form-message">  </span>
+                            </div>
+                            <div class="col-sm-2">
+                                <label >Vị trí:</label>
+                                <select name="id_vitri" id="vitri">
+                                    <option>
+                                        Vị trí
+                                    </option>
+                                    <c:forEach items="${vitris}" var="vitri">
+                                        <option value="${vitri.getId_vitri()}">
+                                                ${vitri.getId_vitri()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                <span class="form-message">  </span>
+                            </div>
+                            <div class="col-sm-3">
+                                <label >User:</label>
+                                <select name="ten_user" id="user">
+                                    <option>
+                                        ten_user
+                                    </option>
+                                    <c:forEach items="${users}" var="user">
+                                        <option value="${user.getTen_user()}">
+                                                ${user.getTen_user()}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                <span class="form-message">  </span>
+                            </div>
+                        </div>
+<%--                        <label >Trình độ:</label>--%>
+<%--                        <select name="id_trinhdo" id="trinhdo">--%>
+<%--                            <option>--%>
+<%--                                Trình độ--%>
+<%--                            </option>--%>
+<%--                            <c:forEach items="${trinhdos}" var="trinhdo">--%>
+<%--                                <option value="${trinhdo.getId_trinhdo()}">--%>
+<%--                                        ${trinhdo.getTen_trinhdo()}--%>
+<%--                                </option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
                     <div class="form-group">
-                        <label >Bộ phận:</label>
-                        <select name="id_bophan" id="bophan">
-                            <option>
-                                Bộ phận
-                            </option>
-                            <c:forEach items="${bophans}" var="bophan">
-                                <option value="${bophan.getId_bophan()}">
-                                        ${bophan.getTen_bophan()}
-                                </option>
-                            </c:forEach>
-                        </select>
-                        <span class="form-message">  </span>
+<%--                        <label >Bộ phận:</label>--%>
+<%--                        <select name="id_bophan" id="bophan">--%>
+<%--                            <option>--%>
+<%--                                Bộ phận--%>
+<%--                            </option>--%>
+<%--                            <c:forEach items="${bophans}" var="bophan">--%>
+<%--                                <option value="${bophan.getId_bophan()}">--%>
+<%--                                        ${bophan.getTen_bophan()}--%>
+<%--                                </option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
                     <div class="form-group">
-                        <label >Vị trí:</label>
-                        <select name="id_vitri" id="vitri">
-                            <option>
-                                Vị trí
-                            </option>
-                            <c:forEach items="${vitris}" var="vitri">
-                                <option value="${vitri.getId_vitri()}">
-                                        ${vitri.getId_vitri()}
-                                </option>
-                            </c:forEach>
-                        </select>
-                        <span class="form-message">  </span>
+<%--                        <label >Vị trí:</label>--%>
+<%--                        <select name="id_vitri" id="vitri">--%>
+<%--                            <option>--%>
+<%--                                Vị trí--%>
+<%--                            </option>--%>
+<%--                            <c:forEach items="${vitris}" var="vitri">--%>
+<%--                                <option value="${vitri.getId_vitri()}">--%>
+<%--                                        ${vitri.getId_vitri()}--%>
+<%--                                </option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
                     <div class="form-group">
-                        <label >User:</label>
-                        <select name="ten_user" id="user">
-                            <option>
-                                ten_user
-                            </option>
-                            <c:forEach items="${users}" var="user">
-                                <option value="${user.getTen_user()}">
-                                        ${user.getTen_user()}
-                                </option>
-                            </c:forEach>
-                        </select>
-                        <span class="form-message">  </span>
+<%--                        <label >User:</label>--%>
+<%--                        <select name="ten_user" id="user">--%>
+<%--                            <option>--%>
+<%--                                ten_user--%>
+<%--                            </option>--%>
+<%--                            <c:forEach items="${users}" var="user">--%>
+<%--                                <option value="${user.getTen_user()}">--%>
+<%--                                        ${user.getTen_user()}--%>
+<%--                                </option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+<%--                        <span class="form-message">  </span>--%>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">thêm mới</button>
+                   <center> <button type="submit" name="submit" class="btn btn-primary" style="background: black;color:white;"> + thêm mới</button></center>
                 </form>
             </div>
             <script src="/vadidate.js"></script>
@@ -175,6 +243,9 @@
             </script>
 
         </article>
+
+            <div class="col-sm-1">
+            </div>
     </div>
 </nav>
     <jsp:include page="/footer.jsp"/>
