@@ -12,7 +12,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity(name = "phone")
-
 public class Phone  implements Validator {
 
     @Id

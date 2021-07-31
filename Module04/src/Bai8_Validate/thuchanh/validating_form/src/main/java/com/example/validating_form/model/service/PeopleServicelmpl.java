@@ -16,6 +16,7 @@ public class PeopleServicelmpl implements PeopleService {
 
     @Override
     public void save(People people) {
+
         this.peopleReposetory.save(people);
     }
 
@@ -25,6 +26,7 @@ public class PeopleServicelmpl implements PeopleService {
     }
     @Override
     public Page<People> findAll(Pageable pageable) {
+
         return peopleReposetory.findAll(pageable);
     }
 }
