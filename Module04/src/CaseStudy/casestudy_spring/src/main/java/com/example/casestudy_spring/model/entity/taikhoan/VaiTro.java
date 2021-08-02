@@ -10,15 +10,23 @@ public class VaiTro {
     @Column(name = "vaitro")
     private String vaitro;
 
-    @Column(name = "tenVaitro")
+    @Column(name = "ten_vaitro")
     private String tenVaitro;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "userVatro",
-            joinColumns = { @JoinColumn(name = "vaitroId") },
-            inverseJoinColumns = {@JoinColumn(name = "tenUserId") })
-    private Set<User> userSet = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "userVatro",
+//            joinColumns =  @JoinColumn(name = "vaitroId",referencedColumnName = "vaitro"),
+//            inverseJoinColumns = @JoinColumn(name = "tenUserId",referencedColumnName = "tenuser"))
 
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_vaitro", joinColumns = @JoinColumn(name = "vaitro_id", referencedColumnName = "vaitro"), inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "tenuser"))
+    private Set<User> userSet;
+    //Để biểu thị mối quan hệ nhiều nhiều ta dùng annotation @ManyToMany
+//Annotation @JoinTable sẽ chỉ rõ bảng trung gian trong thuộc tính name,
+// thuộc tính joinColumns sẽ chỉ rõ column mapping với tale hiện tại,
+// thuộc tính inverseJoinColumns sẽ chỉ rõ column mapping với table còn lại
     public VaiTro() {
 
     }

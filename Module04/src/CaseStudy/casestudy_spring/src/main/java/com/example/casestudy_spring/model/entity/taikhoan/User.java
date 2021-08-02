@@ -16,26 +16,22 @@ public class User {
     @Column(name = "matkhau")
     private String matKhau;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "userVatro",
-            joinColumns = { @JoinColumn(name = "tenUserId") },
-            inverseJoinColumns = {@JoinColumn(name = "vaitroId") })
-    private Set<VaiTro> vaiTroSet = new HashSet<>();
+    @ManyToMany(mappedBy = "userSet")
+    private  Set<VaiTro> vaiTros;
 
-    @OneToMany(mappedBy = "Usermap")
-    private List<NhanVien> nhanVienList;
-//Để biểu thị mối quan hệ nhiều nhiều ta dùng annotation @ManyToMany
-//Annotation @JoinTable sẽ chỉ rõ bảng trung gian trong thuộc tính name,
-// thuộc tính joinColumns sẽ chỉ rõ column mapping với tale hiện tại,
-// thuộc tính inverseJoinColumns sẽ chỉ rõ column mapping với table còn lại
+
+
+    @OneToOne
+    @JoinColumn(name = "nhanvien_id", referencedColumnName = "idnhanvien")
+    private NhanVien nhanVienList;
 
     public User() {
     }
 
-    public User(String tenUser, String matKhau, Set<VaiTro> vaiTroSet, List<NhanVien> nhanVienList) {
+    public User(String tenUser, String matKhau, Set<VaiTro> vaiTros, NhanVien nhanVienList) {
         this.tenUser = tenUser;
         this.matKhau = matKhau;
-        this.vaiTroSet = vaiTroSet;
+        this.vaiTros = vaiTros;
         this.nhanVienList = nhanVienList;
     }
 
@@ -55,19 +51,19 @@ public class User {
         this.matKhau = matKhau;
     }
 
-    public Set<VaiTro> getVaiTroSet() {
-        return vaiTroSet;
+    public Set<VaiTro> getVaiTros() {
+        return vaiTros;
     }
 
-    public void setVaiTroSet(Set<VaiTro> vaiTroSet) {
-        this.vaiTroSet = vaiTroSet;
+    public void setVaiTros(Set<VaiTro> vaiTros) {
+        this.vaiTros = vaiTros;
     }
 
-    public List<NhanVien> getNhanVienList() {
+    public NhanVien getNhanVienList() {
         return nhanVienList;
     }
 
-    public void setNhanVienList(List<NhanVien> nhanVienList) {
+    public void setNhanVienList(NhanVien nhanVienList) {
         this.nhanVienList = nhanVienList;
     }
 }

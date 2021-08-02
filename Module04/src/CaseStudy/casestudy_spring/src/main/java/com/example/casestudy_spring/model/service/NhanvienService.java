@@ -11,7 +11,7 @@ import java.util.List;
 public interface NhanvienService {
     Page<NhanVien> findAll(Pageable pageable);
     void  save(NhanVien nhanvien);
-    void remove(NhanVien nhanVien);
+    void remove(String id);
     NhanVien finById1(String id);
     Page<NhanVien> findAllByTenNhanVienContaining(String name, Pageable pageable);
 

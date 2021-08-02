@@ -22,18 +22,23 @@ public class NhanvienServicelpml  implements NhanvienService {
 
     @Override
     public void save(NhanVien nhanvien) {
-        nhanvienRepository.save(nhanvien);
+
+        this.nhanvienRepository.save(nhanvien);
     }
 
     @Override
-    public void remove(NhanVien  nhanVien) {
-        nhanvienRepository.delete(nhanVien);
+    public void remove(String id)
+    {
+
+      this.nhanvienRepository.deleteById(id);
     }
 
     @Override
     public NhanVien finById1(String id) {
+
         return nhanvienRepository.findById(id).orElse(null);
     }
+
 
     @Override
     public Page<NhanVien> findAllByTenNhanVienContaining(String name, Pageable pageable) {

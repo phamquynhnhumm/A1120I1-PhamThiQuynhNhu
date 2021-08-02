@@ -13,7 +13,6 @@ public class ViTri {
     @Column(name = "tenViTri")
     private String tenViTri;
 
-
     @OneToMany(mappedBy = "viTri")
     private List<NhanVien> nhanVienList;
 

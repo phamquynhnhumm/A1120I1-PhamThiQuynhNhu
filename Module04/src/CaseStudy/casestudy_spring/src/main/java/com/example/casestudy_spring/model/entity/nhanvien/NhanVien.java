@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Entity(name = "nhanvien")
 public class NhanVien {
-
     @Id
     @Column(name = "idnhanvien")
     private String idNhanVien;
@@ -33,37 +32,21 @@ public class NhanVien {
     private String thanhpho;
 
     @ManyToOne
-    @JoinColumn(name = "viTriId", referencedColumnName = "viTriId")
+    @JoinColumn(name = "vitri_Id", referencedColumnName = "vitriId")
     private ViTri viTri;
 
     @ManyToOne
-    @JoinColumn(name = "idtrinhDo", referencedColumnName = "idTrinhDo")
+    @JoinColumn(name = "trinhDo_id", referencedColumnName = "idTrinhDo")
     private TrinhDo trinhDo;
 
     @ManyToOne
-    @JoinColumn(name = "idBoPhan", referencedColumnName = "idBoPhan")
+    @JoinColumn(name = "bophan_id", referencedColumnName = "idBoPhan")
     private BoPhan boPhan;
 
-    @ManyToOne
-    @JoinColumn(name = "tenUser", referencedColumnName = "tenUser")
+    @OneToOne(mappedBy = "nhanVienList", fetch = FetchType.EAGER)
     private User Usermap;
 
     public NhanVien() {
-    }
-
-    public NhanVien(String idNhanVien, String tenNhanVien, String ngaysinh, Integer socmnd, Integer sdt, String email, int luong, String thanhpho, ViTri viTri, TrinhDo trinhDo, BoPhan boPhan, User usermap) {
-        this.idNhanVien = idNhanVien;
-        this.tenNhanVien = tenNhanVien;
-        this.ngaysinh = ngaysinh;
-        this.socmnd = socmnd;
-        this.sdt = sdt;
-        this.email = email;
-        this.luong = luong;
-        this.thanhpho = thanhpho;
-        this.viTri = viTri;
-        this.trinhDo = trinhDo;
-        this.boPhan = boPhan;
-        Usermap = usermap;
     }
 
     public String getIdNhanVien() {
@@ -159,6 +142,21 @@ public class NhanVien {
     }
 
     public void setUsermap(User usermap) {
+        Usermap = usermap;
+    }
+
+    public NhanVien(String idNhanVien, String tenNhanVien, String ngaysinh, Integer socmnd, Integer sdt, String email, int luong, String thanhpho, ViTri viTri, TrinhDo trinhDo, BoPhan boPhan, User usermap) {
+        this.idNhanVien = idNhanVien;
+        this.tenNhanVien = tenNhanVien;
+        this.ngaysinh = ngaysinh;
+        this.socmnd = socmnd;
+        this.sdt = sdt;
+        this.email = email;
+        this.luong = luong;
+        this.thanhpho = thanhpho;
+        this.viTri = viTri;
+        this.trinhDo = trinhDo;
+        this.boPhan = boPhan;
         Usermap = usermap;
     }
 }
