@@ -1,6 +1,8 @@
 package com.example.casestudy_spring.model.entity.nhanvien;
 
 import com.example.casestudy_spring.model.entity.taikhoan.User;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -43,8 +45,9 @@ public class NhanVien {
     @JoinColumn(name = "bophan_id", referencedColumnName = "idBoPhan")
     private BoPhan boPhan;
 
-    @OneToOne(mappedBy = "nhanVienList", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "nhanVienList", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User Usermap;
+
 
     public NhanVien() {
     }

@@ -15,12 +15,7 @@
 
 
     <p>Giới Tính:</p>
-<!--    <select th:field="*{gioitinh}">-->
-<!--        <option th:value="1">Nam</option>-->
-<!--        <option th:value="0">Nữ</option>-->
-<!--        <option th:value="2">Không xác đinh</option>-->
-<!--    </select>-->
-<!--&lt;!&ndash;    truyền thống quá nghe :))&ndash;&gt;-->
+
     <p th:each="gender,loop : ${listGender}">
         <input type="radio" th:value="${loop.index}" th:field="*{gioitinh}">
         <label th:text="${gender}"></label>

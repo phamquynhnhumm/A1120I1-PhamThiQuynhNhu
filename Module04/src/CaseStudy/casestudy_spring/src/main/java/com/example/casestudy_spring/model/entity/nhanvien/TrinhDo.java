@@ -1,5 +1,6 @@
 package com.example.casestudy_spring.model.entity.nhanvien;
 
+import org.hibernate.annotations.Cascade;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class TrinhDo {
     private String tenTrinhDo;
 
     @OneToMany(mappedBy = "trinhDo")
+//    @Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
     private List<NhanVien> nhanVienList;
 
     public TrinhDo() {

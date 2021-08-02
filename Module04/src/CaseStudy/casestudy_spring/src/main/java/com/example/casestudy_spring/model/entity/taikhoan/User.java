@@ -1,6 +1,8 @@
 package com.example.casestudy_spring.model.entity.taikhoan;
 
 import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,7 +24,7 @@ public class User {
 
 
     @OneToOne
-    @JoinColumn(name = "nhanvien_id", referencedColumnName = "idnhanvien")
+    @JoinColumn(name = "nhanvien_id", referencedColumnName = "idnhanvien", nullable = false)
     private NhanVien nhanVienList;
 
     public User() {
