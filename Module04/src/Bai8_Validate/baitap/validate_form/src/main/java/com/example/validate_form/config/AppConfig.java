@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 @Configuration
+//để xác định đó la file congig
 public class AppConfig {
     @Bean
     public MessageSource messageSource() {

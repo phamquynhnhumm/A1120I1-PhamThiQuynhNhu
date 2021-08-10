@@ -2,35 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1d9ab69-2800-47b0-9ebc-6f76e0e6cf55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/entity/Khachhang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/entity/Thanhpho.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/repository/KhachhangRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/repository/ThanhphoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/service/KhachhangService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/service/ThanhphoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/service/lmpl/KhachhangServicelmpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/java/com/example/qlkhachhang_theotinh/model/service/lmpl/ThanhphoServicelmpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/resources/templates/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/resources/templates/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/resources/templates/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai7_Spring_Date_Repository/qlkhachhang_theotinh/src/main/resources/templates/view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/hopdong/HopDong.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/hopdong/HopDongDichVuDiKem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/hopdong/KieuThue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/KhachHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/LoaiKhach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/BoPhan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/NhanVien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/TrinhDo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/ViTri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/taikhoan/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/taikhoan/VaiTro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/resources/mgs/validation_msg.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/src/main/java/com/example/ql_khachhang/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/src/main/java/com/example/ql_khachhang/concern/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Bai2_Spring_Controllers/baitap/qlKhachHang/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Bai2_Spring_Controllers/baitap/qlKhachHang/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../baitap/validate_form/src/main/resources/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../baitap/validate_form/src/main/resources/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../phan_trang_tim_kiem_filter.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../baitap/validate_form/src/main/java/com/example/validate_form/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../baitap/validate_form/src/main/java/com/example/validate_form/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/CaseStudy.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/LoaiKhach.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/LoaiKhach.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../phone" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="CustomValidationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -81,6 +66,7 @@
       <updated>1627721558558</updated>
       <workItem from="1627721564590" duration="31000" />
       <workItem from="1627845427618" duration="20000" />
+      <workItem from="1628167711625" duration="55000" />
     </task>
     <servers />
   </component>
@@ -88,9 +74,9 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="165" y="167" key="FileChooserDialogImpl" timestamp="1627845448496">
+    <state x="165" y="167" key="FileChooserDialogImpl" timestamp="1628167757426">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="165" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1627845448496" />
+    <state x="165" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1628167757426" />
   </component>
 </project>
