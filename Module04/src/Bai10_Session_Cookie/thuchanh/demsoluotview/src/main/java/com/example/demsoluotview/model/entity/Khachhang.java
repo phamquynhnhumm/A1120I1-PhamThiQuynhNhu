@@ -59,4 +59,5 @@ public class Khachhang {
     public void setSdt(Integer sdt) {
         this.sdt = sdt;
     }
+
 }
