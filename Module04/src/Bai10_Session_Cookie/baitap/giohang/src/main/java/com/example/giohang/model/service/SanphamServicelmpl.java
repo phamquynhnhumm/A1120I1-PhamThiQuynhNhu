@@ -30,6 +30,7 @@ public class SanphamServicelmpl  implements  SanphamService{
 
     @Override
     public SanPham finById(Integer id) {
-        return sanphamRepository.findById(id).orElse(null);
+
+        return sanphamRepository.getById(id);
     }
 }

@@ -25,9 +25,9 @@
     <h3 style="color:red;">GIỎ HÀNG</h3>
     <br>
 </div>
+<span th:text="${mgs}"></span>
 <div>
     <div class="row bor" th:each="sanpham : ${muahangTalk}">
-        <!--        <div class="row">-->
         <div class="col-sm-5">
             <img th:src=" @{'/img/'+${sanpham.img}}">
             <button style="background: red"><a th:href="@{/delete/(id = ${sanpham.idSanpham})}">Xóa</a></button>
@@ -35,32 +35,34 @@
         <div class="col-sm-7">
             <p th:text=" 'Sản phẩm :' +${sanpham.ten}"></p>
             <p th:text="'Mã SP :' + ${sanpham.idSanpham}"></p>
-            <p th:text="'Đơn giá :' + ${sanpham.gia}"></p>
+           đơn giá : <p name="gia" th:text="${sanpham.gia}"></p>
             <p>
                 Số lượng :
-                <input type="number" name="soluong" min="0" th:max="${sanpham.soLuong}">
+                <input type="number" onchange="tien()" name="soluong" min="0" th:max="${sanpham.soLuong}">
             </p>
         </div>
     </div>
-    <div th:each="sanpham : ${muahangTalk}">
-<!--        <p th:text="${sanpham.gia} * solun "-->
-    </div>
-    <div>
-        <button>
-            <a th:href="@{/}">Quay lại trang chủ</a>
-        </button>
-    </div>
-    <!--        <a th:href="@{view/(id=${sanpham.idSanpham})}">-->
-    <!--            <div>-->
-    <!--                <img th:src=" @{'/img/'+${sanpham.img}}" style="width:300px;height: 300px ">-->
-    <!--            </div>-->
-    <!--            <div >-->
-    <!--                <center><p th:text=" 'Sản phẩm :' +${sanpham.ten}"></p>-->
-    <!--                    <p th:text="${sanpham.gia} +'đ'"></p>-->
-    <!--                </center>-->
-    <!--            </div>-->
-    <!--        </a>-->
 
+   <p style="color:red;">Tổng số tiền :  <p id="kq"></p> </p>
+
+</div>
+<div>
+    <button>
+        <a th:href="@{/}">Quay lại trang chủ</a>
+    </button>
+</div>
+<script>
+    function tien() {
+        let gia = document.getElementsByName("gia");
+        let soluong = document.getElementsByName("soluong");
+        let tien = 0;
+        for ( var i = 0; i < gia.length; i++) {
+                tien += gia[i].textContent * soluong[i].value;
+        }
+        document.getElementById("kq").innerText = tien;
+    }
+
+</script>
 </div>
 
 </div>
