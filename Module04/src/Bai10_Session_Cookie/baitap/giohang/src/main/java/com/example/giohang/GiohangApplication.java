@@ -1,13 +1,13 @@
-package com.example.luutenguoidung;
+package com.example.giohang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LuutenguoidungApplication {
+public class GiohangApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LuutenguoidungApplication.class, args);
+        SpringApplication.run(GiohangApplication.class, args);
     }
 
 }

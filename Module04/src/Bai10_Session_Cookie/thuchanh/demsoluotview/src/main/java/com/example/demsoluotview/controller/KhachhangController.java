@@ -35,7 +35,7 @@ public class KhachhangController {
         model.addAttribute("khachhangs", khachhangService.findAll());
         return "list";
     }
-    
+
     @GetMapping("/search")
     private String search(@RequestParam(value = "page", defaultValue = "0") int page,
                           @RequestParam(value = "nameSearch", defaultValue = "") String nameSearch, Model model) {

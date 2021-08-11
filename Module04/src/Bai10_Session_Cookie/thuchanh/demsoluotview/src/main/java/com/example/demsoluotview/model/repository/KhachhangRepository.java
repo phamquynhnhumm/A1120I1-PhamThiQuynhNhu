@@ -9,5 +9,4 @@ public interface KhachhangRepository extends JpaRepository<Khachhang, Integer> {
 
     Page<Khachhang> findAllByTenContaining(String name, Pageable pageable);
 
-
 }

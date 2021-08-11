@@ -18,6 +18,7 @@ public class KhachhangServicelmpl implements KhachhangService {
 
     @Override
     public List<Khachhang> findAll()
+
     {
         return khachhangRepository.findAll();
     }

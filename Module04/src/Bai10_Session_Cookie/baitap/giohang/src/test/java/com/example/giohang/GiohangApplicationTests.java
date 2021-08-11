@@ -1,10 +1,10 @@
-package com.example.luutenguoidung;
+package com.example.giohang;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LuutenguoidungApplicationTests {
+class GiohangApplicationTests {
 
     @Test
     void contextLoads() {
