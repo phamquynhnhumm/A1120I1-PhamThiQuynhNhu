@@ -38,7 +38,7 @@ public class DichvuController {
     @GetMapping(value = "/dichvu")
     private String list(@RequestParam(value = "page",defaultValue = "0") int page, Model model)
     {
-        Sort sort = Sort.by("idDichVu").and(Sort.by("ten_dichvu")).descending();
+        Sort sort = Sort.by("idDichVu").and(Sort.by("tenDichVu")).descending();
         model.addAttribute("dichvus", dichvuService.findAll(PageRequest.of(page, 2, sort)));
 //        model.addAttribute("dichvus", dichvuService.findAll());
         return "/dichvu/list";
