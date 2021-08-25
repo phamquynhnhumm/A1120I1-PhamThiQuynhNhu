@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới sdt</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h3>Thêm sdt</h3>
+<div id="kq"></div>
+<!--<form action="/create" method="post" th:object="${phones}">-->
+<label>numbes:</label>
+<input id="numbes" type="text"/>
+<br>
+<br>
+<input type="submit" onclick="createbuuton()" value="thêm mới">
+<!--</form>-->
+<script>
+    function createbuuton() {
+        var numbers = document.getElementById("numbes").value;
+        var json = {"number": numbers};
+        $.ajax(
+            {
+                headers: {
+                    'Accept': "application/json",
+                    'Content-Type': "application/json"
+                },
+                type: "POST",
+                data: JSON.stringify(json),
+                url: "/create/" + document.getElementById("numbes").value,
+                 success: function (phones) {
+                //     var containt = "";
+                //     containt += "<span>Thêm mới phoner</span>"
+                //      containt +=  document.getElementById("numbes").value;
+                //     document.getElementById("kq").innerHTML = containt;
+                 }
+            }
+        )
+    }
+</script>
+
+</body>
+</html>
