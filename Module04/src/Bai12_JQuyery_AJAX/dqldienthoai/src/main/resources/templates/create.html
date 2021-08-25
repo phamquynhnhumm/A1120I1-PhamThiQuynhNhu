@@ -21,19 +21,17 @@
         var json = {"number": numbers};
         $.ajax(
             {
-                headers: {
-                    'Accept': "application/json",
-                    'Content-Type': "application/json"
-                },
+                // headers: {
+                //     'Accept': "application/json",
+                //     'Content-Type': "application/json"
+                // },
                 type: "POST",
-                data: JSON.stringify(json),
+                // data: JSON.stringify(json),
                 url: "/create/" + document.getElementById("numbes").value,
-                 success: function (phones) {
-                //     var containt = "";
-                //     containt += "<span>Thêm mới phoner</span>"
-                //      containt +=  document.getElementById("numbes").value;
-                //     document.getElementById("kq").innerHTML = containt;
-                 }
+                success: function () {
+                    window.location.href = "http://localhost:8080/phone";
+                    // window.location.redirect();
+                }
             }
         )
     }
