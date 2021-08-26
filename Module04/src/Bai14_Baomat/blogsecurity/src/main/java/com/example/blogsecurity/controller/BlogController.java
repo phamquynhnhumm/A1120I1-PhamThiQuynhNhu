@@ -22,7 +22,7 @@ public class BlogController {
     private String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
         Sort sort = Sort.by("id").descending();
 
-        model.addAttribute("blogs", blogServicelmpl.findAll(PageRequest.of(page, 2, sort)));
+        model.addAttribute("blogs", blogServicelmpl.findAll(PageRequest.of(page, 5, sort)));
         return "list";
     }
     @GetMapping("/search")
