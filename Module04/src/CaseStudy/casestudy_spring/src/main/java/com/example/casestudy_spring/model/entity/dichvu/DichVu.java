@@ -2,7 +2,6 @@ package com.example.casestudy_spring.model.entity.dichvu;
 
 import com.example.casestudy_spring.model.entity.khachhang.LoaiKhach;
 import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 import javax.persistence.*;
 
