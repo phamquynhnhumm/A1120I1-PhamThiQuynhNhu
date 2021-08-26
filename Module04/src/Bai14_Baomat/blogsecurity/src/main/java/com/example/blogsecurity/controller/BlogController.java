@@ -42,7 +42,7 @@ public class BlogController {
     @PostMapping(value = "/create")
     private String Create(Blog blog, Model model) {
         this.blogServicelmpl.save(blog);
-        return "redirect:/blog";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/edit")
@@ -54,12 +54,12 @@ public class BlogController {
     @PostMapping(value = "/edit")
     private String Edit(Blog blog) {
         this.blogServicelmpl.save(blog);
-        return "redirect:/blog";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/delete")
     private String delete(Blog blog, @RequestParam Integer id) {
         blogServicelmpl.remove(blog);
-        return "redirect:/blog";
+        return "redirect:/";
     }
 }
