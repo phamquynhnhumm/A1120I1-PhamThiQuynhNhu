@@ -21,16 +21,11 @@
         var json = {"number": numbers};
         $.ajax(
             {
-                // headers: {
-                //     'Accept': "application/json",
-                //     'Content-Type': "application/json"
-                // },
+
                 type: "POST",
-                // data: JSON.stringify(json),
                 url: "/create/" + document.getElementById("numbes").value,
                 success: function () {
                     window.location.href = "http://localhost:8080/phone";
-                    // window.location.redirect();
                 }
             }
         )
