@@ -1,15 +1,23 @@
-package com.example.blog.controller;
+package com.example.blogsecurity.controller;
 
-import com.example.blog.model.Blog;
-import com.example.blog.service.BlogServicelmpl;
+
+import com.example.blogsecurity.model.Blog;
+import com.example.blogsecurity.service.BlogServicelmpl;
+import com.example.blogsecurity.util.WebUtils;
+import org.apache.catalina.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.security.Principal;
 
 @Controller
 public class BlogController {
@@ -21,7 +29,7 @@ public class BlogController {
     private String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
         Sort sort = Sort.by("id").descending();
 
-        model.addAttribute("blogs", blogServicelmpl.findAll(PageRequest.of(page, 2, sort)));
+        model.addAttribute("blogs", blogServicelmpl.findAll(PageRequest.of(page, 5, sort)));
         return "list";
     }
     @GetMapping("/search")
@@ -60,5 +68,15 @@ public class BlogController {
     private String delete(Blog blog, @RequestParam Integer id) {
         blogServicelmpl.remove(blog);
         return "redirect:/blog";
+    }
+
+    @GetMapping("/403")
+    private String accessDenied(Model model, Principal principal)
+    {
+        User user = (User)((Authentication)principal).getPrincipal();
+        String userInfo = WebUtils.toString(user);
+        model.addAttribute("userInfo", userInfo);
+        model.addAttribute("mgs","Bạn không có quyền truy cập !");
+        return "403page";
     }
 }

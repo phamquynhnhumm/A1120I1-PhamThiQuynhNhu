@@ -1,6 +1,7 @@
-package com.example.blog.service;
+package com.example.blogsecurity.service;
 
-import com.example.blog.model.Blog;
+
+import com.example.blogsecurity.model.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

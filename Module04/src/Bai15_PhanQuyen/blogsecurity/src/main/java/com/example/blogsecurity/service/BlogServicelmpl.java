@@ -1,7 +1,7 @@
-package com.example.blog.service;
+package com.example.blogsecurity.service;
 
-import com.example.blog.model.Blog;
-import com.example.blog.repository.BlogRepository;
+import com.example.blogsecurity.model.Blog;
+import com.example.blogsecurity.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
