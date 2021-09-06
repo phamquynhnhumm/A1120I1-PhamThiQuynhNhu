@@ -4,10 +4,7 @@ package com.example.casestudy_spring.model.entity.dichvu;
 import com.example.casestudy_spring.model.entity.khachhang.KhachHang;
 import com.example.casestudy_spring.model.entity.khachhang.LoaiKhach;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "kieuthue")
@@ -21,7 +18,7 @@ public class KieuThue {
     @Column(name = "tenkieuthue")
     private  String tenKieuThue;
 
-    @OneToMany(mappedBy = "kieuThues")
+    @OneToMany(mappedBy = "kieuThues", cascade = CascadeType.ALL)
     private List<DichVu> dichVus;
 
     public KieuThue() {

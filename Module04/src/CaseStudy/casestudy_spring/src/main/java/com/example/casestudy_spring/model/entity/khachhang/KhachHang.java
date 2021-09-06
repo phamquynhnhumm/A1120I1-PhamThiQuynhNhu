@@ -1,15 +1,18 @@
 package com.example.casestudy_spring.model.entity.khachhang;
 
 
+import com.example.casestudy_spring.model.entity.hopdong.HopDong;
+import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
+import com.example.casestudy_spring.model.entity.nhanvien.TrinhDo;
 import com.example.casestudy_spring.model.entity.nhanvien.ViTri;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "khachhang")
 public class KhachHang {
-
     @Id
-    @Column(  name = "id_khachhang")
+    @Column(name = "khachHangId")
     private String khachHangId;
 
     @Column( name = "ten_khachhang")
@@ -24,7 +27,6 @@ public class KhachHang {
     @Column(name = "socmnd")
     private Integer socmnd;
 
-
     @Column(name = "sdt")
     private Integer sdt;
 
@@ -34,14 +36,21 @@ public class KhachHang {
     @Column( name = "thanhpho")
     private String thanhPho;
 
+
     @ManyToOne
-    @JoinColumn(name = "idloaikhac", referencedColumnName = "idloaikhac")
+    @JoinColumn(name = "id_LoaiKhach", referencedColumnName = "idLoaiKhach")
     private LoaiKhach loaiKhach;
+
+
+    @OneToMany(mappedBy = "khachHangs", cascade = CascadeType.ALL)
+    private List<HopDong> hopDongList;
+//    @OneToMany(mappedBy = "khachHangs")
+//    private List<HopDong> hopDongList;
 
     public KhachHang() {
     }
 
-    public KhachHang(String khachHangId, String ten, String ngaysinh, Integer gioiTinh, Integer socmnd, Integer sdt, String email, String thanhPho, LoaiKhach loaiKhach) {
+    public KhachHang(String khachHangId, String ten, String ngaysinh, Integer gioiTinh, Integer socmnd, Integer sdt, String email, String thanhPho, LoaiKhach loaiKhach, List<HopDong> hopDongList) {
         this.khachHangId = khachHangId;
         this.ten = ten;
         this.ngaysinh = ngaysinh;
@@ -51,6 +60,7 @@ public class KhachHang {
         this.email = email;
         this.thanhPho = thanhPho;
         this.loaiKhach = loaiKhach;
+        this.hopDongList = hopDongList;
     }
 
     public String getKhachHangId() {
@@ -123,5 +133,13 @@ public class KhachHang {
 
     public void setLoaiKhach(LoaiKhach loaiKhach) {
         this.loaiKhach = loaiKhach;
+    }
+
+    public List<HopDong> getHopDongList() {
+        return hopDongList;
+    }
+
+    public void setHopDongList(List<HopDong> hopDongList) {
+        this.hopDongList = hopDongList;
     }
 }

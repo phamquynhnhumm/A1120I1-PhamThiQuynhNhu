@@ -41,15 +41,14 @@ public class WebSecurityConfigurer  extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
-        http.authorizeRequests().antMatchers("/blog").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");
-        http.authorizeRequests().antMatchers("/create","/edit","/delete").access("hasAnyRole('ROLE_ADMIN')");
+//        http.authorizeRequests().antMatchers("/blog").access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");
 
+        http.authorizeRequests().antMatchers("/create","/edit","/delete").access("hasAnyRole('ROLE_ADMIN')");
 
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
         // Các trang không yêu cầu login
-     http.authorizeRequests().antMatchers( "/login").permitAll();
-        http.authorizeRequests().antMatchers( "/").permitAll();
+        http.authorizeRequests().antMatchers( "/blog","/login").permitAll();
         // Cấu hình cho Login Form.
         http.authorizeRequests().and().formLogin()//
                 // Submit URL của trang login
@@ -74,6 +73,4 @@ public class WebSecurityConfigurer  extends WebSecurityConfigurerAdapter {
         InMemoryTokenRepositoryImpl memory = new InMemoryTokenRepositoryImpl();
         return memory;
     }
-
-
 }

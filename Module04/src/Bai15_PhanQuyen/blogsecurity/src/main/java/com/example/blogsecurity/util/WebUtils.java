@@ -20,7 +20,7 @@ public class WebUtils {
                     sb.append(a.getAuthority());
                     first = false;
                 } else {
-                    sb.append(", ").append(a.getAuthority());
+                    sb.append(",").append(a.getAuthority());
                 }
             }
             sb.append(")");

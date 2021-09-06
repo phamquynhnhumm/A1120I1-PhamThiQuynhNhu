@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>List khách hàng</title>
+    <title>List Dịch Vụ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
@@ -25,7 +25,7 @@
     <nav>
         <br>
         <center>
-            <h2>Danh sách Khách Hàng</h2>
+            <h2>Danh sách Dịch Vụ</h2>
         </center>
         <form method="get" action="/search">
             <input type="text" name="nameSearch" th:value="${nameSearch}">
@@ -74,43 +74,74 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/dichvu/delete(id = ${dichvu1.idDichVu})}">
+                                    <button style="background: red" data-toggle="modal" data-target="#exampleModal"
+                                            th:onclick="preparedelete([[${dichvu1.idDichVu}]],[[${dichvu1.tenDichVu}]])">
                                         Xóa
-                                    </a>
+                                    </button>
+<!--                                    <a th:href="@{/dichvu/delete(id = ${dichvu1.idDichVu})}">-->
+<!--                                        Xóa-->
+<!--                                    </a>-->
                                 </td>
                             </tr>
                             </tbody>
                         </table>
+                        <div id="exampleModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span id="idDichVu"></span>
+                                        <p>Bạn có chắc chắn muốn xóa
+                                            <span id="tenDichVu"></span>
+                                            Không ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
+                                        </button>
+                                        <button onclick="deleteService($('#idDichVu').html())" type="button"
+                                                class="btn btn-default" data-dismiss="modal">
+                                            Xóa
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <!--    trường hợp chưa search-->
-<!--                        <div th:if="${nameSearch == null}">-->
-<!--    <span>-->
-<!--        <a th:if="${dichvus.hasPrevious()}" th:href="@{/dichvu(page=${dichvus.number - 1})}">Trước</a>-->
-<!--    </span>-->
-<!--                            <span th:each="pageNo: ${#numbers.sequence(0,dichvus.totalPages -1)}">-->
-<!--            <a th:href="@{/dichvu(page = ${pageNo})}" th:text="${pageNo}"></a>-->
-<!--    </span>-->
 
-<!--                            <span>-->
-<!--        <a th:if="${dichvus.hasNext()}" th:href="@{/dichvu(page=${dichvus.number + 1})}">Sau</a>-->
-<!--    </span>-->
-<!--                        </div>-->
+                        trường hợp chưa search
+                        <div th:if="${nameSearch == null}">
+    <span>
+        <a th:if="${dichvus.hasPrevious()}" th:href="@{/dichvu(page=${dichvus.number - 1})}">Trước</a>
+    </span>
+                            <span th:each="pageNo: ${#numbers.sequence(0,dichvus.totalPages -1)}">
+            <a th:href="@{/dichvu(page = ${pageNo})}" th:text="${pageNo}"></a>
+    </span>
 
-<!--                        &lt;!&ndash;                        trường hợp search&ndash;&gt;-->
-<!--                        <div th:if="${nameSearch != null}">-->
-<!--    <span>-->
-<!--        <a th:if="${dichvus.hasPrevious()}"-->
-<!--           th:href="@{/search(page=${dichvus.number - 1} , nameSearch=${nameSearch})}">Trước</a>-->
-<!--    </span>-->
+                            <span>
+        <a th:if="${dichvus.hasNext()}" th:href="@{/dichvu(page=${dichvus.number + 1})}">Sau</a>
+    </span>
+                        </div>
 
-<!--                            <span th:each="pageNo: ${#numbers.sequence(0,dichvus.totalPages -1)}">-->
-<!--            <a th:href="@{/search(page = ${pageNo} , nameSearch=${nameSearch})}" th:text="${pageNo}"></a>-->
-<!--    </span>-->
-<!--                            <span>-->
-<!--        <a th:if="${dichvus.hasNext()}"-->
-<!--           th:href="@{/search(page=${dichvus.number + 1}, nameSearch=${nameSearch})}">Sau</a>-->
-<!--    </span>-->
-<!--                        </div>-->
+                        <!--                        trường hợp search-->
+                        <div th:if="${nameSearch != null}">
+    <span>
+        <a th:if="${dichvus.hasPrevious()}"
+           th:href="@{/search(page=${dichvus.number - 1} , nameSearch=${nameSearch})}">Trước</a>
+    </span>
+
+                            <span th:each="pageNo: ${#numbers.sequence(0,dichvus.totalPages -1)}">
+            <a th:href="@{/search(page = ${pageNo} , nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
+    </span>
+                            <span>
+        <a th:if="${dichvus.hasNext()}"
+           th:href="@{/search(page=${dichvus.number + 1}, nameSearch=${nameSearch})}">Sau</a>
+    </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,5 +153,26 @@
     <div th:replace="~{footer :: footer1}">
     </div>
 </div>
+
+<script>
+    function preparedelete(idDichVu, tenDichVu) {
+
+        $('#idDichVu').html(idDichVu)
+        $('#tenDichVu').html(tenDichVu)
+    }
+
+    function deleteService(idDichVu) {
+        console.log(idDichVu);
+        $.ajax(
+            {
+                type: 'get',
+                url: "/dichvu/delete/" + idDichVu,
+                success: function () {
+                    window.location.href = "http://localhost:8080/dichvu";
+                }
+            }
+        )
+    }
+</script>
 </body>
 </html>

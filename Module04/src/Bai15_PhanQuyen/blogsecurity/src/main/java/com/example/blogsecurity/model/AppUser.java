@@ -7,11 +7,10 @@ import javax.persistence.*;
         uniqueConstraints = { //
                 @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
 public class AppUser {
-
     @Id
     @GeneratedValue
     @Column(name = "User_Id", nullable = false)
-    private Long userId;
+    private int userId;
 
     @Column(name = "User_Name", length = 36, nullable = false)
     private String userName;
@@ -22,11 +21,21 @@ public class AppUser {
     @Column(name = "Enabled", length = 1, nullable = false)
     private boolean enabled;
 
-    public Long getUserId() {
+    public AppUser() {
+    }
+
+    public AppUser(int userId, String userName, String encrytedPassword, boolean enabled) {
+        this.userId = userId;
+        this.userName = userName;
+        this.encrytedPassword = encrytedPassword;
+        this.enabled = enabled;
+    }
+
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -53,5 +62,4 @@ public class AppUser {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
 }

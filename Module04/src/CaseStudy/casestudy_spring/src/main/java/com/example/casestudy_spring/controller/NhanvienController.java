@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,16 +27,14 @@ public class NhanvienController {
     @Autowired
     private BophanService bophanService;
 
-    @Autowired
-    private UserService userService;
-
     @GetMapping(value = "/nhanvien")
     private String list(@RequestParam(value = "page", defaultValue = "0") int page, Model model) {
 
         Sort sort = Sort.by("idNhanVien").and(Sort.by("tenNhanVien")).descending();
-        model.addAttribute("nhanviens", this.nhanvienService.findAll(PageRequest.of(page, 2, sort)));
+        model.addAttribute("nhanviens", this.nhanvienService.findAll(PageRequest.of(page, 5, sort)));
         return "/nhanvien/list";
     }
+
 
     @GetMapping(value = "/nhanvien/create")
     private String viewCreate(Model model) {
@@ -74,10 +73,10 @@ public class NhanvienController {
     }
 
 
-    @GetMapping(value = "/nhanvien/delete")
-    public String delete( @RequestParam String id,RedirectAttributes redirectAttributes)
+    @GetMapping(value = "/nhanvien/delete/{idNhanVien}")
+    public String delete(@PathVariable String idNhanVien, RedirectAttributes redirectAttributes)
     {
-        nhanvienService.remove(id);
+        this.nhanvienService.remove(idNhanVien);
         redirectAttributes.addFlashAttribute("mgs", "Xóa nhân viên thành công");
         return "redirect:/nhanvien";
     }

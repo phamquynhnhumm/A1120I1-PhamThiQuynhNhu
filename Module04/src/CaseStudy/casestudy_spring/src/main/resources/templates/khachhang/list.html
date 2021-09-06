@@ -68,7 +68,7 @@
                             <tbody>
                             <tr th:each="khachhang1 : ${khachhangs}">
                                 <td th:text="${khachhang1.ten}"></td>
-                                 <td th:text="${khachhang1.ngaysinh}"></td>
+                                <td th:text="${khachhang1.ngaysinh}"></td>
                                 <td th:switch="${khachhang1.gioiTinh}">
                                     <span th:case="0">Nam</span>
                                     <span th:case="1">Nữ</span>
@@ -83,13 +83,44 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/khachhang/delete(id = ${khachhang1.khachHangId})}">
+                                    <button style="background: red" data-toggle="modal" data-target="#exampleModal"
+                                            th:onclick="preparedelete([[${khachhang1.khachHangId}]],[[${khachhang1.ten}]])">
                                         Xóa
-                                    </a>
+                                    </button>
+                                    <!--                                    <a th:href="@{/khachhang/delete(id = ${khachhang1.khachHangId})}">-->
+                                    <!--                                        Xóa-->
+                                    <!--                                    </a>-->
                                 </td>
                             </tr>
                             </tbody>
                         </table>
+                        <div id="exampleModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span id="khachHangId"></span>
+                                        <p>Bạn có chắc chắn muốn xóa
+                                            <span id="ten"></span>
+                                            Không ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
+                                        </button>
+                                        <button onclick="deleteService($('#khachHangId').html())" type="button"
+                                                class="btn btn-default" data-dismiss="modal">
+                                            Xóa
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <!--    trường hợp chưa search-->
                         <div th:if="${nameSearch == null}">
@@ -131,5 +162,26 @@
     <div th:replace="~{footer :: footer1}">
     </div>
 </div>
+
+<script>
+    function preparedelete(khachHangId, ten) {
+
+        $('#khachHangId').html(khachHangId)
+        $('#ten').html(ten)
+    }
+
+    function deleteService(khachHangId) {
+        console.log(khachHangId);
+        $.ajax(
+            {
+                type: 'get',
+                url: "/khachhang/delete/" + khachHangId,
+                success: function () {
+                    window.location.href = "http://localhost:8080/khachhang";
+                }
+            }
+        )
+    }
+</script>
 </body>
 </html>

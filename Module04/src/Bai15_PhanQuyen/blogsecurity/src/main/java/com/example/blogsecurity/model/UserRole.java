@@ -11,7 +11,7 @@ public class UserRole {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "User_Id", nullable = false)
@@ -21,11 +21,20 @@ public class UserRole {
     @JoinColumn(name = "Role_Id", nullable = false)
     private AppRole appRole;
 
-    public Long getId() {
+    public UserRole() {
+    }
+
+    public UserRole(int id, AppUser appUser, AppRole appRole) {
+        this.id = id;
+        this.appUser = appUser;
+        this.appRole = appRole;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -44,5 +53,4 @@ public class UserRole {
     public void setAppRole(AppRole appRole) {
         this.appRole = appRole;
     }
-
 }

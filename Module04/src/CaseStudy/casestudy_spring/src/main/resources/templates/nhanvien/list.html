@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <style>
         .link {
             background: #2C3E50;
@@ -67,7 +69,7 @@
                             </thead>
                             <tbody>
                             <tr th:each="nhanvien1 : ${nhanviens}">
-                                <td th:text="${nhanvien1.tenNhanVien}"></td>
+                                <td id="serviceName" th:text="${nhanvien1.tenNhanVien}"></td>
                                 <!--                                <td th:text="${nhanvien1.ngaysinh}"></td>-->
                                 <!--                                <td th:text="${nhanvien1.sdt}"></td>-->
                                 <!--                                <td th:text="${nhanvien1.socmnd}"></td>-->
@@ -84,13 +86,41 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/nhanvien/delete(id = ${nhanvien1.idNhanVien})}">
+                                    <button style="background: red" data-toggle="modal" data-target="#exampleModal"
+                                            th:onclick="preparedelete([[${nhanvien1.idNhanVien}]],[[${nhanvien1.tenNhanVien}]])">
                                         Xóa
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
+
                             </tbody>
                         </table>
+                        <div id="exampleModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span id="idNhanVien"></span>
+                                        <p>Bạn có chắc chắn muốn xóa
+                                            <span id="tenNhanVien"></span>
+                                             Không ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
+                                        </button>
+                                        <button onclick="deleteService($('#idNhanVien').html())" type="button"
+                                                class="btn btn-default" data-dismiss="modal">
+                                            Xóa
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!--    trường hợp chưa search-->
                         <div th:if="${nameSearch == null}">
@@ -121,6 +151,7 @@
            th:href="@{/search(page=${nhanviens.number + 1}, nameSearch=${nameSearch})}">Sau</a>
     </span>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -132,5 +163,26 @@
     <div th:replace="~{footer :: footer1}">
     </div>
 </div>
+
+<script>
+    function preparedelete(idNhanVien, tenNhanVien) {
+
+        $('#idNhanVien').html(idNhanVien)
+        $('#tenNhanVien').html(tenNhanVien)
+    }
+
+    function deleteService(idNhanVien) {
+        console.log(idNhanVien);
+        $.ajax(
+            {
+                type: 'get',
+                url: "/nhanvien/delete/" + idNhanVien,
+                success: function () {
+                    window.location.href = "http://localhost:8080/nhanvien";
+                }
+            }
+        )
+    }
+</script>
 </body>
 </html>

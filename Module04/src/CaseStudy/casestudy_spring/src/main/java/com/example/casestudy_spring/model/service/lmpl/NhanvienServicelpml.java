@@ -22,6 +22,11 @@ public class NhanvienServicelpml  implements NhanvienService {
     }
 
     @Override
+    public List<NhanVien> finAll() {
+        return nhanvienRepository.findAll();
+    }
+
+    @Override
     public void save(NhanVien nhanvien) {
 
         this.nhanvienRepository.save(nhanvien);

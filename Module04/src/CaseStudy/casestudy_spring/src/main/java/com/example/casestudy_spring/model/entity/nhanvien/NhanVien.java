@@ -1,10 +1,9 @@
 package com.example.casestudy_spring.model.entity.nhanvien;
 
-import com.example.casestudy_spring.model.entity.taikhoan.User;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import com.example.casestudy_spring.model.entity.hopdong.HopDong;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "nhanvien")
 public class NhanVien {
@@ -45,11 +44,26 @@ public class NhanVien {
     @JoinColumn(name = "bophan_id", referencedColumnName = "idBoPhan")
     private BoPhan boPhan;
 
-    @OneToOne(mappedBy = "nhanVienList", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private User Usermap;
 
+    @OneToMany(mappedBy = "nhanViens", cascade = CascadeType.ALL)
+    private List<HopDong> hopDongList;
 
     public NhanVien() {
+    }
+
+    public NhanVien(String idNhanVien, String tenNhanVien, String ngaysinh, Integer socmnd, Integer sdt, String email, int luong, String thanhpho, ViTri viTri, TrinhDo trinhDo, BoPhan boPhan, List<HopDong> hopDongList) {
+        this.idNhanVien = idNhanVien;
+        this.tenNhanVien = tenNhanVien;
+        this.ngaysinh = ngaysinh;
+        this.socmnd = socmnd;
+        this.sdt = sdt;
+        this.email = email;
+        this.luong = luong;
+        this.thanhpho = thanhpho;
+        this.viTri = viTri;
+        this.trinhDo = trinhDo;
+        this.boPhan = boPhan;
+        this.hopDongList = hopDongList;
     }
 
     public String getIdNhanVien() {
@@ -140,26 +154,11 @@ public class NhanVien {
         this.boPhan = boPhan;
     }
 
-    public User getUsermap() {
-        return Usermap;
+    public List<HopDong> getHopDongList() {
+        return hopDongList;
     }
 
-    public void setUsermap(User usermap) {
-        Usermap = usermap;
-    }
-
-    public NhanVien(String idNhanVien, String tenNhanVien, String ngaysinh, Integer socmnd, Integer sdt, String email, int luong, String thanhpho, ViTri viTri, TrinhDo trinhDo, BoPhan boPhan, User usermap) {
-        this.idNhanVien = idNhanVien;
-        this.tenNhanVien = tenNhanVien;
-        this.ngaysinh = ngaysinh;
-        this.socmnd = socmnd;
-        this.sdt = sdt;
-        this.email = email;
-        this.luong = luong;
-        this.thanhpho = thanhpho;
-        this.viTri = viTri;
-        this.trinhDo = trinhDo;
-        this.boPhan = boPhan;
-        Usermap = usermap;
+    public void setHopDongList(List<HopDong> hopDongList) {
+        this.hopDongList = hopDongList;
     }
 }

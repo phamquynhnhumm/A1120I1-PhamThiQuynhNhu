@@ -11,16 +11,16 @@ public class AppRole {
     @Id
     @GeneratedValue
     @Column(name = "Role_Id", nullable = false)
-    private Long roleId;
+    private int roleId;
 
     @Column(name = "Role_Name", length = 30, nullable = false)
     private String roleName;
 
-    public Long getRoleId() {
+    public int getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
 

@@ -6,9 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface KhachhangService {
     Page<KhachHang> findAll(Pageable pageable);
+    List<KhachHang> finAll();
     void  save(KhachHang khachHang);
     void remove(String id);
     KhachHang finById1(String id);

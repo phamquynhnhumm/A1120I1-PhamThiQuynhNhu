@@ -2,6 +2,7 @@ package com.example.blogsecurity.controller;
 
 
 import com.example.blogsecurity.model.AppUser;
+import com.example.blogsecurity.service.UserServicelmpl;
 import com.example.blogsecurity.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -9,11 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -21,6 +18,8 @@ import java.security.Principal;
 public class MainController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    public UserServicelmpl userServicelmpl;
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -51,14 +50,21 @@ public class MainController {
         return "userInfoPage";
     }
 
-    @PostMapping("/singup")
-    public String singUp(@RequestParam("username")String username, @RequestParam("password")String password) {
-        AppUser appUser = new AppUser();
-        appUser.setUserName(username);
-        appUser.setEncrytedPassword(bCryptPasswordEncoder.encode(password));
-        //save tài khoản tại đây.
-        return "login";
+    @GetMapping("/singup")
+    public String viewsingup(AppUser appUser, Model model) {
+        model.addAttribute("user", new AppUser());
+        return "/singup";
+
+
     }
 
-
+    @PostMapping("/singup")
+    public String singUp(@RequestParam("userName") String userName, @RequestParam("encrytedPassword") String encrytedPassword) {
+        AppUser appUser = new AppUser();
+        appUser.setUserName(userName);
+        appUser.setEncrytedPassword(bCryptPasswordEncoder.encode(encrytedPassword));
+        //save tài khoản tại đây.
+        userServicelmpl.save(appUser);
+        return "redirect:/login";
+    }
 }

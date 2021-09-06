@@ -16,8 +16,7 @@ public class TrinhDo {
     @Column(name = "tenTrinhDo")
     private String tenTrinhDo;
 
-    @OneToMany(mappedBy = "trinhDo")
-//    @Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
+    @OneToMany(mappedBy = "trinhDo", cascade = CascadeType.ALL)
     private List<NhanVien> nhanVienList;
 
     public TrinhDo() {

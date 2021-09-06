@@ -1,7 +1,6 @@
 package com.example.casestudy_spring.model.service.lmpl;
 
 import com.example.casestudy_spring.model.entity.dichvu.DichVu;
-import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
 import com.example.casestudy_spring.model.repository.DichvuRepository;
 import com.example.casestudy_spring.model.service.DichvuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,11 @@ public class DichVuServicelmpl implements DichvuService {
     }
 
     @Override
+    public List<DichVu> finAll() {
+        return dichvuRepository.findAll();
+    }
+
+    @Override
     public void save(DichVu dichVu) {
         this.dichvuRepository.save(dichVu);
     }
@@ -39,6 +43,6 @@ public class DichVuServicelmpl implements DichvuService {
 
     @Override
     public Page<DichVu> finbyname(String name, Pageable pageable) {
-        return dichvuRepository.findByTenDichVuContaining(name,pageable);
+        return dichvuRepository.findByTenDichVuContaining(name, pageable);
     }
 }

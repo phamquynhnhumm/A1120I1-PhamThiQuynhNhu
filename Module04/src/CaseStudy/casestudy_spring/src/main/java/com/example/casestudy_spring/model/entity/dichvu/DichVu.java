@@ -1,9 +1,9 @@
 package com.example.casestudy_spring.model.entity.dichvu;
 
-import com.example.casestudy_spring.model.entity.khachhang.LoaiKhach;
-import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
+import com.example.casestudy_spring.model.entity.hopdong.HopDong;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "dichvu")
 public class DichVu {
@@ -27,9 +27,20 @@ public class DichVu {
     @JoinColumn(name = "idkieuthue", referencedColumnName = "idkieuthue")
     private KieuThue kieuThues;
 
-    @OneToOne
-    @JoinColumn(name = "idloai", referencedColumnName = "idloai", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "idloai", referencedColumnName = "idloai")
     private LoaiDV loaiDVs;
+
+    @OneToMany(mappedBy = "dichVus", cascade = CascadeType.ALL)
+    private List<HopDong> hopDongList;
+
+    public List<HopDong> getHopDongList() {
+        return hopDongList;
+    }
+
+    public void setHopDongList(List<HopDong> hopDongList) {
+        this.hopDongList = hopDongList;
+    }
 
     public DichVu() {
     }

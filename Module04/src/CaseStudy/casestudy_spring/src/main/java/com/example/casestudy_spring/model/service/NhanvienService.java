@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public interface NhanvienService {
     Page<NhanVien> findAll(Pageable pageable);
+
+    List<NhanVien> finAll();
     void  save(NhanVien nhanvien);
     void remove(String id);
     NhanVien finById1(String id);

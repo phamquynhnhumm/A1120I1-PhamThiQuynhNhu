@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Khachhanglmppl implements KhachhangService {
     @Autowired
@@ -17,6 +19,11 @@ public class Khachhanglmppl implements KhachhangService {
     @Override
     public Page<KhachHang> findAll(Pageable pageable) {
         return khachhangREpository.findAll(pageable);
+    }
+
+    @Override
+    public List<KhachHang> finAll() {
+        return khachhangREpository.findAll();
     }
 
     @Override

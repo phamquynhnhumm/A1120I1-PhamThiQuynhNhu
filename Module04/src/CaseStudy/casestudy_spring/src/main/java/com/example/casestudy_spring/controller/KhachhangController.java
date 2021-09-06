@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,7 +27,7 @@ public class KhachhangController {
     private String list(@RequestParam(value = "page",defaultValue = "0") int page, Model model)
     {
         Sort sort = Sort.by("khachHangId").and(Sort.by("ten")).descending();
-        model.addAttribute("khachhangs", khachhangService.findAll(PageRequest.of(page,2,sort)));
+        model.addAttribute("khachhangs", khachhangService.findAll(PageRequest.of(page,5,sort)));
        model.addAttribute("loaikhachs", loaikhachService.findAll());
         return "/khachhang/list";
     }
@@ -62,10 +63,10 @@ public class KhachhangController {
     }
 
 
-    @GetMapping(value = "/khachhang/delete")
-    public String delete( @RequestParam String id,RedirectAttributes redirectAttributes)
+    @GetMapping(value = "/khachhang/delete/{khachHangId}")
+    public String delete(@PathVariable String khachHangId, RedirectAttributes redirectAttributes)
     {
-        khachhangService.remove(id);
+        this.khachhangService.remove(khachHangId);
         redirectAttributes.addFlashAttribute("mgs", "Xóa nhân viên thành công");
         return "redirect:/khachhang";
     }

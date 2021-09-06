@@ -2,32 +2,32 @@ package com.example.casestudy_spring.model.entity.khachhang;
 
 import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "loaikhach")
 public class LoaiKhach {
-
     @Id
-    @Column(name = "idloaikhac")
+    @Column(name = "idLoaiKhach")
     private String idLoaiKhach;
 
     @Column(name = "tenLoaiKhach")
     private String tenLoaiKhach;
 
-    @OneToMany(mappedBy = "loaiKhach")
-    private List<KhachHang> khachHangs;
+
+    @OneToMany(mappedBy = "loaiKhach", cascade = CascadeType.ALL)
+    private List<KhachHang> Khachhangs;
+
+//    @OneToMany(mappedBy = "loaiKhach",cascade = CascadeType.ALL)
+//    private List<KhachHang> khachHangs;
 
     public LoaiKhach() {
     }
 
-    public LoaiKhach(String idLoaiKhach, String tenLoaiKhach, List<KhachHang> khachHangs) {
+    public LoaiKhach(String idLoaiKhach, String tenLoaiKhach, List<KhachHang> khachhangs) {
         this.idLoaiKhach = idLoaiKhach;
         this.tenLoaiKhach = tenLoaiKhach;
-        this.khachHangs = khachHangs;
+        Khachhangs = khachhangs;
     }
 
     public String getIdLoaiKhach() {
@@ -46,11 +46,11 @@ public class LoaiKhach {
         this.tenLoaiKhach = tenLoaiKhach;
     }
 
-    public List<KhachHang> getKhachHangs() {
-        return khachHangs;
+    public List<KhachHang> getKhachhangs() {
+        return Khachhangs;
     }
 
-    public void setKhachHangs(List<KhachHang> khachHangs) {
-        this.khachHangs = khachHangs;
+    public void setKhachhangs(List<KhachHang> khachhangs) {
+        Khachhangs = khachhangs;
     }
 }

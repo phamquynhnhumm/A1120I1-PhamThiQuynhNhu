@@ -13,7 +13,7 @@ public class ViTri {
     @Column(name = "tenViTri")
     private String tenViTri;
 
-    @OneToMany(mappedBy = "viTri")
+    @OneToMany(mappedBy = "viTri", cascade = CascadeType.ALL)
     private List<NhanVien> nhanVienList;
 
     public ViTri(String viTriId, String tenViTri, List<NhanVien> nhanVienList) {

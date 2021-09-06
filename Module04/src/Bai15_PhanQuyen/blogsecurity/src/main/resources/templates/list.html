@@ -33,10 +33,10 @@
             <td th:text="${blog.id}"></td>
             <td tyle="text-overflow:ellipsis;" th:text="${blog.noidung}"></td>
             <td>
-                    <a th:href="@{edit/(id= ${blog.id})}">Edit</a>
+                    <a th:href="@{edit(id= ${blog.id})}">Edit</a>
             </td>
             <td>
-            <a  th:href="@{delete/(id=${blog.id})}">xóa</a>
+            <a  th:href="@{delete(id=${blog.id})}">xóa</a>
             </td>
         </tr>
     </table>
