@@ -2,6 +2,8 @@ use furama_module4;
 -- drop database furama_module4;
 
 
+
+
 insert into quyen
 values
 (1,'ROLE_ADMIN'),
@@ -10,7 +12,6 @@ values
 (4,'ROLE_HOPDONG'),
 (5,'ROLE_KHACHHANG');
 
-INSERT INTO `furama_module4`.`tai_khoan` (`tai_khoan`, `ghi_chu`, `mat_khau`, `tinh_trang`) VALUES ('1', '1', '1', b'1');
 
 insert into tai_khoan
 values
@@ -19,6 +20,14 @@ values
 ('khachhang','active','$2a$12$BH/YFfwpDjQSKbFyepedKOcMEwsn8rEITDjahrHmbq52T912yp2ma',1),
 ('dichvu','active','$2a$12$BH/YFfwpDjQSKbFyepedKOcMEwsn8rEITDjahrHmbq52T912yp2ma',1),
 ('hopdong','active','$2a$12$BH/YFfwpDjQSKbFyepedKOcMEwsn8rEITDjahrHmbq52T912yp2ma',1);
+
+
+INSERT INTO `furama_module4`.`taikhoan_quyen` (`tai_khoan`, `ma_quyen`) VALUES ('admin', '1');
+INSERT INTO `furama_module4`.`taikhoan_quyen` (`tai_khoan`, `ma_quyen`) VALUES ('nhanvien', '2');
+INSERT INTO `furama_module4`.`taikhoan_quyen` (`tai_khoan`, `ma_quyen`) VALUES ('dichvu', '3');
+INSERT INTO `furama_module4`.`taikhoan_quyen` (`tai_khoan`, `ma_quyen`) VALUES ('hopdong', '4');
+INSERT INTO `furama_module4`.`taikhoan_quyen` (`tai_khoan`, `ma_quyen`) VALUES ('khachhang', '5');
+
 
 
 INSERT INTO `furama_module4`.`trinhdo` (`id_trinh_do`, `ten_trinh_do`) VALUES ('TD01', '12/12');
