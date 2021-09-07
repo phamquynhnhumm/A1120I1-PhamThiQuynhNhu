@@ -56,8 +56,9 @@ public class MainController {
         return "/signUp";
     }
 
-    @PostMapping("/singUp")
+    @PostMapping("/signUp")
     public String singUp(@RequestParam String username, @RequestParam String password, TaiKhoan taiKhoan) {
+        System.out.println("đã hêm tài khoản===============");
         taiKhoan.setTaiKhoan(username);
         taiKhoan.setMatKhau(bCryptPasswordEncoder.encode(password));
         taiKhoanService.save(taiKhoan);

@@ -21,8 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    private DataSource dataSource;
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -33,15 +32,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
-        // Sét đặt dịch vụ để tìm kiếm User trong Database.
-        // Và sét đặt PasswordEncoder.
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-
         http.csrf().disable();
 
         http.authorizeRequests().antMatchers("/khachhang/**").access("hasAnyRole('ROLE_ADMIN','ROLE_KHACHHANG')");
