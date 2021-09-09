@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1d9ab69-2800-47b0-9ebc-6f76e0e6cf55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/src/main/java/com/example/ql_khachhang/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/src/main/java/com/example/ql_khachhang/concern/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module03/src/Casestudy_JSP&amp;Servlet/web/nhanvien/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../phan_trang_tim_kiem_filter.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Bai6_JPA/ql_khachhang/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../baitap/validate_form/src/main/java/com/example/validate_form/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../baitap/validate_form/src/main/java/com/example/validate_form/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/CaseStudy.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/LoaiKhach.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/khachhang/LoaiKhach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Module02/src/TestIDTang/TestIDTang.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/customvalidation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Tailieumodule04/CG-DN Case Study for Spring.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tailieumodule04/CG-DN Case Study for Spring.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Tailieumodule04/Câu hỏi audit module 4 - Spring.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tailieumodule04/Câu hỏi audit module 4 - Spring.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/NhanVien.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy/casestudy_spring/src/main/java/com/example/casestudy_spring/model/entity/nhanvien/NhanVien.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +35,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../validating_form" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.20155793" />
   </component>
   <component name="RunManager">
     <configuration name="CustomValidationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -67,6 +65,7 @@
       <workItem from="1627721564590" duration="31000" />
       <workItem from="1627845427618" duration="20000" />
       <workItem from="1628167711625" duration="55000" />
+      <workItem from="1631090384545" duration="106000" />
     </task>
     <servers />
   </component>
@@ -74,9 +73,13 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="165" y="167" key="FileChooserDialogImpl" timestamp="1628167757426">
+    <state x="249" y="0" key="#Project_Structure" timestamp="1631090469905">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="165" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1628167757426" />
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1631090469905" />
+    <state x="165" y="167" key="FileChooserDialogImpl" timestamp="1631090488084">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="165" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1631090488084" />
   </component>
 </project>

@@ -3,23 +3,32 @@ package com.example.casestudy_spring.model.entity.dichvu;
 import com.example.casestudy_spring.model.entity.hopdong.HopDong;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity(name = "dichvu")
 public class DichVu {
     @Id
     @Column(name = "idDichVu")
+    @NotEmpty(message = "Vui lòng nhập tên")
+    @Pattern(regexp = "DV-[0-9]{4}")
     private String idDichVu;
 
+    @NotEmpty(message = "Vui lòng nhập mã dịch vụ")
     @Column(name = "ten_dichvu")
     private String tenDichVu;
 
+    @Min(value = 1)
     @Column(name = "dientich",columnDefinition = "float")
     private Float dienTich;
 
+    @Min(value = 1)
     @Column(name = "chiphi",columnDefinition = "float")
     private Float chiPhi;
 
+    @Min(value = 1)
     @Column(name = "songuoi",columnDefinition = "int")
     private Integer soNguoi;
 

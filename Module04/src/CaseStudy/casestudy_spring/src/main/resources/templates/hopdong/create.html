@@ -29,7 +29,7 @@
                 <label class="col-sm-4 col-form-label">ID:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{idHopDong}" class="form-control" placeholder="id"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{idNhanVien}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('idHopDong')}" th:errors="*{idHopDong}"></p>
             </div>
 
 
@@ -37,14 +37,13 @@
                 <label class="col-sm-4 col-form-label">Ngày Bắt đầu</label>
                 <div class="col-sm-8">
                     <input type="date" th:field="*{ngayBatDau}" class="form-control" placeholder="ten"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{tenNhanVien}"></p>-->
-
+                <p style="color: red" th:if="${#fields.hasErrors('ngayBatDau')}" th:errors="*{ngayBatDau}"></p>
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Ngày Kết Thúc:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{ngayKetThuc}" class="form-control" placeholder="Diện tích"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{ngaysinh}"></p>-->
+                    <input type="date" th:field="*{ngayKetThuc}" class="form-control" placeholder="Diện tích"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('ngayKetThuc')}" th:errors="*{ngayKetThuc}"></p>
             </div>
         </div>
         <div class="row">
@@ -52,14 +51,16 @@
                 <label class="col-sm-4 col-form-label">Tiền cọc:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{soTienDatCoc}" class="form-control" placeholder="Chi phí"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('socmnd')}" th:errors="*{socmnd}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('soTienDatCoc')}" th:errors="*{soTienDatCoc}"></p>
 
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Tổng tiền:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{tongSoTienThanhToan}" class="form-control" placeholder="Số người"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('sdt')}" th:errors="*{sdt}"></p>-->
+                    <input type="text" th:field="*{tongSoTienThanhToan}" class="form-control" placeholder="Số người">
+                </div>
+                <p style="color: red" th:if="${#fields.hasErrors('tongSoTienThanhToan')}"
+                   th:errors="*{tongSoTienThanhToan}"></p>
             </div>
         </div>
         <div class="row">

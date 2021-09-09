@@ -4,28 +4,42 @@ package com.example.casestudy_spring.model.entity.hopdong;
 import com.example.casestudy_spring.model.entity.dichvu.DichVu;
 import com.example.casestudy_spring.model.entity.khachhang.KhachHang;
 import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
-import com.example.casestudy_spring.model.entity.nhanvien.TrinhDo;
-import com.example.casestudy_spring.model.service.KhachhangService;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "hopdong")
-public class HopDong {
+public class HopDong implements Validator {
 
     @Id
     @Column(name = "idHopDong")
+    @Pattern(regexp = "HD-[0-9]{4}")
     private String idHopDong;
 
+    @NotEmpty(message = "Vui lòng nhập ngày  bắt đầu")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "ngaybatdau")
     private String ngayBatDau;
 
+    @NotEmpty(message = "Vui lòng nhập ngày  bắt đầu")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "ngayketthuc")
     private String ngayKetThuc;
 
+    @Min(value = 1, message = "số tiền đặt cọ phải lớn hơn 1")
     @Column(name = "sotiendatcoc")
     private Float soTienDatCoc;
 
+    @Min(value = 1, message = "tổng tiền  phải lớn hơn 1")
     @Column(name = "tongsotienthanhtoan")
     private Float tongSoTienThanhToan;
 
@@ -135,5 +149,45 @@ public class HopDong {
 
     public void setHopDongDichVuDiKemList(List<HopDongDichVuDiKem> hopDongDichVuDiKemList) {
         this.hopDongDichVuDiKemList = hopDongDichVuDiKemList;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return HopDong.class.isAssignableFrom(clazz);
+    }
+
+
+    @Override
+    public void validate(Object hopdong, Errors errors) {
+        HopDong hopDong = (HopDong) hopdong;
+        String ngayBatDau = hopDong.getNgayBatDau();
+        String ngayKetThuc = hopDong.getNgayKetThuc();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        Date ngaybatdau1 = new Date();
+        Date ngaybatdau2 = new Date();
+        System.out.println("ngày hiện tại  ====" + date);
+        System.out.println("ngày hiện bắt đầu  ====" + ngaybatdau1);
+
+        try {
+            ngaybatdau1 = formatter.parse(ngayBatDau);
+            ngaybatdau2 = formatter1.parse(ngayKetThuc);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (date.after(ngaybatdau1)) {
+            errors.rejectValue("ngayBatDau", "ngaybatdau.date");
+        }
+        if (ngaybatdau1.after(ngaybatdau2)) {
+            errors.rejectValue("ngayKetThuc", "ngayketthuc.date");
+        }
+//
+//        if (!nhanVien.sdt.startsWith("0")) {
+//            errors.rejectValue("sdt", "number.startsWith");
+//        }
     }
 }

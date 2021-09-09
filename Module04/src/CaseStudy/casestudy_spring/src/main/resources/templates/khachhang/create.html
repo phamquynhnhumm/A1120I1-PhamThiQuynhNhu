@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -29,20 +28,20 @@
                 <label class="col-sm-4 col-form-label">ID:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{khachHangId}" class="form-control" placeholder="id"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{idNhanVien}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('khachHangId')}" th:errors="*{khachHangId}"></p>
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Tên:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{ten}" class="form-control" placeholder="ten"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{tenNhanVien}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}"></p>
 
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Ngày sinh:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{ngaysinh}" class="form-control" placeholder="ngày sinh"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{ngaysinh}"></p>-->
+                    <input type="date" th:field="*{ngaysinh}" class="form-control" placeholder="ngày sinh"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('ngaysinh')}" th:errors="*{ngaysinh}"></p>
             </div>
         </div>
         <div class="row">
@@ -57,8 +56,6 @@
                         <option th:text="bede" th:value="2">
                         </option>
                     </select>
-
-                    <input type="text" th:field="*{gioiTinh}" class="form-control" placeholder="Giới tính">
                 </div>
 
             </div>
@@ -66,13 +63,15 @@
                 <label class="col-sm-4 col-form-label">email:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{email}" class="form-control" placeholder="email"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Thành Phố</label>
                 <div class="col-sm-8">
-                    <input  type="text" th:field="*{thanhPho}" class="form-control" placeholder="thành phố"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('thanhpho')}" th:errors="*{thanhpho}"></p>-->
+                    <input type="text" th:field="*{thanhPho}" class="form-control" placeholder="thành phố"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('thanhPho')}" th:errors="*{thanhPho}"></p>
+
             </div>
         </div>
         <div class="row">
@@ -80,20 +79,20 @@
                 <label class="col-sm-5 col-form-label">Vị trí</label>
                 <div class="col-sm-7">
                     <select th:field="*{loaiKhach}">
-                        <option th:each="loaikhach:${loaikhachs}" th:text="${loaikhach.tenLoaiKhach}" th:value="${loaikhach.idLoaiKhach}">
+                        <option th:each="loaikhach:${loaikhachs}" th:text="${loaikhach.tenLoaiKhach}"
+                                th:value="${loaikhach.idLoaiKhach}">
                         </option>
                     </select>
-                    <!--                    <p style="color: red" th:if="${#fields.hasErrors('viTri.tenViTri')}" th:errors="*{viTri.tenViTri}"></p>-->
                 </div>
             </div>
         </div>
-            <center>
-                <button style="background: #0c5460;" type="submit">Thêm mới</button>
-            </center>
+        <center>
+            <button style="background: #0c5460;" type="submit">Thêm mới</button>
+        </center>
     </form>
-    </div>
-    <br><br>
-    <div th:replace="~{footer :: footer1}"></div>
+</div>
+<br><br>
+<div th:replace="~{footer :: footer1}"></div>
 
 </body>
 </html>

@@ -29,55 +29,56 @@
                 <label class="col-sm-4 col-form-label">ID:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{idNhanVien}" class="form-control" placeholder="id"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{idNhanVien}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('idNhanVien')}" th:errors="*{idNhanVien}"></p>
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Tên:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{tenNhanVien}" class="form-control" placeholder="ten"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('tenNhanVien')}" th:errors="*{tenNhanVien}"></p>
                 <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{tenNhanVien}"></p>-->
 
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Ngày sinh:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{ngaysinh}" class="form-control" placeholder="ngày sinh"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('idnhanvien')}" th:errors="*{ngaysinh}"></p>-->
+                    <input type="date" th:field="*{ngaysinh}" class="form-control" placeholder="ngày sinh"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('ngaysinh')}" th:errors="*{ngaysinh}"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Số cmnd:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{socmnd}" class="form-control" placeholder="số cmnd"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('socmnd')}" th:errors="*{socmnd}"></p>-->
+                    <input type="number" th:field="*{socmnd}" class="form-control" placeholder="số cmnd"></div>
+                <p style="color: red" th:if="${#fields.hasErrors('socmnd')}" th:errors="*{socmnd}"></p>
 
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">số đt:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{sdt}" class="form-control" placeholder="số đt"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('sdt')}" th:errors="*{sdt}"></p>-->
+                <p style="color: red" th:if="${#fields.hasErrors('sdt')}" th:errors="*{sdt}"></p>
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">email:</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{email}" class="form-control" placeholder="email"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>-->
+                                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Lương</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{luong}" class="form-control" placeholder="lương"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('luong')}" th:errors="*{luong}"></p>-->
+                    <input type="number" th:field="*{luong}" class="form-control" placeholder="lương"></div>
+                                    <p style="color: red" th:if="${#fields.hasErrors('luong')}" th:errors="*{luong}"></p>
             </div>
             <div class="form-group row col-4">
                 <label class="col-sm-4 col-form-label">Thành Phố</label>
                 <div class="col-sm-8">
                     <input type="text" th:field="*{thanhpho}" class="form-control" placeholder="thành phố"></div>
-                <!--                    <p style="color: red" th:if="${#fields.hasErrors('thanhpho')}" th:errors="*{thanhpho}"></p>-->
+                                    <p style="color: red" th:if="${#fields.hasErrors('thanhpho')}" th:errors="*{thanhpho}"></p>
             </div>
         </div>
         <div class="row">
@@ -114,13 +115,13 @@
                 </div>
             </div>
         </div>
-            <center>
-                <button style="background: #0c5460;" type="submit">Thêm mới</button>
-            </center>
+        <center>
+            <button style="background: #0c5460;" type="submit">Thêm mới</button>
+        </center>
     </form>
-    </div>
-    <br><br>
-    <div th:replace="~{footer :: footer1}"></div>
+</div>
+<br><br>
+<div th:replace="~{footer :: footer1}"></div>
 
 </body>
 </html>

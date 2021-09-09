@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http.authorizeRequests().antMatchers("/khachhang/**").access("hasAnyRole('ROLE_ADMIN','ROLE_KHACHHANG')");
-        http.authorizeRequests().antMatchers("/nhanvien/**").access("hasAnyRole('ROLE_ADMIN','ROLE_NHANVIEN')");
+//        http.authorizeRequests().antMatchers("/nhanvien/**").access("hasAnyRole('ROLE_ADMIN','ROLE_NHANVIEN')");
         http.authorizeRequests().antMatchers("/dichvu/**").access("hasAnyRole('ROLE_ADMIN','ROLE_DICHVU')");
         http.authorizeRequests().antMatchers("/hopdong/**").access("hasAnyRole('ROLE_ADMIN','ROLE_HOPDONG')");
 
@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
         // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers( "/","/login","/logout").permitAll();
+        http.authorizeRequests().antMatchers( "/","/login","/logout","/nhanvien/**").permitAll();
 
 
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");

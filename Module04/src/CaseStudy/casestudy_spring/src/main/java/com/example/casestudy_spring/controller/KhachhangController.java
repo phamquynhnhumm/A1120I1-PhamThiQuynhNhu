@@ -9,11 +9,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 public class KhachhangController {
@@ -39,8 +39,14 @@ public class KhachhangController {
         return "/khachhang/create";
     }
     @PostMapping(value = "/khachhang/create")
-    private String Create(KhachHang khachHang, RedirectAttributes redirectAttributes)
+    private String Create(@Valid @ModelAttribute("khachhangs") KhachHang khachHang, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model)
     {
+        new  KhachHang().validate(khachHang, bindingResult);
+        if(bindingResult.hasErrors())
+        {
+            model.addAttribute("loaikhachs", loaikhachService.findAll());
+            return "/khachhang/create";
+        }
         this.khachhangService.save(khachHang);
         redirectAttributes.addFlashAttribute("mgs","them moi thanh cong");
         return "redirect:/khachhang";

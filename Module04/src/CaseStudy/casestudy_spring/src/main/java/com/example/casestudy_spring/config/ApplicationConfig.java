@@ -5,13 +5,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
-
 @Configuration
-public class AppConfig {
+public class ApplicationConfig {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("mgs/validation_msg");
+        messageSource.setBasenames("ValidationMessages");
         return messageSource;
     }
 }

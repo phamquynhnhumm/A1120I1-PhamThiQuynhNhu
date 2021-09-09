@@ -1,6 +1,7 @@
 package com.example.casestudy_spring.controller;
 
 import com.example.casestudy_spring.model.entity.dichvu.DichVu;
+import com.example.casestudy_spring.model.entity.khachhang.KhachHang;
 import com.example.casestudy_spring.model.entity.nhanvien.NhanVien;
 import com.example.casestudy_spring.model.service.DichvuService;
 import com.example.casestudy_spring.model.service.KieuThueService;
@@ -10,11 +11,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.rmi.MarshalledObject;
 
 @Controller
 public class DichvuController {
@@ -49,7 +51,15 @@ public class DichvuController {
     }
 
     @PostMapping(value = "/dichvu/create")
-    private String Create(DichVu dichVu, RedirectAttributes redirectAttributes) {
+    private String Create(@Valid  @ModelAttribute("dichvus") DichVu dichVu, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        if(bindingResult.hasErrors())
+        {
+            model.addAttribute("kieuthues", kieuThueService.findAll());
+//        model.addAttribute("houses", houseService.findAll());
+            model.addAttribute("loaidvs", loaiDVService.findAll());
+            return "/dichvu/create";
+        }
+
         this.dichvuService.save(dichVu);
         redirectAttributes.addFlashAttribute("mgs", "Thêm mới thành công");
         return "redirect:/dichvu";

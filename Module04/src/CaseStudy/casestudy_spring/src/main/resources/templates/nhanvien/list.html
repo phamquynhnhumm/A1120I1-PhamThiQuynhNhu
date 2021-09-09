@@ -29,10 +29,10 @@
         <center>
             <h2>Danh sách Nhân viên</h2>
         </center>
-        <form method="get" action="/search">
-            <input type="text" name="nameSearch" th:value="${nameSearch}">
-            <button>Search</button>
-        </form>
+<!--        <form method="get" action="/search">-->
+<!--            <input type="text" name="nameSearch" th:value="${nameSearch}">-->
+<!--            <button>Search</button>-->
+<!--        </form>-->
         <div class="row">
             <div class="col-sm-9">
             </div>
@@ -42,6 +42,50 @@
             </div>
         </div>
         <br>
+
+        <form action="/nhanvien/search" method="get">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-1">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-1">
+                    <label for="">Ten</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-2">
+                    <input class="form-control" type="text" name="tennhanvien" th:value="${tennhanvien}">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-1">
+                    <label for="">std</label>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-2">
+                    <input class="form-control" type="text" name="sdt" th:value="${sdt}">
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-1">
+                    <label for="">Loai bo phan</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-2">
+
+                    <select class="form-control" th:name="idbophan" id="">
+                        <option value="">Chon loai KH</option>
+                        <option   th:each="bophan:${bophamList}"
+                                th:if="${bophan.idBoPhan}==${idbophan}" selected
+                                th:text="${bophan.tenBoPhan}"
+                                th:value="${bophan.idBoPhan}">
+                        </option>
+                        <option th:each="bophan:${bophamList}"
+                                th:unless="${bophan.idBoPhan}==${idbophan}"
+                                th:text="${bophan.tenBoPhan}"
+                                th:value="${bophan.idBoPhan}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-2">
+                    <button class="btn btn-primary" style="width: 100%;" type="submit">Tim kiem</button>
+                </div>
+            </div>
+        </form>
         <div class="row">
             <div class="col-sm-1">
             </div>
@@ -108,7 +152,7 @@
                                         <span id="idNhanVien"></span>
                                         <p>Bạn có chắc chắn muốn xóa
                                             <span id="tenNhanVien"></span>
-                                             Không ?</p>
+                                            Không ?</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Hủy
@@ -123,34 +167,36 @@
                         </div>
 
                         <!--    trường hợp chưa search-->
-                        <div th:if="${nameSearch == null}">
-    <span>
-        <a th:if="${nhanviens.hasPrevious()}" th:href="@{/nhanvien(page=${nhanviens.number - 1})}">Trước</a>
-    </span>
-                            <span th:each="pageNo: ${#numbers.sequence(0,nhanviens.totalPages -1)}">
-            <a th:href="@{/nhanvien(page = ${pageNo})}" th:text="${pageNo}"></a>
-    </span>
+<!--                        <div th:if="${customerListSearch == null}">-->
+<!--    <span>-->
+<!--        <a th:if="${nhanviens.hasPrevious()}" th:href="@{/nhanvien(page=${nhanviens.number - 1})}">Trước</a>-->
+<!--    </span>-->
+<!--                            <span th:each="pageNo: ${#numbers.sequence(0,nhanviens.totalPages -1)}">-->
+<!--            <a th:href="@{/nhanvien(page = ${pageNo})}" th:text="${pageNo}"></a>-->
+<!--    </span>-->
 
-                            <span>
-        <a th:if="${nhanviens.hasNext()}" th:href="@{/nhanvien(page=${nhanviens.number + 1})}">Sau</a>
-    </span>
-                        </div>
+<!--                            <span>-->
+<!--        <a th:if="${nhanviens.hasNext()}" th:href="@{/nhanvien(page=${nhanviens.number + 1})}">Sau</a>-->
+<!--    </span>-->
+<!--                        </div>-->
 
-                        <!--                        trường hợp search-->
-                        <div th:if="${nameSearch != null}">
-    <span>
-        <a th:if="${nhanviens.hasPrevious()}"
-           th:href="@{/search(page=${nhanviens.number - 1} , nameSearch=${nameSearch})}">Trước</a>
-    </span>
+<!--                        &lt;!&ndash;                        trường hợp search&ndash;&gt;-->
+<!--                        <div th:if="${customerListSearch != null}">-->
+<!--    <span>-->
+<!--        <a th:if="${nhanviens.hasPrevious()}"-->
+<!--           th:href="@{nhanvien/search(page=${nhanviens.number - 1} , nameSearch=${tennhanvien})}">Trước</a>-->
+<!--    </span>-->
 
-                            <span th:each="pageNo: ${#numbers.sequence(0,nhanviens.totalPages -1)}">
-            <a th:href="@{/search(page = ${pageNo} , nameSearch=${nameSearch})}" th:text="${pageNo}"></a>
-    </span>
-                            <span>
-        <a th:if="${nhanviens.hasNext()}"
-           th:href="@{/search(page=${nhanviens.number + 1}, nameSearch=${nameSearch})}">Sau</a>
-    </span>
-                        </div>
+<!--                            <span th:each="pageNo: ${#numbers.sequence(0,nhanviens.totalPages -1)}">-->
+<!--            <a th:href="@{nhanvien/search(page = ${pageNo} , nameSearch=${tennhanvien})}" th:text="${pageNo}"></a>-->
+<!--    </span>-->
+<!--                            <span>-->
+<!--        <a th:if="${nhanviens.hasNext()}"-->
+<!--           th:href="@{nhanvien/search(page=${nhanviens.number + 1}, nameSearch=${tennhanvien})}">Sau</a>-->
+<!--    </span>-->
+<!--                        </div>-->
+
+
 
                     </div>
                 </div>
