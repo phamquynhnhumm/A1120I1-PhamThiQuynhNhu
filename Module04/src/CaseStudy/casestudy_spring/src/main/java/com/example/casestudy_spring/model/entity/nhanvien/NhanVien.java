@@ -192,7 +192,6 @@ public class NhanVien  implements Validator {
         return NhanVien.class.isAssignableFrom(clazz);
     }
 
-
     @Override
     public void validate(Object nhanvien, Errors errors) {
         NhanVien nhanVien = (NhanVien) nhanvien;
@@ -205,7 +204,6 @@ public class NhanVien  implements Validator {
         System.out.println("ngày hiện tại  ====" + date);
         try{
             ngaysinh1 = formatter.parse(ngaysinh);
-
         } catch (ParseException e) {
             e.printStackTrace();
         }

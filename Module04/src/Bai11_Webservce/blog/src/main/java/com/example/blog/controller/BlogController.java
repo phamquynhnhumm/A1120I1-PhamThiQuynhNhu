@@ -44,6 +44,8 @@ public class BlogController {
         return "redirect:/blog";
     }
 
+
+
     @GetMapping(value = "/edit")
     private String viewEdit(Blog blog, Model model, @RequestParam Integer id) {
         model.addAttribute("blogs", blogServicelmpl.finById1(id));

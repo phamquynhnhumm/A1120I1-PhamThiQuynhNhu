@@ -26,6 +26,7 @@ public class BlogRest {
         Page<Blog> blogs = blogRepository.findAll(PageRequest.of(page, 2, sort));
         return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
+
     @PostMapping("/createrest")
     private ResponseEntity<Void> createRest(@RequestBody Blog blog) {
         this.blogRepository.save(blog);

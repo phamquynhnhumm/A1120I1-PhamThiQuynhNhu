@@ -35,17 +35,7 @@ public class PhoneController {
         return "/create";
     }
 
-    //    @PostMapping(value = "/create")
-//    private String Create(@Valid @ModelAttribute("phones") Phone phone, BindingResult bindingResult,Model model) {
-//        if(bindingResult.hasFieldErrors())
-//        {
-//            return "/create";
-//        }
-//        else {
-//            this.phoneService.sava(phone);
-//            return "redirect:/phone";
-//        }
-//    }
+
     @PostMapping(value = "/create")
     private String Create(@Valid @ModelAttribute("phones") Phone phone,BindingResult bindingResult, Model model) {
        new Phone().validate(phone,bindingResult);
