@@ -30,18 +30,16 @@ do {
 
 
 // for of loop
- let keys2 =[1,3,4,44];
-for ( const item of keys2)
-{
+let keys2 = [1, 3, 4, 44];
+for (const item of keys2) {
     console.log(item);
 }
 
 
-
 // for in loop
-const usser = { name: "quynh", age: 59 };
+const usser = {name: "quynh", age: 59};
 
-for (const  key in usser) {
+for (const key in usser) {
 
     console.log(`${key}: ${usser[key]}`);
 }
