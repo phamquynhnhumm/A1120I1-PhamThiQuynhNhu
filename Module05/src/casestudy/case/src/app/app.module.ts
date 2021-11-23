@@ -24,6 +24,7 @@ import { EdithdComponent } from './content/hopdong/edithd/edithd.component';
 import { CreatehdComponent } from './content/hopdong/createhd/createhd.component';
 import { ListhdComponent } from './content/hopdong/listhd/listhd.component';
 import { CreatehdctComponent } from './content/hopdong/createhdct/createhdct.component';
+import { HomeComponent } from './content/home/home.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CreatehdctComponent } from './content/hopdong/createhdct/createhdct.com
     EdithdComponent,
     CreatehdComponent,
     ListhdComponent,
-    CreatehdctComponent
+    CreatehdctComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

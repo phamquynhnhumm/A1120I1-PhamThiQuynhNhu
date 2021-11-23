@@ -1,1 +1,41 @@
-<p>listnv works!</p>
+<div class="container">
+  <h2 style="text-align: center"> Danh Sách Nhân Viên</h2>
+  <form class="form-check-inline">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  </form>
+  <br>
+  <br>
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th >id</th>
+      <th >Họ tên</th>
+      <th >Vị trí</th>
+      <th >Trình độ</th>
+      <th >Bộ phận</th>
+      <th >Email</th>
+      <th >sđt</th>
+      <th >ngày sinh</th>
+      <th >địa chỉ</th>
+      <th>Xóa/Sửa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let nhanvien of nhanviens">
+      <td>{{nhanvien.idNV}}</td>
+      <td>{{nhanvien.tenNV |uppercase}}</td>
+      <td>{{nhanvien.viTri}}</td>
+      <td>{{nhanvien.trinhDo}}</td>
+      <td>{{nhanvien.boPhan}}</td>
+      <td>{{nhanvien.eMail}}</td>
+      <td>{{nhanvien.sDT}}</td>
+      <td>{{nhanvien.ngasySinh}}</td>
+      <td>{{nhanvien.diaChi}}</td>
+      <td>
+        <button class="btn btn-warning">Xóa</button>
+        <button class="btn btn-danger">Sửa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

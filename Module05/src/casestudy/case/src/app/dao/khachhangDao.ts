@@ -1,0 +1,43 @@
+import {KhachHang} from "../model/KhachHang";
+
+export const khachhangDao: KhachHang[] = [{
+  idKH: 1,
+  loaiKh: 2,
+  tenKH: 'Phạm Đình Khang',
+  ngaySinh: '03-02-1899',
+  soCMND: 483579346,
+  sDT: 4959858595,
+  eMail: 'khang@gmail.com',
+  diaChi: 'Khánh Hòa',
+},
+  {
+    idKH: 2,
+    loaiKh: 2,
+    tenKH: 'Phạm Đình Khang',
+    ngaySinh: '03-02-1899',
+    soCMND: 483579346,
+    sDT: 4959858595,
+    eMail: 'khang@gmail.com',
+    diaChi: 'Khánh Hòa',
+  },
+  {
+    idKH: 3,
+    loaiKh: 2,
+    tenKH: 'Phạm Đình Khang',
+    ngaySinh: '03-02-1899',
+    soCMND: 483579346,
+    sDT: 4959858595,
+    eMail: 'khang@gmail.com',
+    diaChi: 'Khánh Hòa',
+  },
+  {
+    idKH: 4,
+    loaiKh: 2,
+    tenKH: 'Phạm Đình Khang',
+    ngaySinh: '03-02-1899',
+    soCMND: 483579346,
+    sDT: 4959858595,
+    eMail: 'khang@gmail.com',
+    diaChi: 'Khánh Hòa',
+  },
+];

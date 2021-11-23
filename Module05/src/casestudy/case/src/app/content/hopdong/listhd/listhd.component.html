@@ -1,1 +1,37 @@
-<p>listhd works!</p>
+<div class="container">
+  <h2 style="text-align: center"> Danh Sách Hợp Đồng</h2>
+  <form class="form-check-inline">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  </form>
+  <br>
+  <br>
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th >Nhân Viên</th>
+      <th >Khách Hàng</th>
+      <th >Dịch Vụ</th>
+      <th >Ngày làm hợp đồng</th>
+      <th >Ngày kết thúc</th>
+      <th >Tiền Đặt cọc</th>
+      <th >Tổng Tiền</th>
+      <th>Xóa/Sửa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hopdong of hopdongs ">
+      <td>{{hopdong.nhanVien}}</td>
+      <td>{{hopdong.khachHang}}</td>
+      <td>{{hopdong.dichVu}}</td>
+      <td>{{hopdong.ngayLamHD}}</td>
+      <td>{{hopdong.ngayKetThucHD}}</td>
+      <td>{{hopdong.tienDatCoc}}</td>
+      <td>{{hopdong.tongtien}}</td>
+      <td>
+        <button class="btn btn-warning">Xóa</button>
+        <button class="btn btn-danger">Sửa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

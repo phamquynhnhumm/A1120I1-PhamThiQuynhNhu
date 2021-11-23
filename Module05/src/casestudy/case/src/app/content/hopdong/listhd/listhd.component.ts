@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {hopdongDao} from '../../../dao/hopdongDao';
 
 @Component({
   selector: 'app-listhd',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListhdComponent implements OnInit {
 
+  hopdongs = hopdongDao;
   constructor() { }
 
   ngOnInit(): void {

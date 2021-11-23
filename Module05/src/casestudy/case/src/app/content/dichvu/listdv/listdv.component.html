@@ -1,1 +1,37 @@
-<p>listdv works!</p>
+<div class="container">
+  <h2 style="text-align: center"> Danh Sách Dịch Vụ</h2>
+  <form class="form-check-inline">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  </form>
+  <br>
+  <br>
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th >Tên Dịch Vụ</th>
+      <th >Diện Tích</th>
+      <th >Số tầng</th>
+      <th >Số Ng tối đa</th>
+      <th >Chi phí thuê</th>
+      <th >Kiểu Thuê</th>
+      <th >Trạng Thái</th>
+      <th>Xóa/Sửa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dichvu of dichvus ">
+      <td>{{dichvu.tenDV}}</td>
+      <td>{{dichvu.dienTich}}</td>
+      <td>{{dichvu.soTang}}</td>
+      <td>{{dichvu.soNguoiToiDa}}</td>
+      <td>{{dichvu.chiPhiThue}}</td>
+      <td>{{dichvu.kieuThue}}</td>
+      <td>{{dichvu.trangThai}}</td>
+      <td>
+        <button class="btn btn-warning">Xóa</button>
+        <button class="btn btn-danger">Sửa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
