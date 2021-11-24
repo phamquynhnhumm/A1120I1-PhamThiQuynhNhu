@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container" style="font-family: 'Helvetica Neue'">
   <h2 style="text-align: center"> Danh Sách Nhân Viên</h2>
   <form class="form-check-inline">
     <input class="form-control" id="myInput" type="text" placeholder="Search..">
   </form>
+  <a a routerLink="/themmoinhanvien"> <button class="btn btn-danger" style="text-align: center" >Thêm mới</button></a>
   <br>
   <br>
   <table class="table table-hover table-dark">
@@ -32,10 +33,12 @@
       <td>{{nhanvien.ngasySinh}}</td>
       <td>{{nhanvien.diaChi}}</td>
       <td>
-        <button class="btn btn-warning">Xóa</button>
-        <button class="btn btn-danger">Sửa</button>
+        <button class="btn btn-warning">🚮</button>
+        <button class="btn btn-danger" (click)="nhanvieneidt(nhanvien)">📝</button>
       </td>
     </tr>
     </tbody>
   </table>
+<!--  <app-viewnv [nhanvieneviewaa]="nhanvieneviewaa"></app-viewnv>-->
+<!--  <app-editnv [nhanvieneditaa]="nhanvientedit"></app-editnv>-->
 </div>

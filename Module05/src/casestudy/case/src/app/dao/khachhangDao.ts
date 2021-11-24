@@ -1,4 +1,4 @@
-import {KhachHang} from "../model/KhachHang";
+import {KhachHang} from '../model/KhachHang';
 
 export const khachhangDao: KhachHang[] = [{
   idKH: 1,
@@ -13,7 +13,7 @@ export const khachhangDao: KhachHang[] = [{
   {
     idKH: 2,
     loaiKh: 2,
-    tenKH: 'Phạm Đình Khang',
+    tenKH: 'Khánh Đình Trọng',
     ngaySinh: '03-02-1899',
     soCMND: 483579346,
     sDT: 4959858595,
@@ -23,7 +23,7 @@ export const khachhangDao: KhachHang[] = [{
   {
     idKH: 3,
     loaiKh: 2,
-    tenKH: 'Phạm Đình Khang',
+    tenKH: 'Phạm Thị Xuân',
     ngaySinh: '03-02-1899',
     soCMND: 483579346,
     sDT: 4959858595,
@@ -33,11 +33,11 @@ export const khachhangDao: KhachHang[] = [{
   {
     idKH: 4,
     loaiKh: 2,
-    tenKH: 'Phạm Đình Khang',
+    tenKH: 'Phạm Trần  QUang',
     ngaySinh: '03-02-1899',
     soCMND: 483579346,
     sDT: 4959858595,
     eMail: 'khang@gmail.com',
-    diaChi: 'Khánh Hòa',
+    diaChi: 'Khánh  Thành',
   },
 ];

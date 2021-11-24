@@ -1,21 +1,25 @@
-<div class="container">
+<div class="container" style="font-family: 'Helvetica Neue'">
   <h2 style="text-align: center"> Danh Sách Hợp Đồng</h2>
   <form class="form-check-inline">
     <input class="form-control" id="myInput" type="text" placeholder="Search..">
   </form>
+  <a routerLink="/themmoihopdong">
+    <button class="btn btn-danger" style="text-align: center">Thêm mới hợp đồng</button>
+  </a>
   <br>
   <br>
   <table class="table table-hover table-dark">
     <thead>
     <tr>
-      <th >Nhân Viên</th>
-      <th >Khách Hàng</th>
-      <th >Dịch Vụ</th>
-      <th >Ngày làm hợp đồng</th>
-      <th >Ngày kết thúc</th>
-      <th >Tiền Đặt cọc</th>
-      <th >Tổng Tiền</th>
-      <th>Xóa/Sửa</th>
+      <th>Nhân Viên</th>
+      <th>Khách Hàng</th>
+      <th>Dịch Vụ</th>
+      <th>Ngày làm hợp đồng</th>
+      <th>Ngày kết thúc</th>
+      <th>Tiền Đặt cọc</th>
+      <th>Tổng Tiền</th>
+      <th>Xóa /Sửa</th>
+
     </tr>
     </thead>
     <tbody>
@@ -28,8 +32,8 @@
       <td>{{hopdong.tienDatCoc}}</td>
       <td>{{hopdong.tongtien}}</td>
       <td>
-        <button class="btn btn-warning">Xóa</button>
-        <button class="btn btn-danger">Sửa</button>
+        <button class="btn btn-warning">🚮</button>
+        <button class="btn btn-danger">📝</button>
       </td>
     </tr>
     </tbody>

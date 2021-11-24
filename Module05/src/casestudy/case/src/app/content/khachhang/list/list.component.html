@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container" style="font-family: 'Helvetica Neue'">
   <h2 style="text-align: center"> Danh Sách Khách Hàng</h2>
-  <form class="form-check-inline">
+  <div>  <form class="form-check-inline">
     <input class="form-control" type="text" placeholder="Search..">
   </form>
+   <a routerLink="/themmoikhachhang"> <button class="btn btn-danger" style="text-align: center" >Thêm mới</button></a>
+  </div>
   <br>
   <br>
   <table class="table table-hover table-dark">
@@ -28,10 +30,13 @@
       <td>{{khachHang.ngaySinh}}</td>
       <td>{{khachHang.diaChi}}</td>
       <td>
-        <button class="btn btn-warning">Xóa</button>
-        <button class="btn btn-danger">Sửa</button>
+        <button class="btn btn-warning" (click)="getkhachhangID(khachHang)">🚮</button>
+        <button class="btn btn-danger" (click)="khachhangedita(khachHang)">📝</button>
+<!--        <a routerLink="/editkhachhang">  <button class="btn btn-danger" (click)="khachhangedita(khachHang)">Sửa</button> </a>-->
       </td>
     </tr>
     </tbody>
   </table>
+  <app-view [khachhangview]="khachhangviewv "></app-view>
+  <app-edit (khachhangedit)="getName($event)" [khachhangedits]="khachhangedit"></app-edit>
 </div>
