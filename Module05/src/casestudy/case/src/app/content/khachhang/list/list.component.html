@@ -30,13 +30,12 @@
       <td>{{khachHang.ngaySinh}}</td>
       <td>{{khachHang.diaChi}}</td>
       <td>
-        <button class="btn btn-warning" (click)="getkhachhangID(khachHang)">🚮</button>
-        <button class="btn btn-danger" (click)="khachhangedita(khachHang)">📝</button>
-<!--        <a routerLink="/editkhachhang">  <button class="btn btn-danger" (click)="khachhangedita(khachHang)">Sửa</button> </a>-->
+        <button class="btn btn-danger" (click)="getkhachhangID(khachHang)">🚮</button>
+        <button class="btn btn-warning" (click)="khachhangedita(khachHang)">📝</button>
       </td>
     </tr>
     </tbody>
   </table>
+  <app-edit [khachhangedits]="khachhangedit"></app-edit>
   <app-view [khachhangview]="khachhangviewv "></app-view>
-  <app-edit (khachhangedit)="getName($event)" [khachhangedits]="khachhangedit"></app-edit>
 </div>

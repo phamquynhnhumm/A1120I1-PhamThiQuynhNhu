@@ -7,7 +7,7 @@ const routesConfig: Routes = [
   {path: 'khachhang', component: KhachhangComponent},
   {path: 'dichvu', component: DichvuComponent},
   {path: 'hopdong', component: HopdongComponent},
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'themmoikhachhang', component: CreateComponent},
   {path: 'themmoidichvu', component: CreatedvComponent},
   {path: 'themmoihopdong', component: CreatehdComponent},
@@ -39,7 +39,7 @@ import {ListhdComponent} from './content/hopdong/listhd/listhd.component';
 import {CreatehdctComponent} from './content/hopdong/createhdct/createhdct.component';
 import {HomeComponent} from './content/home/home.component';
 import {ViewComponent} from './content/khachhang/view/view.component';
-import {FormsModule} from '@angular/forms';
+import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ViewnvComponent} from './content/nhanvien/viewnv/viewnv.component';
 
 
@@ -77,6 +77,7 @@ import {ViewnvComponent} from './content/nhanvien/viewnv/viewnv.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routesConfig)
   ],
   providers: [],

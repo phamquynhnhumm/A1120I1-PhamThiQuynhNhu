@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {dichvuDao} from '../../../dao/dichvuDao';
 import {nhanvienDao} from '../../../dao/nhanvienDao';
 
@@ -11,7 +11,8 @@ export class ListdvComponent implements OnInit {
   dichvus = dichvuDao;
   nhanviens = nhanvienDao;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

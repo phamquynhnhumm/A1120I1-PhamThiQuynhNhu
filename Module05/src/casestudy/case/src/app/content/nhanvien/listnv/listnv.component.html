@@ -3,7 +3,7 @@
   <form class="form-check-inline">
     <input class="form-control" id="myInput" type="text" placeholder="Search..">
   </form>
-  <a a routerLink="/themmoinhanvien"> <button class="btn btn-danger" style="text-align: center" >Thêm mới</button></a>
+  <a  routerLink="/themmoinhanvien"> <button class="btn btn-danger" style="text-align: center" >Thêm mới</button></a>
   <br>
   <br>
   <table class="table table-hover table-dark">
@@ -33,8 +33,8 @@
       <td>{{nhanvien.ngasySinh}}</td>
       <td>{{nhanvien.diaChi}}</td>
       <td>
-        <button class="btn btn-warning">🚮</button>
-        <button class="btn btn-danger" (click)="nhanvieneidt(nhanvien)">📝</button>
+        <button class="btn btn-danger">🚮</button>
+        <button class="btn btn-warning" (click)="nhanvieneidt(nhanvien)">📝</button>
       </td>
     </tr>
     </tbody>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {nhanvienDao} from '../../../dao/nhanvienDao';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-createnv',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatenvComponent implements OnInit {
 
-  constructor() { }
+  nhanvienCreate: FormGroup;
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
   }
 
+  ngOnInit(): void {
+    this.nhanvienCreate = new FormGroup({
+        idNV: new FormControl(''),
+        tenNV: new FormControl(''),
+        viTri: new FormControl(''),
+        trinhDo: new FormControl(''),
+        boPhan: new FormControl(''),
+        ngasySinh: new FormControl(''),
+        soCMND: new FormControl(''),
+        luong: new FormControl(''),
+        sDT: new FormControl(''),
+        eMail: new FormControl(''),
+        diaChi: new FormControl(''),
+      }
+    );
+  }
+
+  onSubmit(): void {
+    console.log(this.nhanvienCreate.value);
+    // @ts-ignore
+    nhanvienDao.push(this.nhanvienCreate.value);
+    this.router.navigateByUrl('/nhanvien');
+  }
 }

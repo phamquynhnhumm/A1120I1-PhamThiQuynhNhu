@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {khachhangDao} from '../../../dao/khachhangDao';
 import {KhachHang} from '../../../model/KhachHang';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list',
@@ -12,7 +13,7 @@ export class ListComponent implements OnInit {
   khachhangviewv: KhachHang;
   khachhangedit: KhachHang;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class ListComponent implements OnInit {
   khachhangedita(value: KhachHang) {
     this.khachhangedit = value;
     console.log(this.khachhangedit);
+    // this.router.navigateByUrl('/editkhachhang');
   }
 
   getName(event: KhachHang) {

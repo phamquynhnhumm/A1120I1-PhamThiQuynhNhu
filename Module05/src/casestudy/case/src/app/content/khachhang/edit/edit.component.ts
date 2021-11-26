@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {KhachHang} from '../../../model/KhachHang';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit',
@@ -12,10 +13,13 @@ export class EditComponent implements OnInit {
   khachhangedits: KhachHang;
   @Output()
   khachhangedit: EventEmitter<KhachHang> = new EventEmitter<KhachHang>();
-  constructor() { }
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
-    console.log('lấy giá trị:' + this.khachhangedits);
+    console.log('lấy giá trị edititiii:' + this.khachhangedits);
+
   }
 
   getName(event: Event) {
